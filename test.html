@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSV File to Select</title>
+</head>
+<body>
+	<h1>CSV File to Select</h1>
+
+	<form>
+		<label for="selectIndex">Select an index:</label>
+		<select id="selectIndex" name="selectIndex"></select><br>
+
+		<label for="value">Value:</label>
+		<input type="text" id="value" name="value" readonly><br>
+	</form>
+
+	<script>
+		function loadCSV(callback) {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					var csv = xhr.responseText;
+					var lines = csv.split("\n");
+					var headers = lines[0].split(",");
+					var result = [];
+					for (var i = 1; i < lines.length; i++) {
+						var obj = {};
+						var currentline = lines[i].split(",");
+						for (var j = 0; j < headers.length; j++) {
+							obj[headers[j]] = currentline[j];
+						}
+						result.push(obj);
+					}
+					callback(result);
+				}
+			};
+			xhr.open("GET", "example.csv", true);
+			xhr.send();
+		}
+
+		function createSelect(options) {
+			var selectIndex = document.getElementById("selectIndex");
+			for (var i = 0; i < options.length; i++) {
+				var option = document.createElement("option");
+				option.value = i;
+				option.text = options[i];
+				selectIndex.add(option);
+			}
+		}
+
+		function getValue() {
+			var selectIndex = document.getElementById("selectIndex");
+			var index = selectIndex.value;
+			var value = data[index];
+			document.getElementById("value").value = value;
+		}
+
+		loadCSV(function(data) {
+			var options = Object.keys(data[0]);
+			createSelect(options);
+		});
+	</script>
+</body>
+</html>
