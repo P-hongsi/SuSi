@@ -163,9 +163,9 @@
       <input type="text" id="key"><br><br><br><br><br>
       <label for="value">당신의 점수를 입력하세요: </label><br><br>
       <input type="text" style="margin-bottom: 10px;" id="value1" maxlength="3"
-        oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
       <input type="text" id="value2" maxlength="3"
-        oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"><br><br>
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><br><br>
       <button class="btn" onclick="compareValues()">비교</button>
       <p id="result"></p>
     </div>
