@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <style>
+    html {
+      background-color: #f6f6e9;
+    }
+
+    .tg {
+      border-collapse: collapse;
+      border-color: #93a1a1;
+      border-spacing: 0;
+      border-style: solid;
+      border-width: 1px;
+      margin: 0 auto;
+    }
+
+    .tg td {
+      background-color: #fdf6e3;
+      border-color: #93a1a1;
+      border-style: solid;
+      border-width: 0px;
+      color: #002b36;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      overflow: hidden;
+      padding: 10px 5px;
+      word-break: normal;
+    }
+
+    .tg th {
+      background-color: #657b83;
+      border-color: #93a1a1;
+      border-style: solid;
+      border-width: 0px;
+      color: #fdf6e3;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: normal;
+      overflow: hidden;
+      padding: 10px 5px;
+      word-break: normal;
+    }
+
+    .tg .tg-ezbu {
+      background-color: #eee8d5;
+      border-color: inherit;
+      text-align: center;
+      vertical-align: top
+    }
+
+    .tg .tg-c3ow {
+      border-color: inherit;
+      text-align: center;
+      vertical-align: top
+    }
+
+    root {
+      --text-color: #f0f4f5;
+      --background-color: #13334c;
+      --accent-color: #fd5f00;
+    }
+
+    body {
+      margin: 0px;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #13334c;
+      padding: 8px 12px;
+    }
+
+    .navbar__logo {
+      font-size: 24px;
+      color: white;
+      width: 70px;
+    }
+
+    .navbar__logo i {
+      color: #fd5f00;
+    }
+
+    .navbar__menu {
+      display: flex;
+      list-style: none;
+      padding-left: 0px;
+    }
+
+    .navbar__menu li {
+      padding: 8px 12px;
+    }
+
+    .navbar__menu :hover {
+      background: #fd5f00;
+      border-radius: 4px;
+    }
+
+    .navbar__icons li {
+      padding: 8px 12px;
+    }
+
+    .navbar__toogleBtn {
+      display: none;
+      position: absolute;
+      right: 32px;
+      font-size: 24px;
+      color: #fd5f00;
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+      }
+
+      .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .navbar__menu li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .navbar__toogleBtn {
+        display: block;
+      }
+
+      .navbar__menu.active,
+      .navbar__icons.active {
+        display: flex;
+      }
+    }
+  </style>
+  <title>목록</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <a href="index.html">계산기</a>
+    </div>
+
+    <ul class="navbar__menu">
+      <li><a href="index.html">학과점수 비교</a></li>
+      <li><a href="common.html">석차등급과목 계산기</a></li>
+      <li><a href="career.html">진로선택과목 계산기</a></li>
+      <li><a href="image.html">학과 목록</a></li>
+    </ul>
+    <a href="#" class="navbar__toogleBtn">
+      <i class="fas fa-bars"></i>
+    </a>
+  </nav>
+  <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-c3ow">학과</th>
+        <th class="tg-c3ow">모집인원</th>
+        <th class="tg-c3ow">경쟁률</th>
+        <th class="tg-c3ow">평균점수</th>
+        <th class="tg-c3ow">평균등급</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-c3ow">국어국문학과</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">8.82</td>
+        <td class="tg-ezbu">97.7</td>
+        <td class="tg-c3ow">3.5</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">중어중문학과</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">12.27</td>
+        <td class="tg-ezbu">98.38000000000001</td>
+        <td class="tg-c3ow">2.96</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">일어일문학과</td>
+        <td class="tg-ezbu">10</td>
+        <td class="tg-c3ow">9.9</td>
+        <td class="tg-ezbu">97.71</td>
+        <td class="tg-c3ow">3.4</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">영어영문학과</td>
+        <td class="tg-ezbu">15</td>
+        <td class="tg-c3ow">18.47</td>
+        <td class="tg-ezbu">98.49</td>
+        <td class="tg-c3ow">2.89</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">불어불문학과</td>
+        <td class="tg-ezbu">9</td>
+        <td class="tg-c3ow">10.11</td>
+        <td class="tg-ezbu">94.99</td>
+        <td class="tg-c3ow">4.07</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">독어독문학과</td>
+        <td class="tg-ezbu">16</td>
+        <td class="tg-c3ow">11.19</td>
+        <td class="tg-ezbu">97.08</td>
+        <td class="tg-c3ow">3.95</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">노어노문학과</td>
+        <td class="tg-ezbu">10</td>
+        <td class="tg-c3ow">10.3</td>
+        <td class="tg-ezbu">94.89</td>
+        <td class="tg-c3ow">3.87</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">한문학과</td>
+        <td class="tg-ezbu">6</td>
+        <td class="tg-c3ow">15.33</td>
+        <td class="tg-ezbu">98.05</td>
+        <td class="tg-c3ow">3.29</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">언어정보학과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">10.88</td>
+        <td class="tg-ezbu">98.13000000000001</td>
+        <td class="tg-c3ow">3.27</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">사학과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">10.88</td>
+        <td class="tg-ezbu">98.49</td>
+        <td class="tg-c3ow">2.92</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">철학과</td>
+        <td class="tg-ezbu">7</td>
+        <td class="tg-c3ow">14.86</td>
+        <td class="tg-ezbu">97.99</td>
+        <td class="tg-c3ow">3.36</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">고고학과</td>
+        <td class="tg-ezbu">7</td>
+        <td class="tg-c3ow">21.57</td>
+        <td class="tg-ezbu">97.57000000000001</td>
+        <td class="tg-c3ow">3.78</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">행정학과</td>
+        <td class="tg-ezbu">12</td>
+        <td class="tg-c3ow">20.33</td>
+        <td class="tg-ezbu">99.1</td>
+        <td class="tg-c3ow">2.29</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">정치외교학과</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">11.82</td>
+        <td class="tg-ezbu">98.92</td>
+        <td class="tg-c3ow">2.51</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">사회복지학과</td>
+        <td class="tg-ezbu">10</td>
+        <td class="tg-c3ow">10.3</td>
+        <td class="tg-ezbu">98.31</td>
+        <td class="tg-c3ow">3.04</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">사회학과</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">11.64</td>
+        <td class="tg-ezbu">98.17</td>
+        <td class="tg-c3ow">3.21</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">심리학과</td>
+        <td class="tg-ezbu">10</td>
+        <td class="tg-c3ow">19.7</td>
+        <td class="tg-ezbu">98.89</td>
+        <td class="tg-c3ow">2.5</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">문헌정보학과</td>
+        <td class="tg-ezbu">9</td>
+        <td class="tg-c3ow">11.0</td>
+        <td class="tg-ezbu">98.83</td>
+        <td class="tg-c3ow">2.61</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">미디어커뮤니케이션학과</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">14.09</td>
+        <td class="tg-ezbu">99.11</td>
+        <td class="tg-c3ow">2.3</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">수학과</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">12.09</td>
+        <td class="tg-ezbu">98.84</td>
+        <td class="tg-c3ow">2.64</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">통계학과</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">8.73</td>
+        <td class="tg-ezbu">98.71</td>
+        <td class="tg-c3ow">2.78</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">물리학과</td>
+        <td class="tg-ezbu">12</td>
+        <td class="tg-c3ow">10.75</td>
+        <td class="tg-ezbu">98.16</td>
+        <td class="tg-c3ow">3.43</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">화학과</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">9.73</td>
+        <td class="tg-ezbu">99.19</td>
+        <td class="tg-c3ow">2.28</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">생명과학과</td>
+        <td class="tg-ezbu">12</td>
+        <td class="tg-c3ow">10.92</td>
+        <td class="tg-ezbu">99.23</td>
+        <td class="tg-c3ow">2.25</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">미생물학과</td>
+        <td class="tg-ezbu">10</td>
+        <td class="tg-c3ow">17.1</td>
+        <td class="tg-ezbu">98.54</td>
+        <td class="tg-c3ow">2.9</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">분자생물학과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">13.0</td>
+        <td class="tg-ezbu">98.8</td>
+        <td class="tg-c3ow">2.68</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">지질환경과학과</td>
+        <td class="tg-ezbu">10</td>
+        <td class="tg-c3ow">15.3</td>
+        <td class="tg-ezbu">97.92999999999999</td>
+        <td class="tg-c3ow">3.62</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">대기환경과학과</td>
+        <td class="tg-ezbu">7</td>
+        <td class="tg-c3ow">15.86</td>
+        <td class="tg-ezbu">98.64</td>
+        <td class="tg-c3ow">2.81</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">해양학과</td>
+        <td class="tg-ezbu">12</td>
+        <td class="tg-c3ow">13.67</td>
+        <td class="tg-ezbu">98.09</td>
+        <td class="tg-c3ow">3.37</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">기계공학부</td>
+        <td class="tg-ezbu">70</td>
+        <td class="tg-c3ow">12.56</td>
+        <td class="tg-ezbu">99.37</td>
+        <td class="tg-c3ow">2.13</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">고분자공학과</td>
+        <td class="tg-ezbu">10</td>
+        <td class="tg-c3ow">19.3</td>
+        <td class="tg-ezbu">99.19</td>
+        <td class="tg-c3ow">2.34</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">유기소재시스템공학과</td>
+        <td class="tg-ezbu">13</td>
+        <td class="tg-c3ow">12.38</td>
+        <td class="tg-ezbu">98.87</td>
+        <td class="tg-c3ow">2.67</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">화공생명.환경공학부(화공생명공학전공)</td>
+        <td class="tg-ezbu">13</td>
+        <td class="tg-c3ow">15.62</td>
+        <td class="tg-ezbu">99.85</td>
+        <td class="tg-c3ow">1.61</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">화공생명.환경공학부(환경공학전공)</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">14.0</td>
+        <td class="tg-ezbu">99.04</td>
+        <td class="tg-c3ow">2.43</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">재료공학부</td>
+        <td class="tg-ezbu">18</td>
+        <td class="tg-c3ow">11.72</td>
+        <td class="tg-ezbu">99.11</td>
+        <td class="tg-c3ow">2.46</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">전자공학과</td>
+        <td class="tg-ezbu">18</td>
+        <td class="tg-c3ow">14.5</td>
+        <td class="tg-ezbu">99.54</td>
+        <td class="tg-c3ow">1.93</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">전기공학과</td>
+        <td class="tg-ezbu">14</td>
+        <td class="tg-c3ow">22.93</td>
+        <td class="tg-ezbu">99.27</td>
+        <td class="tg-c3ow">2.22</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">건설융합학부(건축공학전공)</td>
+        <td class="tg-ezbu">9</td>
+        <td class="tg-c3ow">15.67</td>
+        <td class="tg-ezbu">98.58</td>
+        <td class="tg-c3ow">2.98</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">건설융합학부(건축학전공)</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">20.0</td>
+        <td class="tg-ezbu">98.66000000000001</td>
+        <td class="tg-c3ow">2.82</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">건설융합학부(도시공학전공)</td>
+        <td class="tg-ezbu">9</td>
+        <td class="tg-c3ow">14.67</td>
+        <td class="tg-ezbu">98.28</td>
+        <td class="tg-c3ow">3.23</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">건설융합학부(토목공학전공)</td>
+        <td class="tg-ezbu">12</td>
+        <td class="tg-c3ow">19.92</td>
+        <td class="tg-ezbu">98.29</td>
+        <td class="tg-c3ow">3.26</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">항공우주공학과</td>
+        <td class="tg-ezbu">13</td>
+        <td class="tg-c3ow">14.62</td>
+        <td class="tg-ezbu">98.85</td>
+        <td class="tg-c3ow">2.62</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">산업공학과</td>
+        <td class="tg-ezbu">13</td>
+        <td class="tg-c3ow">12.92</td>
+        <td class="tg-ezbu">98.83</td>
+        <td class="tg-c3ow">2.61</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">조선해양공학과</td>
+        <td class="tg-ezbu">19</td>
+        <td class="tg-c3ow">14.79</td>
+        <td class="tg-ezbu">98.25</td>
+        <td class="tg-c3ow">3.21</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">국어교육과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">9.38</td>
+        <td class="tg-ezbu">98.82</td>
+        <td class="tg-c3ow">2.66</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">영어교육과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">9.5</td>
+        <td class="tg-ezbu">99.49</td>
+        <td class="tg-c3ow">1.92</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">독어교육과</td>
+        <td class="tg-ezbu">9</td>
+        <td class="tg-c3ow">7.56</td>
+        <td class="tg-ezbu">98.06</td>
+        <td class="tg-c3ow">3.3</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">교육학과</td>
+        <td class="tg-ezbu">3</td>
+        <td class="tg-c3ow">8.33</td>
+        <td class="tg-ezbu">99.04</td>
+        <td class="tg-c3ow">2.4</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">유아교육과</td>
+        <td class="tg-ezbu">6</td>
+        <td class="tg-c3ow">13.5</td>
+        <td class="tg-ezbu">99.08999999999999</td>
+        <td class="tg-c3ow">2.39</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">특수교육과</td>
+        <td class="tg-ezbu">6</td>
+        <td class="tg-c3ow">7.5</td>
+        <td class="tg-ezbu">98.33</td>
+        <td class="tg-c3ow">3.05</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">일반사회교육과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">8.88</td>
+        <td class="tg-ezbu">98.71</td>
+        <td class="tg-c3ow">2.67</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">역사교육과</td>
+        <td class="tg-ezbu">4</td>
+        <td class="tg-c3ow">8.75</td>
+        <td class="tg-ezbu">98.94</td>
+        <td class="tg-c3ow">2.49</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">지리교육과</td>
+        <td class="tg-ezbu">6</td>
+        <td class="tg-c3ow">9.0</td>
+        <td class="tg-ezbu">98.98</td>
+        <td class="tg-c3ow">2.43</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">윤리교육과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">9.5</td>
+        <td class="tg-ezbu">99.14</td>
+        <td class="tg-c3ow">2.32</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">수학교육과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">13.38</td>
+        <td class="tg-ezbu">99.51</td>
+        <td class="tg-c3ow">1.95</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">화학교육과</td>
+        <td class="tg-ezbu">5</td>
+        <td class="tg-c3ow">10.4</td>
+        <td class="tg-ezbu">98.97</td>
+        <td class="tg-c3ow">2.52</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">생물교육과</td>
+        <td class="tg-ezbu">7</td>
+        <td class="tg-c3ow">15.0</td>
+        <td class="tg-ezbu">99.22999999999999</td>
+        <td class="tg-c3ow">2.23</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">지구과학교육과</td>
+        <td class="tg-ezbu">5</td>
+        <td class="tg-c3ow">24.4</td>
+        <td class="tg-ezbu">98.91000000000001</td>
+        <td class="tg-c3ow">2.46</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">경영학과</td>
+        <td class="tg-ezbu">50</td>
+        <td class="tg-c3ow">13.32</td>
+        <td class="tg-ezbu">99.04</td>
+        <td class="tg-c3ow">2.36</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">무역학부</td>
+        <td class="tg-ezbu">25</td>
+        <td class="tg-c3ow">11.72</td>
+        <td class="tg-ezbu">99.09</td>
+        <td class="tg-c3ow">2.36</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">경제학부</td>
+        <td class="tg-ezbu">22</td>
+        <td class="tg-c3ow">12.73</td>
+        <td class="tg-ezbu">99.13</td>
+        <td class="tg-c3ow">2.3</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">관광컨벤션학과</td>
+        <td class="tg-ezbu">4</td>
+        <td class="tg-c3ow">12.75</td>
+        <td class="tg-ezbu">98.93</td>
+        <td class="tg-c3ow">2.59</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">공공정책학부</td>
+        <td class="tg-ezbu">5</td>
+        <td class="tg-c3ow">10.0</td>
+        <td class="tg-ezbu">99.15</td>
+        <td class="tg-c3ow">2.27</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">간호학과</td>
+        <td class="tg-ezbu">5</td>
+        <td class="tg-c3ow">17.0</td>
+        <td class="tg-ezbu">99.53</td>
+        <td class="tg-c3ow">1.9</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">아동가족학과</td>
+        <td class="tg-ezbu">7</td>
+        <td class="tg-c3ow">10.14</td>
+        <td class="tg-ezbu">98.13</td>
+        <td class="tg-c3ow">3.32</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">의류학과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">15.75</td>
+        <td class="tg-ezbu">98.18</td>
+        <td class="tg-c3ow">3.21</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">식품영양학과</td>
+        <td class="tg-ezbu">12</td>
+        <td class="tg-c3ow">8.33</td>
+        <td class="tg-ezbu">98.77</td>
+        <td class="tg-c3ow">2.65</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">실내환경디자인학과</td>
+        <td class="tg-ezbu">6</td>
+        <td class="tg-c3ow">16.5</td>
+        <td class="tg-ezbu">98.35</td>
+        <td class="tg-c3ow">3.05</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">디자인학과(디자인앤테크놀로지전공)</td>
+        <td class="tg-ezbu">6</td>
+        <td class="tg-c3ow">9.83</td>
+        <td class="tg-ezbu">98.91000000000001</td>
+        <td class="tg-c3ow">2.58</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">예술문화영상학과</td>
+        <td class="tg-ezbu">5</td>
+        <td class="tg-c3ow">11.4</td>
+        <td class="tg-ezbu">98.91</td>
+        <td class="tg-c3ow">2.62</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">식물생명과학과</td>
+        <td class="tg-ezbu">4</td>
+        <td class="tg-c3ow">10.25</td>
+        <td class="tg-ezbu">97.87</td>
+        <td class="tg-c3ow">3.37</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">원예생명과학과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">9.25</td>
+        <td class="tg-ezbu">95.88000000000001</td>
+        <td class="tg-c3ow">4.7</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">동물생명자원과학과</td>
+        <td class="tg-ezbu">6</td>
+        <td class="tg-c3ow">21.83</td>
+        <td class="tg-ezbu">97.4</td>
+        <td class="tg-c3ow">4.05</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">식품공학과</td>
+        <td class="tg-ezbu">5</td>
+        <td class="tg-c3ow">8.0</td>
+        <td class="tg-ezbu">92.88</td>
+        <td class="tg-c3ow">5.06</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">생명환경화학과</td>
+        <td class="tg-ezbu">6</td>
+        <td class="tg-c3ow">14.33</td>
+        <td class="tg-ezbu">97.79</td>
+        <td class="tg-c3ow">3.59</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">바이오소재과학과</td>
+        <td class="tg-ezbu">6</td>
+        <td class="tg-c3ow">10.17</td>
+        <td class="tg-ezbu">97.77</td>
+        <td class="tg-c3ow">3.68</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">바이오산업기계공학과</td>
+        <td class="tg-ezbu">5</td>
+        <td class="tg-c3ow">10.2</td>
+        <td class="tg-ezbu">98.0</td>
+        <td class="tg-c3ow">3.5</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">IT응용공학과</td>
+        <td class="tg-ezbu">5</td>
+        <td class="tg-c3ow">14.2</td>
+        <td class="tg-ezbu">98.5</td>
+        <td class="tg-c3ow">3.13</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">바이오환경에너지학과</td>
+        <td class="tg-ezbu">7</td>
+        <td class="tg-c3ow">10.57</td>
+        <td class="tg-ezbu">96.73</td>
+        <td class="tg-c3ow">4.27</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">조경학과</td>
+        <td class="tg-ezbu">11</td>
+        <td class="tg-c3ow">8.55</td>
+        <td class="tg-ezbu">96.59</td>
+        <td class="tg-c3ow">4.41</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">식품자원경제학과</td>
+        <td class="tg-ezbu">7</td>
+        <td class="tg-c3ow">8.57</td>
+        <td class="tg-ezbu">97.54</td>
+        <td class="tg-c3ow">3.87</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">광메카트로닉스공학과</td>
+        <td class="tg-ezbu">7</td>
+        <td class="tg-c3ow">14.71</td>
+        <td class="tg-ezbu">98.61</td>
+        <td class="tg-c3ow">2.87</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">나노에너지공학과</td>
+        <td class="tg-ezbu">12</td>
+        <td class="tg-c3ow">20.33</td>
+        <td class="tg-ezbu">98.3</td>
+        <td class="tg-c3ow">3.14</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">나노메카트로닉스공학과</td>
+        <td class="tg-ezbu">8</td>
+        <td class="tg-c3ow">14.63</td>
+        <td class="tg-ezbu">98.58</td>
+        <td class="tg-c3ow">2.79</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">스포츠과학부</td>
+        <td class="tg-ezbu">10</td>
+        <td class="tg-c3ow">11.6</td>
+        <td class="tg-ezbu">97.33</td>
+        <td class="tg-c3ow">3.66</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">의예과</td>
+        <td class="tg-ezbu">15</td>
+        <td class="tg-c3ow">23.53</td>
+        <td class="tg-ezbu">100.45</td>
+        <td class="tg-c3ow">1.05</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">한의학전문대학원(학ㆍ석사통합과정)</td>
+        <td class="tg-ezbu">5</td>
+        <td class="tg-c3ow">42.6</td>
+        <td class="tg-ezbu">100.06</td>
+        <td class="tg-c3ow">1.47</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">정보컴퓨터공학부</td>
+        <td class="tg-ezbu">17</td>
+        <td class="tg-c3ow">36.41</td>
+        <td class="tg-ezbu">99.5</td>
+        <td class="tg-c3ow">2.01</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow">의생명융합공학부</td>
+        <td class="tg-ezbu">14</td>
+        <td class="tg-c3ow">15.79</td>
+        <td class="tg-ezbu">99.11</td>
+        <td class="tg-c3ow">2.34</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const toggleBtn = document.querySelector('.navbar__toogleBtn');
+    const menu = document.querySelector('.navbar__menu');
+    const icons = document.querySelector('.navbar__icons');
+
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('active')
+      icons.classList.toggle('active')
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/b17d4fa9e7.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
