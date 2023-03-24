@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대학 뿌셔!👨‍🏫👩‍🏫</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <style>
+    html {
+      background-color: #f6f6e9;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    root {
+      --text-color: #f0f4f5;
+      --background-color: #13334c;
+      --accent-color: #fd5f00;
+    }
+
+    body {
+      margin: 0px;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #13334c;
+      padding: 8px 12px;
+    }
+
+    .navbar__logo {
+      font-size: 24px;
+      color: white;
+    }
+
+    .navbar__logo i {
+      color: #fd5f00;
+    }
+
+    .navbar__menu {
+      display: flex;
+      list-style: none;
+      padding-left: 0px;
+    }
+
+    .navbar__menu li {
+      padding: 8px 12px;
+
+    }
+
+    .navbar__menu :hover {
+      background: #fd5f00;
+      border-radius: 4px;
+    }
+
+    .navbar__icons li {
+      padding: 8px 12px;
+    }
+
+    .navbar__toogleBtn {
+      display: none;
+      position: absolute;
+      right: 32px;
+      font-size: 24px;
+      color: #fd5f00;
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+      }
+
+      .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .navbar__menu li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .navbar__toogleBtn {
+        display: block;
+      }
+
+      .navbar__menu.active,
+      .navbar__icons.active {
+        display: flex;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <a id="f" href="index.html">대학 뿌셔!👨‍🏫👩‍🏫</a>
+    </div>
+
+    <ul class="navbar__menu">
+      <li><a href="compare_bsu.html">부산대 수시 계산기</a></li>
+    </ul>
+    <a href="#" class="navbar__toogleBtn">
+      <i class="fas fa-bars"></i>
+    </a>
+  </nav>
+  <script>
+    const toggleBtn = document.querySelector('.navbar__toogleBtn');
+    const menu = document.querySelector('.navbar__menu');
+    const icons = document.querySelector('.navbar__icons');
+
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('active')
+      icons.classList.toggle('active')
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/b17d4fa9e7.js" crossorigin="anonymous"></script>
+</body>
+</body>
+
+</html>
