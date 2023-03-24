@@ -12,15 +12,8 @@
   <style>
     html {
       background-color: #f6f6e9;
+      font-family: 'Nanum Gothic', sans-serif;
     }
-    table {
-			border-collapse: collapse;
-			margin-top: 10px;
-		}
-		th, td {
-			border: 1px solid black;
-			padding: 5px;
-		}
 
     root {
       --text-color: #f0f4f5;
@@ -122,30 +115,42 @@
       outline: none;
       padding-left: 10px;
       background-color: rgb(233, 233, 233);
+      display: block; /* Make the input element a block-level element */
+      margin: 0 auto; /* Set the left and right margins to auto */
     }
 
-    .cal {
-      margin-top: 70px;
-      position: relative;
-      text-align: center;
-      font-family: 'Nanum Gothic', sans-serif;
-      font-size: 20px;
-      background-color: #f6f6e9;
+    label{
+      display: block; /* Make the label a block-level element */
+      text-align: center; /* Center the text inside the label */
+      margin-bottom: 25px;
     }
 
-    .btn {
-      border-radius: 10px;
-      width: 75px;
-      font-family: 'Nanum Gothic', sans-serif;
-      height: 35px;
-      background-color: #fd5f00;
-      border: 0;
-      font-size: 15px;
-      color: white;
+    #compare-btn{
+      display: block; /* Make the button a block-level element */
+      margin: 0 auto; /* Set the left and right margins to auto */
+      width: 10%;
+      height: 30px;
+      border-radius: 15px;
     }
 
-    #result {
+    #result-container {
       color: #FE2E2E;
+      text-align: center;
+    }
+
+    #input-val1 {
+      margin-bottom: 7%;
+    }
+
+    #input-val2 {
+      margin-bottom: 8%;
+    }
+
+    select {
+      display: block; /* Make the select element a block-level element */
+      margin: 0 auto; /* Set the left and right margins to auto */
+      margin-top: 5%;
+      margin-bottom: 5%;
     }
   </style>
 </head>
@@ -168,14 +173,14 @@
   </nav>
   <div id="select-container"></div>
   <div>
-    <label for="input-val1">Enter a value to compare with word 4:</label>
+    <label for="input-val1">석차등급과목 점수: </label>
     <input type="text" id="input-val1" name="input-val1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
   </div>
   <div>
-    <label for="input-val2">Enter a value to compare with word 5:</label>
+    <label for="input-val2">진로선택과목 점수: </label>
     <input  type="text" id="input-val2" name="input-val2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
   </div>
-  <button id="compare-btn">Compare</button>
+  <button id="compare-btn">비교</button>
   <div id="result-container"></div>
   <script>
     const toggleBtn = document.querySelector('.navbar__toogleBtn');
