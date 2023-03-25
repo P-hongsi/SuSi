@@ -1,189 +1,268 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>대학 뿌셔!👨‍🏫👩‍🏫</title>
-  <style>
-
-    body {
-      margin: 0px;
-      font-family: 'Nanum Gothic', sans-serif;
-    }
-
-    a {
-      text-decoration: none;
-      color: rgb(255, 255, 255);
-    }
-
-    .shape .shape-fill {
-      fill: #748DFD;
-    }
-
-    .background {
-      background-image: url(index.jpg);
-      background-size: cover;
-      background-position: top;
-      width: 100vw;
-      height:66vh;
-      display: flex;
-      align-items: top;
-      justify-content: center;
-      position: relative;
-    }
-
-    .backdrop {
-      width: 30%;
-      height: 35%;
-      background-color: rgba(0,0,128,0.1);
-      border-radius: 30px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 56px;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #748DFD;
-      padding: 8px 12px;
-    }
-
-    .navbar__menu {
-      display: flex;
-      list-style: none;
-      padding-left: 0px;
-    }
-
-    .navbar__menu li {
-      padding: 8px 12px;
-    }
-
-    .navbar__menu :hover {
-      background: #063c66;
-      border-radius: 4px;
-    }
-
-    .navbar__icons li {
-      padding: 8px 12px;
-    }
-
-    .navbar__toogleBtn {
-      display: none;
-      position: absolute;
-      right: 32px;
-      font-size: 24px;
-      color: #063c66;
-    }
-
-    #f {
-        font-size:35px
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>대학 뿌셔!👨‍🏫👩‍🏫</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow: hidden;
       }
 
-    @media screen and (max-width: 768px) {
+      a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+      }
+
+      section {
+        position: absolute;
+        top: 6vh;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url(index.html);
+        background-size: contain;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      section .box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url(index.jpg);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      section .box:nth-child(1) {
+        filter: blur(10px);
+      }
+
+      section .box:nth-child(2) {
+        clip-path: circle(150px at var(--x) var(--y));
+      }
+
+      section .box h2 {
+        position: absolute;
+        color: black;
+        font-size: 10em;
+        transform: translate(0, 0);
+        transform: translate(calc(var(--x) / 25), calc(var(--y) / 25));
+      }
+
       .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px 24px;
+        display: flex;
+        background-image: url(index.jpg);
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
       }
 
       .navbar__menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+        display: flex;
+        list-style: none;
+        padding-left: 0px;
       }
 
       .navbar__menu li {
-        width: 100%;
-        text-align: center;
+        padding: 8px 12px;
+      }
+
+      .navbar__menu :hover {
+        background: #e4650a;
+        border-radius: 4px;
+      }
+
+      .navbar__icons li {
+        padding: 8px 12px;
       }
 
       .navbar__toogleBtn {
-        display: block;
-      }
-
-      .navbar__menu.active,
-      .navbar__icons.active {
-        display: flex;
-      }
-
-      .background {
-        background-image: url(index.jpg);
-        background-size: cover;
-        background-position: top;
-        width: 100vw;
-        height:74vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: none;
         position: absolute;
-      }
-
-      .backdrop {
-        width: 80%;
-        height: 40%;
-        background-color: rgba(0,0,128,0.1);
-        border-radius: 30px;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 58px;
+        right: 32px;
+        font-size: 24px;
+        color: #063c66;
       }
 
       #f {
-        font-size:23px
+        font-size: 25px;
       }
-    }
 
-  </style>
-</head>
+      .backdrop {
+        display: none;
+      }
 
-<body>
-  <nav class="navbar">
-    <div class="navbar__logo">
-      <a id="f" href="index.html">🏡</a>
+      .background {
+        display: none;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media screen and (max-width: 768px) {
+        section {
+          position: relative;
+          display: none;
+        }
+
+        .hidden {
+          display: flex;
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+        }
+
+        .shape .shape-fill {
+          fill: #748dfd;
+        }
+
+        .background {
+          background-image: url(index.jpg);
+          background-size: cover;
+          background-position: top;
+          width: 100vw;
+          height: 83vh;
+          display: flex;
+          align-items: top;
+          justify-content: center;
+          position: relative;
+        }
+
+        .backdrop {
+          width: 70%;
+          height: 30%;
+          background-color: rgba(0, 0, 128, 0.1);
+          border-radius: 30px;
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 58px;
+        }
+
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          position: relative;
+          background: #748dfd;
+        }
+
+        .navbar__menu {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .navbar__menu li {
+          width: 100%;
+          text-align: center;
+        }
+
+        .navbar__toogleBtn {
+          display: block;
+        }
+
+        .navbar__menu.active,
+        .navbar__icons.active {
+          display: flex;
+        }
+
+        #f {
+          font-size: 23px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <a id="f" href="index.html">🏡</a>
+      </div>
+
+      <ul class="navbar__menu">
+        <li><a href="Bsu/Compare_bsu.html">부산대</a></li>
+      </ul>
+      <a href="#" class="navbar__toogleBtn">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+    <div class="shape">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+          opacity=".25"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+          opacity=".5"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+          class="shape-fill"
+        ></path>
+      </svg>
     </div>
-
-    <ul class="navbar__menu">
-      <li><a href="Bsu/Compare_bsu.html">부산대</a></li>
-    </ul>
-    <a href="#" class="navbar__toogleBtn">
-      <i class="fas fa-bars"></i>
-    </a>
-  </nav>
-  <div class="shape">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-    </svg>
     <div class="background">
       <div class="backdrop">대학뿌셔!</div>
-  </div>
-  <script>
-    const toggleBtn = document.querySelector('.navbar__toogleBtn');
-    const menu = document.querySelector('.navbar__menu');
-    const icons = document.querySelector('.navbar__icons');
+    </div>
+    <a href="https://www.instagram.com/sooyaaa__/" class="hidden">블</a>
+    <a href="https://www.instagram.com/roses_are_rosie/" class="hidden">핑</a>
+    <a href="https://www.instagram.com/jennierubyjane/" class="hidden">사</a>
+    <a href="https://www.instagram.com/lalalalisa_m/" class="hidden">랑</a>
+    <section>
+      <div class="box">
+        <h2>Focus</h2>
+      </div>
+      <div class="box">
+        <h2>Focus</h2>
+      </div>
+    </section>
+    <script>
+      const toggleBtn = document.querySelector(".navbar__toogleBtn");
+      const menu = document.querySelector(".navbar__menu");
+      const icons = document.querySelector(".navbar__icons");
 
-    toggleBtn.addEventListener('click', () => {
-      menu.classList.toggle('active')
-      icons.classList.toggle('active')
-    });
-  </script>
-  <script src="https://kit.fontawesome.com/b17d4fa9e7.js" crossorigin="anonymous"></script>
-</body>
-</body>
+      toggleBtn.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        icons.classList.toggle("active");
+      });
 
+      const pos = document.documentElement;
+      pos.addEventListener("mousemove", (e) => {
+        pos.style.setProperty("--x", e.clientX + "px");
+        pos.style.setProperty("--y", e.clientY + "px");
+      });
+    </script>
+    <script
+      src="https://kit.fontawesome.com/b17d4fa9e7.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
