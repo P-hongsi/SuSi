@@ -5,19 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>대학 뿌셔!👨‍🏫👩‍🏫</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
   <style>
-    html {
-      background-color: #f6f6e9;
-      font-family: 'Nanum Gothic', sans-serif;
-    }
-
     root {
       --text-color: #f0f4f5;
-      --background-color: #13334c;
-      --accent-color: #fd5f00;
+      --background-color: black;
+      --accent-color: #247ec4;
     }
 
     body {
@@ -27,25 +19,42 @@
 
     a {
       text-decoration: none;
-      color: white;
+      color: black;
+    }
+
+    .background {
+      background-image: url(s.jpg);
+      background-size: cover;
+      background-position: top;
+      width: 100vw;
+      height:79vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .backdrop {
+      width: 30%;
+      height: 40%;
+      background-color: rgba(0,0,128,0.1);
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 58px;
     }
 
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #13334c;
+      background: white;
       padding: 8px 12px;
-    }
-
-    .navbar__logo {
-      font-size: 24px;
-      color: white;
-      width:174px;
-    }
-
-    .navbar__logo i {
-      color: #fd5f00;
     }
 
     .navbar__menu {
@@ -60,7 +69,7 @@
     }
 
     .navbar__menu :hover {
-      background: #fd5f00;
+      background: #247ec4;
       border-radius: 4px;
     }
 
@@ -73,7 +82,7 @@
       position: absolute;
       right: 32px;
       font-size: 24px;
-      color: #fd5f00;
+      color: #247ec4;
     }
 
     @media screen and (max-width: 768px) {
@@ -103,6 +112,33 @@
       .navbar__icons.active {
         display: flex;
       }
+
+      .background {
+        background-image: url(s.jpg);
+        background-size: cover;
+        background-position: top;
+        width: 100vw;
+        height:79vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .backdrop {
+        width: 80%;
+        height: 40%;
+        background-color: rgba(0,0,128,0.1);
+        border-radius: 30px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 58px;
+      }
     }
 
   </style>
@@ -111,16 +147,18 @@
 <body>
   <nav class="navbar">
     <div class="navbar__logo">
-      <a id="f" href="index.html">대학 뿌셔!👨‍🏫👩‍🏫</a>
+      <a id="f" href="index.html">👨‍🏫👩‍🏫</a>
     </div>
 
     <ul class="navbar__menu">
-      <li><a href="Bsu/Compare_bsu.html">부산대 수시 계산기</a></li>
+      <li><a href="Bsu/Compare_bsu.html">부산대</a></li>
     </ul>
     <a href="#" class="navbar__toogleBtn">
       <i class="fas fa-bars"></i>
     </a>
   </nav>
+  <div class="background">
+    <div class="backdrop">대학뿌셔!</div>
   <script>
     const toggleBtn = document.querySelector('.navbar__toogleBtn');
     const menu = document.querySelector('.navbar__menu');
