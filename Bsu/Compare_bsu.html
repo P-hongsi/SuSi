@@ -1,202 +1,377 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="euc-kr" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .pretty-select {
+        display: inline-block;
+        font-size: 16px;
+        line-height: 1.3;
+        color: #555555;
+        display: block; /* Make the select element a block-level element */
+        margin: 0 auto; /* Set the left and right margins to auto */
+        margin-top: 2%;
+        margin-bottom: 5%;
+        width: 25%;
+        position: absolute;
+        top: 20%;
+        left: 38%;
+      }
+      .pretty-select select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: none;
+        background-color: transparent;
+        padding: 0.5rem 2rem 0.5rem 0.75rem;
+        border-radius: 0.25rem;
+        box-shadow: 0 0 0 1px #dddddd inset;
+        cursor: pointer;
+        width: 100%;
+      }
+      .pretty-select::after {
+        content: "\25BC";
+        position: absolute;
+        top: 50%;
+        right: 0.75rem;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        pointer-events: none;
+      }
 
-<head>
-  <meta charset="euc-kr">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>계산기</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    html {
-      background-color: #f6f6e9;
-      font-family: 'Nanum Gothic', sans-serif;
-    }
+      /* style the options list */
+      .pretty-select select option {
+        color: #555555;
+        background-color: #ffffff;
+      }
+      .pretty-select select option:hover {
+        background-color: #f1f1f1;
+      }
 
-    root {
-      --text-color: #f0f4f5;
-      --background-color: #13334c;
-      --accent-color: #fd5f00;
-    }
+      root {
+        --text-color: #f0f4f5;
+        --background-color: #13334c;
+        --accent-color: #fd5f00;
+      }
 
-    body {
-      margin: 0px;
-      font-family: 'Nanum Gothic', sans-serif;
-    }
+      input {
+        width: 70%;
+        height: 32px;
+        font-size: 15px;
+        border: 0;
+        border-radius: 15px;
+        background-color: rgb(233, 233, 233);
+        display: block; /* Make the input element a block-level element */
+        margin: 0 auto; /* Set the left and right margins to auto */
+      }
 
-    a {
-      text-decoration: none;
-      color: white;
-    }
+      label {
+        display: block; /* Make the label a block-level element */
+        text-align: center; /* Center the text inside the label */
+        margin-bottom: 25px;
+        font-weight: bold;
+      }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #13334c;
-      padding: 8px 12px;
-    }
+      .background {
+        background: url("index.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        width: 97vw;
+        height: 50vh;
+        z-index: -1;
+        display: flex;
+        align-items: top;
+        justify-content: center;
+        position: relative;
+        filter: blur(5px);
+      }
 
-    .navbar__logo {
-      font-size: 24px;
-      color: white;
-      width: 75px;
-    }
+      #com {
+        position: absolute;
+        top: 35%;
+        left: 45%;
+      }
 
-    .navbar__logo i {
-      color: #fd5f00;
-    }
+      #car {
+        position: absolute;
+        top: 55%;
+        left: 45%;
+      }
 
-    .navbar__menu {
-      display: flex;
-      list-style: none;
-      padding-left: 0px;
-    }
+      #result-container {
+        color: black;
+        text-align: center;
+        z-index: 1;
+        font-weight: bold;
+        margin-top: 3%;
+        font-size: 20px;
+      }
 
-    .navbar__menu li {
-      padding: 8px 12px;
+      #input-val1 {
+        position: absolute;
+        top: 45%;
+        left: 16%;
+      }
 
-    }
+      #input-val2 {
+        position: absolute;
+        top: 65%;
+        left: 16%;
+      }
 
-    .navbar__menu :hover {
-      background: #fd5f00;
-      border-radius: 4px;
-    }
+      body {
+        margin: 0px;
+      }
 
-    .navbar__icons li {
-      padding: 8px 12px;
-    }
+      a {
+        text-decoration: none;
+        color: white;
+      }
 
-    .navbar__toogleBtn {
-      display: none;
-      position: absolute;
-      right: 32px;
-      font-size: 24px;
-      color: #fd5f00;
-    }
-
-    @media screen and (max-width: 768px) {
       .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #748dfd;
+        padding: 8px 12px;
+      }
+
+      .navbar__logo {
+        font-size: 24px;
+        color: white;
+        width: 75px;
+      }
+
+      .navbar__logo i {
+        color: #fd5f00;
       }
 
       .navbar__menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+        display: flex;
+        list-style: none;
+        padding-left: 0px;
       }
 
       .navbar__menu li {
-        width: 100%;
-        text-align: center;
+        padding: 8px 12px;
+      }
+
+      .navbar__menu :hover {
+        background: #fd5f00;
+        border-radius: 4px;
+      }
+
+      .navbar__icons li {
+        padding: 8px 12px;
       }
 
       .navbar__toogleBtn {
-        display: block;
+        display: none;
+        position: absolute;
+        right: 32px;
+        font-size: 24px;
+        color: white;
       }
 
-      .navbar__menu.active,
-      .navbar__icons.active {
+      .shape .shape-fill {
+        fill: #748dfd;
+      }
+
+      .parent {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 75%;
+        left: 49%;
       }
-    }
 
-    input {
-      width: 80%;
-      height: 32px;
-      font-size: 15px;
-      border: 0;
-      border-radius: 15px;
-      outline: none;
-      padding-left: 10px;
-      background-color: rgb(233, 233, 233);
-      display: block; /* Make the input element a block-level element */
-      margin: 0 auto; /* Set the left and right margins to auto */
-    }
+      #compare-btn {
+        border-radius: 10px;
+        width: 5vw;
+        height: 5vh;
+      }
 
-    label{
-      display: block; /* Make the label a block-level element */
-      text-align: center; /* Center the text inside the label */
-      margin-bottom: 25px;
-    }
+      .parent button {
+        background-color: #48abe0;
+        color: white;
+        border: none;
+        padding: 5px;
+        box-shadow: 0 2px 4px darkslategray;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
 
-    #compare-btn{
-      display: block; /* Make the button a block-level element */
-      margin: 0 auto; /* Set the left and right margins to auto */
-      width: 10%;
-      height: 30px;
-      border-radius: 15px;
-    }
+      .parent button:active {
+        background-color: #48abe0;
+        box-shadow: 0 0 2px darkslategray;
+        transform: translateY(2px);
+      }
 
-    #result-container {
-      color: #FE2E2E;
-      text-align: center;
-    }
+      .parent button:not(:first-child) {
+        margin-top: 10px;
+      }
 
-    #input-val1 {
-      margin-bottom: 7%;
-    }
+      @media screen and (max-width: 768px) {
+        #input-val1 {
+          position: absolute;
+          top: 38%;
+          left: 15%;
+        }
 
-    #input-val2 {
-      margin-bottom: 8%;
-    }
+        #input-val2 {
+          position: absolute;
+          top: 60%;
+          left: 15%;
+        }
 
-    select {
-      display: block; /* Make the select element a block-level element */
-      margin: 0 auto; /* Set the left and right margins to auto */
-      margin-top: 5%;
-      margin-bottom: 5%;
-    }
-  </style>
-</head>
+        #com {
+          position: absolute;
+          top: 28%;
+          left: 38%;
+        }
 
-<body>
-  <nav class="navbar">
-    <div class="navbar__logo">
-      <a id="f" href="https://juny0312.github.io/CollegeCrush/">계산기</a>
+        #car {
+          position: absolute;
+          top: 50%;
+          left: 38%;
+        }
+
+        #compare-btn {
+          border-radius: 10px;
+          width: 15vw;
+          height: 5vh;
+        }
+
+        #result-container {
+          margin-top: 11vh;
+        }
+
+        .pretty-select {
+          top: 15%;
+          width: 25vw;
+        }
+
+        .parent {
+          top: 70%;
+          left: 44%;
+        }
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 8px 24px;
+        }
+
+        .navbar__menu {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .navbar__menu li {
+          width: 100%;
+          text-align: center;
+        }
+
+        .navbar__toogleBtn {
+          display: block;
+        }
+
+        .navbar__menu.active,
+        .navbar__icons.active {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <a id="f" href="https://juny0312.github.io/CollegeCrush/">계산기</a>
+      </div>
+
+      <ul class="navbar__menu">
+        <li><a href="Compare_bsu.html">학과점수 비교</a></li>
+        <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
+        <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
+        <li><a href="Table_bsu.html">학과 목록</a></li>
+      </ul>
+      <a href="#" class="navbar__toogleBtn">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+    <div class="shape">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+          opacity=".25"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+          opacity=".5"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+          class="shape-fill"
+        ></path>
+      </svg>
     </div>
+    <div class="pretty-select" id="select-container"></div>
+    <div class="background"></div>
+    <div>
+      <label id="com" for="input-val1">석차등급과목 점수: </label>
+      <input
+        type="text"
+        id="input-val1"
+        name="input-val1"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+      />
+    </div>
+    <div>
+      <label id="car" for="input-val2">진로선택과목 점수: </label>
+      <input
+        type="text"
+        id="input-val2"
+        name="input-val2"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+      />
+    </div>
+    <div class="parent">
+      <button id="compare-btn">비교</button>
+    </div>
+    <div id="result-container"></div>
+    <script>
+      const toggleBtn = document.querySelector(".navbar__toogleBtn");
+      const menu = document.querySelector(".navbar__menu");
+      const icons = document.querySelector(".navbar__icons");
 
-    <ul class="navbar__menu">
-      <li><a href="Compare_bsu.html">학과점수 비교</a></li>
-      <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
-      <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
-      <li><a href="Table_bsu.html">학과 목록</a></li>
-    </ul>
-    <a href="#" class="navbar__toogleBtn">
-      <i class="fas fa-bars"></i>
-    </a>
-  </nav>
-  <div id="select-container"></div>
-  <div>
-    <label for="input-val1">석차등급과목 점수: </label>
-    <input type="text" id="input-val1" name="input-val1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-  </div>
-  <div>
-    <label for="input-val2">진로선택과목 점수: </label>
-    <input  type="text" id="input-val2" name="input-val2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-  </div>
-  <button id="compare-btn">비교</button>
-  <div id="result-container"></div>
-  <script>
-    const toggleBtn = document.querySelector('.navbar__toogleBtn');
-    const menu = document.querySelector('.navbar__menu');
-    const icons = document.querySelector('.navbar__icons');
+      toggleBtn.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        icons.classList.toggle("active");
+      });
 
-    toggleBtn.addEventListener('click', () => {
-      menu.classList.toggle('active')
-      icons.classList.toggle('active')
-    });
+      $(document).ready(function () {
+        var rows = null;
 
-    $(document).ready(function () {
-      var rows = null;
-
-      $.ajax({
-        url: "대학.csv",
-        dataType: "text",
-        type: "GET",
-        beforeSend: function (xhr) {
+        $.ajax({
+          url: "대학.csv",
+          dataType: "text",
+          type: "GET",
+          beforeSend: function (xhr) {
             xhr.overrideMimeType("text/csv; charset=euc-kr");
           },
           success: function (data) {
@@ -222,35 +397,63 @@
                 );
               } else if (inputVal1 > cells[4] && inputVal2 == cells[5]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${Math.round((inputVal1 - cells[4]) * 100) / 100}만큼 크고, 진로선택과목점수는 일치합니다.`
+                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                    Math.round((inputVal1 - cells[4]) * 100) / 100
+                  }만큼 크고, 진로선택과목점수는 일치합니다.`
                 );
               } else if (inputVal1 == cells[4] && inputVal2 > cells[5]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 진로선택과목점수는 ${Math.round((inputVal2 - cells[5]) * 100) / 100}만큼 크고, 석차등급과목점수는 일치합니다.`
+                  `2022년도 ${cells[0]}과의 진로선택과목점수는 ${
+                    Math.round((inputVal2 - cells[5]) * 100) / 100
+                  }만큼 크고, 석차등급과목점수는 일치합니다.`
                 );
               } else if (inputVal1 > cells[4] && inputVal2 > cells[5]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${Math.round((inputVal1 - cells[4]) * 100) / 100}만큼 크고, 진로선택과목점수는 ${Math.round((inputVal2 - cells[5]) * 100) / 100}만큼 큽니다.`
+                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                    Math.round((inputVal1 - cells[4]) * 100) / 100
+                  }만큼 크고, 진로선택과목점수는 ${
+                    Math.round((inputVal2 - cells[5]) * 100) / 100
+                  }만큼 큽니다.`
                 );
               } else if (inputVal1 < cells[4] && inputVal2 < cells[5]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${Math.round((cells[4] - inputVal1) * 100) / 100}만큼 작고, 진로선택과목점수는 ${Math.round((cells[5] - inputVal2) * 100) / 100}만큼 작습니다.`
+                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                    Math.round((cells[4] - inputVal1) * 100) / 100
+                  }만큼 작고, 진로선택과목점수는 ${
+                    Math.round((cells[5] - inputVal2) * 100) / 100
+                  }만큼 작습니다.`
                 );
               } else if (inputVal1 == cells[4] && inputVal2 < cells[5]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 진로선택과목점수는 ${Math.round((cells[5] - inputVal2) * 100) / 100}만큼 작고, 석차등급과목점수는 일치합니다.`
+                  `2022년도 ${cells[0]}과의 진로선택과목점수는 ${
+                    Math.round((cells[5] - inputVal2) * 100) / 100
+                  }만큼 작고, 석차등급과목점수는 일치합니다.`
                 );
               } else if (inputVal1 < cells[4] && inputVal2 == cells[5]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${Math.round((cells[4] - inputVal1) * 100) / 100}만큼 작고, 진로선택과목점수는 일치합니다.`
+                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                    Math.round((cells[4] - inputVal1) * 100) / 100
+                  }만큼 작고, 진로선택과목점수는 일치합니다.`
                 );
-              } else if (inputVal1 < cells[4] && inputVal2 > cells[5]) {
+              } else if (
+                inputVal1 < cells[4] &&
+                inputVal2 > cells[5] &&
+                inputVal1 > 0
+              ) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${Math.round((cells[4] - inputVal1) * 100) / 100}만큼 작고, 진로선택과목점수는 ${Math.round((inputVal2 - cells[5]) * 100) / 100}만큼 큽니다.`
+                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                    Math.round((cells[4] - inputVal1) * 100) / 100
+                  }만큼 작고, 진로선택과목점수는 ${
+                    Math.round((inputVal2 - cells[5]) * 100) / 100
+                  }만큼 큽니다.`
                 );
               } else if (inputVal1 > cells[4] && inputVal2 < cells[5]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${Math.round((inputVal1 - cells[4]) * 100) / 100}만큼 크고, 진로선택과목점수는 ${ Math.round((cells[5] - inputVal2) * 100) / 100}만큼 작습니다.`
+                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                    Math.round((inputVal1 - cells[4]) * 100) / 100
+                  }만큼 크고, 진로선택과목점수는 ${
+                    Math.round((cells[5] - inputVal2) * 100) / 100
+                  }만큼 작습니다.`
                 );
               } else {
                 $("#result-container").html("숫자 1~99사이로 입력해주세요.");
@@ -259,9 +462,10 @@
           },
         });
       });
-  </script>
-  <script src="https://kit.fontawesome.com/b17d4fa9e7.js" crossorigin="anonymous"></script>
-</body>
-</body>
-
+    </script>
+    <script
+      src="https://kit.fontawesome.com/b17d4fa9e7.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
