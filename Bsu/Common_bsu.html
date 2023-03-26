@@ -1,1134 +1,2430 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>석차등급과목 계산기</title>
-  <style>
-    .hidden {
-      display: none;
-    }
-
-    root {
-      --text-color: #f0f4f5;
-      --background-color: #13334c;
-      --accent-color: #fd5f00;
-    }
-
-    body {
-      margin: 0px;
-      font-family: 'Nanum Gothic', sans-serif;
-    }
-
-    a {
-      text-decoration: none;
-      color: white;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #13334c;
-      padding: 8px 12px;
-    }
-
-    .navbar__logo {
-      font-size: 24px;
-      color: white;
-      width: 70px;
-    }
-
-    .navbar__logo i {
-      color: #fd5f00;
-    }
-
-    .navbar__menu {
-      display: flex;
-      list-style: none;
-      padding-left: 0px;
-    }
-
-    .navbar__menu li {
-      padding: 8px 12px;
-
-    }
-
-    .navbar__menu :hover {
-      background: #fd5f00;
-      border-radius: 4px;
-    }
-
-    .navbar__icons li {
-      padding: 8px 12px;
-    }
-
-    .navbar__toogleBtn {
-      display: none;
-      position: absolute;
-      right: 32px;
-      font-size: 24px;
-      color: #fd5f00;
-    }
-
-    @media screen and (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px 24px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>석차등급과목 계산기</title>
+    <style>
+      .hidden {
+        display: none;
       }
 
-      .navbar__menu {
-        display: none;
-        flex-direction: column;
+      .shape .shape-fill {
+        fill: whitesmoke;
+      }
+
+      .shape svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 56px;
+      }
+
+      .btn .btn1 {
+        box-shadow: 0 2px 4px darkslategray;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        left: 41vw;
+        margin-bottom: 2vh;
+      }
+
+      .btn .btn2 {
+        box-shadow: 0 2px 4px darkslategray;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        left: 47vw;
+        margin-bottom: 2vh;
+      }
+
+      .btn button:active {
+        background-color: #f9f991;
+        box-shadow: 0 0 2px darkslategray;
+        transform: translateY(2px);
+      }
+
+      .btn button:not(:first-child) {
+        margin-top: 10px;
+      }
+      .btn1 {
+        margin-left: 15px;
+        position: relative;
+        border-radius: 10px;
+        width: 8vw;
+        height: 7vh;
+        background-color: white;
+        color: black;
+        font-size: 20px;
+      }
+
+      .btn2 {
+        border-radius: 10px;
+        width: 75px;
+        height: 35px;
+        background-color: #f9f991;
+        color: black;
+        font-size: 15px;
+        position: relative;
+      }
+
+      button {
+        border: 0;
+      }
+
+      input {
+        width: 15vw;
+        height: 32px;
+        font-size: 15px;
+        border: 0.1px solid #999;
+        border-radius: 15px;
+        padding-left: 10px;
+        margin-top: 7px;
+        background-color: white;
+      }
+
+      select {
+        width: 20%;
+        height: 40px;
+        padding: 0.8em 0.5em;
+        border: 0.1px solid #999;
+        background-color: white;
+        border-radius: 14px;
+      }
+
+      li {
+        list-style-type: none;
+        text-align: center;
+        position: relative;
+      }
+
+      p {
+        margin: 2vh;
+      }
+
+      .res {
+        text-align: center;
+        font-size: 30px;
+        color: black;
+        font-weight: bold;
+      }
+
+      .cen {
+        position: relative;
+        right: 45px;
+      }
+
+      root {
+        --text-color: #f0f4f5;
+        --background-color: #13334c;
+        --accent-color: #fd5f00;
+      }
+
+      body {
+        margin: 0;
+        z-index: -1;
         align-items: center;
-        width: 100%;
+        justify-content: center;
+        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        background-repeat: no-repeat;
+      }
+
+      a {
+        text-decoration: none;
+        color: #9d59ad;
+        font-weight: bold;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: whitesmoke;
+        padding: 8px 12px;
+      }
+
+      .navbar__logo {
+        font-size: 23px;
+        color: white;
+        width: 70px;
+      }
+
+
+      .navbar__menu {
+        display: flex;
+        list-style: none;
+        padding-left: 0px;
       }
 
       .navbar__menu li {
-        width: 100%;
-        text-align: center;
+        padding: 8px 12px;
+      }
+
+      .navbar__menu :hover {
+        background: #f9f871;
+        border-radius: 4px;
+      }
+
+      .navbar__icons li {
+        padding: 8px 12px;
       }
 
       .navbar__toogleBtn {
-        display: block;
+        display: none;
+        position: absolute;
+        right: 32px;
+        font-size: 24px;
+        color: #9d59ad;
       }
 
-      .navbar__menu.active,
-      .navbar__icons.active {
-        display: flex;
+      @media screen and (max-width: 768px) {
+        input {
+          width: 40vw;
+        }
+
+        .btn1 {
+          width: 21vw
+        }
+
+        .btn .btn2 {
+          left: 44vw;
+        }
+
+        .btn .btn1 {
+          left: 27vw;
+          font-size: 15px;
+        }
+
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 8px 24px;
+        }
+
+        .navbar__menu {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .navbar__menu li {
+          width: 100%;
+          text-align: center;
+        }
+
+        .navbar__toogleBtn {
+          display: block;
+        }
+
+        .navbar__menu.active,
+        .navbar__icons.active {
+          display: flex;
+        }
       }
-    }
 
-    html {
-      background-color: #f6f6e9;
-      font-family: 'Nanum Gothic', sans-serif;
-    }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-    .btn1 {
-      margin-left: 13px;
-      position: relative;
-      border-radius: 10px;
-      width: 30%;
-      font-family: 'Nanum Gothic', sans-serif;
-      height: 50px;
-      background-color: #005792;
-      border: 0;
-      color: white;
-      font-size: 20px;
-    }
+  <body>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <a href="https://juny0312.github.io/CollegeCrush/">계산기</a>
+      </div>
 
-    .btn2 {
-      border-radius: 10px;
-      width: 75px;
-      font-family: 'Nanum Gothic', sans-serif;
-      height: 35px;
-      background-color: #fd5f00;
-      border: 0;
-      color: white;
-      font-size: 15px;
-      position: relative;
-    }
-
-    input {
-      width: 75%;
-      height: 32px;
-      font-size: 15px;
-      border: 0.1px solid #999;
-      border-radius: 15px;
-      font-family: 'Nanum Gothic', sans-serif;
-      padding-left: 10px;
-      margin-top: 7px;
-      background-color: white;
-    }
-
-    select {
-      width: 20%;
-      height: 40px;
-      padding: .8em .5em;
-      border: 0.1px solid #999;
-      background-color: white;
-      border-radius: 14px;
-      font-family: 'Nanum Gothic', sans-serif;
-    }
-
-    li {
-      list-style-type: none;
-      text-align: center;
-      position: relative;
-    }
-
-    .res {
-      margin-top: 30px;
-      text-align: center;
-      font-family: 'Nanum Gothic', sans-serif;
-      font-size: 30px;
-      color: #FE2E2E;
-    }
-
-    .btn {
-      margin-top: 23px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .cen {
-      position: relative;
-      right: 45px;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <nav class="navbar">
-    <div class="navbar__logo">
-      <a href="https://juny0312.github.io/CollegeCrush/">계산기</a>
-    </div>
-
-    <ul class="navbar__menu">
-      <li><a href="Compare_bsu.html">학과점수 비교</a></li>
-      <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
-      <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
-      <li><a href="Table_bsu.html">학과 목록</a></li>
-    </ul>
-    <a href="#" class="navbar__toogleBtn">
-      <i class="fas fa-bars"></i>
-    </a>
-  </nav>
-  <div class="btn">
-    <button class="btn1" onclick="showNextDiv()">과목 추가</button>
-    <button class="btn1" onclick="hidePrevDiv()">과목 삭제</button>
-  </div>
-
-  <div class="cen">
-    <div class="div-item">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num1" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num2" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"></label>
-            </li>
-          </ul>
-        </li>
+      <ul class="navbar__menu">
+        <li><a href="Compare_bsu.html">학과점수 비교</a></li>
+        <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
+        <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
+        <li><a href="Table_bsu.html">학과 목록</a></li>
       </ul>
+      <a href="#" class="navbar__toogleBtn">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+    <div class="shape">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+          opacity=".25"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+          opacity=".5"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+          class="shape-fill"
+        ></path>
+      </svg>
+    </div>
+    <div class="pretty-select" id="select-container"></div>
+    <div class="background"></div>
+    <div class="btn">
+      <button class="btn1" onclick="showNextDiv()">과목 추가</button>
+      <button class="btn1" onclick="hidePrevDiv()">과목 삭제</button>
     </div>
 
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li><br>
-            <li>
-              <span>단위수</span>
-              <label><input id="num3" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li><br>
-            <li>
-              <span>등급</span>
-              <label><input id="num4" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
+    <div class="cen">
+      <div class="div-item">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num1"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num2"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="div-item">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <br />
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num3"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num4"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num5"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num6"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num7"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num8"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num9"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num10"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num11"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num12"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num13"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num14"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num15"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num16"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num17"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num18"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num19"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num20"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num21"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num22"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num23"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num24"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num25"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num26"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num27"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num28"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num29"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num30"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num31"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num32"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num33"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num34"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num35"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num36"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num37"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num38"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num39"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num40"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num41"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num42"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num43"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num44"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num45"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num46"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num47"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num48"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label
+                  ><select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select></label
+                >
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num49"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num50"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="div-item hidden">
+        <ul>
+          <li style="list-style-type: none">
+            <ul>
+              <li>
+                <span>학년</span>
+                <select style="width: 100px">
+                  <option value="">선택</option>
+                  <option value="1">1학년</option>
+                  <option value="2">2학년</option>
+                  <option value="3">3학년</option>
+                </select>
+              </li>
+              <li>
+                <span>과목명</span>
+                <label>
+                  <select id="sub" style="width: 100px">
+                    <option value="0">선택</option>
+                    <option value="1">국어</option>
+                    <option value="2">수학</option>
+                    <option value="3">영어</option>
+                    <option value="4">통합과학</option>
+                    <option value="5">통합사회</option>
+                    <option value="6">문학</option>
+                    <option value="7">독서</option>
+                    <option value="8">수1</option>
+                    <option value="9">수2</option>
+                    <option value="10">미적분</option>
+                    <option value="11">확률과 통계</option>
+                    <option value="12">영어1</option>
+                    <option value="13">영어2</option>
+                    <option value="14">물리학1</option>
+                    <option value="15">생명과학1</option>
+                    <option value="16">지구과학1</option>
+                    <option value="17">화학1</option>
+                    <option value="18">정치와 법</option>
+                    <option value="19">경제</option>
+                    <option value="20">생활과 윤리</option>
+                    <option value="21">세계지리</option>
+                    <option value="22">한국지리</option>
+                    <option value="23">세계사</option>
+                    <option value="24">윤리와 사상</option>
+                    <option value="25">사회문화</option>
+                    <option value="26">동아시아사</option>
+                    <option value="27">화법과 작문</option>
+                    <option value="28">영어 독해와 작문</option>
+                  </select>
+                </label>
+              </li>
+              <li>
+                <span>단위수</span>
+                <label
+                  ><input
+                    id="num51"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+              <li>
+                <span>등급</span>
+                <label
+                  ><input
+                    id="num52"
+                    type="text"
+                    maxlength="1"
+                    oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    value="0"
+                /></label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num5" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num6" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
+    <div class="btn">
+      <button type="button" class="btn2" onclick="addNumbers()" id="click1">
+        제출
+      </button>
     </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num7" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num8" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
+    <div class="res">
+      <p>석차등급과목 점수: <span id="result"></span></p>
     </div>
+    <script>
+      const toggleBtn = document.querySelector(".navbar__toogleBtn");
+      const menu = document.querySelector(".navbar__menu");
+      const icons = document.querySelector(".navbar__icons");
+      let currentDivIndex = 0;
 
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num9" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num10" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+      toggleBtn.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        icons.classList.toggle("active");
+      });
 
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num11" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num12" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num13" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num14" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num15" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num16" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num17" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num18" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num19" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num20" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num21" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num22" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num23" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num24" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num25" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num26" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num27" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num28" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num29" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num30" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num31" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num32" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num33" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num34" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num35" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num36" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num37" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num38" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num39" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num40" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num41" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num42" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num43" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num44" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num45" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num46" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num47" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num48" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num49" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num50" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="div-item hidden">
-      <ul>
-        <li style="list-style-type: none;">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width:100px">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목명</span>
-              <label><input type="text" maxlength="10" value=""></label>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label><input id="num51" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-            <li>
-              <span>등급</span>
-              <label><input id="num52" type="text" maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" value=0></label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="btn">
-    <button type="button" class="btn2" onclick="addNumbers()" id="click1">제출</button>
-  </div>
-  <div class="res">
-    <p>석차등급과목 점수: <span id="result"></span></p>
-  </div>
-  <script>
-    const toggleBtn = document.querySelector('.navbar__toogleBtn');
-    const menu = document.querySelector('.navbar__menu');
-    const icons = document.querySelector('.navbar__icons');
-    let currentDivIndex = 0;
-
-    toggleBtn.addEventListener('click', () => {
-      menu.classList.toggle('active')
-      icons.classList.toggle('active')
-    });
-
-    function addNumbers() {
-      var s1 = (101 - parseInt(document.getElementById("num2").value)) * parseInt(document.getElementById("num1").value);
-      var s2 = (101 - parseInt(document.getElementById("num4").value)) * parseInt(document.getElementById("num3").value);
-      var s3 = (101 - parseInt(document.getElementById("num6").value)) * parseInt(document.getElementById("num5").value);
-      var s4 = (101 - parseInt(document.getElementById("num8").value)) * parseInt(document.getElementById("num7").value);
-      var s5 = (101 - parseInt(document.getElementById("num10").value)) * parseInt(document.getElementById("num9").value);
-      var s6 = (101 - parseInt(document.getElementById("num12").value)) * parseInt(document.getElementById("num11").value);
-      var s7 = (101 - parseInt(document.getElementById("num14").value)) * parseInt(document.getElementById("num13").value);
-      var s8 = (101 - parseInt(document.getElementById("num16").value)) * parseInt(document.getElementById("num15").value);
-      var s9 = (101 - parseInt(document.getElementById("num18").value)) * parseInt(document.getElementById("num17").value);
-      var s10 = (101 - parseInt(document.getElementById("num20").value)) * parseInt(document.getElementById("num19").value);
-      var s11 = (101 - parseInt(document.getElementById("num22").value)) * parseInt(document.getElementById("num21").value);
-      var s12 = (101 - parseInt(document.getElementById("num24").value)) * parseInt(document.getElementById("num23").value);
-      var s13 = (101 - parseInt(document.getElementById("num26").value)) * parseInt(document.getElementById("num25").value);
-      var s14 = (101 - parseInt(document.getElementById("num28").value)) * parseInt(document.getElementById("num27").value);
-      var s15 = (101 - parseInt(document.getElementById("num30").value)) * parseInt(document.getElementById("num29").value);
-      var s16 = (101 - parseInt(document.getElementById("num32").value)) * parseInt(document.getElementById("num31").value);
-      var s17 = (101 - parseInt(document.getElementById("num34").value)) * parseInt(document.getElementById("num33").value);
-      var s18 = (101 - parseInt(document.getElementById("num36").value)) * parseInt(document.getElementById("num35").value);
-      var s19 = (101 - parseInt(document.getElementById("num38").value)) * parseInt(document.getElementById("num37").value);
-      var s20 = (101 - parseInt(document.getElementById("num40").value)) * parseInt(document.getElementById("num39").value);
-      var s21 = (101 - parseInt(document.getElementById("num42").value)) * parseInt(document.getElementById("num41").value);
-      var s22 = (101 - parseInt(document.getElementById("num44").value)) * parseInt(document.getElementById("num43").value);
-      var s23 = (101 - parseInt(document.getElementById("num46").value)) * parseInt(document.getElementById("num45").value);
-      var s24 = (101 - parseInt(document.getElementById("num48").value)) * parseInt(document.getElementById("num47").value);
-      var s25 = (101 - parseInt(document.getElementById("num50").value)) * parseInt(document.getElementById("num49").value);
-      var s26 = (101 - parseInt(document.getElementById("num52").value)) * parseInt(document.getElementById("num51").value);
-      var sum = (s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10 + s11 + s12 + s13 + s14 + s15 + s16 + s17 + s18 + s19 + s20 + s21 + s22 + s23 + s24 + s25 + s26)
-        / (parseInt(document.getElementById("num1").value)
-          + parseInt(document.getElementById("num3").value)
-          + parseInt(document.getElementById("num5").value)
-          + parseInt(document.getElementById("num7").value)
-          + parseInt(document.getElementById("num9").value)
-          + parseInt(document.getElementById("num11").value)
-          + parseInt(document.getElementById("num13").value)
-          + parseInt(document.getElementById("num15").value)
-          + parseInt(document.getElementById("num17").value)
-          + parseInt(document.getElementById("num19").value)
-          + parseInt(document.getElementById("num21").value)
-          + parseInt(document.getElementById("num23").value)
-          + parseInt(document.getElementById("num23").value)
-          + parseInt(document.getElementById("num25").value)
-          + parseInt(document.getElementById("num27").value)
-          + parseInt(document.getElementById("num29").value)
-          + parseInt(document.getElementById("num31").value)
-          + parseInt(document.getElementById("num33").value)
-          + parseInt(document.getElementById("num35").value)
-          + parseInt(document.getElementById("num37").value)
-          + parseInt(document.getElementById("num39").value)
-          + parseInt(document.getElementById("num41").value)
-          + parseInt(document.getElementById("num43").value)
-          + parseInt(document.getElementById("num45").value)
-          + parseInt(document.getElementById("num47").value)
-          + parseInt(document.getElementById("num49").value)
-          + parseInt(document.getElementById("num51").value));
-      document.getElementById("result").innerHTML = sum;
-    }
-
-    function showNextDiv() {
-      const divs = document.querySelectorAll(".div-item");
-      if (currentDivIndex < divs.length) {
-        divs[currentDivIndex].classList.remove("hidden");
-        currentDivIndex++;
+      function addNumbers() {
+        var s1 =
+          (101 - parseInt(document.getElementById("num2").value)) *
+          parseInt(document.getElementById("num1").value);
+        var s2 =
+          (101 - parseInt(document.getElementById("num4").value)) *
+          parseInt(document.getElementById("num3").value);
+        var s3 =
+          (101 - parseInt(document.getElementById("num6").value)) *
+          parseInt(document.getElementById("num5").value);
+        var s4 =
+          (101 - parseInt(document.getElementById("num8").value)) *
+          parseInt(document.getElementById("num7").value);
+        var s5 =
+          (101 - parseInt(document.getElementById("num10").value)) *
+          parseInt(document.getElementById("num9").value);
+        var s6 =
+          (101 - parseInt(document.getElementById("num12").value)) *
+          parseInt(document.getElementById("num11").value);
+        var s7 =
+          (101 - parseInt(document.getElementById("num14").value)) *
+          parseInt(document.getElementById("num13").value);
+        var s8 =
+          (101 - parseInt(document.getElementById("num16").value)) *
+          parseInt(document.getElementById("num15").value);
+        var s9 =
+          (101 - parseInt(document.getElementById("num18").value)) *
+          parseInt(document.getElementById("num17").value);
+        var s10 =
+          (101 - parseInt(document.getElementById("num20").value)) *
+          parseInt(document.getElementById("num19").value);
+        var s11 =
+          (101 - parseInt(document.getElementById("num22").value)) *
+          parseInt(document.getElementById("num21").value);
+        var s12 =
+          (101 - parseInt(document.getElementById("num24").value)) *
+          parseInt(document.getElementById("num23").value);
+        var s13 =
+          (101 - parseInt(document.getElementById("num26").value)) *
+          parseInt(document.getElementById("num25").value);
+        var s14 =
+          (101 - parseInt(document.getElementById("num28").value)) *
+          parseInt(document.getElementById("num27").value);
+        var s15 =
+          (101 - parseInt(document.getElementById("num30").value)) *
+          parseInt(document.getElementById("num29").value);
+        var s16 =
+          (101 - parseInt(document.getElementById("num32").value)) *
+          parseInt(document.getElementById("num31").value);
+        var s17 =
+          (101 - parseInt(document.getElementById("num34").value)) *
+          parseInt(document.getElementById("num33").value);
+        var s18 =
+          (101 - parseInt(document.getElementById("num36").value)) *
+          parseInt(document.getElementById("num35").value);
+        var s19 =
+          (101 - parseInt(document.getElementById("num38").value)) *
+          parseInt(document.getElementById("num37").value);
+        var s20 =
+          (101 - parseInt(document.getElementById("num40").value)) *
+          parseInt(document.getElementById("num39").value);
+        var s21 =
+          (101 - parseInt(document.getElementById("num42").value)) *
+          parseInt(document.getElementById("num41").value);
+        var s22 =
+          (101 - parseInt(document.getElementById("num44").value)) *
+          parseInt(document.getElementById("num43").value);
+        var s23 =
+          (101 - parseInt(document.getElementById("num46").value)) *
+          parseInt(document.getElementById("num45").value);
+        var s24 =
+          (101 - parseInt(document.getElementById("num48").value)) *
+          parseInt(document.getElementById("num47").value);
+        var s25 =
+          (101 - parseInt(document.getElementById("num50").value)) *
+          parseInt(document.getElementById("num49").value);
+        var s26 =
+          (101 - parseInt(document.getElementById("num52").value)) *
+          parseInt(document.getElementById("num51").value);
+        var sum =
+          (s1 +
+            s2 +
+            s3 +
+            s4 +
+            s5 +
+            s6 +
+            s7 +
+            s8 +
+            s9 +
+            s10 +
+            s11 +
+            s12 +
+            s13 +
+            s14 +
+            s15 +
+            s16 +
+            s17 +
+            s18 +
+            s19 +
+            s20 +
+            s21 +
+            s22 +
+            s23 +
+            s24 +
+            s25 +
+            s26) /
+          (parseInt(document.getElementById("num1").value) +
+            parseInt(document.getElementById("num3").value) +
+            parseInt(document.getElementById("num5").value) +
+            parseInt(document.getElementById("num7").value) +
+            parseInt(document.getElementById("num9").value) +
+            parseInt(document.getElementById("num11").value) +
+            parseInt(document.getElementById("num13").value) +
+            parseInt(document.getElementById("num15").value) +
+            parseInt(document.getElementById("num17").value) +
+            parseInt(document.getElementById("num19").value) +
+            parseInt(document.getElementById("num21").value) +
+            parseInt(document.getElementById("num23").value) +
+            parseInt(document.getElementById("num23").value) +
+            parseInt(document.getElementById("num25").value) +
+            parseInt(document.getElementById("num27").value) +
+            parseInt(document.getElementById("num29").value) +
+            parseInt(document.getElementById("num31").value) +
+            parseInt(document.getElementById("num33").value) +
+            parseInt(document.getElementById("num35").value) +
+            parseInt(document.getElementById("num37").value) +
+            parseInt(document.getElementById("num39").value) +
+            parseInt(document.getElementById("num41").value) +
+            parseInt(document.getElementById("num43").value) +
+            parseInt(document.getElementById("num45").value) +
+            parseInt(document.getElementById("num47").value) +
+            parseInt(document.getElementById("num49").value) +
+            parseInt(document.getElementById("num51").value));
+        document.getElementById("result").innerHTML = sum;
       }
-    }
 
-    function hidePrevDiv() {
-      const divs = document.querySelectorAll(".div-item");
-      if (currentDivIndex > 0) {
-        currentDivIndex--;
-        divs[currentDivIndex].classList.add("hidden");
+      function showNextDiv() {
+        const divs = document.querySelectorAll(".div-item");
+        if (currentDivIndex < divs.length) {
+          divs[currentDivIndex].classList.remove("hidden");
+          currentDivIndex++;
+        }
       }
-    }
-  </script>
-  <script src="https://kit.fontawesome.com/b17d4fa9e7.js" crossorigin="anonymous"></script>
-</body>
 
+      function hidePrevDiv() {
+        const divs = document.querySelectorAll(".div-item");
+        if (currentDivIndex > 2) {
+          currentDivIndex--;
+          divs[currentDivIndex].classList.add("hidden");
+        }
+      }
+    </script>
+    <script
+      src="https://kit.fontawesome.com/b17d4fa9e7.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
