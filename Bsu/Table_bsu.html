@@ -12,11 +12,11 @@
         border-color: #aaa;
         border-spacing: 0;
         text-align: center;
-        left: 20vw;
-        position: absolute;
+        z-index: -1;
+        left: 1vw;
+        position: relative;
       }
       .tg td {
-        background-color: #fff;
         border-color: #aaa;
         border-style: solid;
         border-width: 0px;
@@ -28,7 +28,6 @@
         word-break: normal;
       }
       .tg th {
-        background-color: white;
         border-color: #aaa;
         border-style: solid;
         border-width: 0px;
@@ -45,9 +44,15 @@
         vertical-align: top;
       }
       .tg .tg-dg7a {
-        background-color: #f2ddc4;
         text-align: left;
         vertical-align: top;
+      }
+
+      .shape svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 56px;
       }
 
       root {
@@ -57,20 +62,26 @@
       }
 
       body {
-        margin: 0px;
-        font-family: "Nanum Gothic", sans-serif;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        width: 96.5vw;
+        height: 100%;
+        position: relative;
+        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        background-repeat: no-repeat;
       }
 
       a {
         text-decoration: none;
-        color: white;
+        color: #9d59ad;
       }
 
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #748dfd;
+        background: whitesmoke;
         padding: 8px 12px;
       }
 
@@ -95,7 +106,7 @@
       }
 
       .navbar__menu :hover {
-        background: #fd5f00;
+        background: #f9f871;
         border-radius: 4px;
       }
 
@@ -108,18 +119,22 @@
         position: absolute;
         right: 32px;
         font-size: 24px;
-        color: white;
+        color: #9d59ad;
       }
 
       .shape .shape-fill {
-        fill: #748dfd;
+        fill: whitesmoke;
       }
 
       @media screen and (max-width: 768px) {
         .tg {
-          left: 0vw;
-          position: absolute;
+          left: 1vw;
         }
+
+        body {
+          width: 95.5vw;
+        }
+
         .navbar {
           flex-direction: column;
           align-items: flex-start;
@@ -190,1003 +205,1001 @@
         ></path>
       </svg>
     </div>
-    <table class="tg">
-      <thead>
-        <tr>
-          <th class="tg-0lax">학과</th>
-          <th class="tg-0lax">모집인원</th>
-          <th class="tg-0lax">경쟁률</th>
-          <th class="tg-0lax">최종추합번호</th>
-          <th class="tg-0lax">석차점수</th>
-          <th class="tg-0lax">진로점수</th>
-          <th class="tg-0lax">평균총점수(70%)</th>
-          <th class="tg-0lax">평균등급</th>
-          <th class="tg-0lax">평균등급(70%)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="tg-0lax">국어국문학과</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">8.82</td>
-          <td class="tg-dg7a">6번</td>
-          <td class="tg-0lax">97.22</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">97.69</td>
-          <td class="tg-dg7a">3.5</td>
-          <td class="tg-0lax">3.75</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">중어중문학과</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">12.27</td>
-          <td class="tg-dg7a">9번</td>
-          <td class="tg-0lax">97.98</td>
-          <td class="tg-dg7a">0.4</td>
-          <td class="tg-0lax">98.37</td>
-          <td class="tg-dg7a">2.96</td>
-          <td class="tg-0lax">3.03</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">일어일문학과</td>
-          <td class="tg-dg7a">10</td>
-          <td class="tg-0lax">9.9</td>
-          <td class="tg-dg7a">0번</td>
-          <td class="tg-0lax">97.3</td>
-          <td class="tg-dg7a">0.41</td>
-          <td class="tg-0lax">97.71</td>
-          <td class="tg-dg7a">3.4</td>
-          <td class="tg-0lax">3.16</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">영어영문학과</td>
-          <td class="tg-dg7a">15</td>
-          <td class="tg-0lax">18.47</td>
-          <td class="tg-dg7a">14번</td>
-          <td class="tg-0lax">98.02</td>
-          <td class="tg-dg7a">0.47</td>
-          <td class="tg-0lax">98.49</td>
-          <td class="tg-dg7a">2.89</td>
-          <td class="tg-0lax">3.09</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">불어불문학과</td>
-          <td class="tg-dg7a">9</td>
-          <td class="tg-0lax">10.11</td>
-          <td class="tg-dg7a">0번</td>
-          <td class="tg-0lax">94.55</td>
-          <td class="tg-dg7a">0.44</td>
-          <td class="tg-0lax">94.99</td>
-          <td class="tg-dg7a">4.07</td>
-          <td class="tg-0lax">3.66</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">독어독문학과</td>
-          <td class="tg-dg7a">16</td>
-          <td class="tg-0lax">11.19</td>
-          <td class="tg-dg7a">7번</td>
-          <td class="tg-0lax">96.71</td>
-          <td class="tg-dg7a">0.37</td>
-          <td class="tg-0lax">97.09</td>
-          <td class="tg-dg7a">3.95</td>
-          <td class="tg-0lax">3.89</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">노어노문학과</td>
-          <td class="tg-dg7a">10</td>
-          <td class="tg-0lax">10.3</td>
-          <td class="tg-dg7a">5번</td>
-          <td class="tg-0lax">94.46</td>
-          <td class="tg-dg7a">0.43</td>
-          <td class="tg-0lax">94.9</td>
-          <td class="tg-dg7a">3.87</td>
-          <td class="tg-0lax">3.92</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">한문학과</td>
-          <td class="tg-dg7a">6</td>
-          <td class="tg-0lax">15.33</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">97.61</td>
-          <td class="tg-dg7a">0.44</td>
-          <td class="tg-0lax">98.06</td>
-          <td class="tg-dg7a">3.29</td>
-          <td class="tg-0lax">3.34</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">언어정보학과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">10.88</td>
-          <td class="tg-dg7a">4번</td>
-          <td class="tg-0lax">97.65</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.13</td>
-          <td class="tg-dg7a">3.27</td>
-          <td class="tg-0lax">3.31</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">사학과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">10.88</td>
-          <td class="tg-dg7a">9번</td>
-          <td class="tg-0lax">98.03</td>
-          <td class="tg-dg7a">0.46</td>
-          <td class="tg-0lax">98.49</td>
-          <td class="tg-dg7a">2.92</td>
-          <td class="tg-0lax">2.85</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">철학과</td>
-          <td class="tg-dg7a">7</td>
-          <td class="tg-0lax">14.86</td>
-          <td class="tg-dg7a">9번</td>
-          <td class="tg-0lax">97.53</td>
-          <td class="tg-dg7a">0.46</td>
-          <td class="tg-0lax">97.99</td>
-          <td class="tg-dg7a">3.36</td>
-          <td class="tg-0lax">3.55</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">고고학과</td>
-          <td class="tg-dg7a">7</td>
-          <td class="tg-0lax">21.57</td>
-          <td class="tg-dg7a">4번</td>
-          <td class="tg-0lax">97.14</td>
-          <td class="tg-dg7a">0.43</td>
-          <td class="tg-0lax">97.58</td>
-          <td class="tg-dg7a">3.78</td>
-          <td class="tg-0lax">3.88</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">행정학과</td>
-          <td class="tg-dg7a">12</td>
-          <td class="tg-0lax">20.33</td>
-          <td class="tg-dg7a">12번</td>
-          <td class="tg-0lax">98.6</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.1</td>
-          <td class="tg-dg7a">2.29</td>
-          <td class="tg-0lax">2.36</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">정치외교학과</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">11.82</td>
-          <td class="tg-dg7a">14번</td>
-          <td class="tg-0lax">98.44</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.93</td>
-          <td class="tg-dg7a">2.51</td>
-          <td class="tg-0lax">2.54</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">사회복지학과</td>
-          <td class="tg-dg7a">10</td>
-          <td class="tg-0lax">10.3</td>
-          <td class="tg-dg7a">8번</td>
-          <td class="tg-0lax">97.83</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.31</td>
-          <td class="tg-dg7a">3.04</td>
-          <td class="tg-0lax">3.25</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">사회학과</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">11.64</td>
-          <td class="tg-dg7a">16번</td>
-          <td class="tg-0lax">97.72</td>
-          <td class="tg-dg7a">0.45</td>
-          <td class="tg-0lax">98.17</td>
-          <td class="tg-dg7a">3.21</td>
-          <td class="tg-0lax">3.43</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">심리학과</td>
-          <td class="tg-dg7a">10</td>
-          <td class="tg-0lax">19.7</td>
-          <td class="tg-dg7a">8번</td>
-          <td class="tg-0lax">98.41</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.89</td>
-          <td class="tg-dg7a">2.5</td>
-          <td class="tg-0lax">2.75</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">문헌정보학과</td>
-          <td class="tg-dg7a">9</td>
-          <td class="tg-0lax">11</td>
-          <td class="tg-dg7a">10번</td>
-          <td class="tg-0lax">98.33</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.83</td>
-          <td class="tg-dg7a">2.61</td>
-          <td class="tg-0lax">2.71</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">미디어커뮤니케이션학과</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">14.09</td>
-          <td class="tg-dg7a">12번</td>
-          <td class="tg-0lax">98.63</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">99.11</td>
-          <td class="tg-dg7a">2.3</td>
-          <td class="tg-0lax">2.45</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">수학과</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">12.09</td>
-          <td class="tg-dg7a">16번</td>
-          <td class="tg-0lax">98.36</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.84</td>
-          <td class="tg-dg7a">2.64</td>
-          <td class="tg-0lax">2.65</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">통계학과</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">8.73</td>
-          <td class="tg-dg7a">11번</td>
-          <td class="tg-0lax">98.21</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.71</td>
-          <td class="tg-dg7a">2.78</td>
-          <td class="tg-0lax">2.83</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">물리학과</td>
-          <td class="tg-dg7a">12</td>
-          <td class="tg-0lax">10.75</td>
-          <td class="tg-dg7a">16번</td>
-          <td class="tg-0lax">97.69</td>
-          <td class="tg-dg7a">0.47</td>
-          <td class="tg-0lax">98.16</td>
-          <td class="tg-dg7a">3.43</td>
-          <td class="tg-0lax">3.65</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">화학과</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">9.73</td>
-          <td class="tg-dg7a">6번</td>
-          <td class="tg-0lax">98.69</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.19</td>
-          <td class="tg-dg7a">2.28</td>
-          <td class="tg-0lax">2.4</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">생명과학과</td>
-          <td class="tg-dg7a">12</td>
-          <td class="tg-0lax">10.92</td>
-          <td class="tg-dg7a">10번</td>
-          <td class="tg-0lax">98.73</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.23</td>
-          <td class="tg-dg7a">2.25</td>
-          <td class="tg-0lax">2.5</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">미생물학과</td>
-          <td class="tg-dg7a">10</td>
-          <td class="tg-0lax">17.1</td>
-          <td class="tg-dg7a">11번</td>
-          <td class="tg-0lax">98.04</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.54</td>
-          <td class="tg-dg7a">2.9</td>
-          <td class="tg-0lax">2.98</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">분자생물학과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">13</td>
-          <td class="tg-dg7a">8번</td>
-          <td class="tg-0lax">98.31</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">98.8</td>
-          <td class="tg-dg7a">2.68</td>
-          <td class="tg-0lax">2.65</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">지질환경과학과</td>
-          <td class="tg-dg7a">10</td>
-          <td class="tg-0lax">15.3</td>
-          <td class="tg-dg7a">6번</td>
-          <td class="tg-0lax">97.44</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">97.92</td>
-          <td class="tg-dg7a">3.62</td>
-          <td class="tg-0lax">3.68</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">대기환경과학과</td>
-          <td class="tg-dg7a">7</td>
-          <td class="tg-0lax">15.86</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">98.17</td>
-          <td class="tg-dg7a">0.47</td>
-          <td class="tg-0lax">98.64</td>
-          <td class="tg-dg7a">2.81</td>
-          <td class="tg-0lax">2.86</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">해양학과</td>
-          <td class="tg-dg7a">12</td>
-          <td class="tg-0lax">13.67</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">97.61</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.09</td>
-          <td class="tg-dg7a">3.37</td>
-          <td class="tg-0lax">3.53</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">기계공학부</td>
-          <td class="tg-dg7a">70</td>
-          <td class="tg-0lax">12.56</td>
-          <td class="tg-dg7a">77번</td>
-          <td class="tg-0lax">98.87</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.37</td>
-          <td class="tg-dg7a">2.13</td>
-          <td class="tg-0lax">2.26</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">고분자공학과</td>
-          <td class="tg-dg7a">10</td>
-          <td class="tg-0lax">19.3</td>
-          <td class="tg-dg7a">11번</td>
-          <td class="tg-0lax">98.69</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.19</td>
-          <td class="tg-dg7a">2.34</td>
-          <td class="tg-0lax">2.42</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">유기소재시스템공학과</td>
-          <td class="tg-dg7a">13</td>
-          <td class="tg-0lax">12.38</td>
-          <td class="tg-dg7a">14번</td>
-          <td class="tg-0lax">98.37</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.87</td>
-          <td class="tg-dg7a">2.67</td>
-          <td class="tg-0lax">2.86</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">화공생명.환경공학부(화공생명공학전공)</td>
-          <td class="tg-dg7a">13</td>
-          <td class="tg-0lax">15.62</td>
-          <td class="tg-dg7a">17번</td>
-          <td class="tg-0lax">99.35</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.85</td>
-          <td class="tg-dg7a">1.61</td>
-          <td class="tg-0lax">1.69</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">화공생명.환경공학부(환경공학전공)</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">14</td>
-          <td class="tg-dg7a">5번</td>
-          <td class="tg-0lax">98.54</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.04</td>
-          <td class="tg-dg7a">2.43</td>
-          <td class="tg-0lax">2.54</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">재료공학부</td>
-          <td class="tg-dg7a">18</td>
-          <td class="tg-0lax">11.72</td>
-          <td class="tg-dg7a">15번</td>
-          <td class="tg-0lax">98.61</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.1</td>
-          <td class="tg-dg7a">2.46</td>
-          <td class="tg-0lax">2.55</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">전자공학과</td>
-          <td class="tg-dg7a">18</td>
-          <td class="tg-0lax">14.5</td>
-          <td class="tg-dg7a">36번</td>
-          <td class="tg-0lax">99.04</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.54</td>
-          <td class="tg-dg7a">1.93</td>
-          <td class="tg-0lax">1.96</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">전기공학과</td>
-          <td class="tg-dg7a">14</td>
-          <td class="tg-0lax">22.93</td>
-          <td class="tg-dg7a">18번</td>
-          <td class="tg-0lax">98.77</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.27</td>
-          <td class="tg-dg7a">2.22</td>
-          <td class="tg-0lax">2.3</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">건설융합학부(건축공학전공)</td>
-          <td class="tg-dg7a">9</td>
-          <td class="tg-0lax">15.67</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">98.09</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">98.58</td>
-          <td class="tg-dg7a">2.98</td>
-          <td class="tg-0lax">2.92</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">건설융합학부(건축학전공)</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">20</td>
-          <td class="tg-dg7a">11번</td>
-          <td class="tg-0lax">98.18</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.66</td>
-          <td class="tg-dg7a">2.82</td>
-          <td class="tg-0lax">2.98</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">건설융합학부(도시공학전공)</td>
-          <td class="tg-dg7a">9</td>
-          <td class="tg-0lax">14.67</td>
-          <td class="tg-dg7a">2번</td>
-          <td class="tg-0lax">97.79</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">98.28</td>
-          <td class="tg-dg7a">3.23</td>
-          <td class="tg-0lax">3.3</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">건설융합학부(토목공학전공)</td>
-          <td class="tg-dg7a">12</td>
-          <td class="tg-0lax">19.92</td>
-          <td class="tg-dg7a">16번</td>
-          <td class="tg-0lax">97.81</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.29</td>
-          <td class="tg-dg7a">3.26</td>
-          <td class="tg-0lax">3.4</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">항공우주공학과</td>
-          <td class="tg-dg7a">13</td>
-          <td class="tg-0lax">14.62</td>
-          <td class="tg-dg7a">16번</td>
-          <td class="tg-0lax">98.35</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.85</td>
-          <td class="tg-dg7a">2.62</td>
-          <td class="tg-0lax">2.72</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">산업공학과</td>
-          <td class="tg-dg7a">13</td>
-          <td class="tg-0lax">12.92</td>
-          <td class="tg-dg7a">11번</td>
-          <td class="tg-0lax">98.34</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">98.83</td>
-          <td class="tg-dg7a">2.61</td>
-          <td class="tg-0lax">2.74</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">조선해양공학과</td>
-          <td class="tg-dg7a">19</td>
-          <td class="tg-0lax">14.79</td>
-          <td class="tg-dg7a">8번</td>
-          <td class="tg-0lax">97.77</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.25</td>
-          <td class="tg-dg7a">3.21</td>
-          <td class="tg-0lax">3.27</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">국어교육과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">9.38</td>
-          <td class="tg-dg7a">20번</td>
-          <td class="tg-0lax">98.33</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">98.83</td>
-          <td class="tg-dg7a">2.66</td>
-          <td class="tg-0lax">2.84</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">영어교육과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">9.5</td>
-          <td class="tg-dg7a">10번</td>
-          <td class="tg-0lax">98.99</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.49</td>
-          <td class="tg-dg7a">1.92</td>
-          <td class="tg-0lax">1.93</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">독어교육과</td>
-          <td class="tg-dg7a">9</td>
-          <td class="tg-0lax">7.56</td>
-          <td class="tg-dg7a">9번</td>
-          <td class="tg-0lax">97.62</td>
-          <td class="tg-dg7a">0.44</td>
-          <td class="tg-0lax">98.07</td>
-          <td class="tg-dg7a">3.3</td>
-          <td class="tg-0lax">3.37</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">교육학과</td>
-          <td class="tg-dg7a">3</td>
-          <td class="tg-0lax">8.33</td>
-          <td class="tg-dg7a">1번</td>
-          <td class="tg-0lax">98.54</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.04</td>
-          <td class="tg-dg7a">2.4</td>
-          <td class="tg-0lax">2.41</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">유아교육과</td>
-          <td class="tg-dg7a">6</td>
-          <td class="tg-0lax">13.5</td>
-          <td class="tg-dg7a">1번</td>
-          <td class="tg-0lax">98.6</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">99.08</td>
-          <td class="tg-dg7a">2.39</td>
-          <td class="tg-0lax">2.55</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">특수교육과</td>
-          <td class="tg-dg7a">6</td>
-          <td class="tg-0lax">7.5</td>
-          <td class="tg-dg7a">1번</td>
-          <td class="tg-0lax">97.86</td>
-          <td class="tg-dg7a">0.47</td>
-          <td class="tg-0lax">98.32</td>
-          <td class="tg-dg7a">3.05</td>
-          <td class="tg-0lax">3.38</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">일반사회교육과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">8.88</td>
-          <td class="tg-dg7a">11번</td>
-          <td class="tg-0lax">98.25</td>
-          <td class="tg-dg7a">0.46</td>
-          <td class="tg-0lax">98.71</td>
-          <td class="tg-dg7a">2.67</td>
-          <td class="tg-0lax">2.47</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">역사교육과</td>
-          <td class="tg-dg7a">4</td>
-          <td class="tg-0lax">8.75</td>
-          <td class="tg-dg7a">6번</td>
-          <td class="tg-0lax">98.46</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.95</td>
-          <td class="tg-dg7a">2.49</td>
-          <td class="tg-0lax">2.49</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">지리교육과</td>
-          <td class="tg-dg7a">6</td>
-          <td class="tg-0lax">9</td>
-          <td class="tg-dg7a">13번</td>
-          <td class="tg-0lax">98.5</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.98</td>
-          <td class="tg-dg7a">2.43</td>
-          <td class="tg-0lax">2.65</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">윤리교육과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">9.5</td>
-          <td class="tg-dg7a">14번</td>
-          <td class="tg-0lax">98.64</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.14</td>
-          <td class="tg-dg7a">2.32</td>
-          <td class="tg-0lax">2.36</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">수학교육과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">13.38</td>
-          <td class="tg-dg7a">9번</td>
-          <td class="tg-0lax">99.01</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.51</td>
-          <td class="tg-dg7a">1.95</td>
-          <td class="tg-0lax">1.94</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">화학교육과</td>
-          <td class="tg-dg7a">5</td>
-          <td class="tg-0lax">10.4</td>
-          <td class="tg-dg7a">12번</td>
-          <td class="tg-0lax">98.47</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.97</td>
-          <td class="tg-dg7a">2.52</td>
-          <td class="tg-0lax">2.32</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">생물교육과</td>
-          <td class="tg-dg7a">7</td>
-          <td class="tg-0lax">15</td>
-          <td class="tg-dg7a">7번</td>
-          <td class="tg-0lax">98.74</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">99.23</td>
-          <td class="tg-dg7a">2.23</td>
-          <td class="tg-0lax">2.36</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">지구과학교육과</td>
-          <td class="tg-dg7a">5</td>
-          <td class="tg-0lax">24.4</td>
-          <td class="tg-dg7a">9번</td>
-          <td class="tg-0lax">98.48</td>
-          <td class="tg-dg7a">0.43</td>
-          <td class="tg-0lax">98.92</td>
-          <td class="tg-dg7a">2.46</td>
-          <td class="tg-0lax">2.56</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">경영학과</td>
-          <td class="tg-dg7a">50</td>
-          <td class="tg-0lax">13.32</td>
-          <td class="tg-dg7a">40번</td>
-          <td class="tg-0lax">98.56</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">99.05</td>
-          <td class="tg-dg7a">2.36</td>
-          <td class="tg-0lax">2.56</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">무역학부</td>
-          <td class="tg-dg7a">25</td>
-          <td class="tg-0lax">11.72</td>
-          <td class="tg-dg7a">23번</td>
-          <td class="tg-0lax">98.59</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.09</td>
-          <td class="tg-dg7a">2.36</td>
-          <td class="tg-0lax">2.48</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">경제학부</td>
-          <td class="tg-dg7a">22</td>
-          <td class="tg-0lax">12.73</td>
-          <td class="tg-dg7a">33번</td>
-          <td class="tg-0lax">98.64</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">99.13</td>
-          <td class="tg-dg7a">2.3</td>
-          <td class="tg-0lax">2.5</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">관광컨벤션학과</td>
-          <td class="tg-dg7a">4</td>
-          <td class="tg-0lax">12.75</td>
-          <td class="tg-dg7a">0번</td>
-          <td class="tg-0lax">98.43</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.93</td>
-          <td class="tg-dg7a">2.59</td>
-          <td class="tg-0lax">2.61</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">공공정책학부</td>
-          <td class="tg-dg7a">5</td>
-          <td class="tg-0lax">10</td>
-          <td class="tg-dg7a">7번</td>
-          <td class="tg-0lax">98.68</td>
-          <td class="tg-dg7a">0.47</td>
-          <td class="tg-0lax">99.15</td>
-          <td class="tg-dg7a">2.27</td>
-          <td class="tg-0lax">2.35</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">간호학과</td>
-          <td class="tg-dg7a">5</td>
-          <td class="tg-0lax">17</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">99.03</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.53</td>
-          <td class="tg-dg7a">1.9</td>
-          <td class="tg-0lax">1.89</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">아동가족학과</td>
-          <td class="tg-dg7a">7</td>
-          <td class="tg-0lax">10.14</td>
-          <td class="tg-dg7a">5번</td>
-          <td class="tg-0lax">97.63</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.13</td>
-          <td class="tg-dg7a">3.32</td>
-          <td class="tg-0lax">3.6</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">의류학과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">15.75</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">97.76</td>
-          <td class="tg-dg7a">0.42</td>
-          <td class="tg-0lax">98.18</td>
-          <td class="tg-dg7a">3.21</td>
-          <td class="tg-0lax">3.41</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">식품영양학과</td>
-          <td class="tg-dg7a">12</td>
-          <td class="tg-0lax">8.33</td>
-          <td class="tg-dg7a">17번</td>
-          <td class="tg-0lax">98.28</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">98.78</td>
-          <td class="tg-dg7a">2.65</td>
-          <td class="tg-0lax">2.63</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">실내환경디자인학과</td>
-          <td class="tg-dg7a">6</td>
-          <td class="tg-0lax">16.5</td>
-          <td class="tg-dg7a">7번</td>
-          <td class="tg-0lax">97.89</td>
-          <td class="tg-dg7a">0.46</td>
-          <td class="tg-0lax">98.35</td>
-          <td class="tg-dg7a">3.05</td>
-          <td class="tg-0lax">3.07</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">디자인학과(디자인앤테크놀로지전공)</td>
-          <td class="tg-dg7a">6</td>
-          <td class="tg-0lax">9.83</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">98.43</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.91</td>
-          <td class="tg-dg7a">2.58</td>
-          <td class="tg-0lax">2.49</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">예술문화영상학과</td>
-          <td class="tg-dg7a">5</td>
-          <td class="tg-0lax">11.4</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">98.41</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.91</td>
-          <td class="tg-dg7a">2.62</td>
-          <td class="tg-0lax">2.59</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">식물생명과학과</td>
-          <td class="tg-dg7a">4</td>
-          <td class="tg-0lax">10.25</td>
-          <td class="tg-dg7a">4번</td>
-          <td class="tg-0lax">97.44</td>
-          <td class="tg-dg7a">0.43</td>
-          <td class="tg-0lax">97.87</td>
-          <td class="tg-dg7a">3.37</td>
-          <td class="tg-0lax">3.43</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">원예생명과학과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">9.25</td>
-          <td class="tg-dg7a">10번</td>
-          <td class="tg-0lax">95.45</td>
-          <td class="tg-dg7a">0.43</td>
-          <td class="tg-0lax">95.88</td>
-          <td class="tg-dg7a">4.7</td>
-          <td class="tg-0lax">4.93</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">동물생명자원과학과</td>
-          <td class="tg-dg7a">6</td>
-          <td class="tg-0lax">21.83</td>
-          <td class="tg-dg7a">10번</td>
-          <td class="tg-0lax">96.92</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">97.4</td>
-          <td class="tg-dg7a">4.05</td>
-          <td class="tg-0lax">4.45</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">식품공학과</td>
-          <td class="tg-dg7a">5</td>
-          <td class="tg-0lax">8</td>
-          <td class="tg-dg7a">10번</td>
-          <td class="tg-0lax">92.53</td>
-          <td class="tg-dg7a">0.35</td>
-          <td class="tg-0lax">92.88</td>
-          <td class="tg-dg7a">5.06</td>
-          <td class="tg-0lax">4.27</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">생명환경화학과</td>
-          <td class="tg-dg7a">6</td>
-          <td class="tg-0lax">14.33</td>
-          <td class="tg-dg7a">16번</td>
-          <td class="tg-0lax">97.36</td>
-          <td class="tg-dg7a">0.43</td>
-          <td class="tg-0lax">97.79</td>
-          <td class="tg-dg7a">3.59</td>
-          <td class="tg-0lax">3.58</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">바이오소재과학과</td>
-          <td class="tg-dg7a">6</td>
-          <td class="tg-0lax">10.17</td>
-          <td class="tg-dg7a">12번</td>
-          <td class="tg-0lax">97.33</td>
-          <td class="tg-dg7a">0.44</td>
-          <td class="tg-0lax">97.78</td>
-          <td class="tg-dg7a">3.68</td>
-          <td class="tg-0lax">3.78</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">바이오산업기계공학과</td>
-          <td class="tg-dg7a">5</td>
-          <td class="tg-0lax">10.2</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">97.52</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">98.01</td>
-          <td class="tg-dg7a">3.5</td>
-          <td class="tg-0lax">3.6</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">IT응용공학과</td>
-          <td class="tg-dg7a">5</td>
-          <td class="tg-0lax">14.2</td>
-          <td class="tg-dg7a">6번</td>
-          <td class="tg-0lax">98.04</td>
-          <td class="tg-dg7a">0.46</td>
-          <td class="tg-0lax">98.5</td>
-          <td class="tg-dg7a">3.13</td>
-          <td class="tg-0lax">3.05</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">바이오환경에너지학과</td>
-          <td class="tg-dg7a">7</td>
-          <td class="tg-0lax">10.57</td>
-          <td class="tg-dg7a">11번</td>
-          <td class="tg-0lax">96.34</td>
-          <td class="tg-dg7a">0.39</td>
-          <td class="tg-0lax">96.73</td>
-          <td class="tg-dg7a">4.27</td>
-          <td class="tg-0lax">4.25</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">조경학과</td>
-          <td class="tg-dg7a">11</td>
-          <td class="tg-0lax">8.55</td>
-          <td class="tg-dg7a">12번</td>
-          <td class="tg-0lax">96.23</td>
-          <td class="tg-dg7a">0.36</td>
-          <td class="tg-0lax">96.59</td>
-          <td class="tg-dg7a">4.41</td>
-          <td class="tg-0lax">4.58</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">식품자원경제학과</td>
-          <td class="tg-dg7a">7</td>
-          <td class="tg-0lax">8.57</td>
-          <td class="tg-dg7a">1번</td>
-          <td class="tg-0lax">97.06</td>
-          <td class="tg-dg7a">0.48</td>
-          <td class="tg-0lax">97.55</td>
-          <td class="tg-dg7a">3.87</td>
-          <td class="tg-0lax">3.44</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">광메카트로닉스공학과</td>
-          <td class="tg-dg7a">7</td>
-          <td class="tg-0lax">14.71</td>
-          <td class="tg-dg7a">4번</td>
-          <td class="tg-0lax">98.11</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">98.61</td>
-          <td class="tg-dg7a">2.87</td>
-          <td class="tg-0lax">3.02</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">나노에너지공학과</td>
-          <td class="tg-dg7a">12</td>
-          <td class="tg-0lax">20.33</td>
-          <td class="tg-dg7a">3번</td>
-          <td class="tg-0lax">97.81</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">98.3</td>
-          <td class="tg-dg7a">3.14</td>
-          <td class="tg-0lax">3.3</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">나노메카트로닉스공학과</td>
-          <td class="tg-dg7a">8</td>
-          <td class="tg-0lax">14.63</td>
-          <td class="tg-dg7a">6번</td>
-          <td class="tg-0lax">98.09</td>
-          <td class="tg-dg7a">0.49</td>
-          <td class="tg-0lax">98.58</td>
-          <td class="tg-dg7a">2.79</td>
-          <td class="tg-0lax">2.8</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">스포츠과학부</td>
-          <td class="tg-dg7a">10</td>
-          <td class="tg-0lax">11.6</td>
-          <td class="tg-dg7a">1번</td>
-          <td class="tg-0lax">96.92</td>
-          <td class="tg-dg7a">0.41</td>
-          <td class="tg-0lax">97.33</td>
-          <td class="tg-dg7a">3.66</td>
-          <td class="tg-0lax">3.46</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">의예과</td>
-          <td class="tg-dg7a">15</td>
-          <td class="tg-0lax">23.53</td>
-          <td class="tg-dg7a">19번</td>
-          <td class="tg-0lax">99.95</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">100.45</td>
-          <td class="tg-dg7a">1.05</td>
-          <td class="tg-0lax">1.06</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">한의학전문대학원(학ㆍ석사통합과정)</td>
-          <td class="tg-dg7a">5</td>
-          <td class="tg-0lax">42.6</td>
-          <td class="tg-dg7a">6번</td>
-          <td class="tg-0lax">99.56</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">100.06</td>
-          <td class="tg-dg7a">1.47</td>
-          <td class="tg-0lax">1.46</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">정보컴퓨터공학부</td>
-          <td class="tg-dg7a">17</td>
-          <td class="tg-0lax">36.41</td>
-          <td class="tg-dg7a">25번</td>
-          <td class="tg-0lax">99</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.5</td>
-          <td class="tg-dg7a">2.01</td>
-          <td class="tg-0lax">2.12</td>
-        </tr>
-        <tr>
-          <td class="tg-0lax">의생명융합공학부</td>
-          <td class="tg-dg7a">14</td>
-          <td class="tg-0lax">15.79</td>
-          <td class="tg-dg7a">10번</td>
-          <td class="tg-0lax">98.61</td>
-          <td class="tg-dg7a">0.5</td>
-          <td class="tg-0lax">99.11</td>
-          <td class="tg-dg7a">2.34</td>
-          <td class="tg-0lax">2.41</td>
-        </tr>
-      </tbody>
-    </table>
-
+      <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-0lax">학과</th>
+            <th class="tg-0lax">모집인원</th>
+            <th class="tg-0lax">경쟁률</th>
+            <th class="tg-0lax">최종추합번호</th>
+            <th class="tg-0lax">석차점수</th>
+            <th class="tg-0lax">진로점수</th>
+            <th class="tg-0lax">평균총점수(70%)</th>
+            <th class="tg-0lax">평균등급</th>
+            <th class="tg-0lax">평균등급(70%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-0lax">국어국문학과</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">8.82</td>
+            <td class="tg-dg7a">6번</td>
+            <td class="tg-0lax">97.22</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">97.69</td>
+            <td class="tg-dg7a">3.5</td>
+            <td class="tg-0lax">3.75</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">중어중문학과</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">12.27</td>
+            <td class="tg-dg7a">9번</td>
+            <td class="tg-0lax">97.98</td>
+            <td class="tg-dg7a">0.4</td>
+            <td class="tg-0lax">98.37</td>
+            <td class="tg-dg7a">2.96</td>
+            <td class="tg-0lax">3.03</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">일어일문학과</td>
+            <td class="tg-dg7a">10</td>
+            <td class="tg-0lax">9.9</td>
+            <td class="tg-dg7a">0번</td>
+            <td class="tg-0lax">97.3</td>
+            <td class="tg-dg7a">0.41</td>
+            <td class="tg-0lax">97.71</td>
+            <td class="tg-dg7a">3.4</td>
+            <td class="tg-0lax">3.16</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">영어영문학과</td>
+            <td class="tg-dg7a">15</td>
+            <td class="tg-0lax">18.47</td>
+            <td class="tg-dg7a">14번</td>
+            <td class="tg-0lax">98.02</td>
+            <td class="tg-dg7a">0.47</td>
+            <td class="tg-0lax">98.49</td>
+            <td class="tg-dg7a">2.89</td>
+            <td class="tg-0lax">3.09</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">불어불문학과</td>
+            <td class="tg-dg7a">9</td>
+            <td class="tg-0lax">10.11</td>
+            <td class="tg-dg7a">0번</td>
+            <td class="tg-0lax">94.55</td>
+            <td class="tg-dg7a">0.44</td>
+            <td class="tg-0lax">94.99</td>
+            <td class="tg-dg7a">4.07</td>
+            <td class="tg-0lax">3.66</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">독어독문학과</td>
+            <td class="tg-dg7a">16</td>
+            <td class="tg-0lax">11.19</td>
+            <td class="tg-dg7a">7번</td>
+            <td class="tg-0lax">96.71</td>
+            <td class="tg-dg7a">0.37</td>
+            <td class="tg-0lax">97.09</td>
+            <td class="tg-dg7a">3.95</td>
+            <td class="tg-0lax">3.89</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">노어노문학과</td>
+            <td class="tg-dg7a">10</td>
+            <td class="tg-0lax">10.3</td>
+            <td class="tg-dg7a">5번</td>
+            <td class="tg-0lax">94.46</td>
+            <td class="tg-dg7a">0.43</td>
+            <td class="tg-0lax">94.9</td>
+            <td class="tg-dg7a">3.87</td>
+            <td class="tg-0lax">3.92</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">한문학과</td>
+            <td class="tg-dg7a">6</td>
+            <td class="tg-0lax">15.33</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">97.61</td>
+            <td class="tg-dg7a">0.44</td>
+            <td class="tg-0lax">98.06</td>
+            <td class="tg-dg7a">3.29</td>
+            <td class="tg-0lax">3.34</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">언어정보학과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">10.88</td>
+            <td class="tg-dg7a">4번</td>
+            <td class="tg-0lax">97.65</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.13</td>
+            <td class="tg-dg7a">3.27</td>
+            <td class="tg-0lax">3.31</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">사학과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">10.88</td>
+            <td class="tg-dg7a">9번</td>
+            <td class="tg-0lax">98.03</td>
+            <td class="tg-dg7a">0.46</td>
+            <td class="tg-0lax">98.49</td>
+            <td class="tg-dg7a">2.92</td>
+            <td class="tg-0lax">2.85</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">철학과</td>
+            <td class="tg-dg7a">7</td>
+            <td class="tg-0lax">14.86</td>
+            <td class="tg-dg7a">9번</td>
+            <td class="tg-0lax">97.53</td>
+            <td class="tg-dg7a">0.46</td>
+            <td class="tg-0lax">97.99</td>
+            <td class="tg-dg7a">3.36</td>
+            <td class="tg-0lax">3.55</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">고고학과</td>
+            <td class="tg-dg7a">7</td>
+            <td class="tg-0lax">21.57</td>
+            <td class="tg-dg7a">4번</td>
+            <td class="tg-0lax">97.14</td>
+            <td class="tg-dg7a">0.43</td>
+            <td class="tg-0lax">97.58</td>
+            <td class="tg-dg7a">3.78</td>
+            <td class="tg-0lax">3.88</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">행정학과</td>
+            <td class="tg-dg7a">12</td>
+            <td class="tg-0lax">20.33</td>
+            <td class="tg-dg7a">12번</td>
+            <td class="tg-0lax">98.6</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.1</td>
+            <td class="tg-dg7a">2.29</td>
+            <td class="tg-0lax">2.36</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">정치외교학과</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">11.82</td>
+            <td class="tg-dg7a">14번</td>
+            <td class="tg-0lax">98.44</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.93</td>
+            <td class="tg-dg7a">2.51</td>
+            <td class="tg-0lax">2.54</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">사회복지학과</td>
+            <td class="tg-dg7a">10</td>
+            <td class="tg-0lax">10.3</td>
+            <td class="tg-dg7a">8번</td>
+            <td class="tg-0lax">97.83</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.31</td>
+            <td class="tg-dg7a">3.04</td>
+            <td class="tg-0lax">3.25</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">사회학과</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">11.64</td>
+            <td class="tg-dg7a">16번</td>
+            <td class="tg-0lax">97.72</td>
+            <td class="tg-dg7a">0.45</td>
+            <td class="tg-0lax">98.17</td>
+            <td class="tg-dg7a">3.21</td>
+            <td class="tg-0lax">3.43</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">심리학과</td>
+            <td class="tg-dg7a">10</td>
+            <td class="tg-0lax">19.7</td>
+            <td class="tg-dg7a">8번</td>
+            <td class="tg-0lax">98.41</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.89</td>
+            <td class="tg-dg7a">2.5</td>
+            <td class="tg-0lax">2.75</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">문헌정보학과</td>
+            <td class="tg-dg7a">9</td>
+            <td class="tg-0lax">11</td>
+            <td class="tg-dg7a">10번</td>
+            <td class="tg-0lax">98.33</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.83</td>
+            <td class="tg-dg7a">2.61</td>
+            <td class="tg-0lax">2.71</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">미디어커뮤니케이션학과</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">14.09</td>
+            <td class="tg-dg7a">12번</td>
+            <td class="tg-0lax">98.63</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">99.11</td>
+            <td class="tg-dg7a">2.3</td>
+            <td class="tg-0lax">2.45</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">수학과</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">12.09</td>
+            <td class="tg-dg7a">16번</td>
+            <td class="tg-0lax">98.36</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.84</td>
+            <td class="tg-dg7a">2.64</td>
+            <td class="tg-0lax">2.65</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">통계학과</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">8.73</td>
+            <td class="tg-dg7a">11번</td>
+            <td class="tg-0lax">98.21</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.71</td>
+            <td class="tg-dg7a">2.78</td>
+            <td class="tg-0lax">2.83</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">물리학과</td>
+            <td class="tg-dg7a">12</td>
+            <td class="tg-0lax">10.75</td>
+            <td class="tg-dg7a">16번</td>
+            <td class="tg-0lax">97.69</td>
+            <td class="tg-dg7a">0.47</td>
+            <td class="tg-0lax">98.16</td>
+            <td class="tg-dg7a">3.43</td>
+            <td class="tg-0lax">3.65</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">화학과</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">9.73</td>
+            <td class="tg-dg7a">6번</td>
+            <td class="tg-0lax">98.69</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.19</td>
+            <td class="tg-dg7a">2.28</td>
+            <td class="tg-0lax">2.4</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">생명과학과</td>
+            <td class="tg-dg7a">12</td>
+            <td class="tg-0lax">10.92</td>
+            <td class="tg-dg7a">10번</td>
+            <td class="tg-0lax">98.73</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.23</td>
+            <td class="tg-dg7a">2.25</td>
+            <td class="tg-0lax">2.5</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">미생물학과</td>
+            <td class="tg-dg7a">10</td>
+            <td class="tg-0lax">17.1</td>
+            <td class="tg-dg7a">11번</td>
+            <td class="tg-0lax">98.04</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.54</td>
+            <td class="tg-dg7a">2.9</td>
+            <td class="tg-0lax">2.98</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">분자생물학과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">13</td>
+            <td class="tg-dg7a">8번</td>
+            <td class="tg-0lax">98.31</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">98.8</td>
+            <td class="tg-dg7a">2.68</td>
+            <td class="tg-0lax">2.65</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">지질환경과학과</td>
+            <td class="tg-dg7a">10</td>
+            <td class="tg-0lax">15.3</td>
+            <td class="tg-dg7a">6번</td>
+            <td class="tg-0lax">97.44</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">97.92</td>
+            <td class="tg-dg7a">3.62</td>
+            <td class="tg-0lax">3.68</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">대기환경과학과</td>
+            <td class="tg-dg7a">7</td>
+            <td class="tg-0lax">15.86</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">98.17</td>
+            <td class="tg-dg7a">0.47</td>
+            <td class="tg-0lax">98.64</td>
+            <td class="tg-dg7a">2.81</td>
+            <td class="tg-0lax">2.86</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">해양학과</td>
+            <td class="tg-dg7a">12</td>
+            <td class="tg-0lax">13.67</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">97.61</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.09</td>
+            <td class="tg-dg7a">3.37</td>
+            <td class="tg-0lax">3.53</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">기계공학부</td>
+            <td class="tg-dg7a">70</td>
+            <td class="tg-0lax">12.56</td>
+            <td class="tg-dg7a">77번</td>
+            <td class="tg-0lax">98.87</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.37</td>
+            <td class="tg-dg7a">2.13</td>
+            <td class="tg-0lax">2.26</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">고분자공학과</td>
+            <td class="tg-dg7a">10</td>
+            <td class="tg-0lax">19.3</td>
+            <td class="tg-dg7a">11번</td>
+            <td class="tg-0lax">98.69</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.19</td>
+            <td class="tg-dg7a">2.34</td>
+            <td class="tg-0lax">2.42</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">유기소재시스템공학과</td>
+            <td class="tg-dg7a">13</td>
+            <td class="tg-0lax">12.38</td>
+            <td class="tg-dg7a">14번</td>
+            <td class="tg-0lax">98.37</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.87</td>
+            <td class="tg-dg7a">2.67</td>
+            <td class="tg-0lax">2.86</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">화공생명.환경공학부(화공생명공학전공)</td>
+            <td class="tg-dg7a">13</td>
+            <td class="tg-0lax">15.62</td>
+            <td class="tg-dg7a">17번</td>
+            <td class="tg-0lax">99.35</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.85</td>
+            <td class="tg-dg7a">1.61</td>
+            <td class="tg-0lax">1.69</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">화공생명.환경공학부(환경공학전공)</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">14</td>
+            <td class="tg-dg7a">5번</td>
+            <td class="tg-0lax">98.54</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.04</td>
+            <td class="tg-dg7a">2.43</td>
+            <td class="tg-0lax">2.54</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">재료공학부</td>
+            <td class="tg-dg7a">18</td>
+            <td class="tg-0lax">11.72</td>
+            <td class="tg-dg7a">15번</td>
+            <td class="tg-0lax">98.61</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.1</td>
+            <td class="tg-dg7a">2.46</td>
+            <td class="tg-0lax">2.55</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">전자공학과</td>
+            <td class="tg-dg7a">18</td>
+            <td class="tg-0lax">14.5</td>
+            <td class="tg-dg7a">36번</td>
+            <td class="tg-0lax">99.04</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.54</td>
+            <td class="tg-dg7a">1.93</td>
+            <td class="tg-0lax">1.96</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">전기공학과</td>
+            <td class="tg-dg7a">14</td>
+            <td class="tg-0lax">22.93</td>
+            <td class="tg-dg7a">18번</td>
+            <td class="tg-0lax">98.77</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.27</td>
+            <td class="tg-dg7a">2.22</td>
+            <td class="tg-0lax">2.3</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">건설융합학부(건축공학전공)</td>
+            <td class="tg-dg7a">9</td>
+            <td class="tg-0lax">15.67</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">98.09</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">98.58</td>
+            <td class="tg-dg7a">2.98</td>
+            <td class="tg-0lax">2.92</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">건설융합학부(건축학전공)</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">20</td>
+            <td class="tg-dg7a">11번</td>
+            <td class="tg-0lax">98.18</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.66</td>
+            <td class="tg-dg7a">2.82</td>
+            <td class="tg-0lax">2.98</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">건설융합학부(도시공학전공)</td>
+            <td class="tg-dg7a">9</td>
+            <td class="tg-0lax">14.67</td>
+            <td class="tg-dg7a">2번</td>
+            <td class="tg-0lax">97.79</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">98.28</td>
+            <td class="tg-dg7a">3.23</td>
+            <td class="tg-0lax">3.3</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">건설융합학부(토목공학전공)</td>
+            <td class="tg-dg7a">12</td>
+            <td class="tg-0lax">19.92</td>
+            <td class="tg-dg7a">16번</td>
+            <td class="tg-0lax">97.81</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.29</td>
+            <td class="tg-dg7a">3.26</td>
+            <td class="tg-0lax">3.4</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">항공우주공학과</td>
+            <td class="tg-dg7a">13</td>
+            <td class="tg-0lax">14.62</td>
+            <td class="tg-dg7a">16번</td>
+            <td class="tg-0lax">98.35</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.85</td>
+            <td class="tg-dg7a">2.62</td>
+            <td class="tg-0lax">2.72</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">산업공학과</td>
+            <td class="tg-dg7a">13</td>
+            <td class="tg-0lax">12.92</td>
+            <td class="tg-dg7a">11번</td>
+            <td class="tg-0lax">98.34</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">98.83</td>
+            <td class="tg-dg7a">2.61</td>
+            <td class="tg-0lax">2.74</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">조선해양공학과</td>
+            <td class="tg-dg7a">19</td>
+            <td class="tg-0lax">14.79</td>
+            <td class="tg-dg7a">8번</td>
+            <td class="tg-0lax">97.77</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.25</td>
+            <td class="tg-dg7a">3.21</td>
+            <td class="tg-0lax">3.27</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">국어교육과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">9.38</td>
+            <td class="tg-dg7a">20번</td>
+            <td class="tg-0lax">98.33</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">98.83</td>
+            <td class="tg-dg7a">2.66</td>
+            <td class="tg-0lax">2.84</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">영어교육과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">9.5</td>
+            <td class="tg-dg7a">10번</td>
+            <td class="tg-0lax">98.99</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.49</td>
+            <td class="tg-dg7a">1.92</td>
+            <td class="tg-0lax">1.93</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">독어교육과</td>
+            <td class="tg-dg7a">9</td>
+            <td class="tg-0lax">7.56</td>
+            <td class="tg-dg7a">9번</td>
+            <td class="tg-0lax">97.62</td>
+            <td class="tg-dg7a">0.44</td>
+            <td class="tg-0lax">98.07</td>
+            <td class="tg-dg7a">3.3</td>
+            <td class="tg-0lax">3.37</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">교육학과</td>
+            <td class="tg-dg7a">3</td>
+            <td class="tg-0lax">8.33</td>
+            <td class="tg-dg7a">1번</td>
+            <td class="tg-0lax">98.54</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.04</td>
+            <td class="tg-dg7a">2.4</td>
+            <td class="tg-0lax">2.41</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">유아교육과</td>
+            <td class="tg-dg7a">6</td>
+            <td class="tg-0lax">13.5</td>
+            <td class="tg-dg7a">1번</td>
+            <td class="tg-0lax">98.6</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">99.08</td>
+            <td class="tg-dg7a">2.39</td>
+            <td class="tg-0lax">2.55</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">특수교육과</td>
+            <td class="tg-dg7a">6</td>
+            <td class="tg-0lax">7.5</td>
+            <td class="tg-dg7a">1번</td>
+            <td class="tg-0lax">97.86</td>
+            <td class="tg-dg7a">0.47</td>
+            <td class="tg-0lax">98.32</td>
+            <td class="tg-dg7a">3.05</td>
+            <td class="tg-0lax">3.38</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">일반사회교육과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">8.88</td>
+            <td class="tg-dg7a">11번</td>
+            <td class="tg-0lax">98.25</td>
+            <td class="tg-dg7a">0.46</td>
+            <td class="tg-0lax">98.71</td>
+            <td class="tg-dg7a">2.67</td>
+            <td class="tg-0lax">2.47</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">역사교육과</td>
+            <td class="tg-dg7a">4</td>
+            <td class="tg-0lax">8.75</td>
+            <td class="tg-dg7a">6번</td>
+            <td class="tg-0lax">98.46</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.95</td>
+            <td class="tg-dg7a">2.49</td>
+            <td class="tg-0lax">2.49</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">지리교육과</td>
+            <td class="tg-dg7a">6</td>
+            <td class="tg-0lax">9</td>
+            <td class="tg-dg7a">13번</td>
+            <td class="tg-0lax">98.5</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.98</td>
+            <td class="tg-dg7a">2.43</td>
+            <td class="tg-0lax">2.65</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">윤리교육과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">9.5</td>
+            <td class="tg-dg7a">14번</td>
+            <td class="tg-0lax">98.64</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.14</td>
+            <td class="tg-dg7a">2.32</td>
+            <td class="tg-0lax">2.36</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">수학교육과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">13.38</td>
+            <td class="tg-dg7a">9번</td>
+            <td class="tg-0lax">99.01</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.51</td>
+            <td class="tg-dg7a">1.95</td>
+            <td class="tg-0lax">1.94</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">화학교육과</td>
+            <td class="tg-dg7a">5</td>
+            <td class="tg-0lax">10.4</td>
+            <td class="tg-dg7a">12번</td>
+            <td class="tg-0lax">98.47</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.97</td>
+            <td class="tg-dg7a">2.52</td>
+            <td class="tg-0lax">2.32</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">생물교육과</td>
+            <td class="tg-dg7a">7</td>
+            <td class="tg-0lax">15</td>
+            <td class="tg-dg7a">7번</td>
+            <td class="tg-0lax">98.74</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">99.23</td>
+            <td class="tg-dg7a">2.23</td>
+            <td class="tg-0lax">2.36</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">지구과학교육과</td>
+            <td class="tg-dg7a">5</td>
+            <td class="tg-0lax">24.4</td>
+            <td class="tg-dg7a">9번</td>
+            <td class="tg-0lax">98.48</td>
+            <td class="tg-dg7a">0.43</td>
+            <td class="tg-0lax">98.92</td>
+            <td class="tg-dg7a">2.46</td>
+            <td class="tg-0lax">2.56</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">경영학과</td>
+            <td class="tg-dg7a">50</td>
+            <td class="tg-0lax">13.32</td>
+            <td class="tg-dg7a">40번</td>
+            <td class="tg-0lax">98.56</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">99.05</td>
+            <td class="tg-dg7a">2.36</td>
+            <td class="tg-0lax">2.56</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">무역학부</td>
+            <td class="tg-dg7a">25</td>
+            <td class="tg-0lax">11.72</td>
+            <td class="tg-dg7a">23번</td>
+            <td class="tg-0lax">98.59</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.09</td>
+            <td class="tg-dg7a">2.36</td>
+            <td class="tg-0lax">2.48</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">경제학부</td>
+            <td class="tg-dg7a">22</td>
+            <td class="tg-0lax">12.73</td>
+            <td class="tg-dg7a">33번</td>
+            <td class="tg-0lax">98.64</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">99.13</td>
+            <td class="tg-dg7a">2.3</td>
+            <td class="tg-0lax">2.5</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">관광컨벤션학과</td>
+            <td class="tg-dg7a">4</td>
+            <td class="tg-0lax">12.75</td>
+            <td class="tg-dg7a">0번</td>
+            <td class="tg-0lax">98.43</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.93</td>
+            <td class="tg-dg7a">2.59</td>
+            <td class="tg-0lax">2.61</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">공공정책학부</td>
+            <td class="tg-dg7a">5</td>
+            <td class="tg-0lax">10</td>
+            <td class="tg-dg7a">7번</td>
+            <td class="tg-0lax">98.68</td>
+            <td class="tg-dg7a">0.47</td>
+            <td class="tg-0lax">99.15</td>
+            <td class="tg-dg7a">2.27</td>
+            <td class="tg-0lax">2.35</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">간호학과</td>
+            <td class="tg-dg7a">5</td>
+            <td class="tg-0lax">17</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">99.03</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.53</td>
+            <td class="tg-dg7a">1.9</td>
+            <td class="tg-0lax">1.89</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">아동가족학과</td>
+            <td class="tg-dg7a">7</td>
+            <td class="tg-0lax">10.14</td>
+            <td class="tg-dg7a">5번</td>
+            <td class="tg-0lax">97.63</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.13</td>
+            <td class="tg-dg7a">3.32</td>
+            <td class="tg-0lax">3.6</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">의류학과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">15.75</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">97.76</td>
+            <td class="tg-dg7a">0.42</td>
+            <td class="tg-0lax">98.18</td>
+            <td class="tg-dg7a">3.21</td>
+            <td class="tg-0lax">3.41</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">식품영양학과</td>
+            <td class="tg-dg7a">12</td>
+            <td class="tg-0lax">8.33</td>
+            <td class="tg-dg7a">17번</td>
+            <td class="tg-0lax">98.28</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">98.78</td>
+            <td class="tg-dg7a">2.65</td>
+            <td class="tg-0lax">2.63</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">실내환경디자인학과</td>
+            <td class="tg-dg7a">6</td>
+            <td class="tg-0lax">16.5</td>
+            <td class="tg-dg7a">7번</td>
+            <td class="tg-0lax">97.89</td>
+            <td class="tg-dg7a">0.46</td>
+            <td class="tg-0lax">98.35</td>
+            <td class="tg-dg7a">3.05</td>
+            <td class="tg-0lax">3.07</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">디자인학과(디자인앤테크놀로지전공)</td>
+            <td class="tg-dg7a">6</td>
+            <td class="tg-0lax">9.83</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">98.43</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.91</td>
+            <td class="tg-dg7a">2.58</td>
+            <td class="tg-0lax">2.49</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">예술문화영상학과</td>
+            <td class="tg-dg7a">5</td>
+            <td class="tg-0lax">11.4</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">98.41</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.91</td>
+            <td class="tg-dg7a">2.62</td>
+            <td class="tg-0lax">2.59</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">식물생명과학과</td>
+            <td class="tg-dg7a">4</td>
+            <td class="tg-0lax">10.25</td>
+            <td class="tg-dg7a">4번</td>
+            <td class="tg-0lax">97.44</td>
+            <td class="tg-dg7a">0.43</td>
+            <td class="tg-0lax">97.87</td>
+            <td class="tg-dg7a">3.37</td>
+            <td class="tg-0lax">3.43</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">원예생명과학과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">9.25</td>
+            <td class="tg-dg7a">10번</td>
+            <td class="tg-0lax">95.45</td>
+            <td class="tg-dg7a">0.43</td>
+            <td class="tg-0lax">95.88</td>
+            <td class="tg-dg7a">4.7</td>
+            <td class="tg-0lax">4.93</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">동물생명자원과학과</td>
+            <td class="tg-dg7a">6</td>
+            <td class="tg-0lax">21.83</td>
+            <td class="tg-dg7a">10번</td>
+            <td class="tg-0lax">96.92</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">97.4</td>
+            <td class="tg-dg7a">4.05</td>
+            <td class="tg-0lax">4.45</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">식품공학과</td>
+            <td class="tg-dg7a">5</td>
+            <td class="tg-0lax">8</td>
+            <td class="tg-dg7a">10번</td>
+            <td class="tg-0lax">92.53</td>
+            <td class="tg-dg7a">0.35</td>
+            <td class="tg-0lax">92.88</td>
+            <td class="tg-dg7a">5.06</td>
+            <td class="tg-0lax">4.27</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">생명환경화학과</td>
+            <td class="tg-dg7a">6</td>
+            <td class="tg-0lax">14.33</td>
+            <td class="tg-dg7a">16번</td>
+            <td class="tg-0lax">97.36</td>
+            <td class="tg-dg7a">0.43</td>
+            <td class="tg-0lax">97.79</td>
+            <td class="tg-dg7a">3.59</td>
+            <td class="tg-0lax">3.58</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">바이오소재과학과</td>
+            <td class="tg-dg7a">6</td>
+            <td class="tg-0lax">10.17</td>
+            <td class="tg-dg7a">12번</td>
+            <td class="tg-0lax">97.33</td>
+            <td class="tg-dg7a">0.44</td>
+            <td class="tg-0lax">97.78</td>
+            <td class="tg-dg7a">3.68</td>
+            <td class="tg-0lax">3.78</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">바이오산업기계공학과</td>
+            <td class="tg-dg7a">5</td>
+            <td class="tg-0lax">10.2</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">97.52</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">98.01</td>
+            <td class="tg-dg7a">3.5</td>
+            <td class="tg-0lax">3.6</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">IT응용공학과</td>
+            <td class="tg-dg7a">5</td>
+            <td class="tg-0lax">14.2</td>
+            <td class="tg-dg7a">6번</td>
+            <td class="tg-0lax">98.04</td>
+            <td class="tg-dg7a">0.46</td>
+            <td class="tg-0lax">98.5</td>
+            <td class="tg-dg7a">3.13</td>
+            <td class="tg-0lax">3.05</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">바이오환경에너지학과</td>
+            <td class="tg-dg7a">7</td>
+            <td class="tg-0lax">10.57</td>
+            <td class="tg-dg7a">11번</td>
+            <td class="tg-0lax">96.34</td>
+            <td class="tg-dg7a">0.39</td>
+            <td class="tg-0lax">96.73</td>
+            <td class="tg-dg7a">4.27</td>
+            <td class="tg-0lax">4.25</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">조경학과</td>
+            <td class="tg-dg7a">11</td>
+            <td class="tg-0lax">8.55</td>
+            <td class="tg-dg7a">12번</td>
+            <td class="tg-0lax">96.23</td>
+            <td class="tg-dg7a">0.36</td>
+            <td class="tg-0lax">96.59</td>
+            <td class="tg-dg7a">4.41</td>
+            <td class="tg-0lax">4.58</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">식품자원경제학과</td>
+            <td class="tg-dg7a">7</td>
+            <td class="tg-0lax">8.57</td>
+            <td class="tg-dg7a">1번</td>
+            <td class="tg-0lax">97.06</td>
+            <td class="tg-dg7a">0.48</td>
+            <td class="tg-0lax">97.55</td>
+            <td class="tg-dg7a">3.87</td>
+            <td class="tg-0lax">3.44</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">광메카트로닉스공학과</td>
+            <td class="tg-dg7a">7</td>
+            <td class="tg-0lax">14.71</td>
+            <td class="tg-dg7a">4번</td>
+            <td class="tg-0lax">98.11</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">98.61</td>
+            <td class="tg-dg7a">2.87</td>
+            <td class="tg-0lax">3.02</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">나노에너지공학과</td>
+            <td class="tg-dg7a">12</td>
+            <td class="tg-0lax">20.33</td>
+            <td class="tg-dg7a">3번</td>
+            <td class="tg-0lax">97.81</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">98.3</td>
+            <td class="tg-dg7a">3.14</td>
+            <td class="tg-0lax">3.3</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">나노메카트로닉스공학과</td>
+            <td class="tg-dg7a">8</td>
+            <td class="tg-0lax">14.63</td>
+            <td class="tg-dg7a">6번</td>
+            <td class="tg-0lax">98.09</td>
+            <td class="tg-dg7a">0.49</td>
+            <td class="tg-0lax">98.58</td>
+            <td class="tg-dg7a">2.79</td>
+            <td class="tg-0lax">2.8</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">스포츠과학부</td>
+            <td class="tg-dg7a">10</td>
+            <td class="tg-0lax">11.6</td>
+            <td class="tg-dg7a">1번</td>
+            <td class="tg-0lax">96.92</td>
+            <td class="tg-dg7a">0.41</td>
+            <td class="tg-0lax">97.33</td>
+            <td class="tg-dg7a">3.66</td>
+            <td class="tg-0lax">3.46</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">의예과</td>
+            <td class="tg-dg7a">15</td>
+            <td class="tg-0lax">23.53</td>
+            <td class="tg-dg7a">19번</td>
+            <td class="tg-0lax">99.95</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">100.45</td>
+            <td class="tg-dg7a">1.05</td>
+            <td class="tg-0lax">1.06</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">한의학전문대학원(학ㆍ석사통합과정)</td>
+            <td class="tg-dg7a">5</td>
+            <td class="tg-0lax">42.6</td>
+            <td class="tg-dg7a">6번</td>
+            <td class="tg-0lax">99.56</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">100.06</td>
+            <td class="tg-dg7a">1.47</td>
+            <td class="tg-0lax">1.46</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">정보컴퓨터공학부</td>
+            <td class="tg-dg7a">17</td>
+            <td class="tg-0lax">36.41</td>
+            <td class="tg-dg7a">25번</td>
+            <td class="tg-0lax">99</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.5</td>
+            <td class="tg-dg7a">2.01</td>
+            <td class="tg-0lax">2.12</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">의생명융합공학부</td>
+            <td class="tg-dg7a">14</td>
+            <td class="tg-0lax">15.79</td>
+            <td class="tg-dg7a">10번</td>
+            <td class="tg-0lax">98.61</td>
+            <td class="tg-dg7a">0.5</td>
+            <td class="tg-0lax">99.11</td>
+            <td class="tg-dg7a">2.34</td>
+            <td class="tg-0lax">2.41</td>
+          </tr>
+      </table>
     <script>
       const toggleBtn = document.querySelector(".navbar__toogleBtn");
       const menu = document.querySelector(".navbar__menu");
