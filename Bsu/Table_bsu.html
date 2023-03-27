@@ -1216,11 +1216,13 @@
       var link = document.getElementById('link');
      	document.addEventListener('keydown', function(event) {
         shortcut += event.key.toLowerCase();
-        if (shortcut === 'honsi0312') {
+        if (shortcut === 'honsi') {
           window.location.href = link.href; 			
         } 		
       }); 		
-      document.addEventListener('keyup', function(event) { 			shortcut = ''; 		});
+      document.addEventListener('keyup', function(event) {
+        shortcut = ''; 		
+      });
     </script>
     <script
       src="https://kit.fontawesome.com/b17d4fa9e7.js"
