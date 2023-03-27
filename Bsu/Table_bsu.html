@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
-      .link {
-        display: none;
-      }
-
       .tg {
         border: none;
         border-collapse: collapse;
@@ -57,6 +53,18 @@
         display: block;
         width: calc(100% + 1.3px);
         height: 56px;
+      }
+      
+      #link1 {
+        display: none;
+      }
+
+      #link2 {
+        display: none;
+      }
+
+      #link3 {
+        display: none;
       }
 
       root {
@@ -209,7 +217,9 @@
         ></path>
       </svg>
     </div>
-    <a href="https://drive.google.com/file/d/1M9_xc-PeBvrARClnQ9wU7LFSzcnL9zLR/view?usp=drivesdk" id="link">fhsdf</a>
+    <a href="https://drive.google.com/file/d/1M9_xc-PeBvrARClnQ9wU7LFSzcnL9zLR/view?usp=drivesdk" id="link1"></a>
+    <a href="https://drive.google.com/file/d/1M9_xc-PeBvrARClnQ9wU7LFSzcnL9zLR/view?usp=drivesdk" id="link2"></a>
+    <a href="https://drive.google.com/file/d/1M9_xc-PeBvrARClnQ9wU7LFSzcnL9zLR/view?usp=drivesdk" id="link3"></a>
       <table class="tg">
         <thead>
           <tr>
@@ -1215,17 +1225,47 @@
         icons.classList.toggle("active");
       });
 
-      var shortcut = ''; 		
-      var link = document.getElementById('link');
-     	document.addEventListener('keydown', function(event) {
-        shortcut += event.key.toLowerCase();
-        if (shortcut === 'honsi') {
-          window.location.href = link.href; 			
-        } 		
-      }); 		
-      document.addEventListener('keyup', function(event) {
-        shortcut = ''; 		
-      });
+      var shortcut1 = '';
+		var link = document.getElementById('link1');
+
+		document.addEventListener('keydown', function(event) {
+			shortcut1 += event.key.toLowerCase();
+			if (shortcut1 === 'hong') {
+				window.location.href = link.href;
+			} 
+		});
+
+		document.addEventListener('keyup', function(event) {
+			shortcut1 = '';
+		});
+
+        var shortcut2 = '';
+		var link = document.getElementById('link2');
+
+		document.addEventListener('keydown', function(event) {
+			shortcut2 += event.key.toLowerCase();
+			if (shortcut2 === 'si') {
+				window.location.href = link.href;
+			} 
+		});
+
+		document.addEventListener('keyup', function(event) {
+			shortcut2 = '';
+		});
+
+        var shortcut3 = '';
+		var link = document.getElementById('link3');
+
+		document.addEventListener('keydown', function(event) {
+			shortcut3 += event.key.toLowerCase();
+			if (shortcut3 === 'luv') {
+				window.location.href = link.href;
+			}
+		});
+
+		document.addEventListener('keyup', function(event) {
+			shortcut3 = '';
+		});
     </script>
     <script
       src="https://kit.fontawesome.com/b17d4fa9e7.js"

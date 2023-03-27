@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Keyboard shortcut example</title>
+    <style>
+        a {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+	<a href="https://www.naver.com" id="link1">Example Link</a>
+    <a href="https://www.naver.com" id="link2">Example Link</a>
+    <a href="https://www.naver.com" id="link3">Example Link</a>
+
+	<script>
+		var shortcut1 = '';
+		var link = document.getElementById('link1');
+
+		document.addEventListener('keydown', function(event) {
+			shortcut1 += event.key.toLowerCase();
+			if (shortcut1 === 'hong') {
+				window.location.href = link.href;
+			} 
+		});
+
+		document.addEventListener('keyup', function(event) {
+			shortcut1 = '';
+		});
+
+        var shortcut2 = '';
+		var link = document.getElementById('link2');
+
+		document.addEventListener('keydown', function(event) {
+			shortcut2 += event.key.toLowerCase();
+			if (shortcut2 === 'si') {
+				window.location.href = link.href;
+			} 
+		});
+
+		document.addEventListener('keyup', function(event) {
+			shortcut2 = '';
+		});
+
+        var shortcut3 = '';
+		var link = document.getElementById('link3');
+
+		document.addEventListener('keydown', function(event) {
+			shortcut3 += event.key.toLowerCase();
+			if (shortcut3 === 'luv') {
+				window.location.href = link.href;
+			}
+		});
+
+		document.addEventListener('keyup', function(event) {
+			shortcut3 = '';
+		});
+	</script>
+
+</body>
+</html>
