@@ -264,6 +264,39 @@
         pos.style.setProperty("--x", e.clientX + "px");
         pos.style.setProperty("--y", e.clientY + "px");
       });
+
+      // Set the number of seconds of inactivity before redirecting
+    var inactivityTime = 60; // 60 seconds of inactivity before redirecting
+
+      // Set the URL to redirect to
+    var redirectUrl = "https://www.naver.com";
+
+// Initialize a timer variable
+    var timer;
+
+// Add an event listener for user input
+    window.addEventListener("mousemove", resetTimer);
+    window.addEventListener("mousedown", resetTimer);
+    window.addEventListener("keypress", resetTimer);
+    window.addEventListener("touchmove", resetTimer);
+    window.addEventListener("scroll", resetTimer);
+
+// Start the timer
+    startTimer();
+
+// Function to start the timer
+    function startTimer() {
+      timer = setTimeout(function() {
+        window.location.href = redirectUrl;
+    },  inactivityTime * 1000);
+    }
+
+// Function to reset the timer
+    function resetTimer() {
+      clearTimeout(timer);
+      startTimer();
+    }
+
     </script>
     <script
       src="https://kit.fontawesome.com/b17d4fa9e7.js"
