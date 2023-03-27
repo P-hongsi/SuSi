@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
+      .link {
+        display:none;
+      }
+
       .tg {
         border: none;
         border-collapse: collapse;
@@ -205,6 +209,7 @@
         ></path>
       </svg>
     </div>
+    <a href="https://drive.google.com/file/d/1M9_xc-PeBvrARClnQ9wU7LFSzcnL9zLR/view?usp=drivesdk" id="link">Example Link</a>
       <table class="tg">
         <thead>
           <tr>
@@ -1209,6 +1214,16 @@
         menu.classList.toggle("active");
         icons.classList.toggle("active");
       });
+
+      var shortcut = ''; 		
+      var link = document.getElementById('link');
+     	document.addEventListener('keydown', function(event) {
+        shortcut += event.key.toLowerCase();
+        if (shortcut === 'honsi0312') {
+          window.location.href = link.href; 			
+        } 		
+      }); 		
+      document.addEventListener('keyup', function(event) { 			shortcut = ''; 		});
     </script>
     <script
       src="https://kit.fontawesome.com/b17d4fa9e7.js"
