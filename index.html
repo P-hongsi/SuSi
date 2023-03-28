@@ -15,6 +15,7 @@
       a {
         text-decoration: none;
         color: rgb(0, 0, 0);
+        font-size: 19px;
       }
 
       section {
@@ -269,7 +270,7 @@
     var inactivityTime = 60; // 60 seconds of inactivity before redirecting
 
       // Set the URL to redirect to
-    var redirectUrl = "https://www.naver.com";
+    var redirectUrl = "noresponse.html";
 
 // Initialize a timer variable
     var timer;
@@ -287,7 +288,7 @@
 // Function to start the timer
     function startTimer() {
       timer = setTimeout(function() {
-        window.location.href = redirectUrl;
+        window.location.href = url(redirectUrl);
     },  inactivityTime * 1000);
     }
 

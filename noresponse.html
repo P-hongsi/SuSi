@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		section {
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			background: #d7fe3a;
+			overflow: hidden;
+			display: flex;
+		}
+
+		.sec {
+			position: relative;
+			width: 50%;
+			height: 100%;
+			background: #000;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.sec h2 {
+			color: #fff;
+			font-size: 16vw;
+			font-weight: 800;
+			line-height: 1em;
+		}
+
+		.sec2 {
+			background: #d7fe3a;
+		}
+
+		.sec2 h2 {
+			color: #000;
+			font-size: 40vw;
+		}
+
+		#ampm {
+			position: absolute;
+			top: 40px;
+			right: 40px;
+			color: #000;
+			font-size: 6vw;
+			font-weight: 700;
+		}
+
+		#dot {
+			position: relative;
+			animation: animate 1s linear infinite;
+		}
+
+		@keyframes animate {
+			0%,15%
+			{
+				opacity: 0;
+			}
+			15.1%,100%
+			{
+				opacity: 1;
+			}
+		}
+
+		@media (max-width: 768px) {
+			section {
+				flex-direction: column;
+			}
+			.sec {
+				position: relative;
+				width: 50%;
+				height: 50%;
+			}
+			.sec h2 {
+				font-size:30vw;
+			}
+			.sec2 h2 {
+				font-size:60vw;
+			}
+			#ampm {
+			top: 20px;
+			right: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="sec sec1">
+			<h2 id="hour">00</h2>
+			<h2 id="dot">:</h2>
+			<h2 id="minutes">00</h2>
+		</div>
+		<div class="sec sec2">
+			<h2 id="seconds">00</h2>
+			<span id="ampm">AM</span>
+		</div>
+	</section>
+	<script type="text/javascript">
+		function clock() {
+			let hours = document.getElementById('hour');
+			let minutes= document.getElementById('minutes');
+			let seconds = document.getElementById('seconds');
+			let ampm = document.getElementById('ampm');
+
+			let h = new Date().getHours();
+			let m = new Date().getMinutes();
+			let s = new Date().getSeconds();
+			var am = "AM"
+
+			if(h > 12){
+				h = h - 12;
+				var am = "PM"
+			}
+
+			h = (h < 10) ? "0" + h : h
+			m = (m < 10) ? "0" + m : m
+			s = (s < 10) ? "0" + s : s
+
+			hours.innerHTML = h;
+			minutes.innerHTML = m;
+			seconds.innerHTML = s;
+			ampm.innerHTML = am;
+		}
+		var interval = setInterval(clock,1000);
+	</script>
+</body>
+</html>
