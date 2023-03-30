@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>대학 뿌셔!👨‍🏫👩‍🏫</title>
-    <script>
-      const isChromeDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches && window.chrome;
-      if (isChromeDarkMode) {
-        window.location.href = "https://p-hongsi.github.io/CollegeCrush/etc/idea.html";
-      }
-    </script>
     <style>
       * {
         margin: 0;
@@ -102,6 +96,18 @@
         right: 32px;
         font-size: 24px;
         color: #063c66;
+      }
+
+      #cause {
+        display: none;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        #cause {
+          display: inline;
+          margin-left: 20px;
+          color: #748dfd;
+        }
       }
 
       #f {
@@ -208,6 +214,7 @@
     <nav class="navbar">
       <div class="navbar__logo">
         <a id="f" href="index.html">🏡</a>
+        <a href="https://p-hongsi.github.io/CollegeCrush/etc/idea.html" id="cause">DarkMode GOAT</a>
       </div>
 
       <ul class="navbar__menu">
