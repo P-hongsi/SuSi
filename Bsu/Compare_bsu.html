@@ -50,7 +50,7 @@
       }
 
       .shape .shape-fill {
-        fill: whitesmoke;
+        fill: #F8A1BE;
       }
 
       .shape svg {
@@ -58,26 +58,6 @@
         display: block;
         width: calc(100% + 1.3px);
         height: 56px;
-      }
-
-      .parent button {
-        background-color: #f9f991;
-        color: black;
-        border: none;
-        padding: 5px;
-        box-shadow: 0 2px 4px darkslategray;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .parent button:active {
-        background-color: #48abe0;
-        box-shadow: 0 0 2px darkslategray;
-        transform: translateY(2px);
-      }
-
-      .parent button:not(:first-child) {
-        margin-top: 10px;
       }
 
       input {
@@ -96,14 +76,58 @@
         display: block; /* Make the label a block-level element */
         text-align: center; /* Center the text inside the label */
         margin-bottom: 5vh;
+        color: white;
       }
 
-      #compare-btn {
-        display: block; /* Make the button a block-level element */
+      button {
+        align-items: center;
+        background-image: linear-gradient(90deg, rgba(248,161,190,1) 7%, rgba(204,121,149,1) 20%, rgba(168,88,117,1) 47%, rgba(165,86,115,1) 65%, rgba(120,44,75,1) 84%, rgba(80,3,41,1) 100%);
+        border: 0;
+        border-radius: 8px;
+        box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+        box-sizing: border-box;
+        color: #ffffff;
+        display: flex;
+        font-family: Phantomsans, sans-serif;
+        font-size: 18px;
+        justify-content: center;
+        line-height: 1em;
+        max-width: 100%;
+        min-width: 140px;
+        padding: 3px;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      button:active,
+      button:hover {
+        outline: 0;
+      }
+
+      button span {
+        background-color: rgb(5, 6, 45);
+        padding: 16px 24px;
+        border-radius: 6px;
+        width: 100%;
+        height: 100%;
+        transition: 300ms;
+      }
+
+      button:hover span {
+        background: none;
+      }
+
+      button:active {
+        transform: scale(0.9);
+      }
+
+      #compare-btn { /* Make the button a block-level element */
         margin: 0 auto; /* Set the left and right margins to auto */
-        width: 10vw;
-        height: 5vh;
-        border-radius: 15px;
       }
 
       #result-container {
@@ -126,10 +150,11 @@
         margin: 0 auto; /* Set the left and right margins to auto */
         margin-top: 5%;
         margin-bottom: 5%;
+        color: white;
       }
 
       #lol {
-        color: whitesmoke;
+        color: #F8A1BE;
         position: absolute;
         top: 3vh;
         left: 15vw;
@@ -146,7 +171,7 @@
         z-index: -1;
         align-items: center;
         justify-content: center;
-        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        background:rgb(35, 35, 38);
         background-repeat: no-repeat;
         width: 100vw;
         height: 100vh;
@@ -155,14 +180,14 @@
 
       a {
         text-decoration: none;
-        color: #9d59ad;
+        color: black;
       }
 
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: whitesmoke;
+        background: #F8A1BE;
         padding: 8px 12px;
       }
 
@@ -181,7 +206,7 @@
       }
 
       .navbar__menu :hover {
-        background: #f9f991;
+        background:white;
         border-radius: 4px;
       }
 
@@ -194,7 +219,7 @@
         position: absolute;
         right: 32px;
         font-size: 24px;
-        color: #9d59ad;
+        color: black;
       }
 
       @media screen and (max-width: 768px) {
@@ -208,14 +233,6 @@
 
         #input-val2 {
           margin-bottom: 10%;
-        }
-
-        #compare-btn {
-          display: block; /* Make the button a block-level element */
-          margin: 0 auto; /* Set the left and right margins to auto */
-          width: 17vw;
-          height: 6vh;
-          border-radius: 15px;
         }
 
         #lol {
@@ -323,7 +340,7 @@
       />
     </div>
     <div class="parent">
-      <button id="compare-btn">비교</button>
+      <button id="compare-btn"><span class="text">비교</span></button>
     </div>
     <div id="result-container"></div>
     <script>
@@ -432,7 +449,8 @@
       var inactivityTime = 60; // 60 seconds of inactivity before redirecting
 
       // Set the URL to redirect to
-      var redirectUrl = "https://p-hongsi.github.io/CollegeCrush/etc/noresponse.html";
+      var redirectUrl =
+        "https://p-hongsi.github.io/CollegeCrush/etc/noresponse.html";
 
       // Initialize a timer variable
       var timer;

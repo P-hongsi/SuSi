@@ -12,7 +12,6 @@
         border-color: #aaa;
         border-spacing: 0;
         text-align: center;
-        z-index: -1;
         left: 1vw;
         position: relative;
       }
@@ -20,7 +19,7 @@
         border-color: #aaa;
         border-style: solid;
         border-width: 0px;
-        color: #333;
+        color: white;
         font-family: Arial, sans-serif;
         font-size: 14px;
         overflow: hidden;
@@ -31,7 +30,7 @@
         border-color: #aaa;
         border-style: solid;
         border-width: 0px;
-        color: black;
+        color: white;
         font-family: Arial, sans-serif;
         font-size: 14px;
         font-weight: normal;
@@ -49,8 +48,6 @@
       }
 
       .shape svg {
-        position: relative;
-        display: block;
         width: calc(100% + 1.3px);
         height: 56px;
       }
@@ -75,25 +72,20 @@
 
       body {
         margin: 0;
-        align-items: center;
-        justify-content: center;
-        width: 96.5vw;
-        height: 100%;
-        position: relative;
-        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        background: rgb(35, 35, 38);
         background-repeat: no-repeat;
       }
 
       a {
         text-decoration: none;
-        color: #9d59ad;
+        color: black;
       }
 
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: whitesmoke;
+        background: #F8A1BE;
         padding: 8px 12px;
       }
 
@@ -118,7 +110,7 @@
       }
 
       .navbar__menu :hover {
-        background: #f9f871;
+        background:white;
         border-radius: 4px;
       }
 
@@ -131,11 +123,11 @@
         position: absolute;
         right: 32px;
         font-size: 24px;
-        color: #9d59ad;
+        color: black;
       }
 
       .shape .shape-fill {
-        fill: whitesmoke;
+        fill: #F8A1BE;
       }
 
       @media screen and (max-width: 768px) {
