@@ -342,7 +342,7 @@
                     Math.round((inputVal2 - cells[6]) * 100) / 100
                   } 낮습니다.`
                 );
-              } else if (inputVal1 < cells[5] && inputVal2 < cells[6]) {
+              } else if (inputVal1 < cells[5] && inputVal2 < cells[6] && inputVal1 > 0 && inputVal2 > 0) {
                 $("#result-container").html(
                   `${cells[0]}의 석차점수는 입력값보다 ${
                     Math.round((cells[5] - inputVal1) * 100) / 100
@@ -379,7 +379,7 @@
                   } 높습니다.`
                 );
               } else {
-                $("#result-container").html("숫자 1~99사이로 입력해주세요.");
+                $("#result-container").html("점수 계산을 해주세요.");
               }
             });
           },
