@@ -29,6 +29,7 @@
         box-shadow: 0 0 0 1px #dddddd inset;
         cursor: pointer;
         width: 100%;
+        color: black;
       }
       .pretty-select::after {
         content: "\25BC";
@@ -50,7 +51,7 @@
       }
 
       .shape .shape-fill {
-        fill: #f8a1be;
+        fill: #ff990a;
       }
 
       .shape svg {
@@ -140,21 +141,21 @@
 
       body {
         margin: 0;
-        background: rgb(35, 35, 38);
+        background: white;
         background-repeat: no-repeat;
         overflow: hidden;
       }
 
       a {
         text-decoration: none;
-        color: black;
+        color: white;
       }
 
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #f8a1be;
+        background: #ff990a;
         padding: 8px 12px;
       }
 
@@ -173,7 +174,7 @@
       }
 
       .navbar__menu :hover {
-        background: white;
+        background: rgb(139, 167, 238);
         border-radius: 4px;
       }
 
@@ -186,11 +187,10 @@
         position: absolute;
         right: 32px;
         font-size: 24px;
-        color: black;
+        color: white;
       }
 
       @media screen and (max-width: 768px) {
-
         #lol {
           display: none;
         }
@@ -233,7 +233,12 @@
   <body>
     <nav class="navbar">
       <div class="navbar__logo">
-        <a id="f" href="https://P-hongsi.github.io/SuSi/" onclick="window.localStorage.clear()">계산기</a>
+        <a
+          id="f"
+          href="https://P-hongsi.github.io/SuSi/"
+          onclick="window.localStorage.clear()"
+          >계산기</a
+        >
       </div>
 
       <ul class="navbar__menu">
@@ -342,7 +347,12 @@
                     Math.round((inputVal2 - cells[6]) * 100) / 100
                   } 낮습니다.`
                 );
-              } else if (inputVal1 < cells[5] && inputVal2 < cells[6] && inputVal1 > 0 && inputVal2 > 0) {
+              } else if (
+                inputVal1 < cells[5] &&
+                inputVal2 < cells[6] &&
+                inputVal1 > 0 &&
+                inputVal2 > 0
+              ) {
                 $("#result-container").html(
                   `${cells[0]}의 석차점수는 입력값보다 ${
                     Math.round((cells[5] - inputVal1) * 100) / 100
@@ -390,8 +400,7 @@
       var inactivityTime = 60; // 60 seconds of inactivity before redirecting
 
       // Set the URL to redirect to
-      var redirectUrl =
-        "https://p-hongsi.github.io/SuSi/etc/noresponse.html";
+      var redirectUrl = "https://p-hongsi.github.io/SuSi/etc/noresponse.html";
 
       // Initialize a timer variable
       var timer;

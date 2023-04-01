@@ -19,7 +19,7 @@
         border-color: #aaa;
         border-style: solid;
         border-width: 0px;
-        color: white;
+        color: black;
         font-family: Arial, sans-serif;
         font-size: 14px;
         overflow: hidden;
@@ -30,7 +30,7 @@
         border-color: #aaa;
         border-style: solid;
         border-width: 0px;
-        color: white;
+        color: black;
         font-family: Arial, sans-serif;
         font-size: 14px;
         font-weight: normal;
@@ -72,20 +72,20 @@
 
       body {
         margin: 0;
-        background: rgb(35, 35, 38);
+        background: white;
         background-repeat: no-repeat;
       }
 
       a {
         text-decoration: none;
-        color: black;
+        color: white;
       }
 
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #F8A1BE;
+        background: #ff990a;
         padding: 8px 12px;
       }
 
@@ -110,7 +110,7 @@
       }
 
       .navbar__menu :hover {
-        background:white;
+        background: rgb(139, 167, 238);
         border-radius: 4px;
       }
 
@@ -123,11 +123,11 @@
         position: absolute;
         right: 32px;
         font-size: 24px;
-        color: black;
+        color: white;
       }
 
       .shape .shape-fill {
-        fill: #F8A1BE;
+        fill: #ff990a;
       }
 
       @media screen and (max-width: 768px) {
@@ -173,7 +173,11 @@
   <body>
     <nav class="navbar">
       <div class="navbar__logo">
-        <a href="https://P-hongsi.github.io/SuSi/" onclick="window.localStorage.clear()">계산기</a>
+        <a
+          href="https://P-hongsi.github.io/SuSi/"
+          onclick="window.localStorage.clear()"
+          >계산기</a
+        >
       </div>
 
       <ul class="navbar__menu">
