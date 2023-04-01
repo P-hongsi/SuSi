@@ -6,18 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>진로선택과목 계산기</title>
     <style>
-      html {
-        width: 100vw;
-      }
-
       .hidden {
         display: none;
       }
-
+      
       .shape svg {
-        position: relative;
-        display: block;
-        width: 100vw;
+        width: 100%;
         height: 56px;
       }
 
@@ -46,7 +40,7 @@
         line-height: 1em;
         max-width: 100%;
         min-width: 140px;
-        padding: 3px;
+        padding: 3.5px;
         text-decoration: none;
         user-select: none;
         -webkit-user-select: none;
@@ -80,9 +74,8 @@
 
       li {
         list-style-type: none;
-        text-align: center;
-        position: relative;
         color: white;
+        text-align: center;
       }
 
       .btn {
@@ -92,27 +85,29 @@
         align-items: center;
       }
 
+
       input {
         border: 0.1px solid #999;
         width: 18vw;
         height: 40px;
-        margin-top: 10px;
-        border-radius: 15px;
+        margin-top:4px;
+        border-radius: 14px;
         background-color: white;
+        text-align: center;
       }
 
       select {
-        width: 20%;
         height: 35px;
-        margin-bottom: 7px;
+        margin-bottom:4px;
         border: 0.1px solid #999;
         background-color: white;
         border-radius: 14px;
+        text-align: center;
       }
 
       .s {
         position: relative;
-        right: 3vw;
+        margin-bottom: 8px;
       }
 
       #result {
@@ -120,15 +115,14 @@
         color: black;
       }
 
-      body {
+      * {
         margin: 0;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 100%;
-        position: relative;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
         background: white;
-        background-repeat: no-repeat;
       }
 
       a {
@@ -180,7 +174,8 @@
       @media screen and (max-width: 768px) {
         .s {
           position: relative;
-          right: 8vw;
+          right: 5vw;
+          margin-bottom: 10px;
         }
 
         input {
@@ -233,7 +228,7 @@
         <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
         <li><a href="Table_bsu.html">학과 목록</a></li>
       </ul>
-      <a href="#" class="navbar__toogleBtn">
+      <a class="navbar__toogleBtn">
         <i class="fas fa-bars"></i>
       </a>
     </nav>
@@ -266,7 +261,7 @@
           <ul>
             <li>
               <span>학년</span>
-              <select style="width: 100px">
+              <select style="width: 100px" id="select">
                 <option value="">선택</option>
                 <option value="1">1학년</option>
                 <option value="2">2학년</option>
@@ -283,9 +278,9 @@
             </li>
             <li>
               <span>성취도</span>
-              <label
-                ><input id="num2" type="text" value="A" pattern="[abcABC]*"
-              /></label>
+              <label>
+                <input id="num2" type="text" value="A" pattern="[abcABC]*" />
+              </label>
             </li>
           </ul>
         </li>
@@ -298,7 +293,7 @@
           <ul>
             <li>
               <span>학년</span>
-              <select style="width: 100px">
+              <select style="width: 100px" id="select">
                 <option value="">선택</option>
                 <option value="1">1학년</option>
                 <option value="2">2학년</option>
@@ -328,7 +323,7 @@
           <ul>
             <li>
               <span>학년</span>
-              <select style="width: 100px">
+              <select style="width: 100px" id="select">
                 <option value="">선택</option>
                 <option value="1">1학년</option>
                 <option value="2">2학년</option>

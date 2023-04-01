@@ -6,56 +6,12 @@
     <title>계산기</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-      .pretty-select {
-        display: inline-block;
-        font-size: 16px;
-        line-height: 1.3;
-        color: #555555;
-        display: block; /* Make the select element a block-level element */
-        margin: 0 auto; /* Set the left and right margins to auto */
-        margin-top: 20vh;
-        margin-bottom: 5%;
-        width: 20%;
-        position: relative;
-      }
-      .pretty-select select {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        border: none;
-        background-color: transparent;
-        padding: 0.5rem 2rem 0.5rem 0.75rem;
-        border-radius: 0.25rem;
-        box-shadow: 0 0 0 1px #dddddd inset;
-        cursor: pointer;
-        width: 100%;
-        color: black;
-      }
-      .pretty-select::after {
-        content: "\25BC";
-        position: absolute;
-        top: 50%;
-        right: 0.75rem;
-        transform: translateY(-50%);
-        font-size: 1rem;
-        pointer-events: none;
-      }
-
-      /* style the options list */
-      .pretty-select select option {
-        color: #555555;
-        background-color: #ffffff;
-      }
-      .pretty-select select option:hover {
-        background-color: #f1f1f1;
-      }
-
       .shape .shape-fill {
         fill: #ff990a;
       }
 
       .shape svg {
-        width: calc(100% + 1.3px);
+        width: 100%;
         height: 56px;
       }
 
@@ -113,23 +69,35 @@
       }
 
       #compare-btn {
-        /* Make the button a block-level element */
-        margin: 0 auto; /* Set the left and right margins to auto */
+        margin: 0 auto;
       }
 
       #result-container {
-        color: white;
+        color: black;
         text-align: center;
-        margin-top: 5vh;
+        margin-top: 7vh;
         font-weight: bold;
+        font-size: 24px;
+      }
+
+      #select-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10%;
       }
 
       select {
-        display: block; /* Make the select element a block-level element */
-        margin: 0 auto; /* Set the left and right margins to auto */
-        margin-top: 5%;
-        margin-bottom: 5%;
-        color: white;
+        height: 10vh;
+        border: 0.1px solid #999;
+        background-color: white;
+        border-radius: 18px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        display: flex;
+        font-size: 15px;
       }
 
       #lol {
@@ -139,11 +107,14 @@
         left: 15vw;
       }
 
-      body {
+      * {
         margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
         background: white;
-        background-repeat: no-repeat;
-        overflow: hidden;
       }
 
       a {
@@ -195,11 +166,26 @@
           display: none;
         }
 
-        .pretty-select {
-          margin-top: 25vh;
-          margin-bottom: 4vh;
-          width: 55vw;
+        #compare-btn {
+          margin-top: 0vh;
         }
+
+        #result-container {
+          margin-top: 10vh;
+          font-size: 20px;
+        }
+
+        #select-container {
+          margin-top: 12vh;
+        }
+
+        select {
+          width: 60vw;
+          height: 15vw;
+          border-radius: 25px;
+          font-size: 15px;
+        }
+
         .navbar {
           flex-direction: column;
           align-items: flex-start;
@@ -281,7 +267,8 @@
         ></path>
       </svg>
     </div>
-    <div class="pretty-select" id="select-container"></div>
+    <div id="select-container"></div>
+    <br /><br /><br /><br /><br /><br /><br />
     <div class="parent">
       <button id="compare-btn"><span class="text">비교</span></button>
     </div>

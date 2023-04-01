@@ -16,8 +16,12 @@
 
       .shape svg {
         display: block;
-        width: calc(100% + 1.3px);
+        width: 100%;
         height: 56px;
+      }
+
+      li > span {
+        color: black;
       }
 
       button {
@@ -75,6 +79,22 @@
         transform: scale(0.9);
       }
 
+      .btn {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn1 {
+        margin-left: 2vw;
+        margin-bottom: 3vh;
+      }
+
+      .btn2 {
+        margin-top: 3vh;
+      }
+
       input {
         width: 15vw;
         height: 32px;
@@ -98,6 +118,8 @@
       li {
         list-style-type: none;
         color: #ffffff;
+        text-align: center;
+        margin-bottom: 1vh;
       }
 
       p {
@@ -111,24 +133,13 @@
         font-weight: bold;
       }
 
-      #button {
-        display: inline-block;
-        background-color: #dc3545;
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        border-radius: 4px;
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
-        opacity: 0;
-        z-index: 1000;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
       body {
-        margin: 0;
         background: rgb(255, 255, 255);
       }
 
@@ -389,7 +400,6 @@
                 </select></label
               >
             </li>
-            <br />
             <li>
               <span>단위수</span>
               <label

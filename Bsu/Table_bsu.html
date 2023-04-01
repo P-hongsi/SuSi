@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
+      .shape svg {
+        width: 100%;
+        height: 56px;
+      }
       .tg {
         border: none;
         border-collapse: collapse;
         border-color: #aaa;
         border-spacing: 0;
         text-align: center;
-        left: 1vw;
         position: relative;
+        margin: 0 auto;
       }
       .tg td {
         border-color: #aaa;
@@ -48,7 +52,7 @@
       }
 
       .shape svg {
-        width: calc(100% + 1.3px);
+        width: 100%;
         height: 56px;
       }
 
@@ -71,9 +75,13 @@
       }
 
       body {
-        margin: 0;
         background: white;
-        background-repeat: no-repeat;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
       a {
@@ -131,13 +139,6 @@
       }
 
       @media screen and (max-width: 768px) {
-        .tg {
-          left: 1vw;
-        }
-
-        body {
-          width: 95.5vw;
-        }
 
         .navbar {
           flex-direction: column;
