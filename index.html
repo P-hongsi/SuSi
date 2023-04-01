@@ -12,11 +12,6 @@
         overflow: hidden;
       }
 
-      #f {
-        width: 40px;
-        height: 30px;
-      }
-
       a {
         text-decoration: none;
         color: rgb(0, 0, 0);
@@ -91,6 +86,10 @@
         border-radius: 4px;
       }
 
+      .navbar__logo {
+        display: inline-flex;
+      }
+
       .navbar__icons li {
         padding: 8px 12px;
       }
@@ -113,10 +112,6 @@
           margin-left: 20px;
           color: #748dfd;
         }
-      }
-
-      #f {
-        font-size: 25px;
       }
 
       .backdrop {
@@ -207,10 +202,6 @@
         .navbar__icons.active {
           display: flex;
         }
-
-        #f {
-          font-size: 23px;
-        }
       }
     </style>
   </head>
@@ -218,7 +209,7 @@
   <body>
     <nav class="navbar">
       <div class="navbar__logo">
-        <img src="ㅅ.png" id="f" href="index.html" onclick="window.localStorage.clear()">
+        <lottie-player href="index.html" src="https://assets4.lottiefiles.com/packages/lf20_iYvSqSMKZB.json"  background="transparent"  speed="1"  style="width: 40px; height: 40px;" hover loop autoplay></lottie-player>
         <a href="https://p-hongsi.github.io/SuSi/etc/idea.html" id="cause">Idea</a>
       </div>
 
@@ -324,5 +315,6 @@
       src="https://kit.fontawesome.com/b17d4fa9e7.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </body>
 </html>
