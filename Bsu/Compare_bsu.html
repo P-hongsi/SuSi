@@ -57,12 +57,6 @@
         width: calc(100% + 1.3px);
         height: 56px;
       }
-      label {
-        display: block; /* Make the label a block-level element */
-        text-align: center; /* Center the text inside the label */
-        margin-bottom: 5vh;
-        color: white;
-      }
 
       button {
         background-image: linear-gradient(
@@ -117,37 +111,6 @@
         transform: scale(0.9);
       }
 
-      /* Input container */
-      .input-container {
-        position: relative;
-        margin: 20px;
-      }
-
-      /* Input field */
-      .input-field {
-        display: block;
-        width: 30%;
-        padding: 10px;
-        font-size: 16px;
-        border: none;
-        border-bottom: 2px solid #ccc;
-        outline: none;
-        background-color: transparent;
-        color: white;
-      }
-
-      /* Input label */
-      .input-label {
-        position: absolute;
-        top: 0;
-        left: 20%;
-        font-size: 16px;
-        color: rgba(204, 204, 204, 0);
-        pointer-events: none;
-        transition: all 0.3s ease;
-      }
-
-
       #compare-btn {
         /* Make the button a block-level element */
         margin: 0 auto; /* Set the left and right margins to auto */
@@ -173,12 +136,6 @@
         position: absolute;
         top: 3vh;
         left: 15vw;
-      }
-
-      root {
-        --text-color: #f0f4f5;
-        --background-color: #13334c;
-        --accent-color: #fd5f00;
       }
 
       body {
@@ -233,17 +190,6 @@
       }
 
       @media screen and (max-width: 768px) {
-        input {
-          width: 40vw;
-        }
-
-        #input-val1 {
-          margin-bottom: 10%;
-        }
-
-        #input-val2 {
-          margin-bottom: 10%;
-        }
 
         #lol {
           display: none;
@@ -368,8 +314,8 @@
             $("#compare-btn").click(function () {
               var rowIndex = $("#word-select").val();
               var cells = rows[rowIndex].split(",");
-              var inputVal1 = window.localStorage.getItem("common");
-              var inputVal2 = window.localStorage.getItem("career");
+              var inputVal1 = Number(window.localStorage.getItem("common"));
+              var inputVal2 = Number(window.localStorage.getItem("career"));
               console.log(inputVal1);
               console.log(inputVal2);
               if (inputVal1 == cells[5] && inputVal2 == cells[6]) {
