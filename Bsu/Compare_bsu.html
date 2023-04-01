@@ -50,28 +50,13 @@
       }
 
       .shape .shape-fill {
-        fill: #F8A1BE;
+        fill: #f8a1be;
       }
 
       .shape svg {
-        position: relative;
-        display: block;
         width: calc(100% + 1.3px);
         height: 56px;
       }
-
-      input {
-        width: 25vw;
-        height: 6vh;
-        font-size: 15px;
-        border: 0;
-        border-radius: 15px;
-        outline: none;
-        background-color: rgb(233, 233, 233);
-        display: block; /* Make the input element a block-level element */
-        margin: 0 auto; /* Set the left and right margins to auto */
-      }
-
       label {
         display: block; /* Make the label a block-level element */
         text-align: center; /* Center the text inside the label */
@@ -80,8 +65,15 @@
       }
 
       button {
-        align-items: center;
-        background-image: linear-gradient(90deg, rgba(248,161,190,1) 7%, rgba(204,121,149,1) 20%, rgba(168,88,117,1) 47%, rgba(165,86,115,1) 65%, rgba(120,44,75,1) 84%, rgba(80,3,41,1) 100%);
+        background-image: linear-gradient(
+          90deg,
+          rgba(248, 161, 190, 1) 7%,
+          rgba(204, 121, 149, 1) 20%,
+          rgba(168, 88, 117, 1) 47%,
+          rgba(165, 86, 115, 1) 65%,
+          rgba(120, 44, 75, 1) 84%,
+          rgba(80, 3, 41, 1) 100%
+        );
         border: 0;
         border-radius: 8px;
         box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -90,7 +82,6 @@
         display: flex;
         font-family: Phantomsans, sans-serif;
         font-size: 18px;
-        justify-content: center;
         line-height: 1em;
         max-width: 100%;
         min-width: 140px;
@@ -126,23 +117,47 @@
         transform: scale(0.9);
       }
 
-      #compare-btn { /* Make the button a block-level element */
+      /* Input container */
+      .input-container {
+        position: relative;
+        margin: 20px;
+      }
+
+      /* Input field */
+      .input-field {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-bottom: 2px solid #ccc;
+        outline: none;
+        background-color: transparent;
+        color: white;
+      }
+
+      /* Input label */
+      .input-label {
+        position: absolute;
+        top: 0;
+        left: 20%;
+        font-size: 16px;
+        color: rgba(204, 204, 204, 0);
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+
+      #compare-btn {
+        /* Make the button a block-level element */
         margin: 0 auto; /* Set the left and right margins to auto */
       }
 
       #result-container {
-        color: black;
+        color: white;
         text-align: center;
         margin-top: 5vh;
         font-weight: bold;
-      }
-
-      #input-val1 {
-        margin-bottom: 3%;
-      }
-
-      #input-val2 {
-        margin-bottom: 4%;
       }
 
       select {
@@ -154,7 +169,7 @@
       }
 
       #lol {
-        color: #F8A1BE;
+        color: #f8a1be;
         position: absolute;
         top: 3vh;
         left: 15vw;
@@ -168,13 +183,8 @@
 
       body {
         margin: 0;
-        z-index: -1;
-        align-items: center;
-        justify-content: center;
-        background:rgb(35, 35, 38);
+        background: rgb(35, 35, 38);
         background-repeat: no-repeat;
-        width: 100vw;
-        height: 100vh;
         overflow: hidden;
       }
 
@@ -187,7 +197,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #F8A1BE;
+        background: #f8a1be;
         padding: 8px 12px;
       }
 
@@ -206,7 +216,7 @@
       }
 
       .navbar__menu :hover {
-        background:white;
+        background: white;
         border-radius: 4px;
       }
 
@@ -277,7 +287,7 @@
   <body>
     <nav class="navbar">
       <div class="navbar__logo">
-        <a id="f" href="https://P-hongsi.github.io/CollegeCrush/">계산기</a>
+        <a id="f" href="https://P-hongsi.github.io/CollegeCrush/" onclick="window.localStorage.clear()">계산기</a>
       </div>
 
       <ul class="navbar__menu">
@@ -321,24 +331,6 @@
       </svg>
     </div>
     <div class="pretty-select" id="select-container"></div>
-    <div>
-      <label for="input-val1">석차등급과목 점수: </label>
-      <input
-        type="text"
-        id="input-val1"
-        name="input-val1"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-      />
-    </div>
-    <div>
-      <label for="input-val2">진로선택과목 점수: </label>
-      <input
-        type="text"
-        id="input-val2"
-        name="input-val2"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-      />
-    </div>
     <div class="parent">
       <button id="compare-btn"><span class="text">비교</span></button>
     </div>
@@ -376,67 +368,69 @@
             $("#compare-btn").click(function () {
               var rowIndex = $("#word-select").val();
               var cells = rows[rowIndex].split(",");
-              var inputVal1 = $("#input-val1").val();
-              var inputVal2 = $("#input-val2").val();
+              var inputVal1 = window.localStorage.getItem("common");
+              var inputVal2 = window.localStorage.getItem("career");
+              console.log(inputVal1);
+              console.log(inputVal2);
               if (inputVal1 == cells[5] && inputVal2 == cells[6]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 평균 점수와 모두 일치합니다.`
+                  `${cells[0]}와 평균 점수와 입력값이 일치합니다.`
                 );
               } else if (inputVal1 > cells[5] && inputVal2 == cells[6]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                  `${cells[0]}의 석차점수가 입력값보다${
                     Math.round((inputVal1 - cells[5]) * 100) / 100
-                  }만큼 크고, 진로선택과목점수는 일치합니다.`
+                  } 낮고, 진로점수는 일치합니다.`
                 );
               } else if (inputVal1 == cells[5] && inputVal2 > cells[6]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 진로선택과목점수는 ${
+                  `${cells[0]}의 진로점수가 입력값보다 ${
                     Math.round((inputVal2 - cells[6]) * 100) / 100
-                  }만큼 크고, 석차등급과목점수는 일치합니다.`
+                  } 낮고, 석차점수는 일치합니다.`
                 );
               } else if (inputVal1 > cells[5] && inputVal2 > cells[6]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                  `${cells[0]}의 석차점수가 입력값보다 ${
                     Math.round((inputVal1 - cells[5]) * 100) / 100
-                  }만큼 크고, 진로선택과목점수는 ${
+                  } 낮고, 진로점수는 ${
                     Math.round((inputVal2 - cells[6]) * 100) / 100
-                  }만큼 큽니다.`
+                  } 낮습니다.`
                 );
               } else if (inputVal1 < cells[5] && inputVal2 < cells[6]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                  `${cells[0]}의 석차점수는 입력값보다 ${
                     Math.round((cells[5] - inputVal1) * 100) / 100
-                  }만큼 작고, 진로선택과목점수는 ${
+                  } 높고, 진로점수는 ${
                     Math.round((cells[6] - inputVal2) * 100) / 100
-                  }만큼 작습니다.`
+                  } 높습니다.`
                 );
               } else if (inputVal1 == cells[5] && inputVal2 < cells[6]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 진로선택과목점수는 ${
+                  `${cells[0]}의 진로점수는 입력값보디${
                     Math.round((cells[6] - inputVal2) * 100) / 100
-                  }만큼 작고, 석차등급과목점수는 일치합니다.`
+                  }높고, 석차점수는 일치합니다.`
                 );
               } else if (inputVal1 < cells[5] && inputVal2 == cells[6]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                  `${cells[0]}의 석차점수는 입력값보다 ${
                     Math.round((cells[5] - inputVal1) * 100) / 100
-                  }만큼 작고, 진로선택과목점수는 일치합니다.`
+                  } 높고, 진로점수는 일치합니다.`
                 );
               } else if (inputVal1 < cells[5] && inputVal2 > cells[6]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                  `${cells[0]}의 석차점수는 입력값보다 ${
                     Math.round((cells[5] - inputVal1) * 100) / 100
-                  }만큼 작고, 진로선택과목점수는 ${
+                  } 높고, 진로점수는 ${
                     Math.round((inputVal2 - cells[6]) * 100) / 100
-                  }만큼 큽니다.`
+                  } 낮습니다.`
                 );
               } else if (inputVal1 > cells[5] && inputVal2 < cells[6]) {
                 $("#result-container").html(
-                  `2022년도 ${cells[0]}과의 석차등급과목점수는 ${
+                  `${cells[0]}의 석차점수는 입력값보다 ${
                     Math.round((inputVal1 - cells[5]) * 100) / 100
-                  }만큼 크고, 진로선택과목점수는 ${
+                  } 낮고, 진로점수는 ${
                     Math.round((cells[6] - inputVal2) * 100) / 100
-                  }만큼 작습니다.`
+                  } 높습니다.`
                 );
               } else {
                 $("#result-container").html("숫자 1~99사이로 입력해주세요.");
@@ -445,6 +439,7 @@
           },
         });
       });
+
       // Set the number of seconds of inactivity before redirecting
       var inactivityTime = 60; // 60 seconds of inactivity before redirecting
 

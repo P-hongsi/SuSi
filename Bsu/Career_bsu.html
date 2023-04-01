@@ -212,7 +212,7 @@
   <body>
     <nav class="navbar">
       <div class="navbar__logo">
-        <a href="https://P-hongsi.github.io/CollegeCrush/">계산기</a>
+        <a href="https://P-hongsi.github.io/CollegeCrush/" onclick="window.localStorage.clear()">계산기</a>
       </div>
 
       <ul class="navbar__menu">
@@ -364,7 +364,7 @@
         const num6 = document.getElementById("num6").value.toLowerCase();
         let value1;
         let value2;
-        let value3;
+        let value3; 
 
         if (num2 === "a") {
           value1 = 0.5;
@@ -393,12 +393,17 @@
         } else {
           value3 = "유효하지 않는 값.";
         }
+
+
         if ((value1 + value2 + value3) / 3 > 0) {
+
+          window.localStorage.removeItem("career");
+          let sum = (value1 + value2 + value3) / 3;
+          window.localStorage.setItem("career",sum);
+
           document.getElementById(
             "result"
-          ).innerHTML = `진로 선택 과목 점수는: ${
-            (value1 + value2 + value3) / 3
-          }점 입니다.`;
+          ).innerHTML = `진로 선택 과목 점수는: ${window.localStorage.getItem("career")}점 입니다.`;
         } else {
           document.getElementById(
             "result"

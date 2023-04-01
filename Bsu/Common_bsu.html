@@ -11,7 +11,7 @@
       }
 
       .shape .shape-fill {
-        fill: #F8A1BE;
+        fill: transparent;
       }
 
       .shape svg {
@@ -104,27 +104,37 @@
         font-weight: bold;
       }
 
-      root {
-        --text-color: #f0f4f5;
-        --background-color: #13334c;
-        --accent-color: #fd5f00;
+      #button {
+        display: inline-block;
+        background-color: #dc3545;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 4px;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        transition: background-color .3s, opacity .5s, visibility .5s;
+        opacity: 0;
+        z-index: 1000;
       }
 
       body {
         margin: 0;
-        background: rgb(35, 35, 38);
       }
 
       a {
         text-decoration: none;
-        color: black;
+        color: yellow;
       }
 
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #F8A1BE;
+        background: transparent;
+        backdrop-filter: blur(10px);
         padding: 8px 12px;
       }
 
@@ -145,12 +155,8 @@
       }
 
       .navbar__menu :hover {
-        background:white;
+        background:black;
         border-radius: 4px;
-      }
-
-      .navbar__icons li {
-        padding: 8px 12px;
       }
 
       .navbar__toogleBtn {
@@ -203,7 +209,7 @@
   <body>
     <nav class="navbar">
       <div class="navbar__logo">
-        <a href="https://P-hongsi.github.io/CollegeCrush/">계산기</a>
+        <a href="https://P-hongsi.github.io/CollegeCrush/" onclick="window.localStorage.clear()">계산기</a>
       </div>
 
       <ul class="navbar__menu">
@@ -239,6 +245,7 @@
         ></path>
       </svg>
     </div>
+    <button class="buttonU" onclick="bottomFunction()"><span class="text">DOWN</span></button>
     <div class="pretty-select" id="select-container"></div>
     <div class="background"></div>
     <div class="btn">
@@ -2232,6 +2239,7 @@
     <div class="res">
       <p>석차등급과목 점수: <span id="result"></span></p>
     </div>
+    <button class="buttonU" onclick="topFunction()"><span class="text">UP</span></button>
     <script>
       const toggleBtn = document.querySelector(".navbar__toogleBtn");
       const menu = document.querySelector(".navbar__menu");
@@ -2376,7 +2384,10 @@
             parseInt(document.getElementById("num47").value) +
             parseInt(document.getElementById("num49").value) +
             parseInt(document.getElementById("num51").value));
-        document.getElementById("result").innerHTML = sum;
+        
+        window.localStorage.removeItem("common")
+        window.localStorage.setItem("common",sum)
+        document.getElementById("result").innerHTML = window.localStorage.getItem("common");
       }
 
       function showNextDiv() {
@@ -2393,6 +2404,16 @@
           currentDivIndex--;
           divs[currentDivIndex].classList.add("hidden");
         }
+      }
+
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+
+      function bottomFunction() {
+        document.body.scrollTop = 100000;
+        document.documentElement.scrollTop = 1000000;
       }
       // Set the number of seconds of inactivity before redirecting
       var inactivityTime = 60; // 60 seconds of inactivity before redirecting
