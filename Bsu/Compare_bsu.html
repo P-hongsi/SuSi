@@ -70,13 +70,14 @@
         margin-top: 7vh;
         font-weight: bold;
         font-size: 24px;
+        margin-bottom: 10vh;
       }
 
       #select-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 10%;
+        margin-top: 5vh;
       }
 
       select {
@@ -90,6 +91,21 @@
         position: relative;
         display: flex;
         font-size: 15px;
+      }
+
+      th {
+        border: 0.1px solid black;
+      }
+
+      td {
+        border: 0.1px solid black;
+        text-align: center;
+      }
+
+      #table-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       #lol {
@@ -163,13 +179,20 @@
         }
 
         #result-container {
-          margin-top: 10vh;
+          margin-top: 8vh;
           font-size: 20px;
+          margin-bottom: 5vh;
         }
 
         #select-container {
-          margin-top: 12vh;
+          margin-top: 7vh;
         }
+
+        #table-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
         select {
           width: 60vw;
@@ -230,7 +253,6 @@
         <li><a href="Compare_bsu.html">학과점수 비교</a></li>
         <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
         <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
-        <li><a href="Table_bsu.html">학과 목록</a></li>
       </ul>
       <a href="#" class="navbar__toogleBtn">
         <i class="fas fa-bars"></i>
@@ -260,11 +282,27 @@
       </svg>
     </div>
     <div id="select-container"></div>
-    <br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br />
     <div class="parent">
       <button id="compare-btn"><span class="text">비교</span></button>
     </div>
     <div id="result-container"></div>
+    <div id="table-container">
+      <table id="word-table">
+        <thead>
+          <tr>
+            <th>모집인원</th>
+            <th>경쟁률</th>
+            <th>최종추합번호</th>
+            <th>평균총점수</th>
+            <th>평균총점수(70%)</th>
+            <th>평균등급</th>
+            <th>평균등급(70%)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
     <script>
       const toggleBtn = document.querySelector(".navbar__toogleBtn");
       const menu = document.querySelector(".navbar__menu");
@@ -300,8 +338,6 @@
               var cells = rows[rowIndex].split(",");
               var inputVal1 = Number(window.localStorage.getItem("common"));
               var inputVal2 = Number(window.localStorage.getItem("career"));
-              console.log(inputVal1);
-              console.log(inputVal2);
               if (inputVal1 == cells[5] && inputVal2 == cells[6]) {
                 $("#result-container").html(
                   `${cells[0]}와 평균 점수와 입력값이 일치합니다.`
@@ -369,6 +405,43 @@
                 );
               } else {
                 $("#result-container").html("점수 계산을 해주세요.");
+              }
+              if (inputVal1> 0 && inputVal2 > 0) {
+                var tableHtml =
+                "<tr><td>" +
+                cells[1] +
+                "</td><td>" +
+                cells[3] +
+                "</td><td>" +
+                cells[4] +
+                "</td><td>" +
+                cells[7] +
+                "</td><td>" +
+                cells[8] +
+                "</td><td>" +
+                cells[10] +
+                "</td><td>" +
+                cells[11] +
+                "</td></tr>";
+              $("#word-table tbody").html(tableHtml);
+              } else {
+                var tableHtml =
+                "<tr><td>" +
+                0 +
+                "</td><td>" +
+                0 +
+                "</td><td>" +
+                0 +
+                "</td><td>" +
+                0 +
+                "</td><td>" +
+                0 +
+                "</td><td>" +
+                0 +
+                "</td><td>" +
+                0 +
+                "</td></tr>";
+              $("#word-table tbody").html(tableHtml);
               }
             });
           },

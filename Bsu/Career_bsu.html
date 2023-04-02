@@ -77,6 +77,10 @@
         align-items: center;
       }
 
+      li > span {
+        color: black;
+      }
+
 
       input {
         border: 0.1px solid #999;
@@ -218,7 +222,6 @@
         <li><a href="Compare_bsu.html">학과점수 비교</a></li>
         <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
         <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
-        <li><a href="Table_bsu.html">학과 목록</a></li>
       </ul>
       <a class="navbar__toogleBtn">
         <i class="fas fa-bars"></i>
@@ -247,6 +250,18 @@
         ></path>
       </svg>
     </div>
+    <a style="display: none"
+      href="https://drive.google.com/file/d/11t5LM5OHJGKRc9lFheCiNA2kBGe8cyMr/view?usp=share_link"
+      id="link1"
+    ></a>
+    <a style="display: none"
+      href="https://drive.google.com/file/d/1M9_xc-PeBvrARClnQ9wU7LFSzcnL9zLR/view?usp=drivesdk"
+      id="link2"
+    ></a>
+    <a style="display: none"
+      href="https://drive.google.com/file/d/1GOFks3vNNFpYANNfIO5jkVGwMJiIvt6a/view?usp=share_link"
+      id="link3"
+    ></a>
     <div class="s">
       <ul>
         <li style="display: block">
@@ -409,14 +424,56 @@
           ).innerHTML = `진로 선택 과목 점수를 다시 입력해주세요.`;
         }
       }
+
+      let shortcut1 = "";
+      let link1 = document.getElementById("link1");
+
+      document.addEventListener("keydown", function (event) {
+        shortcut1 += event.key.toLowerCase();
+        if (shortcut1 === "hong") {
+          window.location.href = link1.href;
+        }
+      });
+
+      document.addEventListener("keyup", function (event) {
+        shortcut1 = "";
+      });
+
+      let shortcut2 = "";
+      let link2 = document.getElementById("link2");
+
+      document.addEventListener("keydown", function (event) {
+        shortcut2 += event.key.toLowerCase();
+        if (shortcut2 === "siya") {
+          window.location.href = link2.href;
+        }
+      });
+
+      document.addEventListener("keyup", function (event) {
+        shortcut2 = "";
+      });
+
+      let shortcut3 = "";
+      let link3 = document.getElementById("link3");
+
+      document.addEventListener("keydown", function (event) {
+        shortcut3 += event.key.toLowerCase();
+        if (shortcut3 === "love") {
+          window.location.href = link3.href;
+        }
+      });
+
+      document.addEventListener("keyup", function (event) {
+        shortcut3 = "";
+      });
       // Set the number of seconds of inactivity before redirecting
-      var inactivityTime = 60; // 60 seconds of inactivity before redirecting
+      let inactivityTime = 60; // 60 seconds of inactivity before redirecting
 
       // Set the URL to redirect to
-      var redirectUrl = "https://p-hongsi.github.io/SuSi/etc/noresponse.html";
+      let redirectUrl = "https://p-hongsi.github.io/SuSi/etc/noresponse.html";
 
-      // Initialize a timer variable
-      var timer;
+      // Initialize a timer letiable
+      let timer;
 
       // Add an event listener for user input
       window.addEventListener("mousemove", resetTimer);
