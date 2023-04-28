@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>ㅅㅅ</title>
     <style>
       * {
@@ -69,9 +69,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 8px 12px;
-        height:6vh;
-        width: 100vw;
-        position: relative;
+        height: 6vh;
       }
 
       .navbar__menu {
@@ -139,6 +137,10 @@
           display: none;
         }
 
+        .navbar {
+          height: auto;
+        }
+
         .hidden {
           display: flex;
           width: 20px;
@@ -147,9 +149,9 @@
         }
 
         .shape svg {
-        width: 100%;
-        height: 56px;
-      }
+          width: 100%;
+          height: 56px;
+        }
 
         .shape {
           display: block;
@@ -158,7 +160,11 @@
         .shape .shape-fill {
           fill: #748dfd;
         }
-        
+
+        .navbar__menu :hover {
+          width: 15vw;
+        }
+
         #cause {
           display: none;
         }
@@ -172,7 +178,6 @@
           display: flex;
           align-items: top;
           justify-content: center;
-          position: relative;
         }
 
         .backdrop {
@@ -189,7 +194,6 @@
           align-items: center;
           justify-content: center;
           font-size: 58px;
-          margin-top: 10px;
         }
 
         .navbar {
@@ -226,14 +230,24 @@
   <body>
     <nav class="navbar">
       <div class="navbar__logo">
-        <lottie-player href="index.html" src="https://assets4.lottiefiles.com/packages/lf20_iYvSqSMKZB.json"  background="transparent"  speed="1"  style="width: 40px; height: 40px;" loop autoplay></lottie-player>
-        <a href="https://p-hongsi.github.io/SuSi/etc/idea.html" id="cause">Idea</a>
+        <lottie-player
+          href="index.html"
+          src="https://assets4.lottiefiles.com/packages/lf20_iYvSqSMKZB.json"
+          background="transparent"
+          speed="1"
+          style="width: 40px; height: 40px"
+          loop
+          autoplay
+        ></lottie-player>
+        <a href="https://p-hongsi.github.io/SuSi/etc/idea.html" id="cause"
+          >Idea</a
+        >
       </div>
 
       <ul class="navbar__menu">
         <li><a href="Bsu/Compare_bsu.html">부산대</a></li>
       </ul>
-      <a href="#" class="navbar__toogleBtn">
+      <a class="navbar__toogleBtn">
         <i class="fas fa-bars"></i>
       </a>
     </nav>
@@ -291,37 +305,30 @@
         pos.style.setProperty("--y", e.clientY + "px");
       });
 
-      // Set the number of seconds of inactivity before redirecting
-      var inactivityTime = 60; // 60 seconds of inactivity before redirecting
-
-      // Set the URL to redirect to
-      var redirectUrl = "https://p-hongsi.github.io/SuSi/etc/ThxU.html";
-
       // Initialize a timer variable
-      var timer;
+      let timer;
 
-      // Add an event listener for user input
+      // Function to reset the timer
+      function resetTimer() {
+        clearTimeout(timer);
+        if (window.innerWidth >= 768) {
+          timer = setTimeout(function () {
+            window.location.href = "/etc/ThxU.html";
+          }, 120000);
+        }
+      }
+
       window.addEventListener("mousemove", resetTimer);
       window.addEventListener("mousedown", resetTimer);
       window.addEventListener("keypress", resetTimer);
       window.addEventListener("touchmove", resetTimer);
       window.addEventListener("scroll", resetTimer);
-
-      // Start the timer
-      startTimer();
-
-      // Function to start the timer
-      function startTimer() {
-        timer = setTimeout(function () {
-          window.location.href = redirectUrl;
-        }, inactivityTime * 1000);
-      }
-
-      // Function to reset the timer
-      function resetTimer() {
+      window.addEventListener("load", resetTimer);
+      window.addEventListener("click", resetTimer);
+      window.addEventListener("resize", resetTimer);
+      window.addEventListener("blur", function () {
         clearTimeout(timer);
-        startTimer();
-      }
+      });
     </script>
     <script
       src="https://kit.fontawesome.com/b17d4fa9e7.js"
