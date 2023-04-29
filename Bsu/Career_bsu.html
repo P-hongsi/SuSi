@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
     <title>진로선택과목</title>
     <style>
       .hidden {
@@ -219,11 +222,7 @@
   <body>
     <nav class="navbar">
       <div class="navbar__logo">
-        <a
-          href="/SuSi"
-          onclick="window.localStorage.clear()"
-          >🏡</a
-        >
+        <a href="/SuSi" onclick="window.localStorage.clear()">🏡</a>
       </div>
 
       <ul class="navbar__menu">
@@ -369,57 +368,34 @@
       });
 
       function storeValue() {
-        const num2 = document.getElementById("num2").value.toLowerCase();
-        const num4 = document.getElementById("num4").value.toLowerCase();
-        const num6 = document.getElementById("num6").value.toLowerCase();
-        let value1;
-        let value2;
-        let value3;
+        const values = ["a", "b", "c"];
+        const weights = [0.5, 0.3, 0.1];
+        const scores = [];
 
-        if (num2 === "a") {
-          value1 = 0.5;
-        } else if (num2 === "b") {
-          value1 = 0.3;
-        } else if (num2 === "c") {
-          value1 = 0.1;
-        } else {
-          value1 = "유효하지 않는 값.";
-        }
-        if (num4 === "a") {
-          value2 = 0.5;
-        } else if (num4 === "b") {
-          value2 = 0.3;
-        } else if (num4 === "c") {
-          value2 = 0.1;
-        } else {
-          value2 = "유효하지 않는 값.";
-        }
-        if (num6 === "a") {
-          value3 = 0.5;
-        } else if (num6 === "b") {
-          value3 = 0.3;
-        } else if (num6 === "c") {
-          value3 = 0.1;
-        } else {
-          value3 = "유효하지 않는 값.";
+        for (let i = 1; i <= 3; i++) {
+          const num = document
+            .getElementById(`num${i * 2}`)
+            .value.toLowerCase();
+          const index = values.indexOf(num);
+          if (index === -1) {
+            document.getElementById(
+              "result"
+            ).innerHTML = `진로 선택 과목 점수를 다시 입력해주세요.`;
+            return;
+          }
+          scores.push(weights[index]);
         }
 
-        if ((value1 + value2 + value3) / 3 > 0) {
-          window.localStorage.removeItem("career");
-          let sum = (value1 + value2 + value3) / 3;
-          window.localStorage.setItem("career", sum);
+        const avgScore =
+          scores.reduce((acc, score) => acc + score, 0) / scores.length;
+        window.localStorage.removeItem("career");
+        window.localStorage.setItem("career", avgScore);
 
-          document.getElementById(
-            "result"
-          ).innerHTML = `진로 선택 과목 점수는: ${window.localStorage.getItem(
-            "career"
-          )}점 입니다.`;
-        } else {
-          document.getElementById(
-            "result"
-          ).innerHTML = `진로 선택 과목 점수를 다시 입력해주세요.`;
-        }
+        document.getElementById(
+          "result"
+        ).innerHTML = `진로 선택 과목 점수는: ${avgScore}점 입니다.`;
       }
+
       // Initialize a timer variable
       let timer;
 
@@ -447,7 +423,7 @@
     </script>
   </body>
   <script
-      src="https://kit.fontawesome.com/b17d4fa9e7.js"
-      crossorigin="anonymous"
-    ></script>
+    src="https://kit.fontawesome.com/b17d4fa9e7.js"
+    crossorigin="anonymous"
+  ></script>
 </html>
