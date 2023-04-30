@@ -19,7 +19,7 @@
 
       a {
         text-decoration: none;
-        color: rgb(0, 0, 0);
+        color: black;
         font-size: 19px;
       }
 
@@ -88,9 +88,88 @@
       }
 
       .navbar__menu :hover {
-        background: #e4650a;
+        border-radius: 10px;
+        animation: fade-out .7s ease-in-out ;
+        animation-fill-mode: forwards;
+      }
+
+      .navbar__menu:not(:hover) {
+        animation: fade-in .7s ease-in-out ;
+        animation-fill-mode: forwards;
         border-radius: 10px;
       }
+      @keyframes fade-out {
+  0% {
+    background-color: rgba(228,101,10, 0.1);
+    
+  }
+  10% {
+    background-color: rgba(228,101,10, 0.2);
+  }
+  20% {
+    background-color: rgba(228,101,10, 0.3);
+  }
+  30% {
+    background-color: rgba(228,101,10, 0.4);
+  }
+  40% {
+    background-color: rgba(228,101,10, 0.5);
+  }
+  50% {
+    background-color: rgba(228,101,10, 0.6);
+  }
+  60% {
+    background-color: rgba(228,101,10, 0.7);
+  }
+  70% {
+    background-color: rgba(228,101,10, 0.8);
+  }
+  80% {
+    background-color: rgba(228,101,10, 0.9);
+  }
+  90% {
+    background-color: rgba(228,101,10, 0.95);
+  }
+  100% {
+    background-color: rgba(228,101,10, 1);
+  }
+} 
+@keyframes fade-in {
+  0% {
+    background-color: rgba(228,101,10, 1);
+    
+  }
+  10% {
+    background-color: rgba(228,101,10, 0.9);
+  }
+  20% {
+    background-color: rgba(228,101,10, 0.8);
+  }
+  30% {
+    background-color: rgba(228,101,10, 0.7);
+  }
+  40% {
+    background-color: rgba(228,101,10, 0.6);
+  }
+  50% {
+    background-color: rgba(228,101,10, 0.5);
+  }
+  60% {
+    background-color: rgba(228,101,10, 0.4);
+  }
+  70% {
+    background-color: rgba(228,101,10, 0.3);
+  }
+  80% {
+    background-color: rgba(228,101,10, 0.2);
+  }
+  90% {
+    background-color: rgba(228,101,10, 0.1);
+  }
+  100% {
+    background-color: rgba(228,101,10, 0);
+  }
+}
 
       .navbar__logo {
         display: inline-flex;
@@ -157,6 +236,10 @@
         .navbar__menu :hover {
           width: 15vw;
         }
+        .navbar__menu:not(:hover) {
+          width: 15vw;
+          margin: 0 auto;
+        }
 
         .background {
           background-image: url(/SuSi/etc/index.jpg);
@@ -183,6 +266,15 @@
           align-items: center;
           justify-content: center;
           font-size: 58px;
+        }
+
+        .backdrop>span {
+          display: inline-block;
+          animation: flip 4s infinite;
+          animation-delay: calc(0.4s * var(--x));
+        }
+        @keyframes flip {
+          0%, 80% {transform: rotateY(360deg);}
         }
 
         .navbar {
@@ -259,10 +351,10 @@
       </svg>
     </div>
     <div class="background">
-      <div class="backdrop">Made by 주니</div>
+      <div class="backdrop"><span style="--x:1">M</span><span style="--x:2">a</span><span style="--x:3">d</span><span style="--x:4">e</span><span style="--x:5">B</span><span style="--x:6">y</span><span style="--x:7">J</span><span style="--x:8">u</span><span style="--x:9">n</span><span style="--x:10">y</span></div> 
     </div>
-    <a href="https://www.instagram.com/sooyaaa__/" class="hidden">블</a>
-    <a href="https://www.instagram.com/roses_are_rosie/" class="hidden">핑</a>
+    <a href="https://www.instagram.com/sooyaaa__/" class="hidden">블</a> 
+    <a href="https://www.instagram.com/roses_are_rosie/" class="hidden">핑</a>   <!--<span style="--x:1">-->
     <a href="https://www.instagram.com/jennierubyjane/" class="hidden">사</a>
     <a href="https://www.instagram.com/lalalalisa_m/" class="hidden">랑</a>
     <section>
@@ -302,6 +394,8 @@
         }
       }
 
+      let doctitle = document.title;
+
       window.addEventListener("mousemove", resetTimer);
       window.addEventListener("mousedown", resetTimer);
       window.addEventListener("keypress", resetTimer);
@@ -313,6 +407,12 @@
       window.addEventListener("blur", function () {
         clearTimeout(timer);
       });
+      window.addEventListener("blur",() => {
+        document.title = "Bye!";
+      })
+      window.addEventListener("focus",() => {
+        document.title = doctitle;
+      })
     </script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script

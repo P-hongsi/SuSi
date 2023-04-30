@@ -180,10 +180,88 @@
         padding: 8px 12px;
       }
 
-      .navbar__menu :hover {
-        background: rgb(139, 167, 238);
-        border-radius: 4px;
+      .navbar__menu>li:hover {
+        border-radius: 10px;
+        animation: fade-out .7s ease-in-out ;
+        animation-fill-mode: forwards;
       }
+
+      .navbar__menu>li:not(:hover) {
+        animation: fade-in .7s ease-in-out ;
+        animation-fill-mode: forwards;
+        border-radius: 10px;
+      }
+      @keyframes fade-out {
+  0% {
+    background-color: rgba(116, 141, 253, 0.1);
+  }
+  10% {
+    background-color: rgba(116, 141, 253, 0.2);
+  }
+  20% {
+    background-color: rgba(116, 141, 253, 0.3);
+  }
+  30% {
+    background-color: rgba(116, 141, 253, 0.4);
+  }
+  40% {
+    background-color: rgba(116, 141, 253, 0.5);
+  }
+  50% {
+    background-color: rgba(116, 141, 253, 0.6);
+  }
+  60% {
+    background-color: rgba(116, 141, 253, 0.7);
+  }
+  70% {
+    background-color: rgba(116, 141, 253, 0.8);
+  }
+  80% {
+    background-color: rgba(116, 141, 253, 0.9);
+  }
+  90% {
+    background-color: rgba(116, 141, 253, 0.95);
+  }
+  100% {
+    background-color: rgba(116, 141, 253, 1);
+  }
+} 
+@keyframes fade-in {
+  0% {
+    background-color: rgba(116, 141, 253, 1);
+    
+  }
+  10% {
+    background-color: rgba(116, 141, 253, 0.9);
+  }
+  20% {
+    background-color: rgba(116, 141, 253, 0.8);
+  }
+  30% {
+    background-color: rgba(116, 141, 253, 0.7);
+  }
+  40% {
+    background-color: rgba(116, 141, 253, 0.6);
+  }
+  50% {
+    background-color: rgba(116, 141, 253, 0.5);
+  }
+  60% {
+    background-color: rgba(116, 141, 253, 0.4);
+  }
+  70% {
+    background-color: rgba(116, 141, 253, 0.3);
+  }
+  80% {
+    background-color: rgba(116, 141, 253, 0.2);
+  }
+  90% {
+    background-color: rgba(116, 141, 253, 0.1);
+  }
+  100% {
+    background-color: rgba(116, 141, 253, 0);
+  }
+}
 
       .navbar__toogleBtn {
         display: none;
@@ -198,8 +276,13 @@
           width: 40vw;
         }
 
-        .navbar__menu :hover {
-          width: 30vw;
+        .navbar__menu>li:hover {
+          width: 33vw;
+        }
+
+        .navbar__menu>li:not(:hover) {
+          width: 33vw;
+          margin: 0 auto;
         }
 
         .navbar {
@@ -243,7 +326,7 @@
         <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
         <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
       </ul>
-      <a href="#" class="navbar__toogleBtn">
+      <a class="navbar__toogleBtn">
         <i class="fas fa-bars"></i>
       </a>
     </nav>
