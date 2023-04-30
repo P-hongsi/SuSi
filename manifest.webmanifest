@@ -6,12 +6,17 @@
   "start_url": "/SuSi/",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
-  "display": "standalone", 
+  "display": "fullscreen", 
   "icons": [
       {
         "src": "/SuSi/etc/icon-512.png",
         "type": "image/png",
         "sizes": "512x512"
+      },
+      {
+        "src": "/SuSi/etc/icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
       }
   ]
 }
