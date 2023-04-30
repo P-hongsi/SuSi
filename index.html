@@ -82,13 +82,17 @@
         font-size: 10em;
         transform: translate(0, 0);
         transform: translate(calc(var(--x) / 25), calc(var(--y) / 25));
-            }
+      }
 
-        .icons {
-          position: fixed;
-          top: 0.1vw;
-          left: 47vw;
-        }
+      .hover-link {
+        cursor: pointer;
+      }
+
+      .icons {
+        position: fixed;
+        top: 0.1vw;
+        left: 47vw;
+      }
 
       .icon {
         display:flex;
@@ -355,7 +359,7 @@
         </a>
       </div>
       <ul class="navbar__menu">
-        <li><a href="Bsu/Compare_bsu.html">부산대</a></li>
+        <li><a class="hover-link" data-url="https://go.pusan.ac.kr/" href="Bsu/Compare_bsu.html">부산대</a></li>
       </ul>
       <a class="navbar__toogleBtn">
         <i class="fas fa-bars"></i>
@@ -454,6 +458,19 @@
           {scope: '/SuSi/'}
         )
       }
+
+      let timer2;
+
+      document.querySelector('.hover-link').addEventListener('mouseover', () => {
+        timer2 = setTimeout(() => {
+          const url = document.querySelector('.hover-link').getAttribute('data-url');
+          window.location.href = url;
+        }, 4000);
+      });
+
+      document.querySelector('.hover-link').addEventListener('mouseout', () => {
+        clearTimeout(timer2);
+      });
     </script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script
