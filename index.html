@@ -6,9 +6,10 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="/SuSi/etc/logol.png">
     <meta property="og:description" content="수시로 가자!">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <body oncontextmenu="return false">
-    <link rel="manifest" href="/SuSi/etc/manifest.json" />
+    <link rel="apple-touch-icon" href="/etc/icon-192.png" />
+    <link rel="apple-touch-icon" href="/etc/icon-512.png" />
+    <link rel="manifest" href="/etc/manifest.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>ㅅㅅ</title>
     <style>
@@ -48,7 +49,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url(/SuSi/etc/index.jpg);
+        background: url(/etc/index.jpg);
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -72,7 +73,7 @@
 
       .navbar {
         display: flex;
-        background-image: url(/SuSi/etc/index.jpg);
+        background-image: url(/etc/index.jpg);
         justify-content: space-between;
         align-items: center;
         padding: 8px 12px;
@@ -244,7 +245,7 @@
         }
 
         .background {
-          background-image: url(/SuSi/etc/index.jpg);
+          background-image: url(/etc/index.jpg);
           background-size: cover;
           background-position: top;
           width: 100vw;
@@ -368,6 +369,7 @@
       </div>
     </section>
     <script>
+      self.addEventListener("fetch", e => {});
       const toggleBtn = document.querySelector(".navbar__toogleBtn");
       const menu = document.querySelector(".navbar__menu");
       const icons = document.querySelector(".navbar__icons");
