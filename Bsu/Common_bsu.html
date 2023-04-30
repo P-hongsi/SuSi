@@ -142,6 +142,18 @@
         font-weight: bold;
       }
 
+      .progress-bar {
+        height: .5rem;
+        width: 0%;
+        position: fixed;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 179, 11, 1) 13%,
+          rgba(255, 104, 93, 1) 50%,
+          rgba(243, 106, 62, 1) 82%
+        );
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -187,11 +199,6 @@
         animation-fill-mode: forwards;
       }
 
-      .navbar__menu>li:not(:hover) {
-        animation: fade-in .7s ease-in-out ;
-        animation-fill-mode: forwards;
-        border-radius: 10px;
-      }
       @keyframes fade-out {
   0% {
     background-color: rgba(116, 141, 253, 0.1);
@@ -226,42 +233,6 @@
   100% {
     background-color: rgba(116, 141, 253, 1);
   }
-} 
-@keyframes fade-in {
-  0% {
-    background-color: rgba(116, 141, 253, 1);
-    
-  }
-  10% {
-    background-color: rgba(116, 141, 253, 0.9);
-  }
-  20% {
-    background-color: rgba(116, 141, 253, 0.8);
-  }
-  30% {
-    background-color: rgba(116, 141, 253, 0.7);
-  }
-  40% {
-    background-color: rgba(116, 141, 253, 0.6);
-  }
-  50% {
-    background-color: rgba(116, 141, 253, 0.5);
-  }
-  60% {
-    background-color: rgba(116, 141, 253, 0.4);
-  }
-  70% {
-    background-color: rgba(116, 141, 253, 0.3);
-  }
-  80% {
-    background-color: rgba(116, 141, 253, 0.2);
-  }
-  90% {
-    background-color: rgba(116, 141, 253, 0.1);
-  }
-  100% {
-    background-color: rgba(116, 141, 253, 0);
-  }
 }
 
       .navbar__toogleBtn {
@@ -279,11 +250,6 @@
 
         .navbar__menu>li:hover {
           width: 38vw;
-        }
-
-        .navbar__menu>li:not(:hover) {
-          width: 38vw;
-          margin: 0 auto;
         }
 
         .navbar {
@@ -317,6 +283,7 @@
   </head>
 
   <body>
+    <div id="progress-bar" class="progress-bar"></div>
     <nav class="navbar">
       <div class="navbar__logo">
         <a href="/SuSi" onclick="window.localStorage.clear()"><img src="/SuSi/etc/logow.png"></a>
@@ -2355,6 +2322,14 @@
       toggleBtn.addEventListener("click", () => {
         menu.classList.toggle("active");
         icons.classList.toggle("active");
+      });
+
+      const progressBarEl = document.getElementById('progress-bar');
+      window.addEventListener('scroll', () => {
+        let height = document.body.scrollHeight - window.innerHeight;
+        let scrollP = document.documentElement.scrollTop;
+        let width = (scrollP / height) * 100;
+        progressBarEl.style.width = `${width}%`;
       });
 
       function addNumbers() {

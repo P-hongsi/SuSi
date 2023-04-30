@@ -15,18 +15,22 @@
     <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
     <link rel="apple-touch-icon" href="/SuSi/etc/icon-512.png" />
     <body oncontextmenu="return false">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>ㅅㅅ</title>
     <style>
-      .hidden {
-        display: none !important;
-      }
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         overflow: hidden;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        display: grid;
       }
 
       a {
@@ -78,6 +82,56 @@
         font-size: 10em;
         transform: translate(0, 0);
         transform: translate(calc(var(--x) / 25), calc(var(--y) / 25));
+            }
+
+        .icons {
+          position: fixed;
+          top: 0.1vw;
+          left: 47vw;
+        }
+
+      .icon {
+        display:flex;
+      	width: 50px;
+      	height: 40px;
+      	text-decoration: none;
+      	font-size: 26px;
+      	color: black;
+      	border-radius: 50%;
+      	transition-property: outline-offset, outline-color, background-color;
+      	transition-duration: 0.25s;
+      }
+      .icon i {
+      	margin: auto;
+      }
+      .icon:hover i {
+      	animation: shake 0.25s;
+      }
+      .icon--github:hover {
+      	background-image: radial-gradient(
+      		circle at 30% 107%,
+      		#5b79ff 0%,
+      		#7d95ff 5%,
+      		#92a6ff 45%,
+      		#b9c6ff 60%,
+      		#d1daff 90%
+      	);
+      	outline-color: #2ea44f;
+      }
+
+      @keyframes shake {
+      	10% {
+      		transform: rotate(15deg);
+      	}
+      	20% {
+      		transform: rotate(-15deg);
+      	}
+      	30% {
+      		transform: rotate(15deg);
+      	}
+      	40% {
+      		transform: rotate(-15deg);
+      	}
       }
 
       .navbar {
@@ -105,84 +159,42 @@
         animation-fill-mode: forwards;
       }
 
-      .navbar__menu:not(:hover) {
-        animation: fade-in .7s ease-in-out ;
-        animation-fill-mode: forwards;
-        border-radius: 10px;
-      }
       @keyframes fade-out {
-  0% {
-    background-color: rgba(228,101,10, 0.1);
-    
-  }
-  10% {
-    background-color: rgba(228,101,10, 0.2);
-  }
-  20% {
-    background-color: rgba(228,101,10, 0.3);
-  }
-  30% {
-    background-color: rgba(228,101,10, 0.4);
-  }
-  40% {
-    background-color: rgba(228,101,10, 0.5);
-  }
-  50% {
-    background-color: rgba(228,101,10, 0.6);
-  }
-  60% {
-    background-color: rgba(228,101,10, 0.7);
-  }
-  70% {
-    background-color: rgba(228,101,10, 0.8);
-  }
-  80% {
-    background-color: rgba(228,101,10, 0.9);
-  }
-  90% {
-    background-color: rgba(228,101,10, 0.95);
-  }
-  100% {
-    background-color: rgba(228,101,10, 1);
-  }
-} 
-@keyframes fade-in {
-  0% {
-    background-color: rgba(228,101,10, 1);
-    
-  }
-  10% {
-    background-color: rgba(228,101,10, 0.9);
-  }
-  20% {
-    background-color: rgba(228,101,10, 0.8);
-  }
-  30% {
-    background-color: rgba(228,101,10, 0.7);
-  }
-  40% {
-    background-color: rgba(228,101,10, 0.6);
-  }
-  50% {
-    background-color: rgba(228,101,10, 0.5);
-  }
-  60% {
-    background-color: rgba(228,101,10, 0.4);
-  }
-  70% {
-    background-color: rgba(228,101,10, 0.3);
-  }
-  80% {
-    background-color: rgba(228,101,10, 0.2);
-  }
-  90% {
-    background-color: rgba(228,101,10, 0.1);
-  }
-  100% {
-    background-color: rgba(228,101,10, 0);
-  }
-}
+        0% {
+          background-color: rgba(228,101,10, 0.1);
 
+        }
+        10% {
+          background-color: rgba(228,101,10, 0.2);
+        }
+        20% {
+          background-color: rgba(228,101,10, 0.3);
+        }
+        30% {
+          background-color: rgba(228,101,10, 0.4);
+        }
+        40% {
+          background-color: rgba(228,101,10, 0.5);
+        }
+        50% {
+          background-color: rgba(228,101,10, 0.6);
+        }
+        60% {
+          background-color: rgba(228,101,10, 0.7);
+        }
+        70% {
+          background-color: rgba(228,101,10, 0.8);
+        }
+        80% {
+          background-color: rgba(228,101,10, 0.9);
+        }
+        90% {
+          background-color: rgba(228,101,10, 0.95);
+        }
+        100% {
+          background-color: rgba(228,101,10, 1);
+        }
+      }       
       .navbar__logo {
         display: inline-flex;
       }
@@ -219,6 +231,12 @@
         section {
           position: relative;
           display: none;
+        }
+
+        .icons {
+          position: fixed;
+          top: 2px;
+          left: 45vw;
         }
 
         .navbar {
@@ -319,13 +337,7 @@
       }
     </style>
   </head>
-
   <body>
-    <div id="installContainer" class="hidden" >
-      <button id="butInstall" type="button">
-        앱으로 설치
-      </button>
-    </div>
     <nav class="navbar">
       <div class="navbar__logo">
         <lottie-player
@@ -336,6 +348,11 @@
           loop
           autoplay
         ></lottie-player>
+      </div>
+      <div class="icons">
+        <a href="https://github.com/P-hongsi/SuSi" class="icon icon--github">
+          <i class="ri-github-line"></i>
+        </a>
       </div>
       <ul class="navbar__menu">
         <li><a href="Bsu/Compare_bsu.html">부산대</a></li>
@@ -383,7 +400,6 @@
       </div>
     </section>
     <script>
-      self.addEventListener("fetch", e => {});
       const toggleBtn = document.querySelector(".navbar__toogleBtn");
       const menu = document.querySelector(".navbar__menu");
       const icons = document.querySelector(".navbar__icons");

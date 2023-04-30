@@ -168,12 +168,6 @@
         animation: fade-out .7s ease-in-out ;
         animation-fill-mode: forwards;
       }
-
-      .navbar__menu>li:not(:hover) {
-        animation: fade-in .7s ease-in-out ;
-        animation-fill-mode: forwards;
-        border-radius: 10px;
-      }
       @keyframes fade-out {
   0% {
     background-color: rgba(116, 141, 253, 0.1);
@@ -209,42 +203,6 @@
     background-color: rgba(116, 141, 253, 1);
   }
 } 
-@keyframes fade-in {
-  0% {
-    background-color: rgba(116, 141, 253, 1);
-    
-  }
-  10% {
-    background-color: rgba(116, 141, 253, 0.9);
-  }
-  20% {
-    background-color: rgba(116, 141, 253, 0.8);
-  }
-  30% {
-    background-color: rgba(116, 141, 253, 0.7);
-  }
-  40% {
-    background-color: rgba(116, 141, 253, 0.6);
-  }
-  50% {
-    background-color: rgba(116, 141, 253, 0.5);
-  }
-  60% {
-    background-color: rgba(116, 141, 253, 0.4);
-  }
-  70% {
-    background-color: rgba(116, 141, 253, 0.3);
-  }
-  80% {
-    background-color: rgba(116, 141, 253, 0.2);
-  }
-  90% {
-    background-color: rgba(116, 141, 253, 0.1);
-  }
-  100% {
-    background-color: rgba(116, 141, 253, 0);
-  }
-}
 
       .navbar__icons li {
         padding: 8px 12px;
@@ -277,11 +235,6 @@
 
         .navbar__menu>li:hover {
           width: 38vw;
-        }
-
-        .navbar__menu>li:not(:hover) {
-          width: 38vw;
-          margin: 0 auto;
         }
 
         .navbar__menu {
