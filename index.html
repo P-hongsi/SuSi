@@ -112,14 +112,12 @@
       	animation: shake 0.25s;
       }
       .icon--github:hover {
-      	background-image: radial-gradient(
-      		circle at 30% 107%,
-      		#5b79ff 0%,
-      		#7d95ff 5%,
-      		#92a6ff 45%,
-      		#b9c6ff 60%,
-      		#d1daff 90%
-      	);
+      	background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 1) 13%,
+          rgba(255, 104, 93, 1) 50%,
+          rgba(243, 106, 62, 1) 82%
+        );
       }
 
       @keyframes shake {
@@ -164,37 +162,92 @@
 
       @keyframes fade-out {
         0% {
-          background-color: rgba(116, 141, 253, 0.1);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0) 13%,
+          rgba(255, 104, 93, 0) 50%,
+          rgba(243, 106, 62, 0) 82%
+          );
         }
         10% {
-          background-color: rgba(116, 141, 253, 0.2);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0.1) 13%,
+          rgba(255, 104, 93, 0.1) 50%,
+          rgba(243, 106, 62, 0.1) 82%
+          );
         }
         20% {
-          background-color: rgba(116, 141, 253, 0.3);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0.2) 13%,
+          rgba(255, 104, 93, 0.2) 50%,
+          rgba(243, 106, 62, 0.2) 82%
+          );
         }
         30% {
-          background-color: rgba(116, 141, 253, 0.4);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0.3) 13%,
+          rgba(255, 104, 93, 0.3) 50%,
+          rgba(243, 106, 62, 0.3) 82%
+          );
         }
         40% {
-          background-color: rgba(116, 141, 253, 0.5);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0.4) 13%,
+          rgba(255, 104, 93, 0.4) 50%,
+          rgba(243, 106, 62, 0.4) 82%
+          );
         }
         50% {
-          background-color: rgba(116, 141, 253, 0.6);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0.5) 13%,
+          rgba(255, 104, 93, 0.5) 50%,
+          rgba(243, 106, 62, 0.5) 82%
+          );
         }
         60% {
-          background-color: rgba(116, 141, 253, 0.7);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0.6) 13%,
+          rgba(255, 104, 93, 0.6) 50%,
+          rgba(243, 106, 62, 0.6) 82%
+          );
         }
         70% {
-          background-color: rgba(116, 141, 253, 0.8);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0.7) 13%,
+          rgba(255, 104, 93, 0.7) 50%,
+          rgba(243, 106, 62, 0.7) 82%
+          );
         }
         80% {
-          background-color: rgba(116, 141, 253, 0.9);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0.8) 13%,
+          rgba(255, 104, 93, 0.8) 50%,
+          rgba(243, 106, 62, 0.8) 82%
+          );
         }
         90% {
-          background-color: rgba(116, 141, 253, 0.95);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 0.9) 13%,
+          rgba(255, 104, 93, 0.9) 50%,
+          rgba(243, 106, 62, 0.9) 82%
+          );
         }
         100% {
-          background-color: rgba(116, 141, 253, 1);
+          background-image: linear-gradient(
+          45deg,
+          rgba(255, 179, 11, 1) 13%,
+          rgba(255, 104, 93, 1) 50%,
+          rgba(243, 106, 62, 1) 82%
+          );
         }
       }
       
@@ -211,7 +264,7 @@
         position: absolute;
         right: 32px;
         font-size: 24px;
-        color: #063c66;
+        color: white;
       }
       
       .backdrop {
@@ -242,10 +295,6 @@
           left: 45vw;
         }
 
-        .navbar {
-          height: auto;
-        }
-
         .hidden {
           display: flex;
           width: 20px;
@@ -263,7 +312,7 @@
         }
 
         .shape .shape-fill {
-          fill: #748dfd;
+          fill: #ff990a;
         }
 
         .navbar__menu :hover {
@@ -307,14 +356,15 @@
           animation-delay: calc(0.4s * var(--x));
         }
         @keyframes flip {
-          0%, 80% {transform: rotateY(360deg);}
+          0%, 80% {transform: rotateY(345deg);}
         }
 
         .navbar {
           flex-direction: column;
           align-items: flex-start;
           position: relative;
-          background: #748dfd;
+          height: auto;
+          background: #ff990a;
         }
 
         .navbar__menu {
@@ -358,12 +408,110 @@
           .navbar {
             background: #6676b5;
           }
-        }
-        .shape .shape-fill {
+          .shape .shape-fill {
           fill: #6676b5;
+          }
+        }
+        @keyframes fade-out {
+          0% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0) 3%,
+            rgb(70, 88, 157,0) 50%,
+            rgb(20, 38, 111,0) 82%
+            );
+          }
+          10% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0.1) 3%,
+            rgb(70, 88, 157,0.1) 50%,
+            rgb(20, 38, 111,0.1) 82%
+            );
+          }
+          20% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0.2) 3%,
+            rgb(70, 88, 157,0.2) 50%,
+            rgb(20, 38, 111,0.2) 82%
+            );
+          }
+          30% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0.3) 3%,
+            rgb(70, 88, 157,0.3) 50%,
+            rgb(20, 38, 111,0.3) 82%
+            );
+          }
+          40% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0.4) 3%,
+            rgb(70, 88, 157,0.4) 50%,
+            rgb(20, 38, 111,0.4) 82%
+            );
+          }
+          50% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0.5) 3%,
+            rgb(70, 88, 157,0.5) 50%,
+            rgb(20, 38, 111,0.5) 82%
+            );
+          }
+          60% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0.6) 3%,
+            rgb(70, 88, 157,0.6) 50%,
+            rgb(20, 38, 111,0.6) 82%
+            );
+          }
+          70% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0.7) 3%,
+            rgb(70, 88, 157,0.7) 50%,
+            rgb(20, 38, 111,0.7) 82%
+            );
+          }
+          80% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0.8) 3%,
+            rgb(70, 88, 157,0.8) 50%,
+            rgb(20, 38, 111,0.8) 82%
+            );
+          }
+          90% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,0.9) 3%,
+            rgb(70, 88, 157,0.9) 50%,
+            rgb(20, 38, 111,0.9) 82%
+            );
+          }
+          100% {
+            background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,1) 3%,
+            rgb(70, 88, 157,1) 50%,
+            rgb(20, 38, 111,1) 82%
+            );
+          }
         }
         .navbar__toogleBtn {
           color: white;
+        }
+        .icon--github:hover {
+          background: linear-gradient(
+            45deg,
+            rgb(156, 174, 245,1) 3%,
+            rgb(70, 88, 157,1) 50%,
+            rgb(20, 38, 111,1) 82%
+          );
         }
       }
     </style>
