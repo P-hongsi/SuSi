@@ -5,7 +5,18 @@
   "scope": "/SuSi/",
   "start_url": "/SuSi/",
   "background_color": "white",
-  "theme_color": "rgb(255, 153, 10)",
+  "color_overrides": [
+    {
+      "media": "(prefers-color-scheme: dark)",
+      "theme_color": "rgb(40,40,40)",
+      "background_color": "black"
+    },
+    {
+      "media": "(prefers-color-scheme: light)",
+      "theme_color": "rgb(255, 153, 10)",
+      "background_color": "white"
+    }
+  ],
   "display": "standalone", 
   "icons": [
       {
