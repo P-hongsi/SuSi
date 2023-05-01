@@ -7,7 +7,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <body oncontextmenu="return false">
     <title>석차등급과목</title>
     <style>
       .hidden {
@@ -15,7 +14,7 @@
       }
 
       img {
-        width: 42px; 
+        width: 42px;
         height: 50px;
       }
 
@@ -143,7 +142,7 @@
       }
 
       .progress-bar {
-        height: .5rem;
+        height: 0.5rem;
         width: 0%;
         position: fixed;
         background: linear-gradient(
@@ -193,9 +192,9 @@
         padding: 8px 12px;
       }
 
-      .navbar__menu>li:hover {
+      .navbar__menu > li:hover {
         border-radius: 10px;
-        animation: fade-out .7s ease-in-out ;
+        animation: fade-out 0.7s ease-in-out;
         animation-fill-mode: forwards;
       }
 
@@ -248,7 +247,7 @@
           width: 40vw;
         }
 
-        .navbar__menu>li:hover {
+        .navbar__menu > li:hover {
           width: 38vw;
         }
 
@@ -281,7 +280,7 @@
       }
       @media (prefers-color-scheme: dark) {
         body {
-          background-color: rgb(40,40,40);
+          background-color: rgb(40, 40, 40);
         }
         select {
           background-color: rgb(55, 55, 55);
@@ -309,41 +308,52 @@
           background: rgb(102, 118, 181);
         }
         .shape .shape-fill {
-          fill: #6676b5;
+          fill: rgb(102, 118, 181);
         }
-        li> span {
+        li > span {
           color: #ffffff;
         }
         .res {
           color: #ffffff;
         }
+        .progress-bar {
+          height: 0.5rem;
+          width: 0%;
+          position: fixed;
+          background: linear-gradient(
+            90deg,
+            rgb(156, 174, 245) 3%,
+            rgb(70, 88, 157) 50%,
+            rgb(20, 38, 111) 82%
+          );
+        }
         @keyframes fade-out {
           0% {
-            background-color: rgba(18,32, 96, 0.1);
+            background-color: rgba(18, 32, 96, 0.1);
           }
           10% {
-            background-color: rgba(18,32, 96, 0.2);
+            background-color: rgba(18, 32, 96, 0.2);
           }
           20% {
-            background-color: rgba(18,32, 96, 0.3);
+            background-color: rgba(18, 32, 96, 0.3);
           }
           30% {
-            background-color: rgba(18,32, 96, 0.4);
+            background-color: rgba(18, 32, 96, 0.4);
           }
           40% {
-            background-color: rgba(18,32, 96, 0.5);
+            background-color: rgba(18, 32, 96, 0.5);
           }
           50% {
-            background-color: rgba(18,32, 96, 0.6);
+            background-color: rgba(18, 32, 96, 0.6);
           }
           60% {
-            background-color: rgba(18,32, 96, 0.7);
+            background-color: rgba(18, 32, 96, 0.7);
           }
           70% {
-            background-color: rgba(18,32, 96, 0.8);
+            background-color: rgba(18, 32, 96, 0.8);
           }
           80% {
-            background-color: rgba(18,32, 96, 0.9);
+            background-color: rgba(18, 32, 96, 0.9);
           }
           90% {
             background-color: rgba(18, 32, 96, 0.95);
@@ -355,11 +365,14 @@
       }
     </style>
   </head>
-  <body>
+
+  <body oncontextmenu="return false">
     <div id="progress-bar" class="progress-bar"></div>
     <nav class="navbar">
       <div class="navbar__logo">
-        <a href="/SuSi" onclick="window.localStorage.clear()"><img src="/SuSi/etc/logow.png"></a>
+        <a href="/SuSi" onclick="window.localStorage.clear()"
+          ><img src="/SuSi/etc/logow.png"
+        /></a>
       </div>
 
       <ul class="navbar__menu">
@@ -2397,8 +2410,8 @@
         icons.classList.toggle("active");
       });
 
-      const progressBarEl = document.getElementById('progress-bar');
-      window.addEventListener('scroll', () => {
+      const progressBarEl = document.getElementById("progress-bar");
+      window.addEventListener("scroll", () => {
         let height = document.body.scrollHeight - window.innerHeight;
         let scrollP = document.documentElement.scrollTop;
         let width = (scrollP / height) * 100;
@@ -2475,13 +2488,12 @@
           "M16.806 13.667v-5.25c0-.967-.841-1.75-1.879-1.75-1.037 0-1.878.783-1.878 1.75v8.998c0 .912-1.073 1.472-1.907.995l-1.79-1.024c-.588-.328-1.326-.312-1.896.042-.93.578-1.061 1.805-.27 2.542l5.757 5.363h10.929l1.43-7.49c.22-1.333-.714-2.594-2.129-2.876l-6.367-1.3z",
         buttonT:
           "translate(-1208 -172) translate(832 140) translate(32 32) translate(344)",
-        shadowSize:
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-        roundnessSize: "16px",
-        buttonDToBottom: "24px",
-        buttonDToRight: "28px",
-        selectedBackgroundColor: "#ffb30b",
-        selectedIconColor: "#626a7e",
+        shadowSize: "none",
+        roundnessSize: "12px",
+        buttonDToBottom: "16px",
+        buttonDToRight: "24px",
+        selectedBackgroundColor: "#6676b5",
+        selectedIconColor: "#ffffff",
         buttonWidth: "40px",
         buttonHeight: "40px",
         svgWidth: "32px",

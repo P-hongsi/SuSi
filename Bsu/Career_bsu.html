@@ -7,7 +7,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <body oncontextmenu="return false">
     <title>진로선택과목</title>
     <style>
       .hidden {
@@ -24,7 +23,7 @@
       }
 
       img {
-        width: 42px; 
+        width: 42px;
         height: 50px;
       }
 
@@ -164,9 +163,9 @@
         padding: 8px 12px;
       }
 
-      .navbar__menu>li:hover {
+      .navbar__menu > li:hover {
         border-radius: 10px;
-        animation: fade-out .7s ease-in-out ;
+        animation: fade-out 0.7s ease-in-out;
         animation-fill-mode: forwards;
       }
       @keyframes fade-out {
@@ -203,7 +202,7 @@
         100% {
           background-color: rgb(226, 85, 20);
         }
-      } 
+      }
 
       .navbar__icons li {
         padding: 8px 12px;
@@ -234,7 +233,7 @@
           padding: 8px 24px;
         }
 
-        .navbar__menu>li:hover {
+        .navbar__menu > li:hover {
           width: 38vw;
         }
 
@@ -261,7 +260,7 @@
       }
       @media (prefers-color-scheme: dark) {
         body {
-          background-color: rgb(40,40,40);
+          background-color: rgb(40, 40, 40);
         }
         select {
           background-color: rgb(55, 55, 55);
@@ -289,41 +288,41 @@
           background: rgb(102, 118, 181);
         }
         .shape .shape-fill {
-        fill: #6676b5;
+          fill: #6676b5;
         }
         #result {
-        color: rgb(231, 231, 231);
+          color: rgb(231, 231, 231);
         }
         li > span {
           color: #ffffff;
         }
         @keyframes fade-out {
           0% {
-            background-color: rgba(18,32, 96, 0.1);
+            background-color: rgba(18, 32, 96, 0.1);
           }
           10% {
-            background-color: rgba(18,32, 96, 0.2);
+            background-color: rgba(18, 32, 96, 0.2);
           }
           20% {
-            background-color: rgba(18,32, 96, 0.3);
+            background-color: rgba(18, 32, 96, 0.3);
           }
           30% {
-            background-color: rgba(18,32, 96, 0.4);
+            background-color: rgba(18, 32, 96, 0.4);
           }
           40% {
-            background-color: rgba(18,32, 96, 0.5);
+            background-color: rgba(18, 32, 96, 0.5);
           }
           50% {
-            background-color: rgba(18,32, 96, 0.6);
+            background-color: rgba(18, 32, 96, 0.6);
           }
           60% {
-            background-color: rgba(18,32, 96, 0.7);
+            background-color: rgba(18, 32, 96, 0.7);
           }
           70% {
-            background-color: rgba(18,32, 96, 0.8);
+            background-color: rgba(18, 32, 96, 0.8);
           }
           80% {
-            background-color: rgba(18,32, 96, 0.9);
+            background-color: rgba(18, 32, 96, 0.9);
           }
           90% {
             background-color: rgba(18, 32, 96, 0.95);
@@ -336,10 +335,12 @@
     </style>
   </head>
 
-  <body>
+  <body oncontextmenu="return false">
     <nav class="navbar">
       <div class="navbar__logo">
-        <a href="/SuSi" onclick="window.localStorage.clear()"><img src="/SuSi/etc/logow.png"></a>
+        <a href="/SuSi" onclick="window.localStorage.clear()"
+          ><img src="/SuSi/etc/logow.png"
+        /></a>
       </div>
 
       <ul class="navbar__menu">
@@ -538,9 +539,9 @@
         clearTimeout(timer);
       });
     </script>
+    <script
+      src="https://kit.fontawesome.com/b17d4fa9e7.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
-  <script
-    src="https://kit.fontawesome.com/b17d4fa9e7.js"
-    crossorigin="anonymous"
-  ></script>
 </html>

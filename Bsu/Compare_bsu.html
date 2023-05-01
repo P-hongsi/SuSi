@@ -2,9 +2,12 @@
 <html>
   <head>
     <meta charset="euc-kr" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>학과점수비교</title>
-    <body oncontextmenu="return false">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
       .shape .shape-fill {
@@ -17,7 +20,7 @@
       }
 
       img {
-        width: 42px; 
+        width: 42px;
         height: 50px;
       }
 
@@ -168,9 +171,9 @@
         font-size: 21px;
       }
 
-      .navbar__menu>li:hover {
+      .navbar__menu > li:hover {
         border-radius: 10px;
-        animation: fade-out .7s ease-in-out ;
+        animation: fade-out 0.7s ease-in-out;
         animation-fill-mode: forwards;
       }
 
@@ -208,7 +211,7 @@
         100% {
           background-color: rgb(226, 85, 20);
         }
-      } 
+      }
 
       .navbar__icons li {
         padding: 8px 12px;
@@ -243,7 +246,7 @@
           justify-content: center;
         }
 
-        .navbar__menu>li:hover {
+        .navbar__menu > li:hover {
           width: 38vw;
         }
 
@@ -283,7 +286,7 @@
       }
       @media (prefers-color-scheme: dark) {
         body {
-          background-color: rgb(40,40,40);
+          background-color: rgb(40, 40, 40);
         }
         select {
           background-color: rgb(55, 55, 55);
@@ -291,7 +294,7 @@
           border: 0.1px solid #565656;
         }
         tbody > tr {
-          color: rgb(231,231,231);
+          color: rgb(231, 231, 231);
           background: linear-gradient(
             90deg,
             rgb(156, 174, 245) 3%,
@@ -302,7 +305,7 @@
         th {
           border: 0.1px solid rgb(55, 55, 55);
           background-color: rgb(55, 55, 55);
-          color: rgb(231,231,231);
+          color: rgb(231, 231, 231);
         }
         td {
           border: 0.1px solid rgb(55, 55, 55);
@@ -320,41 +323,41 @@
           background-color: rgb(5, 6, 45);
         }
         #result-container {
-          color: rgb(231,231,231);
+          color: rgb(231, 231, 231);
         }
         .navbar {
           background: rgb(102, 118, 181);
         }
         .shape .shape-fill {
-        fill: #6676b5;
+          fill: #6676b5;
         }
         @keyframes fade-out {
           0% {
-            background-color: rgba(18,32, 96, 0.1);
+            background-color: rgba(18, 32, 96, 0.1);
           }
           10% {
-            background-color: rgba(18,32, 96, 0.2);
+            background-color: rgba(18, 32, 96, 0.2);
           }
           20% {
-            background-color: rgba(18,32, 96, 0.3);
+            background-color: rgba(18, 32, 96, 0.3);
           }
           30% {
-            background-color: rgba(18,32, 96, 0.4);
+            background-color: rgba(18, 32, 96, 0.4);
           }
           40% {
-            background-color: rgba(18,32, 96, 0.5);
+            background-color: rgba(18, 32, 96, 0.5);
           }
           50% {
-            background-color: rgba(18,32, 96, 0.6);
+            background-color: rgba(18, 32, 96, 0.6);
           }
           60% {
-            background-color: rgba(18,32, 96, 0.7);
+            background-color: rgba(18, 32, 96, 0.7);
           }
           70% {
-            background-color: rgba(18,32, 96, 0.8);
+            background-color: rgba(18, 32, 96, 0.8);
           }
           80% {
-            background-color: rgba(18,32, 96, 0.9);
+            background-color: rgba(18, 32, 96, 0.9);
           }
           90% {
             background-color: rgba(18, 32, 96, 0.95);
@@ -367,15 +370,12 @@
     </style>
   </head>
 
-  <body>
+  <body oncontextmenu="return false">
     <nav class="navbar">
       <div class="navbar__logo">
-        <a
-          id="f"
-          href="/SuSi"
-          onclick="window.localStorage.clear()"
-          ><img src="/SuSi/etc/logow.png"></a
-        >
+        <a id="f" href="/SuSi" onclick="window.localStorage.clear()"
+          ><img src="/SuSi/etc/logow.png"
+        /></a>
       </div>
 
       <ul class="navbar__menu">
@@ -603,8 +603,8 @@
       });
     </script>
     <script
-    src="https://kit.fontawesome.com/b17d4fa9e7.js"
-    crossorigin="anonymous"
-  ></script>
+      src="https://kit.fontawesome.com/b17d4fa9e7.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
