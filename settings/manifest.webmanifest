@@ -2,7 +2,6 @@
   "name": "ㅅㅜㅅㅣ",
   "short_name": "ㅅㅅ",
   "lang":"ko",
-  "description": "당신의 점수와 비교해보세요!",
   "scope": "/SuSi/",
   "start_url": "/SuSi/",
   "background_color": "white",

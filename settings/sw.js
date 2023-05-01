@@ -18,6 +18,7 @@ var URLS = [
   `${GHPATH}/Bsu/Career_bsu.html`,
   `${GHPATH}/Bsu/Common_bsu.html`,
   `${GHPATH}/Bsu/Compare_bsu.html`,
+  `${GHPATH}/Bsu/대학.csv`,
   `${GHPATH}/etc/icon-192.png`,
   `${GHPATH}/etc/icon-512.png`,
   `${GHPATH}/etc/index.jpg`,
