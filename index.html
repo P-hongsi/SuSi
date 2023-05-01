@@ -11,7 +11,11 @@
     <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
     <link
       rel="manifest"
-      href="/SuSi/manifest.webmanifest"
+      href="/SuSi/settings/manifest-light.webmanifest" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)"
+    />
+    <link
+      rel="manifest"
+      href="/SuSi/settings/manifest-dark.webmanifest" media="(prefers-color-scheme: dark)"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -596,7 +600,6 @@
     </div>
     <a href="https://www.instagram.com/sooyaaa__/" class="hidden">블</a>
     <a href="https://www.instagram.com/roses_are_rosie/" class="hidden">핑</a>
-    <!--<span style="--x:1">-->
     <a href="https://www.instagram.com/jennierubyjane/" class="hidden">사</a>
     <a href="https://www.instagram.com/lalalalisa_m/" class="hidden">랑</a>
     <section>
@@ -657,7 +660,7 @@
       });
 
       if (navigator.serviceWorker) {
-        navigator.serviceWorker.register("/SuSi/sw.js", { scope: "/SuSi/" });
+        navigator.serviceWorker.register("/SuSi/settings/sw.js", { scope: "/SuSi/" });
       }
 
       let timer2;
