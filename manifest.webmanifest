@@ -4,8 +4,8 @@
   "description": "당신의 점수와 비교해보세요!",
   "scope": "/SuSi/",
   "start_url": "/SuSi/",
-  "background_color": "#ffffff",
-  "theme_color": "rgb(40 40 40)",
+  "background_color": "white",
+  "theme_color": "peachpuff",
   "display": "standalone", 
   "icons": [
       {
