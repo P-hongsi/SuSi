@@ -619,6 +619,12 @@
         pos.style.setProperty("--y", e.clientY + "px");
       });
 
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register("/SuSi/settings/sw.js", {
+          scope: "/SuSi/",
+        });
+      }
+
       if (
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -675,12 +681,6 @@
       window.addEventListener("focus", () => {
         document.title = doctitle;
       });
-
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register("/SuSi/settings/sw.js", {
-          scope: "/SuSi/",
-        });
-      }
 
       let timer2;
 
