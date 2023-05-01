@@ -9,7 +9,7 @@
     <meta property="og:image" content="/SuSi/etc/logol.png" />
     <meta property="og:description" content="수시로 가자!" />
     <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
-    <link rel="manifest" href="/SuSi/settings/manifest.webmanifest" />
+    <link rel="manifest" href="/SuSi/settings/manifest.json" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
@@ -625,7 +625,7 @@
       ) {
         // 사용자가 다크모드를 사용하면, theme_color 값을 변경
         const link = document.querySelector('link[rel="manifest"]');
-        if (link && link.href.endsWith("/SuSi/settings/manifest.webmanifest")) {
+        if (link && link.href.endsWith("/SuSi/settings/manifest.json")) {
           fetch(link.href)
             .then((response) => response.json())
             .then((manifest) => {
