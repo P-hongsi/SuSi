@@ -8,7 +8,7 @@ var APP_PREFIX = '수시';
 // you need to change this version (version_01, version_02…). 
 // If you don't change the version, the service worker will give your
 // users the old files!
-var VERSION = 'V_0.1';
+var VERSION = 'V_0.2';
 
 // The files to make available for offline use. make sure to add 
 // others to this list
@@ -26,6 +26,7 @@ var URLS = [
   `${GHPATH}/etc/logol.png`,
   `${GHPATH}/etc/logow.png`,
   `${GHPATH}/etc/noresponse.html`,
+  `${GHPATH}/settings/manifest.webmanifest`,
   `${GHPATH}/etc/ThxU.html`
 ]
 

@@ -5,7 +5,7 @@
   "scope": "/SuSi/",
   "start_url": "/SuSi/",
   "background_color": "white",
-  "theme_color": "rgb(255,153,10)",
+  "theme_color": "rgb(255, 153, 10)",
   "display": "standalone", 
   "icons": [
       {
