@@ -200,40 +200,40 @@
       }
 
       @keyframes fade-out {
-  0% {
-    background-color: rgba(116, 141, 253, 0.1);
-  }
-  10% {
-    background-color: rgba(116, 141, 253, 0.2);
-  }
-  20% {
-    background-color: rgba(116, 141, 253, 0.3);
-  }
-  30% {
-    background-color: rgba(116, 141, 253, 0.4);
-  }
-  40% {
-    background-color: rgba(116, 141, 253, 0.5);
-  }
-  50% {
-    background-color: rgba(116, 141, 253, 0.6);
-  }
-  60% {
-    background-color: rgba(116, 141, 253, 0.7);
-  }
-  70% {
-    background-color: rgba(116, 141, 253, 0.8);
-  }
-  80% {
-    background-color: rgba(116, 141, 253, 0.9);
-  }
-  90% {
-    background-color: rgba(116, 141, 253, 0.95);
-  }
-  100% {
-    background-color: rgba(116, 141, 253, 1);
-  }
-}
+        0% {
+          background-color: rgba(18,32, 96, 0.1);
+        }
+        10% {
+          background-color: rgba(18,32, 96, 0.2);
+        }
+        20% {
+          background-color: rgba(18,32, 96, 0.3);
+        }
+        30% {
+          background-color: rgba(18,32, 96, 0.4);
+        }
+        40% {
+          background-color: rgba(18,32, 96, 0.5);
+        }
+        50% {
+          background-color: rgba(18,32, 96, 0.6);
+        }
+        60% {
+          background-color: rgba(18,32, 96, 0.7);
+        }
+        70% {
+          background-color: rgba(18,32, 96, 0.8);
+        }
+        80% {
+          background-color: rgba(18,32, 96, 0.9);
+        }
+        90% {
+          background-color: rgba(18, 32, 96, 0.95);
+        }
+        100% {
+          background-color: rgb(18, 32, 96);
+        }
+      }
 
       .navbar__toogleBtn {
         display: none;
@@ -279,9 +279,47 @@
           display: flex;
         }
       }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: rgb(40,40,40);
+        }
+        select {
+          background-color: rgb(55, 55, 55);
+          color: rgb(231, 231, 231);
+          border: 0.1px solid #565656;
+        }
+        input {
+          background-color: rgb(55, 55, 55);
+          border: 0.1px solid #565656;
+          color: rgb(231, 231, 231);
+        }
+        button {
+          background: linear-gradient(
+            90deg,
+            rgb(156, 174, 245) 3%,
+            rgb(70, 88, 157) 50%,
+            rgb(20, 38, 111) 82%
+          );
+          box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+        }
+        button span {
+          background-color: rgb(5, 6, 45);
+        }
+        .navbar {
+          background: rgb(102, 118, 181);
+        }
+        .shape .shape-fill {
+          fill: #6676b5;
+        }
+        li> span {
+          color: #ffffff;
+        }
+        .res {
+          color: #ffffff;
+        }
+      }
     </style>
   </head>
-
   <body>
     <div id="progress-bar" class="progress-bar"></div>
     <nav class="navbar">

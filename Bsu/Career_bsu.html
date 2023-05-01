@@ -117,6 +117,7 @@
       .s {
         position: relative;
         margin-bottom: 8px;
+        left: -1vw;
       }
 
       #result {
@@ -169,40 +170,40 @@
         animation-fill-mode: forwards;
       }
       @keyframes fade-out {
-  0% {
-    background-color: rgba(116, 141, 253, 0.1);
-  }
-  10% {
-    background-color: rgba(116, 141, 253, 0.2);
-  }
-  20% {
-    background-color: rgba(116, 141, 253, 0.3);
-  }
-  30% {
-    background-color: rgba(116, 141, 253, 0.4);
-  }
-  40% {
-    background-color: rgba(116, 141, 253, 0.5);
-  }
-  50% {
-    background-color: rgba(116, 141, 253, 0.6);
-  }
-  60% {
-    background-color: rgba(116, 141, 253, 0.7);
-  }
-  70% {
-    background-color: rgba(116, 141, 253, 0.8);
-  }
-  80% {
-    background-color: rgba(116, 141, 253, 0.9);
-  }
-  90% {
-    background-color: rgba(116, 141, 253, 0.95);
-  }
-  100% {
-    background-color: rgba(116, 141, 253, 1);
-  }
-} 
+        0% {
+          background-color: rgba(18,32, 96, 0.1);
+        }
+        10% {
+          background-color: rgba(18,32, 96, 0.2);
+        }
+        20% {
+          background-color: rgba(18,32, 96, 0.3);
+        }
+        30% {
+          background-color: rgba(18,32, 96, 0.4);
+        }
+        40% {
+          background-color: rgba(18,32, 96, 0.5);
+        }
+        50% {
+          background-color: rgba(18,32, 96, 0.6);
+        }
+        60% {
+          background-color: rgba(18,32, 96, 0.7);
+        }
+        70% {
+          background-color: rgba(18,32, 96, 0.8);
+        }
+        80% {
+          background-color: rgba(18,32, 96, 0.9);
+        }
+        90% {
+          background-color: rgba(18, 32, 96, 0.95);
+        }
+        100% {
+          background-color: rgb(18, 32, 96);
+        }
+      } 
 
       .navbar__icons li {
         padding: 8px 12px;
@@ -292,7 +293,10 @@
         }
         #result {
         color: rgb(231, 231, 231);
-      }
+        }
+        li > span {
+          color: #ffffff;
+        }
       }
     </style>
   </head>
