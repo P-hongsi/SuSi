@@ -9,10 +9,7 @@
     <meta property="og:image" content="/SuSi/etc/logol.png" />
     <meta property="og:description" content="수시로 가자!" />
     <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
-    <link
-      rel="manifest"
-      href="/SuSi/settings/manifest.webmanifest"
-    />
+    <link rel="manifest" href="/SuSi/settings/manifest.webmanifest" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
@@ -622,21 +619,28 @@
         pos.style.setProperty("--y", e.clientY + "px");
       });
 
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        const link = document.querySelector('link[rel="manifest"]');
-        if (link && link.href.endsWith('/SuSi/settings/manifest.webmanifest')) {
-          fetch(link.href)
-            .then(response => response.json())
-            .then(manifest => {
-            manifest.theme_color = 'rgb(102,118,181)'; // 다크모드에 맞는 색상으로 변경
-            const newLink = document.createElement('link');
-            newLink.rel = 'manifest';
-            newLink.href = URL.createObjectURL(new Blob([JSON.stringify(manifest)], { type: 'application/json' }));
-            link.parentNode.insertBefore(newLink, link.nextSibling);
-            link.remove();
-            });
-        }
-      }
+      // if (
+      //   window.matchMedia &&
+      //   window.matchMedia("(prefers-color-scheme: dark)").matches
+      // ) {
+      //   const link = document.querySelector('link[rel="manifest"]');
+      //   if (link && link.href.endsWith("/SuSi/settings/manifest.webmanifest")) {
+      //     fetch(link.href)
+      //       .then((response) => response.json())
+      //       .then((manifest) => {
+      //         manifest.theme_color = "rgb(102,118,181)"; // 다크모드에 맞는 색상으로 변경
+      //         const newLink = document.createElement("link");
+      //         newLink.rel = "manifest";
+      //         newLink.href = URL.createObjectURL(
+      //           new Blob([JSON.stringify(manifest)], {
+      //             type: "application/json",
+      //           })
+      //         );
+      //         link.parentNode.insertBefore(newLink, link.nextSibling);
+      //         link.remove();
+      //       });
+      //   }
+      // }
 
       // Initialize a timer variable
       let timer;
@@ -672,7 +676,9 @@
       });
 
       if (navigator.serviceWorker) {
-        navigator.serviceWorker.register("/SuSi/settings/sw.js", { scope: "/SuSi/" });
+        navigator.serviceWorker.register("/SuSi/settings/sw.js", {
+          scope: "/SuSi/",
+        });
       }
 
       let timer2;
