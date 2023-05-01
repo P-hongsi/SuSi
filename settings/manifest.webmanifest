@@ -8,11 +8,11 @@
   "media_overrides": {
     "(prefers-color-scheme: dark)": {
       "theme_color": "rgb(40,40,40)",
-      "background_color": "black"
+      "background_color": "rgb(40,40,40)"
     },
     "(prefers-color-scheme: light)": {
       "theme_color": "rgb(255, 153, 10)",
-      "background_color": "white"
+      "background_color": "rgb(255, 153, 10)"
     }
   },
   "display": "standalone", 
