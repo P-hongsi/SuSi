@@ -5,8 +5,8 @@
   "scope": "/SuSi/",
   "start_url": "/SuSi/",
   "background_color": "#ffffff",
-  "theme_color": "#ffffff",
-  "display": "fullscreen", 
+  "theme_color": "rgb(40 40 40)",
+  "display": "standalone", 
   "icons": [
       {
         "src": "/SuSi/etc/icon-512.png",
