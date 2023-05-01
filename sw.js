@@ -17,5 +17,14 @@ var URLS = [
   `${GHPATH}/index.html`,
   `${GHPATH}/Bsu/Career_bsu.html`,
   `${GHPATH}/Bsu/Common_bsu.html`,
-  `${GHPATH}/Bsu/Compare_bsu.html`
+  `${GHPATH}/Bsu/Compare_bsu.html`,
+  `${GHPATH}/etc/icon-192.png`,
+  `${GHPATH}/etc/icon-512.png`,
+  `${GHPATH}/etc/index.jpg`,
+  `${GHPATH}/etc/indexrb.png`,
+  `${GHPATH}/etc/logob.png`,
+  `${GHPATH}/etc/logol.png`,
+  `${GHPATH}/etc/logow.png`,
+  `${GHPATH}/etc/noresponse.html`,
+  `${GHPATH}/etc/ThxU.html`
 ]
