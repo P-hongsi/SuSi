@@ -175,40 +175,40 @@
       }
 
       @keyframes fade-out {
-  0% {
-    background-color: rgba(116, 141, 253, 0.1);
-  }
-  10% {
-    background-color: rgba(116, 141, 253, 0.2);
-  }
-  20% {
-    background-color: rgba(116, 141, 253, 0.3);
-  }
-  30% {
-    background-color: rgba(116, 141, 253, 0.4);
-  }
-  40% {
-    background-color: rgba(116, 141, 253, 0.5);
-  }
-  50% {
-    background-color: rgba(116, 141, 253, 0.6);
-  }
-  60% {
-    background-color: rgba(116, 141, 253, 0.7);
-  }
-  70% {
-    background-color: rgba(116, 141, 253, 0.8);
-  }
-  80% {
-    background-color: rgba(116, 141, 253, 0.9);
-  }
-  90% {
-    background-color: rgba(116, 141, 253, 0.95);
-  }
-  100% {
-    background-color: rgba(116, 141, 253, 1);
-  }
-} 
+        0% {
+          background-color: rgba(116, 141, 253, 0.1);
+        }
+        10% {
+          background-color: rgba(116, 141, 253, 0.2);
+        }
+        20% {
+          background-color: rgba(116, 141, 253, 0.3);
+        }
+        30% {
+          background-color: rgba(116, 141, 253, 0.4);
+        }
+        40% {
+          background-color: rgba(116, 141, 253, 0.5);
+        }
+        50% {
+          background-color: rgba(116, 141, 253, 0.6);
+        }
+        60% {
+          background-color: rgba(116, 141, 253, 0.7);
+        }
+        70% {
+          background-color: rgba(116, 141, 253, 0.8);
+        }
+        80% {
+          background-color: rgba(116, 141, 253, 0.9);
+        }
+        90% {
+          background-color: rgba(116, 141, 253, 0.95);
+        }
+        100% {
+          background-color: rgba(116, 141, 253, 1);
+        }
+      } 
 
       .navbar__icons li {
         padding: 8px 12px;
@@ -279,6 +279,54 @@
         .navbar__menu.active,
         .navbar__icons.active {
           display: flex;
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: rgb(40,40,40);
+        }
+        select {
+          background-color: rgb(55, 55, 55);
+          color: rgb(231, 231, 231);
+          border: 0.1px solid #565656;
+        }
+        tbody > tr {
+          color: rgb(231,231,231);
+          background: linear-gradient(
+            90deg,
+            rgba(255, 179, 11, 1) 13%,
+            rgba(255, 104, 93, 1) 50%,
+            rgba(243, 106, 62, 1) 82%
+          );
+        }
+        th {
+          border: 0.1px solid rgb(5, 6, 45);
+          background-color: rgb(5, 6, 45);
+          color: rgb(231,231,231);
+        }
+        td {
+          border: 0.1px solid rgb(5, 6, 45);
+        }
+        button {
+          background: linear-gradient(
+            90deg,
+            rgb(156, 174, 245) 3%,
+            rgb(70, 88, 157) 50%,
+            rgb(20, 38, 111) 82%
+          );
+          box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+        }
+        button span {
+          background-color: rgb(5, 6, 45);
+        }
+        #result-container {
+          color: rgb(231,231,231);
+        }
+        .navbar {
+          background: rgb(102, 118, 181);
+        }
+        .shape .shape-fill {
+        fill: #6676b5;
         }
       }
     </style>

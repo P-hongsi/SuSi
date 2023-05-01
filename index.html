@@ -62,7 +62,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url(etc/index.jpg);
+        background: url(etc/indexrb.png);
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -140,7 +140,7 @@
 
       .navbar {
         display: flex;
-        background-image: url(etc/index.jpg);
+        background-image: url(etc/indexrb.png);
         justify-content: space-between;
         align-items: center;
         padding: 8px 12px;
@@ -214,7 +214,7 @@
         font-size: 24px;
         color: #063c66;
       }
-
+      
       .backdrop {
         display: none;
       }
@@ -276,7 +276,7 @@
         }
 
         .background {
-          background-image: url(etc/index.jpg);
+          background-image: url(etc/indexrb.png);
           background-size: cover;
           background-position: top;
           width: 100vw;
@@ -290,7 +290,7 @@
           width: 69%;
           height: 30%;
           text-align: center;
-          background-color: rgba(0, 0, 128, 0.05);
+          background-color: rgba(78, 78, 78, 0.05);
           border-radius: 30px;
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
@@ -338,6 +338,70 @@
         .navbar__icons.active {
           display: flex;
         }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body{
+          background-color: rgb(40, 40, 40);
+        }
+        a {
+          color:white;
+        }
+        .icon {
+          color: white;
+        }
+        .backdrop {
+          color: white;
+          background-color: rgba(137, 137, 137, 0.05);
+          box-shadow: 2px 7px 15px 8px rgba(221, 221, 221, 0.203);
+        }
+        @media screen and (max-width: 768px) {
+          .navbar {
+            background: #6676b5;
+          }
+        }
+        .shape .shape-fill {
+          fill: #6676b5;
+        }
+        .navbar__toogleBtn {
+          color: white;
+        }
+        @keyframes fade-out {
+        0% {
+          background-color: rgba(234, 148, 86, 0.1);
+
+        }
+        10% {
+          background-color: rgba(234, 148, 86, 0.2);
+        }
+        20% {
+          background-color: rgba(234, 148, 86, 0.3);
+        }
+        30% {
+          background-color: rgba(234, 148, 86, 0.4);
+        }
+        40% {
+          background-color: rgba(234, 148, 86, 0.5);
+        }
+        50% {
+          background-color: rgba(234, 148, 86, 0.6);
+        }
+        60% {
+          background-color: rgba(234, 148, 86, 0.7);
+        }
+        70% {
+          background-color: rgba(234, 148, 86, 0.8);
+        }
+        80% {
+          background-color: rgba(234, 148, 86, 0.9);
+        }
+        90% {
+          background-color: rgba(234, 148, 86, 0.95);
+        }
+        100% {
+          background-color: rgb(234, 148, 86, 1);
+        }
+      }
       }
     </style>
   </head>
