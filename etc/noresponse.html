@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- 기본설정 -->
     <meta charset="UTF-8" />
+    <!-- pwa -->
     <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="/SuSi/etc/icon-512.png">
     <title>오랜시간동안 응답없음</title>
     <style>
+      /* 디자인 */
       * {
         margin: 0;
         padding: 0;
@@ -61,6 +64,7 @@
         animation: animate 1s linear infinite;
       }
 
+      /* 애니메이션 */
       @keyframes animate {
         0%,
         15% {
@@ -72,6 +76,7 @@
         }
       }
 
+      /* 폭 768이하 적용 디자인 */
       @media (max-width: 768px) {
         section {
           flex-direction: column;
@@ -106,6 +111,7 @@
         <span id="ampm">AM</span>
       </div>
     </section>
+    <!-- 시간 계산 자바스크립트 코드 -->
     <script type="text/javascript">
       function clock() {
         let hours = document.getElementById("hour");
