@@ -307,7 +307,7 @@
           background-color: rgb(5, 6, 45);
         }
         .navbar {
-          background: rgb(102, 118, 181);
+          background: #6676b5;
         }
         .shape .shape-fill {
           fill: rgb(102, 118, 181);
@@ -2494,13 +2494,34 @@
         roundnessSize: "12px",
         buttonDToBottom: "16px",
         buttonDToRight: "24px",
-        selectedBackgroundColor: "#6676b5",
         selectedIconColor: "#ffffff",
         buttonWidth: "40px",
         buttonHeight: "40px",
         svgWidth: "32px",
         svgHeight: "32px",
       };
+
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        configObj.selectedBackgroundColor = "#6676b5"
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches){
+        configObj.selectedBackgroundColor = "#ff990a"
+      }
+      
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      const newColorScheme = event.matches ? 'dark' : 'light';
+      if (newColorScheme === 'dark') {
+        document.querySelectorAll('.softr-back-to-top-button').forEach(elem => {
+          elem.style.backgroundColor = '#6676b5';
+          elem.style.color = '#6676b5';
+        });
+      } else {
+        document.querySelectorAll('.softr-back-to-top-button').forEach(elem => {
+          elem.style.backgroundColor = '#ff990a';
+          elem.style.color = '#ff990a';
+        });
+      }
+      });
+
       function createButton(obj, pageSimulator) {
         const body = document.querySelector("body");
         backToTopButton = document.createElement("span");
