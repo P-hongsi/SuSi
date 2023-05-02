@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- pwa -->
     <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="/SuSi/etc/icon-512.png">
+    <!-- 기본 설정 -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
@@ -11,6 +13,7 @@
     />
     <title>진로선택과목</title>
     <style>
+      /* 디자인 */
       .hidden {
         display: none;
       }
@@ -170,6 +173,8 @@
         animation: fade-out 0.7s ease-in-out;
         animation-fill-mode: forwards;
       }
+
+      /* index페이지랑 똑같음 */
       @keyframes fade-out {
         0% {
           background-color: rgba(226, 85, 20, 0.1);
@@ -218,6 +223,7 @@
         color: white;
       }
 
+      /* index페이지랑 똑같음 */
       @media screen and (max-width: 768px) {
         .s {
           position: relative;
@@ -260,6 +266,7 @@
           display: flex;
         }
       }
+      /* index페이지랑 똑같음 */
       @media (prefers-color-scheme: dark) {
         body {
           background-color: rgb(40, 40, 40);
@@ -298,6 +305,7 @@
         li > span {
           color: #ffffff;
         }
+        /* index페이지랑 똑같음 */
         @keyframes fade-out {
           0% {
             background-color: rgba(18, 32, 96, 0.1);
@@ -336,10 +344,11 @@
       }
     </style>
   </head>
-
+  <!-- 우클릭 방지 -->
   <body oncontextmenu="return false">
     <nav class="navbar">
       <div class="navbar__logo">
+        <!-- 홈화면 이동시에 데이터 삭제 -->
         <a href="/SuSi" onclick="window.localStorage.clear()"
           ><img src="/SuSi/etc/logow.png"
         /></a>
@@ -478,15 +487,16 @@
       <p id="result"></p>
     </div>
     <script>
+      //index페이지랑 똑같음
       const toggleBtn = document.querySelector(".navbar__toogleBtn");
       const menu = document.querySelector(".navbar__menu");
       const icons = document.querySelector(".navbar__icons");
-
       toggleBtn.addEventListener("click", () => {
         menu.classList.toggle("active");
         icons.classList.toggle("active");
       });
 
+      //점수 로컬 스토리지 저장 함수
       function storeValue() {
         const values = ["a", "b", "c"];
         const weights = [0.5, 0.3, 0.1];
@@ -505,7 +515,6 @@
           }
           scores.push(weights[index]);
         }
-
         const avgScore =
           scores.reduce((acc, score) => acc + score, 0) / scores.length;
         window.localStorage.removeItem("career");
@@ -516,10 +525,8 @@
         ).innerHTML = `진로 선택 과목 점수는: ${avgScore}점 입니다.`;
       }
 
-      // Initialize a timer variable
+      //index페이지랑 똑같음
       let timer;
-
-      // Function to reset the timer
       function resetTimer() {
         clearTimeout(timer);
         if (window.innerWidth >= 768) {
@@ -528,7 +535,6 @@
           }, 120000);
         }
       }
-
       window.addEventListener("mousemove", resetTimer);
       window.addEventListener("mousedown", resetTimer);
       window.addEventListener("keypress", resetTimer);
