@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show/Hide div elements one by one using JavaScript</title>
+	<link rel="stylesheet" href="css/career.css">
+</head>
+<body>
+    <button id="go-to-page-0">학과 점수 비교</button>
+    
+    <button id="go-to-page-1">석차등급과목</button>
+
+
+    <button id="go-to-page-3">진로선택과목</button>
+
+    <h1>진로선택과목</h1>
+	<div>
+        <ul>
+            <li style="display:block">
+                <ul>
+                    <li>
+                        <span>학년</span>
+                        <select style="width:100px">
+                            <option value="">선택</option>
+                            <option value="1">1학년</option>
+                            <option value="2">2학년</option>
+                            <option value="3">3학년</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span>과목명</span>
+                        <label><input type="text" value=""></label>
+                    </li>
+                    <li>
+                        <span>단위수</span>
+                        <label><input id="num1" type="number" value=""></label>
+                    </li>
+                    <li>
+                        <span>성취도</span>
+                        <label><input id="num2" type="text" value=""></label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+	</div>
+
+	<div>
+		<ul>
+            <li style="display:block">
+                <ul>
+                    <li>
+                        <span>학년</span>
+                        <select style="width:100px">
+                            <option value="">선택</option>
+                            <option value="1">1학년</option>
+                            <option value="2">2학년</option>
+                            <option value="3">3학년</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span>과목명</span>
+                        <label><input type="text" value=""></label>
+                    </li>
+                    <li>
+                        <span>단위수</span>
+                        <label><input id="num3" type="number" value=1></label>
+                    </li>
+                    <li>
+                        <span>성취도</span>
+                        <label><input id="num4" type="text" value=1></label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+	</div>
+
+    <div>
+		<ul>
+            <li style="display:block">
+                <ul>
+                    <li>
+                        <span>학년</span>
+                        <select style="width:100px">
+                            <option value="">선택</option>
+                            <option value="1">1학년</option>
+                            <option value="2">2학년</option>
+                            <option value="3">3학년</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span>과목명</span>
+                        <label><input type="text" value=""></label>
+                    </li>
+                    <li>
+                        <span>단위수</span>
+                        <label><input id="num5" type="number" value= 1></label>
+                    </li>
+                    <li>
+                        <span>성취도</span>
+                        <label><input id="num6" type="text" value= 1></label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+	</div>
+
+    <button onclick="storeValue()">제출</button>
+    <p id="result"></p>
+	<script src="js/career.js"></script>
+</body>
+</html>

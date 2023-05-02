@@ -480,111 +480,36 @@
               var cells = rows[rowIndex].split(",");
               var inputVal1 = Number(window.localStorage.getItem("common"));
               var inputVal2 = Number(window.localStorage.getItem("career"));
-              if (inputVal1 == cells[5] && inputVal2 == cells[6]) {
-                $("#result-container").html(
-                  `${cells[0]}와 평균 점수와 입력값이 일치합니다.`
-                );
-              } else if (inputVal1 > cells[5] && inputVal2 == cells[6]) {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수가 입력값보다${
-                    Math.round((inputVal1 - cells[5]) * 100) / 100
-                  } 낮고, 진로점수는 일치합니다.`
-                );
-              } else if (inputVal1 == cells[5] && inputVal2 > cells[6]) {
-                $("#result-container").html(
-                  `${cells[0]}의 진로점수가 입력값보다 ${
-                    Math.round((inputVal2 - cells[6]) * 100) / 100
-                  } 낮고, 석차점수는 일치합니다.`
-                );
-              } else if (inputVal1 > cells[5] && inputVal2 > cells[6]) {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수가 입력값보다 ${
-                    Math.round((inputVal1 - cells[5]) * 100) / 100
-                  } 낮고, 진로점수는 ${
-                    Math.round((inputVal2 - cells[6]) * 100) / 100
-                  } 낮습니다.`
-                );
-              } else if (
-                inputVal1 < cells[5] &&
-                inputVal2 < cells[6] &&
-                inputVal1 > 0 &&
-                inputVal2 > 0
-              ) {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수는 입력값보다 ${
-                    Math.round((cells[5] - inputVal1) * 100) / 100
-                  } 높고, 진로점수는 ${
-                    Math.round((cells[6] - inputVal2) * 100) / 100
-                  } 높습니다.`
-                );
-              } else if (inputVal1 == cells[5] && inputVal2 < cells[6]) {
-                $("#result-container").html(
-                  `${cells[0]}의 진로점수는 입력값보디${
-                    Math.round((cells[6] - inputVal2) * 100) / 100
-                  }높고, 석차점수는 일치합니다.`
-                );
-              } else if (inputVal1 < cells[5] && inputVal2 == cells[6]) {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수는 입력값보다 ${
-                    Math.round((cells[5] - inputVal1) * 100) / 100
-                  } 높고, 진로점수는 일치합니다.`
-                );
-              } else if (inputVal1 < cells[5] && inputVal2 > cells[6]) {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수는 입력값보다 ${
-                    Math.round((cells[5] - inputVal1) * 100) / 100
-                  } 높고, 진로점수는 ${
-                    Math.round((inputVal2 - cells[6]) * 100) / 100
-                  } 낮습니다.`
-                );
-              } else if (inputVal1 > cells[5] && inputVal2 < cells[6]) {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수는 입력값보다 ${
-                    Math.round((inputVal1 - cells[5]) * 100) / 100
-                  } 낮고, 진로점수는 ${
-                    Math.round((cells[6] - inputVal2) * 100) / 100
-                  } 높습니다.`
-                );
-              } else {
+              const diff1 = inputVal1 - cells[5];
+              const diff2 = inputVal2 - cells[6];
+              if (inputVal1 <= 0 || inputVal2 <= 0) {
                 $("#result-container").html("점수 계산을 해주세요.");
-              }
-              if (inputVal1 > 0 && inputVal2 > 0) {
-                var tableHtml =
-                  "<tr><td>" +
-                  cells[1] +
-                  "</td><td>" +
-                  cells[3] +
-                  "</td><td>" +
-                  cells[4] +
-                  "</td><td>" +
-                  cells[7] +
-                  "</td><td>" +
-                  cells[8] +
-                  "</td><td>" +
-                  cells[10] +
-                  "</td><td>" +
-                  cells[11] +
-                  "</td></tr>";
-                $("#word-table tbody").html(tableHtml);
+              } else if (diff1 === 0 && diff2 === 0) {
+                $("#result-container").html(`${cells[0]}와 평균 점수와 입력값이 일치합니다.`);
+              } else if (diff1 > 0 && diff2 > 0) {
+                $("#result-container").html(`${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(2)} 낮고, 진로점수는 ${diff2.toFixed(2)} 낮습니다.`);
+              } else if (diff1 === 0 && diff2 > 0) {
+                $("#result-container").html(`${cells[0]}의 진로점수가 입력값보다 ${diff2.toFixed(2)} 낮고, 석차점수는 일치합니다.`);
+              } else if (diff1 > 0 && diff2 === 0) {
+                $("#result-container").html(`${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(2)} 낮고, 진로점수는 일치합니다.`);
+              } else if (diff1 < 0 && diff2 < 0) {
+                $("#result-container").html(`${cells[0]}의 석차점수는 입력값보다 ${Math.abs(diff1).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(2)} 높습니다.`);
+              } else if (diff1 === 0 && diff2 < 0) {
+                $("#result-container").html(`${cells[0]}의 진로점수는 입력값보다 ${Math.abs(diff2).toFixed(2)} 높고, 석차점수는 일치합니다.`);
+              } else if (diff1 < 0 && diff2 === 0) {
+                $("#result-container").html(`${cells[0]}의 석차점수는 입력값보다 ${Math.abs(diff1).toFixed(2)} 높고, 진로점수는 일치합니다.`);
               } else {
-                var tableHtml =
-                  "<tr><td>" +
-                  0 +
-                  "</td><td>" +
-                  0 +
-                  "</td><td>" +
-                  0 +
-                  "</td><td>" +
-                  0 +
-                  "</td><td>" +
-                  0 +
-                  "</td><td>" +
-                  0 +
-                  "</td><td>" +
-                  0 +
-                  "</td></tr>";
-                $("#word-table tbody").html(tableHtml);
+                $("#result-container").html(`${cells[0]}의 석차점수는 입력값보다 ${Math.abs(diff1).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(2)} 낮습니다.`);
               }
+              var tableHtml = "<tr><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[1] : 0) +
+                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[3] : 0) +
+                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[4] : 0) +
+                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[7] : 0) +
+                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[8] : 0) +
+                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[10] : 0) +
+                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[11] : 0) +
+                "</td></tr>";
+              $("#word-table tbody").html(tableHtml);
             });
           },
         });
