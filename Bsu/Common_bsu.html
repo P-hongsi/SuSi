@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- index페이지랑 똑같음 -->
     <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="/SuSi/etc/icon-512.png">
     <meta charset="UTF-8" />
@@ -11,6 +12,7 @@
     />
     <title>석차등급과목</title>
     <style>
+      /* index페이지랑 똑같음 */
       .hidden {
         display: none;
       }
@@ -200,6 +202,7 @@
         animation-fill-mode: forwards;
       }
 
+      /* index페이지랑 똑같음 */
       @keyframes fade-out {
         0% {
           background-color: rgba(226, 85, 20, 0.1);
@@ -244,6 +247,7 @@
         color: white;
       }
 
+      /* index페이지랑 똑같음 */
       @media screen and (max-width: 768px) {
         input {
           width: 40vw;
@@ -280,6 +284,8 @@
           display: flex;
         }
       }
+
+      /* index페이지랑 똑같음 */
       @media (prefers-color-scheme: dark) {
         body {
           background-color: rgb(40, 40, 40);
@@ -329,6 +335,8 @@
             rgb(20, 38, 111) 82%
           );
         }
+
+        /* index페이지랑 똑같음 */
         @keyframes fade-out {
           0% {
             background-color: rgba(18, 32, 96, 0.1);
@@ -2402,16 +2410,16 @@
       <p>석차등급과목 점수: <span id="result"></span></p>
     </div>
     <script>
+      //index페이지랑 똑같음
       const toggleBtn = document.querySelector(".navbar__toogleBtn");
       const menu = document.querySelector(".navbar__menu");
       const icons = document.querySelector(".navbar__icons");
-      let currentDivIndex = 0;
-
       toggleBtn.addEventListener("click", () => {
         menu.classList.toggle("active");
         icons.classList.toggle("active");
       });
 
+      //위에 창 진행도 표기 코드
       const progressBarEl = document.getElementById("progress-bar");
       window.addEventListener("scroll", () => {
         let height = document.body.scrollHeight - window.innerHeight;
@@ -2420,6 +2428,7 @@
         progressBarEl.style.width = `${width}%`;
       });
 
+      //점수 계산 및 저장 코드
       function addNumbers() {
         const sum =
           Array.from({ length: 26 }, (_, i) => {
@@ -2440,6 +2449,8 @@
         document.getElementById("result").innerHTML = sum;
       }
 
+      //과목창 생성 및 삭제 버튼
+      let currentDivIndex = 0;
       function showNextDiv() {
         const divs = document.querySelectorAll(".div-item");
         if (currentDivIndex < divs.length) {
@@ -2455,10 +2466,9 @@
           divs[currentDivIndex].classList.add("hidden");
         }
       }
-      // Initialize a timer variable
-      let timer;
 
-      // Function to reset the timer
+      //index페이지랑 똑같음
+      let timer;
       function resetTimer() {
         clearTimeout(timer);
         if (window.innerWidth >= 768) {
@@ -2467,7 +2477,6 @@
           }, 120000);
         }
       }
-
       window.addEventListener("mousemove", resetTimer);
       window.addEventListener("mousedown", resetTimer);
       window.addEventListener("keypress", resetTimer);
@@ -2479,12 +2488,8 @@
       window.addEventListener("blur", function () {
         clearTimeout(timer);
       });
-    </script>
-    <script
-      src="https://kit.fontawesome.com/b17d4fa9e7.js"
-      crossorigin="anonymous"
-    ></script>
-    <script>
+
+      //가장 위로 올라가는 버튼 + 다크모드 색 변경 코드
       configObj = {
         buttonD:
           "M16.806 13.667v-5.25c0-.967-.841-1.75-1.879-1.75-1.037 0-1.878.783-1.878 1.75v8.998c0 .912-1.073 1.472-1.907.995l-1.79-1.024c-.588-.328-1.326-.312-1.896.042-.93.578-1.061 1.805-.27 2.542l5.757 5.363h10.929l1.43-7.49c.22-1.333-.714-2.594-2.129-2.876l-6.367-1.3z",
@@ -2500,13 +2505,11 @@
         svgWidth: "32px",
         svgHeight: "32px",
       };
-
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         configObj.selectedBackgroundColor = "#6676b5"
       } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches){
         configObj.selectedBackgroundColor = "#ff990a"
       }
-      
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
       const newColorScheme = event.matches ? 'dark' : 'light';
       if (newColorScheme === 'dark') {
@@ -2521,7 +2524,6 @@
         });
       }
       });
-
       function createButton(obj, pageSimulator) {
         const body = document.querySelector("body");
         backToTopButton = document.createElement("span");
@@ -2583,5 +2585,9 @@
         createButton(configObj, null);
       });
     </script>
+    <script
+      src="https://kit.fontawesome.com/b17d4fa9e7.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
