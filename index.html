@@ -176,12 +176,12 @@
 
       .navbar__menu :hover {
         border-radius: 10px;
-        animation: fade-out 0.7s ease-in-out;
+        animation: fade-in 0.7s ease-in-out;
         animation-fill-mode: forwards;
       }
 
       /* 토글 버튼 라이트모드 애니메이션 */
-      @keyframes fade-out {
+      @keyframes fade-in {
         0% {
           background-image: linear-gradient(
             45deg,
@@ -382,7 +382,7 @@
           animation-delay: calc(0.4s * var(--x));
         }
 
-        /* 아이콘 애니메이션 */
+        /* 글자 애니메이션 */
         @keyframes flip {
           0%,
           80% {
@@ -451,7 +451,7 @@
         }
 
         /* 토글 버튼 다크모드 애니메이션 */
-        @keyframes fade-out {
+        @keyframes fade-in {
           0% {
             background: linear-gradient(
               45deg,
@@ -556,6 +556,7 @@
     </style>
   </head>
   <body oncontextmenu="return false">
+    <!-- 네비게이션바(navbar) 공통  -->
     <nav class="navbar">
       <div class="navbar__logo">
         <lottie-player
@@ -609,6 +610,7 @@
         ></path>
       </svg>
     </div>
+    <!-- 글자 스핀 -->
     <div class="background">
       <div class="backdrop">
         <span style="--x: 1">M</span><span style="--x: 2">a</span
@@ -622,6 +624,7 @@
     <a href="https://www.instagram.com/roses_are_rosie/" class="hidden">핑</a>
     <a href="https://www.instagram.com/jennierubyjane/" class="hidden">사</a>
     <a href="https://www.instagram.com/lalalalisa_m/" class="hidden">랑</a>
+    <!-- 768px이하인 페이지에 글자 -->
     <section>
       <div class="box">
         <h2>Made by</h2>

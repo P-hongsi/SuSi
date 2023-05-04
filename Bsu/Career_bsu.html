@@ -386,6 +386,7 @@
         ></path>
       </svg>
     </div>
+    <!-- 선택창  -->
     <div class="s">
       <ul>
         <li style="display: block">
@@ -410,7 +411,7 @@
             <li>
               <span>성취도</span>
               <label>
-                <input id="num2" type="text" value="A" pattern="[abcABC]*" />
+                <input id="num2" type="text" value="A" />
               </label>
             </li>
           </ul>
@@ -477,12 +478,13 @@
         </li>
       </ul>
     </div>
-
-    <div class="btn">
+    <!-- 클릭했을때 storeValue()라는 함수를 실행시키는 버튼 -->
+      <div class="btn">
       <button class="btn1" onclick="storeValue()">
         <span class="text">제출</span>
       </button>
     </div>
+    <!-- 저장된 값을 출력하는 p태그 -->
     <div class="btn">
       <p id="result"></p>
     </div>

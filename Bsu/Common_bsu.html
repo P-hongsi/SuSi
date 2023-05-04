@@ -377,6 +377,7 @@
   </head>
 
   <body oncontextmenu="return false">
+    <!-- 창 진행률 표시 -->
     <div id="progress-bar" class="progress-bar"></div>
     <nav class="navbar">
       <div class="navbar__logo">
@@ -417,8 +418,10 @@
         ></path>
       </svg>
     </div>
-    <div class="pretty-select" id="select-container"></div>
+    <!-- 배경 -->
     <div class="background"></div>
+
+    <!-- 각각 클릭했을때 showNextDiv() , hidePrevDiv() 함수 실행 -->
     <div class="btn">
       <button class="btn1" onclick="showNextDiv()">
         <span class="text">Create</span>
@@ -2400,12 +2403,14 @@
         </li>
       </ul>
     </div>
-
+    <!-- 클릭했을때 addNumbers()함수 실행 버튼 -->
     <div class="btn">
       <button type="button" class="btn2" onclick="addNumbers()" id="click1">
         <span class="text">제출</span>
       </button>
     </div>
+
+    <!-- 저장된 점수 표시하는 칸 -->
     <div class="res">
       <p>석차등급과목 점수: <span id="result"></span></p>
     </div>
@@ -2458,7 +2463,6 @@
           currentDivIndex++;
         }
       }
-
       function hidePrevDiv() {
         const divs = document.querySelectorAll(".div-item");
         if (currentDivIndex > 2) {
