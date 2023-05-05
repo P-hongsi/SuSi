@@ -2,15 +2,19 @@
 <html>
   <head>
     <!-- index페이지랑 똑같음 -->
-    <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="/SuSi/etc/icon-512.png">
+    <meta
+      name="theme-color"
+      content="#6676b5"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="icon" href="/SuSi/etc/icon-512.png" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    
+
     <!-- 창 제목 -->
     <title>석차등급과목</title>
     <style>
@@ -2434,22 +2438,29 @@
 
       //점수 계산 및 저장 코드
       function addNumbers() {
-        const sum =
-          Array.from({ length: 26 }, (_, i) => {
-            const n1 = parseInt(
-              document.getElementById(`num${i * 2 + 1}`).value
-            );
-            const n2 = parseInt(
-              document.getElementById(`num${i * 2 + 2}`).value
-            );
-            return (101 - n2) * n1;
-          }).reduce((acc, curr) => acc + curr) /
-          Array.from({ length: 26 }, (_, i) =>
-            parseInt(document.getElementById(`num${i * 2 + 1}`).value)
-          ).reduce((acc, curr) => acc + curr);
+        const numbers = Array.from({ length: 26 }, (_, i) => {
+          const n1 = parseInt(document.getElementById(`num${i * 2 + 1}`).value);
+          const n2 = parseInt(document.getElementById(`num${i * 2 + 2}`).value);
+          return { n1, n2 };
+        });
+
+        const isValidInput = numbers.every(
+          ({ n1, n2 }) => !isNaN(n1) && !isNaN(n2)
+        );
+
+        let sum;
+        if (isValidInput) {
+          sum =
+            numbers.reduce((acc, { n1, n2 }) => acc + (101 - n2) * n1, 0) /
+            numbers.reduce((acc, { n1 }) => acc + n1, 0);
+        } else {
+          sum = "다시 입력해주세요";
+        }
 
         window.localStorage.removeItem("common");
-        window.localStorage.setItem("common", sum);
+        if (typeof sum === "number") {
+          window.localStorage.setItem("common", sum);
+        }
         document.getElementById("result").innerHTML = sum;
       }
 
@@ -2508,25 +2519,37 @@
         svgWidth: "32px",
         svgHeight: "32px",
       };
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        configObj.selectedBackgroundColor = "#6676b5"
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches){
-        configObj.selectedBackgroundColor = "#ff990a"
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        configObj.selectedBackgroundColor = "#6676b5";
+      } else if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: light)").matches
+      ) {
+        configObj.selectedBackgroundColor = "#ff990a";
       }
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-      const newColorScheme = event.matches ? 'dark' : 'light';
-      if (newColorScheme === 'dark') {
-        document.querySelectorAll('.softr-back-to-top-button').forEach(elem => {
-          elem.style.backgroundColor = '#6676b5';
-          elem.style.color = '#6676b5';
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          const newColorScheme = event.matches ? "dark" : "light";
+          if (newColorScheme === "dark") {
+            document
+              .querySelectorAll(".softr-back-to-top-button")
+              .forEach((elem) => {
+                elem.style.backgroundColor = "#6676b5";
+                elem.style.color = "#6676b5";
+              });
+          } else {
+            document
+              .querySelectorAll(".softr-back-to-top-button")
+              .forEach((elem) => {
+                elem.style.backgroundColor = "#ff990a";
+                elem.style.color = "#ff990a";
+              });
+          }
         });
-      } else {
-        document.querySelectorAll('.softr-back-to-top-button').forEach(elem => {
-          elem.style.backgroundColor = '#ff990a';
-          elem.style.color = '#ff990a';
-        });
-      }
-      });
       function createButton(obj, pageSimulator) {
         const body = document.querySelector("body");
         backToTopButton = document.createElement("span");
