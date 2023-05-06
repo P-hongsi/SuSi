@@ -7,7 +7,7 @@
   "start_url": "/SuSi/",
   "background_color": "white",
   "theme_color": "rgb(255,153,10)",
-  "display": "standalone", 
+  "display": "fullscreen", 
   "icons": [
     {
       "src": "/SuSi/etc/icon-512.png",
@@ -18,6 +18,12 @@
       "src": "/SuSi/etc/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
+    },
+    {
+      "src": "/SuSi/etc/icon-196.png",
+      "type": "image/png",
+      "sizes": "196x196",
+      "purpose": "any maskable"
     }
   ]
 }
