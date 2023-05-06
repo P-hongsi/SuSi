@@ -27,7 +27,6 @@ var URLS = [
   `${GHPATH}/etc/logol.png`,
   `${GHPATH}/etc/logow.png`,
   `${GHPATH}/etc/noresponse.html`,
-  `${GHPATH}/settings/manifest.webmanifest`,
   `${GHPATH}/etc/ThxU.html`
 ]
 
