@@ -8,7 +8,7 @@ var APP_PREFIX = '수시';
 // you need to change this version (version_01, version_02…). 
 // If you don't change the version, the service worker will give your
 // users the old files!
-var VERSION = 'V_0.2';
+var VERSION = 'version_00';
 
 // The files to make available for offline use. make sure to add 
 // others to this list
@@ -21,7 +21,6 @@ var URLS = [
   `${GHPATH}/Bsu/대학.csv`,
   `${GHPATH}/etc/icon-192.png`,
   `${GHPATH}/etc/icon-512.png`,
-  `${GHPATH}/etc/index.jpg`,
   `${GHPATH}/etc/indexrb.png`,
   `${GHPATH}/etc/logob.png`,
   `${GHPATH}/etc/logol.png`,

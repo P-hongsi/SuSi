@@ -1,6 +1,7 @@
 {
   "name": "ㅅㅜㅅㅣ",
   "short_name": "ㅅㅅ",
+  "description": "수시로 가자!",
   "lang":"ko",
   "scope": "/SuSi/",
   "start_url": "/SuSi/",
