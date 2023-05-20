@@ -3,27 +3,31 @@
   <head>
     <!-- index페이지랑 같음 -->
     <meta charset="euc-kr" />
-    <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="/SuSi/etc/icon-512.png">
+    <meta
+      name="theme-color"
+      content="#6676b5"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="icon" href="/SuSi/etc/icon-512.png" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
+
     <!-- 창 제목 -->
     <title>학과점수비교</title>
 
     <!-- csv파싱 외부 스크립트 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="importmap">
-        {
-          "imports": {
-            "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
-            "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js",
-            "OrbitControls": "https://unpkg.com/three@0.141.0/examples/jsm/controls/OrbitControls.js"
-          }
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+          "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js",
+          "OrbitControls": "https://unpkg.com/three@0.141.0/examples/jsm/controls/OrbitControls.js"
         }
+      }
     </script>
     <style>
       /* index페이지랑 같음 */
@@ -239,7 +243,7 @@
         font-size: 24px;
         color: white;
       }
-      
+
       /* index페이지랑 같음 */
       @media screen and (max-width: 768px) {
         #compare-btn {
@@ -392,9 +396,9 @@
       </div>
 
       <ul class="navbar__menu">
-        <li><a href="Compare_bsu.html" class="hover-link" data-url="Compare_bsu.html">학과점수 비교</a></li>
-        <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
-        <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
+        <li><a href="compareT.html" class="hover-link" data-url="Compare_bsu.html">학과점수 비교</a></li>
+        <li><a href="commonT.html">석차등급과목 계산기</a></li>
+        <li><a href="careerT.html">진로선택과목 계산기</a></li>
       </ul>
       <a class="navbar__toogleBtn">
         <i class="fas fa-bars"></i>
@@ -408,10 +412,10 @@
     <div class="parent">
       <button id="compare-btn"><span class="text">비교</span></button>
     </div>
-    
+
     <!-- 결과칸 -->
     <div id="result-container"></div>
-    
+
     <!-- 표  -->
     <div id="table-container">
       <table id="word-table">
@@ -436,7 +440,7 @@
           scope: "/SuSi/",
         });
       }
-      
+
       //index페이지랑 같음
       const toggleBtn = document.querySelector(".navbar__toogleBtn");
       const menu = document.querySelector(".navbar__menu");
@@ -477,29 +481,71 @@
               if (inputVal1 <= 0 || inputVal2 <= 0) {
                 $("#result-container").html("점수 계산을 해주세요.");
               } else if (diff1 === 0 && diff2 === 0) {
-                $("#result-container").html(`${cells[0]}와 평균 점수와 입력값이 일치합니다.`);
+                $("#result-container").html(
+                  `${cells[0]}와 평균 점수와 입력값이 일치합니다.`
+                );
               } else if (diff1 > 0 && diff2 > 0) {
-                $("#result-container").html(`${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(2)} 낮고, 진로점수는 ${diff2.toFixed(2)} 낮습니다.`);
+                $("#result-container").html(
+                  `${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(
+                    2
+                  )} 낮고, 진로점수는 ${diff2.toFixed(2)} 낮습니다.`
+                );
               } else if (diff1 === 0 && diff2 > 0) {
-                $("#result-container").html(`${cells[0]}의 진로점수가 입력값보다 ${diff2.toFixed(2)} 낮고, 석차점수는 일치합니다.`);
+                $("#result-container").html(
+                  `${cells[0]}의 진로점수가 입력값보다 ${diff2.toFixed(
+                    2
+                  )} 낮고, 석차점수는 일치합니다.`
+                );
               } else if (diff1 > 0 && diff2 === 0) {
-                $("#result-container").html(`${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(2)} 낮고, 진로점수는 일치합니다.`);
+                $("#result-container").html(
+                  `${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(
+                    2
+                  )} 낮고, 진로점수는 일치합니다.`
+                );
               } else if (diff1 < 0 && diff2 < 0) {
-                $("#result-container").html(`${cells[0]}의 석차점수는 입력값보다 ${Math.abs(diff1).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(2)} 높습니다.`);
+                $("#result-container").html(
+                  `${cells[0]}의 석차점수는 입력값보다 ${Math.abs(
+                    diff1
+                  ).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(
+                    2
+                  )} 높습니다.`
+                );
               } else if (diff1 === 0 && diff2 < 0) {
-                $("#result-container").html(`${cells[0]}의 진로점수는 입력값보다 ${Math.abs(diff2).toFixed(2)} 높고, 석차점수는 일치합니다.`);
+                $("#result-container").html(
+                  `${cells[0]}의 진로점수는 입력값보다 ${Math.abs(
+                    diff2
+                  ).toFixed(2)} 높고, 석차점수는 일치합니다.`
+                );
               } else if (diff1 < 0 && diff2 === 0) {
-                $("#result-container").html(`${cells[0]}의 석차점수는 입력값보다 ${Math.abs(diff1).toFixed(2)} 높고, 진로점수는 일치합니다.`);
+                $("#result-container").html(
+                  `${cells[0]}의 석차점수는 입력값보다 ${Math.abs(
+                    diff1
+                  ).toFixed(2)} 높고, 진로점수는 일치합니다.`
+                );
               } else {
-                $("#result-container").html(`${cells[0]}의 석차점수는 입력값보다 ${Math.abs(diff1).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(2)} 낮습니다.`);
+                $("#result-container").html(
+                  `${cells[0]}의 석차점수는 입력값보다 ${Math.abs(
+                    diff1
+                  ).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(
+                    2
+                  )} 낮습니다.`
+                );
               }
-              var tableHtml = "<tr><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[1] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[3] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[4] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[7] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[8] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[10] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[11] : 0) +
+              var tableHtml =
+                "<tr><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[1] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[3] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[4] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[7] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[8] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[10] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[11] : 0) +
                 "</td></tr>";
               $("#word-table tbody").html(tableHtml);
             });
@@ -545,79 +591,91 @@
       });
     </script>
     <script type="module">
-        import * as THREE from "three";
-        import { GLTFLoader } from "GLTFLoader";
-        import { OrbitControls } from "OrbitControls";
-          // WebGLRenderer initialization
-          const renderer = new THREE.WebGLRenderer({
-            antialias: true,
-            alpha: true,
-          });
-          renderer.setSize(window.innerWidth, window.innerHeight);
-          document.body.appendChild(renderer.domElement);
-          renderer.outputEncoding = THREE.sRGBEncoding;
-  
-          // Scene creation
-          const scene = new THREE.Scene();
-  
-          // Camera creation
-          const camera = new THREE.PerspectiveCamera(
-            75,
-            window.innerWidth / window.innerHeight,
-            0.1,
-            1000
-          );
-          // 카메라 초기 위치 설정
-          camera.position.set(3, 4, -5);
-  
-          // 창 크기 변경 시 렌더러 크기 업데이트
-          window.addEventListener("resize", () => {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-          });
-  
-          // 초기 실행을 위해 한 번 호출
-          window.dispatchEvent(new Event("resize"));
-  
-          // OrbitControls creation
-          const controls = new OrbitControls(camera, renderer.domElement);
-  
-          // glTF model loading
-          // glTF model loading
-          const loader = new GLTFLoader();
-          loader.load(
-            "/SuSi/etc/anime_class_room/scene.gltf",
-            function (gltf) {
-              // Add the loaded model to the scene
-              scene.add(gltf.scene);
-  
-              // Adjust the position and size of the renderer's canvas element
-              const canvas = renderer.domElement;
-              canvas.style.position = "absolute";
-              canvas.style.left = "0";
-              canvas.style.top = "0";
-              canvas.style.width = "100%";
-              canvas.style.height = "100%";
-              canvas.style.zIndex = "-1";
-            },
-            undefined,
-            function (error) {
-              console.error(error);
-            }
-          );
-  
-          // Animation loop
-          function animate() {
-            requestAnimationFrame(animate);
-  
-            // Rendering
-            renderer.render(scene, camera);
-          }
-  
-          // Start the animation
-          animate();
-      </script>
+      import * as THREE from "three";
+      import { GLTFLoader } from "GLTFLoader";
+      import { OrbitControls } from "OrbitControls";
+      // WebGLRenderer initialization
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+      renderer.gammaOutput = true;
+
+      // Scene creation
+      const scene = new THREE.Scene();
+
+      // Camera creation
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      // 카메라 초기 위치 설정
+      camera.position.set(0, 0, 1);
+
+      // 창 크기 변경 시 렌더러 크기 업데이트
+      window.addEventListener("resize", () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      });
+
+      // 초기 실행을 위해 한 번 호출
+      window.dispatchEvent(new Event("resize"));
+
+      // OrbitControls creation
+      const controls = new OrbitControls(camera, renderer.domElement);
+      function handleDarkModeChange(event) {
+        if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          renderer.setClearColor(0x6676b5);
+        } else {
+          renderer.setClearColor(0xff990a);
+        }
+      }
+
+      const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      darkModeQuery.addListener(handleDarkModeChange);
+      handleDarkModeChange(darkModeQuery);
+
+      // glTF model loading
+      const loader = new GLTFLoader();
+      loader.load(
+        "/SuSi/etc/low_poly_tree_scene_free/scene.gltf",
+        function (gltf) {
+          // Add the loaded model to the scene
+          scene.add(gltf.scene);
+
+          // Adjust the position and size of the renderer's canvas element
+          const canvas = renderer.domElement;
+          canvas.style.position = "absolute";
+          canvas.style.left = "0";
+          canvas.style.top = "0";
+          canvas.style.width = "100%";
+          canvas.style.height = "107%";
+          canvas.style.zIndex = "-1";
+        },
+        undefined,
+        function (error) {
+          console.error(error);
+        }
+      );
+
+      // Animation loop
+      function animate() {
+        requestAnimationFrame(animate);
+
+        // Rendering
+        renderer.render(scene, camera);
+      }
+
+      // Start the animation
+      animate();
+    </script>
     <script
       src="https://kit.fontawesome.com/b17d4fa9e7.js"
       crossorigin="anonymous"

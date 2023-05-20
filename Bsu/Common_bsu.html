@@ -23,6 +23,10 @@
         display: none;
       }
 
+      .hover-link {
+        cursor: pointer;
+      }
+
       img {
         width: 42px;
         height: 50px;
@@ -394,7 +398,7 @@
 
       <ul class="navbar__menu">
         <li><a href="Compare_bsu.html">학과점수 비교</a></li>
-        <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
+        <li><a href="Common_bsu.html" class="hover-link" data-url="commonT.html">석차등급과목 계산기</a></li>
         <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
       </ul>
       <a class="navbar__toogleBtn">
@@ -2508,6 +2512,21 @@
       window.addEventListener("resize", resetTimer);
       window.addEventListener("blur", function () {
         clearTimeout(timer);
+      });
+
+      let timer2;
+      document
+        .querySelector(".hover-link")
+        .addEventListener("mouseover", () => {
+          timer2 = setTimeout(() => {
+            const url = document
+              .querySelector(".hover-link")
+              .getAttribute("data-url");
+            window.location.href = url;
+          }, 4000);
+        });
+      document.querySelector(".hover-link").addEventListener("mouseout", () => {
+        clearTimeout(timer2);
       });
 
       //가장 위로 올라가는 버튼 + 다크모드 색 변경 코드
