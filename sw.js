@@ -12,20 +12,27 @@ var VERSION = 'version_00';
 
 // The files to make available for offline use. make sure to add 
 // others to this list
-var URLS = [    
-  `${GHPATH}/`,
-  `${GHPATH}/index.html`,
-  `${GHPATH}/Bsu/Career_bsu.html`,
-  `${GHPATH}/Bsu/Common_bsu.html`,
-  `${GHPATH}/Bsu/Compare_bsu.html`,
-  `${GHPATH}/Bsu/대학.csv`,
-  `${GHPATH}/etc/icon-192.png`,
-  `${GHPATH}/etc/icon-512.png`,
-  `${GHPATH}/etc/indexrb.png`,
-  `${GHPATH}/etc/logob.png`,
-  `${GHPATH}/etc/logol.png`,
-  `${GHPATH}/etc/logow.png`,
-  `${GHPATH}/etc/noresponse.html`,
-  `${GHPATH}/etc/ThxU.html`
-]
+// var URLS = [    
+//   `${GHPATH}/`,
+//   `${GHPATH}/index.html`,
+//   `${GHPATH}/Bsu/Career_bsu.html`,
+//   `${GHPATH}/Bsu/Common_bsu.html`,
+//   `${GHPATH}/Bsu/Compare_bsu.html`,
+//   `${GHPATH}/Bsu/대학.csv`,
+//   `${GHPATH}/etc/icon-192.png`,
+//   `${GHPATH}/etc/icon-512.png`,
+//   `${GHPATH}/etc/indexrb.png`,
+//   `${GHPATH}/etc/logob.png`,
+//   `${GHPATH}/etc/logol.png`,
+//   `${GHPATH}/etc/logow.png`,
+//   `${GHPATH}/etc/noresponse.html`,
+//   `${GHPATH}/etc/ThxU.html`,
+//   `${GHPATH}/etc/model.glb`,
+//   `${GHPATH}/etc/3d.js`,
+//   `${GHPATH}/etc/import.js`,
+//   `${GHPATH}/etc/noresponse.html`,
+//   `${GHPATH}/etc/noresponse.html`,
+//   `${GHPATH}/etc/noresponse.html`,
+//   `${GHPATH}/etc/noresponse.html`,
+// ]
 
