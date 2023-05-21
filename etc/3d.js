@@ -44,7 +44,7 @@ handleDarkModeChange(darkModeQuery);
 // glTF model loading
 const loader = new GLTFLoader();
 loader.load(
-  "model.glb",
+  "/SuSi/etc/model.glb",
   function (gltf) {
     // Add the loaded model to the scene
     scene.add(gltf.scene);
