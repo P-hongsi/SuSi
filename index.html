@@ -18,21 +18,25 @@
 
     <!-- 웹앱 만들어주는 설정 + 사파리 홈 화면 추가 아이콘 태그 -->
     <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
-    <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="/SuSi/etc/icon-512.png">
+    <meta
+      name="theme-color"
+      content="#6676b5"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="icon" href="/SuSi/etc/icon-512.png" />
     <link rel="manifest" href="/SuSi/settings/manifest.webmanifest" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
     <link rel="apple-touch-icon" href="/SuSi/etc/icon-512.png" />
-    <link rel="icon" href="/SuSi/etc/icon-512.png">
+    <link rel="icon" href="/SuSi/etc/icon-512.png" />
 
     <!-- 폰트 태그 -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    
+
     <!-- 창 제목 -->
     <title>ㅅㅅ</title>
     <style>
@@ -157,7 +161,6 @@
 
       .navbar {
         display: flex;
-        background-image: url(etc/indexrb.png);
         justify-content: space-between;
         align-items: center;
         padding: 8px 12px;
@@ -419,7 +422,7 @@
           display: flex;
         }
       }
-      
+
       /* 여기부터는 사용자 테마가 다크모드일때 색 디자인 코드 */
       @media (prefers-color-scheme: dark) {
         body {
@@ -576,15 +579,10 @@
       </div>
       <ul class="navbar__menu">
         <li>
-          <a
-            class="hover-link"
-            data-url="https://go.pusan.ac.kr/"
-            href="Bsu/Compare_bsu.html"
-            >부산대</a
-          >
+          <a class="hover-link" data-url="https://go.pusan.ac.kr/" onclick="togglePage()">부산대</a>
         </li>
       </ul>
-      <a class="navbar__toogleBtn">
+      <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars"></i>
       </a>
     </nav>
@@ -636,12 +634,22 @@
     </section>
     <script>
       //네비게이션바(nav바)대학 이동 동작 코드
+      function togglePage() {
+        let isWideScreen = checkWideScreen();
+
+        if (isWideScreen) {
+          window.location.href = "/SuSi/Bsu/compareT.html";
+        } else {
+          window.location.href = "/SuSi/Bsu/Compare_bsu.html";
+        }
+      }
+      function checkWideScreen() {
+        return window.innerWidth >= 900;
+      }
       const toggleBtn = document.querySelector(".navbar__toogleBtn");
       const menu = document.querySelector(".navbar__menu");
-      const icons = document.querySelector(".navbar__icons");
       toggleBtn.addEventListener("click", () => {
         menu.classList.toggle("active");
-        icons.classList.toggle("active");
       });
 
       //index페이지 마우스 이동시 위치 계산 코드
