@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- 3D모델 자바스크립트 -->
     <script src="/SuSi/etc/import.js"></script>
     <script type="module" src="/SuSi/etc/3d.js"></script>
 
     <!-- pwa -->
+    <script src="/SuSi/js/sworker.js"></script>
     <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="/SuSi/etc/icon-512.png">
 
@@ -459,22 +461,6 @@
       <p id="result"></p>
     </div>
     <script>
-      //서비스워커(pwa앱이 오프라인 상태에서도 캐시된 파일을 이용하여 동작 가능하게하는 코드)
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register("/SuSi/sw.js", {
-          scope: "/SuSi/",
-        });
-      }
-
-      //index페이지랑 똑같음
-      const toggleBtn = document.querySelector(".navbar__toogleBtn");
-      const menu = document.querySelector(".navbar__menu");
-      const icons = document.querySelector(".navbar__icons");
-      toggleBtn.addEventListener("click", () => {
-        menu.classList.toggle("active");
-        icons.classList.toggle("active");
-      });
-
       //점수 로컬 스토리지 저장 함수
       function storeValue() {
         const values = ["a", "b", "c"];
@@ -503,44 +489,9 @@
           "result"
         ).innerHTML = `진로 선택 과목 점수는: ${avgScore}점 입니다.`;
       }
-
-      //index페이지랑 똑같음
-      let timer;
-      function resetTimer() {
-        clearTimeout(timer);
-        if (window.innerWidth >= 768) {
-          timer = setTimeout(function () {
-            window.location.href = "/SuSi/etc/noresponse.html";
-          }, 120000);
-        }
-      }
-      window.addEventListener("mousemove", resetTimer);
-      window.addEventListener("mousedown", resetTimer);
-      window.addEventListener("keypress", resetTimer);
-      window.addEventListener("touchmove", resetTimer);
-      window.addEventListener("scroll", resetTimer);
-      window.addEventListener("load", resetTimer);
-      window.addEventListener("click", resetTimer);
-      window.addEventListener("resize", resetTimer);
-      window.addEventListener("blur", function () {
-        clearTimeout(timer);
-      });
-
-      let timer2;
-      document
-        .querySelector(".hover-link")
-        .addEventListener("mouseover", () => {
-          timer2 = setTimeout(() => {
-            const url = document
-              .querySelector(".hover-link")
-              .getAttribute("data-url");
-            window.location.href = url;
-          }, 4000);
-        });
-      document.querySelector(".hover-link").addEventListener("mouseout", () => {
-        clearTimeout(timer2);
-      });
     </script>
+    <script src="/SuSi/js/navbar.js"></script>
+    <script src="/SuSi/js/goto.js"></script>
     <script
       src="https://kit.fontawesome.com/b17d4fa9e7.js"
       crossorigin="anonymous"

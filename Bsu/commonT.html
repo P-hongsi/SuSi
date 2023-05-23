@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="/SuSi/etc/import.js"></script>
-    <script type="module" src="/SuSi/etc/3d.js"></script>
+    <!-- 3D모델 자바스크립트 -->
+    <script src="/SuSi/js/import.js"></script>
+    <script type="module" src="/SuSi/js/3d.js"></script>
 
     <!-- index페이지랑 똑같음 -->
     <meta
@@ -10,6 +11,7 @@
       content="#6676b5"
       media="(prefers-color-scheme: dark)"
     />
+    <script src="/SuSi/js/sworker.js"></script>
     <link rel="icon" href="/SuSi/etc/icon-512.png" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -2387,22 +2389,6 @@
       <p>석차등급과목 점수: <span id="result"></span></p>
     </div>
     <script>
-      //서비스워커(pwa앱이 오프라인 상태에서도 캐시된 파일을 이용하여 동작 가능하게하는 코드)
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register("/SuSi/sw.js", {
-          scope: "/SuSi/",
-        });
-      }
-
-      //index페이지랑 똑같음
-      const toggleBtn = document.querySelector(".navbar__toogleBtn");
-      const menu = document.querySelector(".navbar__menu");
-      const icons = document.querySelector(".navbar__icons");
-      toggleBtn.addEventListener("click", () => {
-        menu.classList.toggle("active");
-        icons.classList.toggle("active");
-      });
-
       //위에 창 진행도 표기 코드
       const progressBarEl = document.getElementById("progress-bar");
       window.addEventListener("scroll", () => {
@@ -2419,11 +2405,9 @@
           const n2 = parseInt(document.getElementById(`num${i * 2 + 2}`).value);
           return { n1, n2 };
         });
-
         const isValidInput = numbers.every(
           ({ n1, n2 }) => !isNaN(n1) && !isNaN(n2)
         );
-
         let sum;
         if (isValidInput) {
           sum =
@@ -2432,7 +2416,6 @@
         } else {
           sum = "다시 입력해주세요";
         }
-
         window.localStorage.removeItem("common");
         if (typeof sum === "number") {
           window.localStorage.setItem("common", sum);
@@ -2456,29 +2439,7 @@
           divs[currentDivIndex].classList.add("hidden");
         }
       }
-
-      //index페이지랑 똑같음
-      let timer;
-      function resetTimer() {
-        clearTimeout(timer);
-        if (window.innerWidth >= 768) {
-          timer = setTimeout(function () {
-            window.location.href = "/SuSi/etc/noresponse.html";
-          }, 120000);
-        }
-      }
-      window.addEventListener("mousemove", resetTimer);
-      window.addEventListener("mousedown", resetTimer);
-      window.addEventListener("keypress", resetTimer);
-      window.addEventListener("touchmove", resetTimer);
-      window.addEventListener("scroll", resetTimer);
-      window.addEventListener("load", resetTimer);
-      window.addEventListener("click", resetTimer);
-      window.addEventListener("resize", resetTimer);
-      window.addEventListener("blur", function () {
-        clearTimeout(timer);
-      });
-
+      
       //가장 위로 올라가는 버튼 + 다크모드 색 변경 코드
       configObj = {
         buttonD:
@@ -2586,22 +2547,9 @@
       document.addEventListener("DOMContentLoaded", function () {
         createButton(configObj, null);
       });
-
-      let timer2;
-      document
-        .querySelector(".hover-link")
-        .addEventListener("mouseover", () => {
-          timer2 = setTimeout(() => {
-            const url = document
-              .querySelector(".hover-link")
-              .getAttribute("data-url");
-            window.location.href = url;
-          }, 4000);
-        });
-      document.querySelector(".hover-link").addEventListener("mouseout", () => {
-        clearTimeout(timer2);
-      });
     </script>
+    <script src="/SuSi/js/navbar.js"></script>
+    <script src="/SuSi/js/goto.js"></script>
     <script
       src="https://kit.fontawesome.com/b17d4fa9e7.js"
       crossorigin="anonymous"
