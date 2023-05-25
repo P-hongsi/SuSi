@@ -31,8 +31,10 @@ p{
 .head{
     text-align: center;
     position: relative;
-
-
+}
+header > span {
+  animation: flip 4s infinite;
+  animation-delay: calc(0.4s * var(--x));
 }
 .subhead{
     text-transform: uppercase;
@@ -132,5 +134,11 @@ p{
     .flip-card {
       width: 380px;
       height: 380px;
+    }
+  }
+  @keyframes flip {
+    0%,
+    80% {
+      transform: rotateY(345deg);
     }
   }
