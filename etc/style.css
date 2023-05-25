@@ -41,18 +41,19 @@ p{
         overflow: hidden;
     }
 }
+
 .flip-card {
     background-color: transparent;
-    width: 290px;
-    height: 500px;
+    width: 60vw;
+    height: 60vh;
     perspective: 1000px;
-    font-family: sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     margin: 0 auto;
     margin-top: 5vh;
   }
 
   .title {
-    font-size: 1.5em;
+    font-size: 3em;
     font-weight: 900;
     text-align: center;
     margin: 0;
@@ -107,4 +108,8 @@ p{
     );
     color: #2f2f2f;
     transform: rotateY(180deg);
+  }
+  .description {
+    font-size: 2em;
+    color: rgb(154, 124, 48);
   }
