@@ -32,9 +32,10 @@ p{
     text-align: center;
     position: relative;
 }
-header > span {
-  animation: flip 4s infinite;
-  animation-delay: calc(0.4s * var(--x));
+.t > span {
+  display: inline-block;
+  animation: flip 7s infinite;
+  animation-delay: calc(1s * var(--x));
 }
 .subhead{
     text-transform: uppercase;
