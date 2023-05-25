@@ -6,6 +6,10 @@ body{
     background-image: url(news.png);
     background-size: cover;
 }
+img {
+  background-size:cover;
+  border-radius: 17px;
+}
 header{
     font-family: 'Playfair Display', serif;
     font-weight: 900;
@@ -44,12 +48,14 @@ p{
 
 .flip-card {
     background-color: transparent;
-    width: 60vw;
-    height: 60vh;
+    width: 430px;
+    height: 430px;
     perspective: 1000px;
     font-family: 'Do Hyeon', sans-serif;
     margin: 0 auto;
-    margin-top: 5vh;
+    margin-top: 1vh;
+    display: inline-flex;
+    margin-left: 0.5vw;
   }
 
   .title {
@@ -92,8 +98,7 @@ p{
       120deg,
       rgb(223, 216, 201) 20%,
       rgb(207, 198, 175) 60%,
-      rgb(169, 158, 130) 90%,
-      rgb(235, 231, 226) 78%
+      rgb(169, 158, 130) 90%
     );
     color: #2f2f2f;
   }
@@ -112,4 +117,10 @@ p{
   .description {
     font-size: 1.5em;
     color: rgb(154, 124, 48);
+  }
+  @media screen and (max-width: 1090px) {
+    .flip-card {
+      width: 525px;
+      height: 525px;
+    }
   }
