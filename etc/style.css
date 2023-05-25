@@ -24,6 +24,10 @@ p{
     margin-top: 0;
     margin-bottom: 20px;
 }
+.center {
+  display: block;
+  text-align: center;
+}
 .head{
     text-align: center;
     position: relative;
@@ -48,8 +52,8 @@ p{
 
 .flip-card {
     background-color: transparent;
-    width: 430px;
-    height: 430px;
+    width: 412px;
+    height: 412px;
     perspective: 1000px;
     font-family: 'Do Hyeon', sans-serif;
     margin: 0 auto;
@@ -122,5 +126,11 @@ p{
     .flip-card {
       width: 525px;
       height: 525px;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .flip-card {
+      width: 380px;
+      height: 380px;
     }
   }
