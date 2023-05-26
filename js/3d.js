@@ -4,6 +4,29 @@ import { OrbitControls } from "OrbitControls";
 
 window.dispatchEvent(new Event("resize"));
 
+// glTF model loading
+const loader = new GLTFLoader();
+loader.load(
+  "/SuSi/etc/model.glb",
+  function (gltf) {
+    // Add the loaded model to the scene
+    scene.add(gltf.scene);
+
+    // Adjust the position and size of the renderer's canvas element
+    const canvas = renderer.domElement;
+    canvas.style.position = "absolute";
+    canvas.style.left = "0";
+    canvas.style.top = "0";
+    canvas.style.width = "100%";
+    canvas.style.height = "107%";
+    canvas.style.zIndex = "-1";
+  },
+  undefined,
+  function (error) {
+    console.error(error);
+  }
+);
+
 // WebGLRenderer initialization
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
@@ -40,29 +63,6 @@ function handleDarkModeChange(event) {
 const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 darkModeQuery.addListener(handleDarkModeChange);
 handleDarkModeChange(darkModeQuery);
-
-// glTF model loading
-const loader = new GLTFLoader();
-loader.load(
-  "/SuSi/etc/model.glb",
-  function (gltf) {
-    // Add the loaded model to the scene
-    scene.add(gltf.scene);
-
-    // Adjust the position and size of the renderer's canvas element
-    const canvas = renderer.domElement;
-    canvas.style.position = "absolute";
-    canvas.style.left = "0";
-    canvas.style.top = "0";
-    canvas.style.width = "100%";
-    canvas.style.height = "107%";
-    canvas.style.zIndex = "-1";
-  },
-  undefined,
-  function (error) {
-    console.error(error);
-  }
-);
 
 // Animation loop
 function animate() {
