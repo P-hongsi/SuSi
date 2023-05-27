@@ -7,7 +7,7 @@ window.dispatchEvent(new Event("resize"));
 // glTF model loading
 const loader = new GLTFLoader();
 loader.load(
-  "/SuSi/etc/model.glb",
+  "/SuSi/etc/model_compressed.glb",
   function (gltf) {
     // Add the loaded model to the scene
     scene.add(gltf.scene);
