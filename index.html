@@ -3,12 +3,12 @@
   <head>
     <!-- 기본 html 설정(+사파리에서 select나 input을 할때 줌 인 meta태그) -->
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <meta name="description" content="Made By Juny">
+    <meta name="description" content="Made By Juny" />
 
     <!-- 이 사이트 링크를 보냈을때 미리보기 meta태그 -->
     <meta property="og:url" content="https://p-hongsi.github.io/SuSi/" />
@@ -38,24 +38,70 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- 창 제목 -->
     <title>ㅅㅅ</title>
     <style>
       /* 밑으로는 쭉 디자인 코드 */
-      * {
-        margin: 0;
+      *,
+      *:before,
+      *:after {
         padding: 0;
+        margin: 0;
         box-sizing: border-box;
         overflow: hidden;
-        font-family: 'Nanum Gothic', sans-serif;
+        font-family: "Nanum Gothic", sans-serif;
+      }
+
+      .popup {
+        background-color: #ffffff;
+        width: 450px;
+        padding: 30px 40px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        border-radius: 8px;
+        display: none;
+        text-align: center;
+        z-index: 3;
+        box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+      }
+      .popup button {
+        display: block;
+        margin: 0 0 20px auto;
+        background-color: transparent;
+        font-size: 30px;
+        color: #c5c5c5;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+      .popup p {
+        font-size: 14px;
+        text-align: center;
+        margin: 20px 0;
+        line-height: 25px;
+      }
+      #popc {
+        display: block;
+        width: 150px;
+        position: relative;
+        margin: 10px auto;
+        text-align: center;
+        background-color: #ff990a;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 5px 0;
       }
 
       body {
-        font-family: "Poppins", sans-serif;
         display: grid;
       }
 
@@ -146,7 +192,7 @@
         );
       }
       #F {
-        font-family: 'Nanum Gothic', sans-serif;
+        font-family: "Nanum Gothic", sans-serif;
       }
 
       /* 아이콘 애니메이션 */
@@ -449,6 +495,11 @@
           color: white;
         }
 
+        #popc {
+        background-color: #6676b5;
+        color: #ffffff;
+        }
+
         /* 다크모드이고 폭이 768이하인 기기에 적용 */
         @media screen and (max-width: 768px) {
           .navbar {
@@ -565,6 +616,15 @@
     </style>
   </head>
   <body oncontextmenu="return false">
+    <div class="popup">
+      <button id="close">&times;</button>
+      <h2>대학별 반영과목</h2>
+      <p>
+        대학별 반영되는 공통과목 및 진로과목이 다르므로 아래에 있는 버튼을 클릭하여 확인해주세요!
+      </p>
+      <a id="popc" href="https://dandy-bougon-6e2.notion.site/a03cf5e6d5de4e96b30625dc1cc7c579?pvs=4">이동</a>
+    </div>
+
     <!-- 네비게이션바(navbar) 공통  -->
     <nav class="navbar">
       <div class="navbar__logo">
@@ -585,10 +645,24 @@
       </div>
       <ul class="navbar__menu">
         <li>
-          <a id="bsu" class="hover-link" data-url="https://go.pusan.ac.kr/" onclick="togglePage()" href="#">부산대</a>
+          <a
+            id="bsu"
+            class="hover-link"
+            data-url="https://go.pusan.ac.kr/"
+            onclick="togglePage()"
+            href="#"
+            >부산대</a
+          >
         </li>
         <li>
-          <a id="bku" class="hover-link" data-url="https://iphak.pknu.ac.kr/pknu/index.htm" onclick="togglePage()" href="#">부경대</a>
+          <a
+            id="bku"
+            class="hover-link"
+            data-url="https://iphak.pknu.ac.kr/pknu/index.htm"
+            onclick="togglePage()"
+            href="#"
+            >부경대</a
+          >
         </li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
@@ -634,7 +708,7 @@
         <h2 id="F">Made by</h2>
       </div>
       <div class="box">
-        <h2  id="F">주니</h2>
+        <h2 id="F">주니</h2>
       </div>
     </section>
     <script>
@@ -661,6 +735,16 @@
       pos.addEventListener("mousemove", (e) => {
         pos.style.setProperty("--x", e.clientX + "px");
         pos.style.setProperty("--y", e.clientY + "px");
+      });
+
+      window.addEventListener("load", function () {
+        setTimeout(function open(event) {
+          document.querySelector(".popup").style.display = "block";
+        }, 1000);
+      });
+
+      document.querySelector("#close").addEventListener("click", function() {
+        document.querySelector(".popup").style.display = "none";
       });
     </script>
     <script src="/SuSi/js/navbar.js"></script>
