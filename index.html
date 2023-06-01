@@ -38,19 +38,20 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 
     <!-- 창 제목 -->
     <title>ㅅㅅ</title>
     <style>
-      /* 폰트 */
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-
       /* 밑으로는 쭉 디자인 코드 */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         overflow: hidden;
+        font-family: 'Nanum Gothic', sans-serif;
       }
 
       body {
@@ -143,6 +144,9 @@
           rgba(255, 104, 93, 1) 50%,
           rgba(243, 106, 62, 1) 82%
         );
+      }
+      #F {
+        font-family: 'Nanum Gothic', sans-serif;
       }
 
       /* 아이콘 애니메이션 */
@@ -624,10 +628,10 @@
     <!-- 768px이상인 페이지에 글자 -->
     <section>
       <div class="box">
-        <h2>Made by</h2>
+        <h2 id="F">Made by</h2>
       </div>
       <div class="box">
-        <h2>주니</h2>
+        <h2  id="F">주니</h2>
       </div>
     </section>
     <script>

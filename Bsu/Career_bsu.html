@@ -14,10 +14,19 @@
     />
     <meta name="description" content="Made By Juny">
 
+    <!-- 폰트 태그 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
     <!-- 창 제목 -->
     <title>진로선택과목</title>
     <style>
       /* 디자인 */
+      * {
+        font-family: 'Nanum Gothic', sans-serif;
+      }
+
       .hidden {
         display: none;
       }
@@ -528,7 +537,7 @@
 
         document.getElementById(
           "result"
-        ).innerHTML = `진로 선택 과목 점수는: ${avgScore}점 입니다.`;
+        ).innerHTML = `진로선택과목 점수는 ${avgScore}점 입니다.`;
       }
     </script>
     <script src="/SuSi/js/navbar.js"></script>

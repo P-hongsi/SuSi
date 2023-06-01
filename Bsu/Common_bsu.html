@@ -17,6 +17,11 @@
     />
     <meta name="description" content="Made By Juny">
 
+    <!-- 폰트 태그 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
     <!-- 창 제목 -->
     <title>석차등급과목</title>
     <style>
@@ -154,7 +159,6 @@
         text-align: center;
         font-size: 30px;
         color: black;
-        font-weight: bold;
       }
 
       .progress-bar {
@@ -173,6 +177,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: 'Nanum Gothic', sans-serif;
       }
 
       body {
@@ -2424,8 +2429,8 @@
     </div>
 
     <!-- 저장된 점수 표시하는 칸 -->
-    <div class="res">
-      <p>석차등급과목 점수: <span id="result"></span></p>
+    <div class="res hidden">
+      <p><span id="result"></span></p>
     </div>
     <script>
       //위에 창 진행도 표기 코드
@@ -2453,13 +2458,17 @@
             numbers.reduce((acc, { n1, n2 }) => acc + (101 - n2) * n1, 0) /
             numbers.reduce((acc, { n1 }) => acc + n1, 0);
         } else {
-          sum = "다시 입력해주세요";
+          sum = "다시 입력해주세요.";
         }
         window.localStorage.removeItem("common");
         if (typeof sum === "number") {
           window.localStorage.setItem("common", sum);
+          document.querySelector('.res').classList.remove('hidden');
+          document.getElementById("result").innerHTML = `석차등급과목 점수는 ${sum}점 입니다.`;
+        } else {
+          document.querySelector('.res').classList.remove('hidden');
+          document.getElementById("result").innerHTML = sum;
         }
-        document.getElementById("result").innerHTML = sum;
       }
 
       //과목창 생성 및 삭제 버튼
