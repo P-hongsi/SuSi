@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- index페이지랑 같음 -->
+    <meta charset="euc-kr" />
+    <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
+    <script src="/SuSi/js/sworker.js"></script>
+    <link rel="icon" href="/SuSi/etc/icon-512.png">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Made By Juny">
+
+    <!-- 폰트 태그 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    
+    <!-- 창 제목 -->
+    <title>학과점수비교</title>
+
+    <!-- csv파싱 외부 스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+      /* index페이지랑 같음 */
+      .shape .shape-fill {
+        fill: #ff990a;
+      }
+
+      .shape svg {
+        width: 100%;
+        height: 56px;
+      }
+
+      .hover-link {
+        cursor: pointer;
+      }
+
+      img {
+        width: 42px;
+        height: 50px;
+      }
+
+      button {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 179, 11, 1) 13%,
+          rgba(255, 104, 93, 1) 50%,
+          rgba(243, 106, 62, 1) 82%
+        );
+        border: 0;
+        border-radius: 8px;
+        box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+        box-sizing: border-box;
+        color: #ffffff;
+        display: flex;
+        font-family: Phantomsans, sans-serif;
+        font-size: 18px;
+        line-height: 1em;
+        max-width: 100%;
+        min-width: 140px;
+        padding: 3px;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      button:active,
+      button:hover {
+        outline: 0;
+      }
+
+      button span {
+        background-color: rgb(5, 6, 45);
+        padding: 16px 24px;
+        border-radius: 6px;
+        width: 100%;
+        height: 100%;
+        transition: 300ms;
+      }
+
+      button:hover span {
+        background: none;
+      }
+
+      button:active {
+        transform: scale(0.9);
+      }
+
+      #compare-btn {
+        margin: 0 auto;
+      }
+
+      #result-container {
+        color: black;
+        text-align: center;
+        margin-top: 7vh;
+        font-size: 24px;
+        margin-bottom: 10vh;
+      }
+
+      #select-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5vh;
+      }
+
+      select {
+        height: 10vh;
+        border: 0.1px solid #999;
+        background-color: white;
+        border-radius: 18px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        display: flex;
+        font-size: 15px;
+      }
+
+      th {
+        border: 0.1px solid rgb(5, 6, 45);
+        background-color: rgb(5, 6, 45);
+        color: white;
+        border-radius: 5px;
+      }
+
+      td {
+        border: 0.1px solid rgb(5, 6, 45);
+        text-align: center;
+        border-radius: 5px;
+      }
+
+      tbody > tr {
+        color: white;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 179, 11, 1) 13%,
+          rgba(255, 104, 93, 1) 50%,
+          rgba(243, 106, 62, 1) 82%
+        );
+      }
+
+      #table-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nanum Gothic', sans-serif;
+      }
+
+      body {
+        background: white;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ff990a;
+        padding: 8px 12px;
+      }
+
+      .navbar__menu {
+        display: flex;
+        list-style: none;
+        padding-left: 0px;
+      }
+
+      .navbar__menu li {
+        padding: 8px 12px;
+      }
+
+      .navbar__logo {
+        font-size: 21px;
+      }
+
+      .navbar__menu > li:hover {
+        border-radius: 10px;
+        animation: fade-out 0.7s ease-in-out;
+        animation-fill-mode: forwards;
+      }
+
+      /* index페이지랑 같음 */
+      @keyframes fade-out {
+        0% {
+          background-color: rgba(226, 85, 20, 0.1);
+        }
+        10% {
+          background-color: rgba(226, 85, 20, 0.2);
+        }
+        20% {
+          background-color: rgba(226, 85, 20, 0.3);
+        }
+        30% {
+          background-color: rgba(226, 85, 20, 0.4);
+        }
+        40% {
+          background-color: rgba(226, 85, 20, 0.5);
+        }
+        50% {
+          background-color: rgba(226, 85, 20, 0.6);
+        }
+        60% {
+          background-color: rgba(226, 85, 20, 0.7);
+        }
+        70% {
+          background-color: rgba(226, 85, 20, 0.8);
+        }
+        80% {
+          background-color: rgba(226, 85, 20, 0.9);
+        }
+        90% {
+          background-color: rgba(226, 85, 20, 0.95);
+        }
+        100% {
+          background-color: rgb(226, 85, 20);
+        }
+      }
+
+      .navbar__icons li {
+        padding: 8px 12px;
+      }
+
+      .navbar__toogleBtn {
+        display: none;
+        position: absolute;
+        right: 32px;
+        font-size: 24px;
+        color: white;
+      }
+      
+      /* index페이지랑 같음 */
+      @media screen and (max-width: 768px) {
+        #compare-btn {
+          margin-top: 0vh;
+        }
+
+        #result-container {
+          margin-top: 8vh;
+          font-size: 20px;
+          margin-bottom: 5vh;
+        }
+
+        #select-container {
+          margin-top: 7vh;
+        }
+
+        #table-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .navbar__menu > li:hover {
+          width: 42vw;
+        }
+
+        select {
+          width: 60vw;
+          height: 15vw;
+          border-radius: 25px;
+          font-size: 15px;
+        }
+
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 8px 24px;
+        }
+
+        .navbar__menu {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .navbar__menu li {
+          width: 100%;
+          text-align: center;
+        }
+
+        .navbar__toogleBtn {
+          display: block;
+        }
+
+        .navbar__menu.active,
+        .navbar__icons.active {
+          display: flex;
+        }
+      }
+
+      /* index페이지랑 같음 */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: rgb(40, 40, 40);
+        }
+        select {
+          background-color: rgb(55, 55, 55);
+          color: rgb(231, 231, 231);
+          border: 0.1px solid #565656;
+        }
+        tbody > tr {
+          color: rgb(231, 231, 231);
+          background: linear-gradient(
+            90deg,
+            rgb(156, 174, 245) 3%,
+            rgb(70, 88, 157) 50%,
+            rgb(20, 38, 111) 82%
+          );
+        }
+        th {
+          border: 0.1px solid rgb(55, 55, 55);
+          background-color: rgb(55, 55, 55);
+          color: rgb(231, 231, 231);
+        }
+        td {
+          border: 0.1px solid rgb(55, 55, 55);
+        }
+        button {
+          background: linear-gradient(
+            90deg,
+            rgb(156, 174, 245) 3%,
+            rgb(70, 88, 157) 50%,
+            rgb(20, 38, 111) 82%
+          );
+          box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+        }
+        button span {
+          background-color: rgb(5, 6, 45);
+        }
+        #result-container {
+          color: rgb(231, 231, 231);
+        }
+        .navbar {
+          background: rgb(102, 118, 181);
+        }
+        .shape .shape-fill {
+          fill: #6676b5;
+        }
+
+        /* index페이지랑 같음 */
+        @keyframes fade-out {
+          0% {
+            background-color: rgba(18, 32, 96, 0.1);
+          }
+          10% {
+            background-color: rgba(18, 32, 96, 0.2);
+          }
+          20% {
+            background-color: rgba(18, 32, 96, 0.3);
+          }
+          30% {
+            background-color: rgba(18, 32, 96, 0.4);
+          }
+          40% {
+            background-color: rgba(18, 32, 96, 0.5);
+          }
+          50% {
+            background-color: rgba(18, 32, 96, 0.6);
+          }
+          60% {
+            background-color: rgba(18, 32, 96, 0.7);
+          }
+          70% {
+            background-color: rgba(18, 32, 96, 0.8);
+          }
+          80% {
+            background-color: rgba(18, 32, 96, 0.9);
+          }
+          90% {
+            background-color: rgba(18, 32, 96, 0.95);
+          }
+          100% {
+            background-color: rgb(18, 32, 96);
+          }
+        }
+      }
+    </style>
+  </head>
+  <!-- index페이지랑 같음 -->
+  <body oncontextmenu="return false">
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <a id="f" href="/SuSi" onclick="window.localStorage.clear()"
+          ><img src="/SuSi/etc/logow.png"
+        /></a>
+      </div>
+
+      <ul class="navbar__menu">
+        <li><a href="Compare_bku.html" class="hover-link" data-url="compareT.html" href="#">학과점수 비교</a></li>
+        <li><a href="#">석차등급과목 계산기</a></li>
+        <li><a href="#">진로선택과목 계산기</a></li>
+      </ul>
+      <a class="navbar__toogleBtn" href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+    <div class="shape">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+          opacity=".25"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+          opacity=".5"
+          class="shape-fill"
+        ></path>
+        <path
+          d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+          class="shape-fill"
+        ></path>
+      </svg>
+    </div>
+    <!-- 대학.csv파일에서 불러온 대학목록 -->
+    <div id="select-container"></div>
+    <br /><br /><br /><br /><br />
+
+    <!-- 비교 버튼 -->
+    <div class="parent">
+      <button id="compare-btn"><span class="text">비교</span></button>
+    </div>
+    
+    <!-- 결과칸 -->
+    <div id="result-container"></div>
+    
+    <!-- 표  -->
+    <div id="table-container">
+      <table id="word-table">
+        <thead>
+          <tr>
+            <th>모집인원</th>
+            <th>경쟁률</th>
+            <th>최종후보순위</th>
+            <th>최고환산점수</th>
+            <th>평균환산점수</th>
+            <th>80%환산점수</th>
+            <th>최고등급</th>
+            <th>평균등급</th>
+            <th>80%등급</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script>
+      //대학 csv파일 파싱하고 저장된 점수값과 학과 점수 비교 코드
+      $(document).ready(function () {
+        var rows = null;
+
+        $.ajax({
+          url: "부경.csv",
+          dataType: "text",
+          type: "GET",
+          beforeSend: function (xhr) {
+            xhr.overrideMimeType("text/csv; charset=euc-kr");
+          },
+          success: function (data) {
+            rows = data.split("\n");
+            var selectHtml = '<select id="word-select">';
+            for (var i = 0; i < rows.length; i++) {
+              var cells = rows[i].split(",");
+              selectHtml +=
+                '<option value="' + i + '">' + cells[0] + "</option>";
+            }
+            selectHtml += "</select>";
+            $("#select-container").html(selectHtml);
+            $("#compare-btn").click(function () {
+              var rowIndex = $("#word-select").val();
+              var cells = rows[rowIndex].split(",");
+              var inputVal1 = 1000
+              const diff1 = inputVal1 - cells[10];
+              if (inputVal1 <= 0) {
+                $("#result-container").html("점수 계산을 해주세요.");
+              } else if (diff1 === 0) {
+                $("#result-container").html(`${cells[0]}와 환산점수평균이와 입력값이 일치합니다.`);
+              } else if (diff1 > 0) {
+                $("#result-container").html(`${cells[0]}의 환산점수평균이 입력값보다 작습니다.`);
+              } else if (diff1 < 0) {
+                $("#result-container").html(`${cells[0]}의 환산점수평균이 입력값보다 큽니다.`);
+              }
+              var tableHtml = "<tr><td>" + (inputVal1 > 0 ? cells[1] : 0) +
+                "</td><td>" + (inputVal1 > 0 ? cells[3] : 0) +
+                "</td><td>" + (inputVal1 > 0 ? cells[4] : 0) +
+                "</td><td>" + (inputVal1 > 0 ? cells[9] : 0) +
+                "</td><td>" + (inputVal1 > 0 ? cells[10] : 0) +
+                "</td><td>" + (inputVal1 > 0 ? cells[12] : 0) +
+                "</td><td>" + (inputVal1 > 0 ? cells[5] : 0) +
+                "</td><td>" + (inputVal1 > 0 ? cells[6] : 0) +
+                "</td><td>" + (inputVal1 > 0 ? cells[8] : 0) +
+                "</td></tr>";
+              $("#word-table tbody").html(tableHtml);
+            });
+          },
+        });
+      });
+    </script>
+    <script src="/SuSi/js/navbar.js"></script>
+    <script src="/SuSi/js/goto.js"></script>
+    <script
+      src="https://kit.fontawesome.com/b17d4fa9e7.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

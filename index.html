@@ -585,7 +585,10 @@
       </div>
       <ul class="navbar__menu">
         <li>
-          <a class="hover-link" data-url="https://go.pusan.ac.kr/" onclick="togglePage()" href="#">부산대</a>
+          <a id="bsu" class="hover-link" data-url="https://go.pusan.ac.kr/" onclick="togglePage()" href="#">부산대</a>
+        </li>
+        <li>
+          <a id="bku" class="hover-link" data-url="https://iphak.pknu.ac.kr/pknu/index.htm" onclick="togglePage()" href="#">부경대</a>
         </li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
@@ -639,10 +642,14 @@
       function togglePage() {
         let isWideScreen = checkWideScreen();
 
+        const linkElement1 = document.getElementById("bsu");
+        const linkElement2 = document.getElementById("bku");
         if (isWideScreen) {
-          window.location.href = "/SuSi/Bsu/compareT.html";
+          linkElement1.href = "/SuSi/Bsu/compareT.html";
+          linkElement2.href = "/SuSi/Bku/compareT.html";
         } else {
-          window.location.href = "/SuSi/Bsu/Compare_bsu.html";
+          linkElement1.href = "/SuSi/Bsu/Compare_bsu.html";
+          linkElement2.href = "/SuSi/Bku/Compare_bku.html";
         }
       }
       function checkWideScreen() {
