@@ -493,9 +493,49 @@
             $("#compare-btn").click(function () {
               var rowIndex = $("#word-select").val();
               var cells = rows[rowIndex].split(",");
-              var inputVal1 = 1000
-              const diff1 = inputVal1 - cells[10];
-              if (inputVal1 <= 0) {
+              var inputVal1 = Number(window.localStorage.getItem("common"));
+              var inputVal2 = Number(window.localStorage.getItem("career"));
+              let score = inputVal1 - inputVal2;
+              let res;
+              if (score === 1) {
+                res = 1000;
+              } else if (score > 2) {
+                res = (900-(score-1)*5)+100;
+              } else if (score === 2) {
+                res = 995;
+              } else if (score > 3) {
+                res = (895-(score-2)*5)+100;
+              } else if (score === 3) {
+                res = 990
+              } else if (score > 4) {
+                res = (890-(score-3)*5)+100;
+              } else if (score === 4) {
+                res = 980;
+              } else if (score > 5) {
+                res = (880-(score-4)*10)+100;
+              } else if (score === 5) {
+                res = 970;
+              } else if (score > 6) {
+                res = (870-(score-5)*10)+100;
+              } else if (score === 6) {
+                res = 960;
+              } else if (score > 7) {
+                res = (860-(score-6)*10)+100;
+              } else if (score === 7) {
+                res = 940;
+              } else if (score > 8) {
+                res = (840-(score-7)*20)+100;
+              } else if (score === 8) {
+                res = 915;
+              } else if (score > 9) {
+                res = (815-(score-8)*25)+100;
+              } else if (score === 9){
+                res = 890;
+              } else {
+                res = 0;
+              }
+              const diff1 = res - cells[10];
+              if (res <= 0) {
                 $("#result-container").html("점수 계산을 해주세요.");
               } else if (diff1 === 0) {
                 $("#result-container").html(`${cells[0]}와 환산점수평균이와 입력값이 일치합니다.`);

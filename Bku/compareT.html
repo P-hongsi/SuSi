@@ -498,11 +498,13 @@
                 res = 915;
               } else if (score > 9) {
                 res = (815-(score-8)*25)+100;
-              } else {
+              } else if (score === 9){
                 res = 890;
+              } else {
+                res = 0;
               }
               const diff1 = res - cells[10];
-              if (inputVal1 <= 0) {
+              if (res <= 0) {
                 $("#result-container").html("점수 계산을 해주세요.");
               } else if (diff1 === 0) {
                 $("#result-container").html(`${cells[0]}의 환산점수평균와 입력값이 일치합니다.`);
