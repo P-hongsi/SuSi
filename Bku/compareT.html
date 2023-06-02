@@ -462,12 +462,24 @@
             $("#compare-btn").click(function () {
               var rowIndex = $("#word-select").val();
               var cells = rows[rowIndex].split(",");
-              var inputVal1 = 1000
-              const diff1 = inputVal1 - cells[10];
+              var inputVal1 = Number(window.localStorage.getItem("common"));
+              var inputVal2 = Number(window.localStorage.getItem("career"));
+              let score = inputVal1 - inputVal2;
+              let res;
+              if (score === 1) {
+                res = 1000;
+              } else if (score > 2) {
+                res = (900-(score-1)*5)+100;
+              } else if (score === 2) {
+                res = 995;
+              } else if (score > 3) {
+                res = (895-(score-2)*5)+100;
+              }
+              const diff1 = res - cells[10];
               if (inputVal1 <= 0) {
                 $("#result-container").html("점수 계산을 해주세요.");
               } else if (diff1 === 0) {
-                $("#result-container").html(`${cells[0]}와 환산점수평균이와 입력값이 일치합니다.`);
+                $("#result-container").html(`${cells[0]}의 환산점수평균와 입력값이 일치합니다.`);
               } else if (diff1 > 0) {
                 $("#result-container").html(`${cells[0]}의 환산점수평균이 입력값보다 작습니다.`);
               } else if (diff1 < 0) {
