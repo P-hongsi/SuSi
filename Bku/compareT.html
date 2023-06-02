@@ -462,50 +462,47 @@
             $("#compare-btn").click(function () {
               var rowIndex = $("#word-select").val();
               var cells = rows[rowIndex].split(",");
-              var inputVal1 = Number(window.localStorage.getItem("common"));
-              var inputVal2 = Number(window.localStorage.getItem("career"));
-              let score = inputVal1 - inputVal2;
-              let res;
-              if (score === 1) {
+              const inputVal1 = Number(window.localStorage.getItem("common"));
+              const inputVal2 = Number(window.localStorage.getItem("career"));
+              const inputVal3 = Number(window.localStorage.getItem("vaild"));
+              const score = inputVal1 - inputVal2;
+              let res = 0;
+
+              if (score > 0 && score <= 1) {
                 res = 1000;
-              } else if (score > 2) {
-                res = (900-(score-1)*5)+100;
-              } else if (score === 2) {
-                res = 995;
-              } else if (score > 3) {
-                res = (895-(score-2)*5)+100;
-              } else if (score === 3) {
-                res = 990
-              } else if (score > 4) {
-                res = (890-(score-3)*5)+100;
-              } else if (score === 4) {
-                res = 980;
-              } else if (score > 5) {
-                res = (880-(score-4)*10)+100;
-              } else if (score === 5) {
-                res = 970;
-              } else if (score > 6) {
-                res = (870-(score-5)*10)+100;
-              } else if (score === 6) {
-                res = 960;
-              } else if (score > 7) {
-                res = (860-(score-6)*10)+100;
-              } else if (score === 7) {
-                res = 940;
-              } else if (score > 8) {
-                res = (840-(score-7)*20)+100;
-              } else if (score === 8) {
-                res = 915;
-              } else if (score > 9) {
-                res = (815-(score-8)*25)+100;
-              } else if (score === 9){
-                res = 890;
-              } else {
+              } else if (score >= 2 && score <= 9) {
+                res = 900 - (score - 1) * 5 + 100;
+              } else if (score >= 10 && score <= 12) {
+                res = 880 - (score - 4) * 10 + 100;
+              } else if (score >= 13 && score <= 15) {
+                res = 860 - (score - 6) * 10 + 100;
+              } else if (score >= 16 && score <= 18) {
+                res = 840 - (score - 7) * 20 + 100;
+              } else if (score >= 19 && score <= 22) {
+                res = 815 - (score - 8) * 25 + 100;
+              } else if (score >= 23) {
                 res = 0;
               }
+
+              if ([2, 3, 4, 5, 6, 7, 8, 9].includes(score)) {
+                res += 5;
+              } else if ([10, 11, 12].includes(score)) {
+                res += 10;
+              } else if ([13, 14, 15].includes(score)) {
+                res += 15;
+              } else if ([16, 17, 18].includes(score)) {
+                res += 20;
+              } else if ([19, 20, 21, 22].includes(score)) {
+                res += 25;
+              }
+              if (inputVal3 < 60) {
+                res = res-5
+              }
               const diff1 = res - cells[10];
-              if (res <= 0) {
+              if (res === 0) {
                 $("#result-container").html("점수 계산을 해주세요.");
+              } else if (cells[10] === '') {
+                $("#result-container").html("환산점수평균 데이터가 없습니다.");
               } else if (diff1 === 0) {
                 $("#result-container").html(`${cells[0]}의 환산점수평균와 입력값이 일치합니다.`);
               } else if (diff1 > 0) {

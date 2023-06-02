@@ -2430,17 +2430,21 @@
           ({ n1, n2 }) => !isNaN(n1) && !isNaN(n2)
         );
         let sum;
+        let vaild;
         if (isValidInput) {
           sum =
             numbers.reduce((acc, { n1, n2 }) => acc + n2 * n1, 0) /
             numbers.reduce((acc, { n1 }) => acc + n1, 0);
           sum = Math.floor(sum * 10000) / 10000;
+          vaild = numbers.reduce((acc, { n1 }) => acc + n1, 0);
         } else {
           sum = "다시 입력해주세요.";
         }
         window.localStorage.removeItem("common");
+        window.localStorage.removeItem("vaild");
         if (typeof sum === "number") {
           window.localStorage.setItem("common", sum);
+          window.localStorage.setItem("vaild", vaild);
           document.querySelector(".res").classList.remove("hidden");
           document.getElementById(
             "result"
