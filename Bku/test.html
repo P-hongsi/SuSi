@@ -709,191 +709,72 @@
     <script>
       //점수 로컬 스토리지 저장 함수
       function storeValue() {
-        const num1 = document.getElementById("num1").value.toLowerCase();
-        const num2 = document.getElementById("num2").value.toLowerCase();
-        const num3 = document.getElementById("num3").value.toLowerCase();
-        const num4 = document.getElementById("num4").value.toLowerCase();
-        const num5 = document.getElementById("num5").value.toLowerCase();
-        const num6 = document.getElementById("num6").value.toLowerCase();
-        const num7 = document.getElementById("num7").value.toLowerCase();
-        const num8 = document.getElementById("num8").value.toLowerCase();
-        const num9 = document.getElementById("num9").value.toLowerCase();
-        const num10 = document.getElementById("num10").value.toLowerCase();
-        const num11 = document.getElementById("num11").value.toLowerCase();
-        const num12 = document.getElementById("num12").value.toLowerCase();
-        const num13 = document.getElementById("num13").value.toLowerCase();
-        const num14 = document.getElementById("num14").value.toLowerCase();
-        const num15 = document.getElementById("num15").value.toLowerCase();
-        const num16 = document.getElementById("num16").value.toLowerCase();
+        const subjectScores = [];
         const subject = document.querySelector(".sub");
         let sub = subject.value;
         const A = 2;
         const B = 1.5;
         const C = 1;
-        let res1, res2, res3, res4, res5, res6, res7, res8;
-        if (sub === "과학") {
-          if (num2 === "a") {
-            res1 = Math.floor((num1 / 5) * A * 1.5 * 100) / 100;
-          } else if (num2 === "b") {
-            res1 = Math.floor((num1 / 5) * B * 1.5 * 100) / 100;
-          } else if (num2 === "c") {
-            res1 = Math.floor((num1 / 5) * C * 1.5 * 100) / 100;
-          } else {
-            res1 = 0;
+        for (let i = 1; i <= 16; i += 2) {
+          const num = document.getElementById(`num${i}`).value.toLowerCase();
+          const grade = document
+            .getElementById(`num${i + 1}`)
+            .value.toLowerCase();
+          let res;
+          if (sub === "과학") {
+            if (grade === "a") {
+              res = Math.floor((num / 5) * A * 1.5 * 100) / 100;
+            } else if (grade === "b") {
+              res = Math.floor((num / 5) * B * 1.5 * 100) / 100;
+            } else if (grade === "c") {
+              res = Math.floor((num / 5) * C * 1.5 * 100) / 100;
+            }
+          } else if (sub === "나머지") {
+            if (grade === "a") {
+              res = Math.floor((num / 5) * A * 100) / 100;
+            } else if (grade === "b") {
+              res = Math.floor((num / 5) * B * 100) / 100;
+            } else if (grade === "c") {
+              res = Math.floor((num / 5) * C * 100) / 100;
+            }
           }
-          if (num4 === "a") {
-            res2 = Math.floor((num3 / 5) * A * 1.5 * 100) / 100;
-          } else if (num4 === "b") {
-            res2 = Math.floor((num3 / 5) * B * 1.5 * 100) / 100;
-          } else if (num4 === "c") {
-            res2 = Math.floor((num3 / 5) * C * 1.5 * 100) / 100;
-          } else {
-            res2 = 0;
-          }
-          if (num6 === "a") {
-            res3 = Math.floor((num5 / 5) * A * 1.5 * 100) / 100;
-          } else if (num6 === "b") {
-            res3 = Math.floor((num5 / 5) * B * 1.5 * 100) / 100;
-          } else if (num6 === "c") {
-            res3 = Math.floor((num5 / 5) * C * 1.5 * 100) / 100;
-          } else {
-            res3 = 0;
-          }
-          if (num8 === "a") {
-            res4 = Math.floor((num7 / 5) * A * 1.5 * 100) / 100;
-          } else if (num8 === "b") {
-            res4 = Math.floor((num7 / 5) * B * 1.5 * 100) / 100;
-          } else if (num8 === "c") {
-            res4 = Math.floor((num7 / 5) * C * 1.5 * 100) / 100;
-          } else {
-            res4 = 0;
-          }
-          if (num10 === "a") {
-            res5 = Math.floor((num9 / 5) * A * 1.5 * 100) / 100;
-          } else if (num10 === "b") {
-            res5 = Math.floor((num9 / 5) * B * 1.5 * 100) / 100;
-          } else if (num10 === "c") {
-            res5 = Math.floor((num9 / 5) * C * 1.5 * 100) / 100;
-          } else {
-            res5 = 0;
-          }
-          if (num12 === "a") {
-            res6 = Math.floor((num11 / 5) * A * 1.5 * 100) / 100;
-          } else if (num12 === "b") {
-            res6 = Math.floor((num11 / 5) * B * 1.5 * 100) / 100;
-          } else if (num12 === "c") {
-            res6 = Math.floor((num11 / 5) * C * 1.5 * 100) / 100;
-          } else {
-            res6 = 0;
-          }
-          if (num14 === "a") {
-            res7 = Math.floor((num13 / 5) * A * 1.5 * 100) / 100;
-          } else if (num14 === "b") {
-            res7 = Math.floor((num13 / 5) * B * 1.5 * 100) / 100;
-          } else if (num14 === "c") {
-            res7 = Math.floor((num13 / 5) * C * 1.5 * 100) / 100;
-          } else {
-            res7 = 0;
-          }
-          if (num16 === "a") {
-            res8 = Math.floor((num15 / 5) * A * 1.5 * 100) / 100;
-          } else if (num16 === "b") {
-            res8 = Math.floor((num15 / 5) * B * 1.5 * 100) / 100;
-          } else if (num16 === "c") {
-            res8 = Math.floor((num15 / 5) * C * 1.5 * 100) / 100;
-          } else {
-            res8 = 0;
-          }
-        } else if (sub === "나머지") {
-          if (num2 === "a") {
-            res1 = Math.floor((num1 / 5) * A * 100) / 100;
-          } else if (num2 === "b") {
-            res1 = Math.floor((num1 / 5) * B * 100) / 100;
-          } else if (num2 === "c") {
-            res1 = Math.floor((num1 / 5) * C * 100) / 100;
-          } else {
-            res1 = 0;
-          }
-          if (num4 === "a") {
-            res2 = Math.floor((num3 / 5) * A * 100) / 100;
-          } else if (num4 === "b") {
-            res2 = Math.floor((num3 / 5) * B * 100) / 100;
-          } else if (num4 === "c") {
-            res2 = Math.floor((num3 / 5) * C * 100) / 100;
-          } else {
-            res2 = 0;
-          }
-          if (num6 === "a") {
-            res3 = Math.floor((num5 / 5) * A * 100) / 100;
-          } else if (num6 === "b") {
-            res3 = Math.floor((num5 / 5) * B * 100) / 100;
-          } else if (num6 === "c") {
-            res3 = Math.floor((num5 / 5) * C * 100) / 100;
-          } else {
-            res3 = 0;
-          }
-          if (num8 === "a") {
-            res4 = Math.floor((num7 / 5) * A * 100) / 100;
-          } else if (num8 === "b") {
-            res4 = Math.floor((num7 / 5) * B * 100) / 100;
-          } else if (num8 === "c") {
-            res4 = Math.floor((num7 / 5) * C * 100) / 100;
-          } else {
-            res4 = 0;
-          }
-          if (num10 === "a") {
-            res5 = Math.floor((num9 / 5) * A * 100) / 100;
-          } else if (num10 === "b") {
-            res5 = Math.floor((num9 / 5) * B * 100) / 100;
-          } else if (num10 === "c") {
-            res5 = Math.floor((num9 / 5) * C * 100) / 100;
-          } else {
-            res5 = 0;
-          }
-          if (num12 === "a") {
-            res6 = Math.floor((num11 / 5) * A * 100) / 100;
-          } else if (num12 === "b") {
-            res6 = Math.floor((num11 / 5) * B * 100) / 100;
-          } else if (num12 === "c") {
-            res6 = Math.floor((num11 / 5) * C * 100) / 100;
-          } else {
-            res6 = 0;
-          }
-          if (num14 === "a") {
-            res7 = Math.floor((num13 / 5) * A * 100) / 100;
-          } else if (num14 === "b") {
-            res7 = Math.floor((num13 / 5) * B * 100) / 100;
-          } else if (num14 === "c") {
-            res7 = Math.floor((num13 / 5) * C * 100) / 100;
-          } else {
-            res7 = 0;
-          }
-          if (num16 === "a") {
-            res8 = Math.floor((num15 / 5) * A * 100) / 100;
-          } else if (num16 === "b") {
-            res8 = Math.floor((num15 / 5) * B * 100) / 100;
-          } else if (num16 === "c") {
-            res8 = Math.floor((num15 / 5) * C * 100) / 100;
-          } else {
-            res8 = 0;
-          }
-        }
-        let careerGrade;
-        if (res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 >= 8) {
-          careerGrade = 0.2;
-        } else if (res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 >= 7) {
-          careerGrade = 0.1;
-        } else {
-          careerGrade = 0;
-        }
+          subjectScores.push(res);
+          console.log(subjectScores);
 
-        window.localStorage.removeItem("career");
-        window.localStorage.setItem("career", careerGrade);
-        document.getElementById(
-          "result"
-        ).innerHTML = `진로선택과목은 ${window.localStorage.getItem(
-          "career"
-        )}등급입니다.`;
+          //   if (res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 >= 8) {
+          //     window.localStorage.removeItem("career");
+          //     let grade = 0.2;
+          //     window.localStorage.setItem("career", grade);
+          //     document.getElementById(
+          //       "result"
+          //     ).innerHTML = `진로 선택 과목 점수는: ${window.localStorage.getItem(
+          //       "career"
+          //     )}점 입니다.`;
+          //   } else if (res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 >= 7) {
+          //     window.localStorage.removeItem("career");
+          //     let grade = 0.1;
+          //     window.localStorage.setItem("career", grade);
+          //     document.getElementById(
+          //       "result"
+          //     ).innerHTML = `진로 선택 과목 점수는: ${window.localStorage.getItem(
+          //       "career"
+          //     )}점 입니다.`;
+          //   } else if (res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 < 7) {
+          //     window.localStorage.removeItem("career");
+          //     let grade = 0;
+          //     window.localStorage.setItem("career", grade);
+          //     document.getElementById(
+          //       "result"
+          //     ).innerHTML = `진로 선택 과목 점수는: ${window.localStorage.getItem(
+          //       "career"
+          //     )}점 입니다.`;
+          //   } else {
+          //     document.getElementById(
+          //       "result"
+          //     ).innerHTML = `진로 선택 과목 점수를 다시 입력해주세요.`;
+          //   }
+          // }
+        }
       }
     </script>
     <script src="/SuSi/js/navbar.js"></script>
