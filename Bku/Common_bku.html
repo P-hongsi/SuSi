@@ -2455,7 +2455,7 @@
         let sum;
         if (isValidInput) {
           sum =
-            numbers.reduce((acc, { n1, n2 }) => acc + (101 - n2) * n1, 0) /
+            numbers.reduce((acc, { n1, n2 }) => acc + (n2 * n1), 0) /
             numbers.reduce((acc, { n1 }) => acc + n1, 0);
         } else {
           sum = "다시 입력해주세요.";
@@ -2464,7 +2464,7 @@
         if (typeof sum === "number") {
           window.localStorage.setItem("common", sum);
           document.querySelector('.res').classList.remove('hidden');
-          document.getElementById("result").innerHTML = `석차등급과목 점수는 ${sum}점 입니다.`;
+          document.getElementById("result").innerHTML = `석차등급과목은 ${sum}등급입니다.`;
         } else {
           document.querySelector('.res').classList.remove('hidden');
           document.getElementById("result").innerHTML = sum;
