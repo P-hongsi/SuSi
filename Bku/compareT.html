@@ -474,7 +474,34 @@
                 res = 995;
               } else if (score > 3) {
                 res = (895-(score-2)*5)+100;
+              } else if (score === 3) {
+                res = 990
+              } else if (score > 4) {
+                res = (890-(score-3)*5)+100;
+              } else if (score === 4) {
+                res = 980;
+              } else if (score > 5) {
+                res = (880-(score-4)*10)+100;
+              } else if (score === 5) {
+                res = 970;
+              } else if (score > 6) {
+                res = (870-(score-5)*10)+100;
+              } else if (score === 6) {
+                res = 960;
+              } else if (score > 7) {
+                res = (860-(score-6)*10)+100;
+              } else if (score === 7) {
+                res = 940;
+              } else if (score > 8) {
+                res = (840-(score-7)*20)+100;
+              } else if (score === 8) {
+                res = 915;
+              } else if (score > 9) {
+                res = (815-(score-8)*25)+100;
+              } else {
+                res = 890;
               }
+              console.log(res)
               const diff1 = res - cells[10];
               if (inputVal1 <= 0) {
                 $("#result-container").html("점수 계산을 해주세요.");
