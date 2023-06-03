@@ -38,6 +38,10 @@
       * {
         font-family: "Nanum Gothic", sans-serif;
       }
+      
+      html {
+        scroll-behavior: smooth;
+      }
 
       .hidden {
         display: none;
@@ -100,6 +104,14 @@
 
       button:active {
         transform: scale(0.9);
+      }
+
+      .gapl {
+        margin-right: 1vw;
+      }
+
+      .gapr {
+        margin-left: 1vw;
       }
 
       li {
@@ -414,10 +426,10 @@
 
     <!-- 각각 클릭했을때 showNextDiv() , hidePrevDiv() 함수 실행 -->
     <div class="btn">
-      <button class="btn1" onclick="showNextDiv()">
+      <button class="btn1 gapl" onclick="showNextDiv()">
         <span class="text">Create</span>
       </button>
-      <button class="btn1" onclick="hidePrevDiv()">
+      <button class="btn1 gapr" onclick="hidePrevDiv()">
         <span class="text">Remove</span>
       </button>
     </div>
