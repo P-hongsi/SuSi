@@ -22,7 +22,9 @@ let startX;
           const element = document.querySelector('.gesture');
           element.click();
         }
-        startX = event.touches[0].clientX;
+        if (event.touches.length === 1) {
+          startX = event.touches[0].clientX;
+        }
         startY2 = touch.clientY;
       });
 
