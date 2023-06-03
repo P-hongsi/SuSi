@@ -6,6 +6,8 @@ let startX;
         if (event.touches.length === 3) {
           const element2 = document.querySelector('#bsu');
           element2.click();
+          const element5 = document.querySelector('.home');
+          element5.click();
         }
         if (event.touches.length === 4) {
           const element3 = document.querySelector('#bku');
@@ -19,16 +21,11 @@ let startX;
           let touch1 = event.touches[0];
           let touch2 = event.touches[1];
           startY1 = Math.max(touch1.clientY, touch2.clientY);
+          const element = document.querySelector('.gesture');
+          element.click();
         }
         if (event.touches.length === 1) {
           startX = event.touches[0].clientX;
-        }
-        if (event.touches.length === 3) {
-          const element6 = document.querySelector('.home');
-          element6.click();
-        } else if (event.touches.length === 2) {
-          const element = document.querySelector('.gesture');
-          element.click();
         }
         startY2 = touch.clientY;
       });
