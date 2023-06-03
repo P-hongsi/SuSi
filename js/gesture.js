@@ -51,7 +51,6 @@ let startX;
         }
         let endX = event.changedTouches[0].clientX;
         let deltaX = endX - startX;
-        console.log(deltaX);
         if (deltaX > 150) {
           window.history.back();
         } else if (deltaX < -150) {
