@@ -6,6 +6,8 @@ let startX;
         if (event.touches.length === 3) {
           const element2 = document.querySelector('#bsu');
           element2.click();
+          const element5 = document.querySelector('.home');
+          element5.click();
         }
         if (event.touches.length === 4) {
           const element3 = document.querySelector('#bku');
