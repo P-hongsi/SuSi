@@ -2234,20 +2234,21 @@
             numbers.reduce((acc, { n1, n2 }) => acc + (101 - n2) * n1, 0) /
             numbers.reduce((acc, { n1 }) => acc + n1, 0);
           sum = (Math.floor(sum * 10000) / 10000) * 0.5;
-          sum = Math.floor(sum * 10000) / 10000
+          sum = Math.floor(sum * 10000) / 10000;
         } else {
           sum = "다시 입력해주세요.";
         }
-        window.localStorage.removeItem("common");
+        window.localStorage.removeItem("select");
         if (typeof sum === "number") {
-          window.localStorage.setItem("common", sum);
-          document.querySelector('.res').classList.remove('hidden');
-          document.getElementById("result").innerHTML = `일반선택과목 점수는 ${sum}점 입니다.`;
+          window.localStorage.setItem("select", sum);
+          document.querySelector(".res").classList.remove("hidden");
+          document.getElementById(
+            "result"
+          ).innerHTML = `일반선택과목 점수는 ${sum}점 입니다.`;
         } else {
-          document.querySelector('.res').classList.remove('hidden');
+          document.querySelector(".res").classList.remove("hidden");
           document.getElementById("result").innerHTML = sum;
         }
-        
       }
     </script>
     <script src="/SuSi/js/navbar.js"></script>
