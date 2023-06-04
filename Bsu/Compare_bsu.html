@@ -520,20 +520,21 @@
               var inputVal1 = Number(window.localStorage.getItem("common"));
               var inputVal2 = Number(window.localStorage.getItem("career"));
               var inputVal3 = Number(window.localStorage.getItem("select"));
-              const sum = inputVal1 + inputVal2 + inputVal3
-              if (sum <= 0 ) {
+              const sum = inputVal1 + inputVal2 + inputVal3;
+              const res = sum - cells[7];
+              if (sum <= 0) {
                 $("#result-container").html("점수 계산을 해주세요.");
-              } else if (sum > cells[7]) {
+              } else if (res >= 2) {
                 $("#result-container").html(
-                  `${cells[0]}는 상향입니다.`
+                  `${cells[0]}는 하향지원입니다.(총점: ${sum})`
                 );
-              } else if (sum === cells[7]) {
+              } else if (res > -2) {
                 $("#result-container").html(
-                  `${cells[0]}는 적정입니다.`
+                  `${cells[0]}는 적정입니다.(총점: ${sum})`
                 );
-              } else if (sum < cells[7]) {
+              } else if (res <= -2) {
                 $("#result-container").html(
-                  `${cells[0]}는 하향입니다.`
+                  `${cells[0]}는 상향지원입니다.(총점: ${sum})`
                 );
               }
               var tableHtml =
