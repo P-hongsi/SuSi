@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 
     <!-- 창 제목 -->
-    <title>학과점수비교</title>
+    <title>점수비교</title>
 
     <!-- csv파싱 외부 스크립트 -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -398,9 +398,10 @@
       </div>
 
       <ul class="navbar__menu">
-        <li><a href="compareT.html" class="hover-link" data-url="Compare_bsu.html" href="#">학과점수 비교</a></li>
-        <li><a href="commonT.html">석차등급과목 계산기</a></li>
-        <li><a href="careerT.html">진로선택과목 계산기</a></li>
+        <li><a href="compareT.html" class="hover-link" data-url="Compare_bsu.html" href="#">점수 비교</a></li>
+        <li><a href="commonT.html">공통과목</a></li>
+        <li><a href="selectT.html">일반선택과목</a></li>
+        <li><a href="careerT.html">진로선택과목</a></li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars" ></i>
@@ -462,59 +463,21 @@
               var cells = rows[rowIndex].split(",");
               var inputVal1 = Number(window.localStorage.getItem("common"));
               var inputVal2 = Number(window.localStorage.getItem("career"));
-              const diff1 = inputVal1 - cells[5];
-              const diff2 = inputVal2 - cells[6];
-              if (inputVal1 <= 0 || inputVal2 <= 0) {
+              var inputVal3 = Number(window.localStorage.getItem("select"));
+              const sum = inputVal1 + inputVal2 + inputVal3
+              if (sum <= 0 ) {
                 $("#result-container").html("점수 계산을 해주세요.");
-              } else if (diff1 === 0 && diff2 === 0) {
+              } else if (sum > cells[7]) {
                 $("#result-container").html(
-                  `${cells[0]}와 평균 점수와 입력값이 일치합니다.`
+                  `${cells[0]}는 상향입니다.`
                 );
-              } else if (diff1 > 0 && diff2 > 0) {
+              } else if (sum === cells[7]) {
                 $("#result-container").html(
-                  `${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(
-                    2
-                  )} 낮고, 진로점수는 ${diff2.toFixed(2)} 낮습니다.`
+                  `${cells[0]}는 적정입니다.`
                 );
-              } else if (diff1 === 0 && diff2 > 0) {
+              } else if (sum < cells[7]) {
                 $("#result-container").html(
-                  `${cells[0]}의 진로점수가 입력값보다 ${diff2.toFixed(
-                    2
-                  )} 낮고, 석차점수는 일치합니다.`
-                );
-              } else if (diff1 > 0 && diff2 === 0) {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(
-                    2
-                  )} 낮고, 진로점수는 일치합니다.`
-                );
-              } else if (diff1 < 0 && diff2 < 0) {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수는 입력값보다 ${Math.abs(
-                    diff1
-                  ).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(
-                    2
-                  )} 높습니다.`
-                );
-              } else if (diff1 === 0 && diff2 < 0) {
-                $("#result-container").html(
-                  `${cells[0]}의 진로점수는 입력값보다 ${Math.abs(
-                    diff2
-                  ).toFixed(2)} 높고, 석차점수는 일치합니다.`
-                );
-              } else if (diff1 < 0 && diff2 === 0) {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수는 입력값보다 ${Math.abs(
-                    diff1
-                  ).toFixed(2)} 높고, 진로점수는 일치합니다.`
-                );
-              } else {
-                $("#result-container").html(
-                  `${cells[0]}의 석차점수는 입력값보다 ${Math.abs(
-                    diff1
-                  ).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(
-                    2
-                  )} 낮습니다.`
+                  `${cells[0]}는 하향입니다.`
                 );
               }
               var tableHtml =

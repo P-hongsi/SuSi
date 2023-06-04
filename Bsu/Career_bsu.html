@@ -3,8 +3,12 @@
   <head>
     <!-- pwa -->
     <script src="/SuSi/js/sworker.js"></script>
-    <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="/SuSi/etc/icon-512.png">
+    <meta
+      name="theme-color"
+      content="#6676b5"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="icon" href="/SuSi/etc/icon-512.png" />
     <!-- 기본 설정 -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,19 +16,22 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <meta name="description" content="Made By Juny">
+    <meta name="description" content="Made By Juny" />
 
     <!-- 폰트 태그 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- 창 제목 -->
     <title>진로선택과목</title>
     <style>
       /* 디자인 */
       * {
-        font-family: 'Nanum Gothic', sans-serif;
+        font-family: "Nanum Gothic", sans-serif;
       }
 
       .hidden {
@@ -285,7 +292,7 @@
         }
 
         #result {
-        font-size: 23px;
+          font-size: 23px;
         }
       }
       /* index페이지랑 똑같음 */
@@ -378,8 +385,17 @@
 
       <ul class="navbar__menu">
         <li><a href="Compare_bsu.html">학과점수 비교</a></li>
-        <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
-        <li><a href="Career_bsu.html" class="hover-link" data-url="careerT.html" href="#">진로선택과목 계산기</a></li>
+        <li><a href="Common_bsu.html">공통과목</a></li>
+        <li><a href="Select_bsu.html">일반선택과목</a></li>
+        <li>
+          <a
+            href="Career_bsu.html"
+            class="hover-link"
+            data-url="careerT.html"
+            href="#"
+            >진로선택과목</a
+          >
+        </li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars"></i>
@@ -423,10 +439,6 @@
               </select>
             </li>
             <li>
-              <span>과목명</span>
-              <label><input type="text" value="" /></label>
-            </li>
-            <li>
               <span>단위수</span>
               <label><input id="num1" type="number" value="4" /></label>
             </li>
@@ -455,10 +467,6 @@
               </select>
             </li>
             <li>
-              <span>과목명</span>
-              <label><input type="text" value="" /></label>
-            </li>
-            <li>
               <span>단위수</span>
               <label><input id="num3" type="number" value="4" /></label>
             </li>
@@ -485,10 +493,6 @@
               </select>
             </li>
             <li>
-              <span>과목명</span>
-              <label><input type="text" value="" /></label>
-            </li>
-            <li>
               <span>단위수</span>
               <label><input id="num5" type="number" value="4" /></label>
             </li>
@@ -501,7 +505,7 @@
       </ul>
     </div>
     <!-- 클릭했을때 storeValue()라는 함수를 실행시키는 버튼 -->
-      <div class="btn">
+    <div class="btn">
       <button class="btn1 gesture" onclick="storeValue()">
         <span class="text">제출</span>
       </button>
@@ -514,7 +518,7 @@
       //점수 로컬 스토리지 저장 함수
       function storeValue() {
         const values = ["a", "b", "c"];
-        const weights = [0.5, 0.3, 0.1];
+        const weights = [100, 99, 98];
         const scores = [];
 
         for (let i = 1; i <= 3; i++) {
@@ -525,13 +529,13 @@
           if (index === -1) {
             document.getElementById(
               "result"
-            ).innerHTML = `진로 선택 과목 점수를 다시 입력해주세요.`;
+            ).innerHTML = `다시 입력해주세요.`;
             return;
           }
           scores.push(weights[index]);
         }
         const avgScore =
-          scores.reduce((acc, score) => acc + score, 0) / scores.length;
+          (scores.reduce((acc, score) => acc + score, 0) / scores.length) * 0.2;
         window.localStorage.removeItem("career");
         window.localStorage.setItem("career", avgScore);
 

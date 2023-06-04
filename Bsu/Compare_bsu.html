@@ -3,26 +3,37 @@
   <head>
     <!-- index페이지랑 같음 -->
     <meta charset="euc-kr" />
-    <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
+    <meta
+      name="theme-color"
+      content="#6676b5"
+      media="(prefers-color-scheme: dark)"
+    />
     <script src="/SuSi/js/sworker.js"></script>
-    <link rel="icon" href="/SuSi/etc/icon-512.png">
+    <link rel="icon" href="/SuSi/etc/icon-512.png" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Made By Juny">
+    <meta name="description" content="Made By Juny" />
 
     <!-- 폰트 태그 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- 창 제목 -->
-    <title>학과점수비교</title>
+    <title>점수비교</title>
 
     <!-- csv파싱 외부 스크립트 -->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
     <style>
       /* index페이지랑 같음 */
       .shape .shape-fill {
@@ -158,7 +169,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Nanum Gothic', sans-serif;
+        font-family: "Nanum Gothic", sans-serif;
       }
 
       body {
@@ -246,7 +257,7 @@
         font-size: 24px;
         color: white;
       }
-      
+
       /* index페이지랑 같음 */
       @media screen and (max-width: 768px) {
         #compare-btn {
@@ -400,15 +411,28 @@
   <body oncontextmenu="return false">
     <nav class="navbar">
       <div class="navbar__logo">
-        <a id="f" class="home" href="/SuSi" onclick="window.localStorage.clear()"
+        <a
+          id="f"
+          class="home"
+          href="/SuSi"
+          onclick="window.localStorage.clear()"
           ><img src="/SuSi/etc/logow.png"
         /></a>
       </div>
 
       <ul class="navbar__menu">
-        <li><a href="Compare_bsu.html" class="hover-link" data-url="compareT.html" href="#">학과점수 비교</a></li>
-        <li><a href="Common_bsu.html">석차등급과목 계산기</a></li>
-        <li><a href="Career_bsu.html">진로선택과목 계산기</a></li>
+        <li>
+          <a
+            href="Compare_bsu.html"
+            class="hover-link"
+            data-url="compareT.html"
+            href="#"
+            >학과점수 비교</a
+          >
+        </li>
+        <li><a href="Common_bsu.html">공통과목</a></li>
+        <li><a href="Select_bsu.html">일반선택과목</a></li>
+        <li><a href="Career_bsu.html">진로선택과목</a></li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars"></i>
@@ -443,12 +467,14 @@
 
     <!-- 비교 버튼 -->
     <div class="parent">
-      <button class="gesture" id="compare-btn"><span class="text">비교</span></button>
+      <button class="gesture" id="compare-btn">
+        <span class="text">비교</span>
+      </button>
     </div>
-    
+
     <!-- 결과칸 -->
     <div id="result-container"></div>
-    
+
     <!-- 표  -->
     <div id="table-container">
       <table id="word-table">
@@ -493,34 +519,38 @@
               var cells = rows[rowIndex].split(",");
               var inputVal1 = Number(window.localStorage.getItem("common"));
               var inputVal2 = Number(window.localStorage.getItem("career"));
-              const diff1 = inputVal1 - cells[5];
-              const diff2 = inputVal2 - cells[6];
-              if (inputVal1 <= 0 || inputVal2 <= 0) {
+              var inputVal3 = Number(window.localStorage.getItem("select"));
+              const sum = inputVal1 + inputVal2 + inputVal3
+              if (sum <= 0 ) {
                 $("#result-container").html("점수 계산을 해주세요.");
-              } else if (diff1 === 0 && diff2 === 0) {
-                $("#result-container").html(`${cells[0]}와 평균 점수와 입력값이 일치합니다.`);
-              } else if (diff1 > 0 && diff2 > 0) {
-                $("#result-container").html(`${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(2)} 낮고, 진로점수는 ${diff2.toFixed(2)} 낮습니다.`);
-              } else if (diff1 === 0 && diff2 > 0) {
-                $("#result-container").html(`${cells[0]}의 진로점수가 입력값보다 ${diff2.toFixed(2)} 낮고, 석차점수는 일치합니다.`);
-              } else if (diff1 > 0 && diff2 === 0) {
-                $("#result-container").html(`${cells[0]}의 석차점수가 입력값보다 ${diff1.toFixed(2)} 낮고, 진로점수는 일치합니다.`);
-              } else if (diff1 < 0 && diff2 < 0) {
-                $("#result-container").html(`${cells[0]}의 석차점수는 입력값보다 ${Math.abs(diff1).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(2)} 높습니다.`);
-              } else if (diff1 === 0 && diff2 < 0) {
-                $("#result-container").html(`${cells[0]}의 진로점수는 입력값보다 ${Math.abs(diff2).toFixed(2)} 높고, 석차점수는 일치합니다.`);
-              } else if (diff1 < 0 && diff2 === 0) {
-                $("#result-container").html(`${cells[0]}의 석차점수는 입력값보다 ${Math.abs(diff1).toFixed(2)} 높고, 진로점수는 일치합니다.`);
-              } else {
-                $("#result-container").html(`${cells[0]}의 석차점수는 입력값보다 ${Math.abs(diff1).toFixed(2)} 높고, 진로점수는 ${Math.abs(diff2).toFixed(2)} 낮습니다.`);
+              } else if (sum > cells[7]) {
+                $("#result-container").html(
+                  `${cells[0]}는 상향입니다.`
+                );
+              } else if (sum === cells[7]) {
+                $("#result-container").html(
+                  `${cells[0]}는 적정입니다.`
+                );
+              } else if (sum < cells[7]) {
+                $("#result-container").html(
+                  `${cells[0]}는 하향입니다.`
+                );
               }
-              var tableHtml = "<tr><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[1] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[3] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[4] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[7] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[8] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[10] : 0) +
-                "</td><td>" + (inputVal1 > 0 && inputVal2 > 0 ? cells[11] : 0) +
+              var tableHtml =
+                "<tr><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[1] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[3] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[4] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[7] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[8] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[10] : 0) +
+                "</td><td>" +
+                (inputVal1 > 0 && inputVal2 > 0 ? cells[11] : 0) +
                 "</td></tr>";
               $("#word-table tbody").html(tableHtml);
             });
