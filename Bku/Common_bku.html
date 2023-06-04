@@ -26,7 +26,7 @@
     />
 
     <!-- 창 제목 -->
-    <title>석차등급과목</title>
+    <title>공통 및 일반선택과목</title>
     <style>
       /* index페이지랑 똑같음 */
       .hidden {
@@ -118,13 +118,16 @@
         align-items: center;
       }
 
-      .btn1 {
-        margin-left: 1vw;
-        margin-bottom: 3vh;
+      .gapl {
+        margin-right: .5vw;
       }
 
-      .btn2 {
-        margin-top: 3vh;
+      .gapr {
+        margin-left: .5vw;
+      }
+
+      .gap {
+        margin-bottom: 2.7vh;
       }
 
       input {
@@ -411,17 +414,17 @@
       </div>
 
       <ul class="navbar__menu">
-        <li><a href="Compare_bku.html">학과점수 비교</a></li>
+        <li><a href="Compare_bku.html">점수 비교</a></li>
         <li>
           <a
             href="Common_bku.html"
             class="hover-link"
             data-url="commonT.html"
             href="#"
-            >석차등급과목 계산기</a
+            >공통 및 일반선택과목</a
           >
         </li>
-        <li><a href="Career_bku.html">진로선택과목 계산기</a></li>
+        <li><a href="Career_bku.html">진로선택과목</a></li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars"></i>
@@ -451,11 +454,11 @@
       </svg>
     </div>
     <!-- 각각 클릭했을때 showNextDiv() , hidePrevDiv() 함수 실행 -->
-    <div class="btn">
-      <button class="btn1" onclick="showNextDiv()">
+    <div class="btn gap">
+      <button class="btn1 gapl" onclick="showNextDiv()">
         <span class="text">Create</span>
       </button>
-      <button class="btn1" onclick="hidePrevDiv()">
+      <button class="btn1 gapr" onclick="hidePrevDiv()">
         <span class="text">Remove</span>
       </button>
     </div>

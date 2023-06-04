@@ -110,12 +110,16 @@
         transform: scale(0.9);
       }
 
+      .gap {
+        margin-bottom: 2.7vh;
+      }
+
       .gapl {
-        margin-right: 1vw;
+        margin-right: 0.5vw;
       }
 
       .gapr {
-        margin-left: 1vw;
+        margin-left: 0.5vw;
       }
 
       .progress-bar {
@@ -421,17 +425,11 @@
       </div>
 
       <ul class="navbar__menu">
-        <li><a href="Compare_bku.html">학과점수 비교</a></li>
-        <li><a href="Common_bku.html">석차등급과목 계산기</a></li>
+        <li><a href="Compare_bku.html">점수 비교</a></li>
         <li>
-          <a
-            href="Career_bku.html"
-            class="hover-link"
-            data-url="careerT.html"
-            href="#"
-            >진로선택과목 계산기</a
-          >
+          <a href="Common_bku.html">공통 및 일반선택과목</a>
         </li>
+        <li><a href="Career_bku.html" class="hover-link" data-url="careerT.html" href="#">진로선택과목</a></li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars"></i>
@@ -462,7 +460,7 @@
     </div>
 
     <!-- 각각 클릭했을때 showNextDiv() , hidePrevDiv() 함수 실행 -->
-    <div class="btn">
+    <div class="btn gap">
       <button class="btn1 gapl" onclick="showNextDiv()">
         <span class="text">Create</span>
       </button>
@@ -472,7 +470,7 @@
     </div>
 
     <!-- 선택창  -->
-    <div class="s">
+    <div class="s div-item">
       <ul>
         <li style="display: block">
           <ul>
@@ -487,26 +485,26 @@
             </li>
             <li>
               <span>과목</span>
-              <select class="sub" style="width: 100px" id="select">
+              <select class="sub1" style="width: 100px" id="select">
                 <option>과학</option>
                 <option>나머지</option>
               </select>
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num1" type="number" value="4" /></label>
+              <label><input id="num1" type="number" value="" /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num2" type="text" value="A" />
+                <input id="num2" type="text" value="" />
               </label>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="s">
+    <div class="s div-item">
       <ul>
         <li style="display: block">
           <ul>
@@ -521,26 +519,26 @@
             </li>
             <li>
               <span>과목</span>
-              <select class="sub" style="width: 100px" id="select">
+              <select class="sub2" style="width: 100px" id="select">
                 <option>과학</option>
                 <option>나머지</option>
               </select>
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num3" type="number" value="4" /></label>
+              <label><input id="num3" type="number" value="" /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num4" type="text" value="A" />
+                <input id="num4" type="text" value="" />
               </label>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="s">
+    <div class="s hidden div-item">
       <ul>
         <li style="display: block">
           <ul>
@@ -555,26 +553,26 @@
             </li>
             <li>
               <span>과목</span>
-              <select class="sub" style="width: 100px" id="select">
+              <select class="sub3" style="width: 100px" id="select">
                 <option>과학</option>
                 <option>나머지</option>
               </select>
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num5" type="number" value="4" /></label>
+              <label><input id="num5" type="number" value="" /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num6" type="text" value="A" />
+                <input id="num6" type="text" value="" />
               </label>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="s">
+    <div class="s hidden div-item">
       <ul>
         <li style="display: block">
           <ul>
@@ -589,26 +587,26 @@
             </li>
             <li>
               <span>과목</span>
-              <select class="sub" style="width: 100px" id="select">
+              <select class="sub4" style="width: 100px" id="select">
                 <option>과학</option>
                 <option>나머지</option>
               </select>
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num7" type="number" value="4" /></label>
+              <label><input id="num7" type="number" value="" /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num8" type="text" value="A" />
+                <input id="num8" type="text" value="" />
               </label>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="s">
+    <div class="s hidden div-item">
       <ul>
         <li style="display: block">
           <ul>
@@ -623,26 +621,26 @@
             </li>
             <li>
               <span>과목</span>
-              <select class="sub" style="width: 100px" id="select">
+              <select class="sub5" style="width: 100px" id="select">
                 <option>과학</option>
                 <option>나머지</option>
               </select>
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num9" type="number" value="4" /></label>
+              <label><input id="num9" type="number" value="" /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num10" type="text" value="A" />
+                <input id="num10" type="text" value="" />
               </label>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="s">
+    <div class="s hidden div-item">
       <ul>
         <li style="display: block">
           <ul>
@@ -657,26 +655,26 @@
             </li>
             <li>
               <span>과목</span>
-              <select class="sub" style="width: 100px" id="select">
+              <select class="sub6" style="width: 100px" id="select">
                 <option>과학</option>
                 <option>나머지</option>
               </select>
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num11" type="number" value="4" /></label>
+              <label><input id="num11" type="number" value="" /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num12" type="text" value="A" />
+                <input id="num12" type="text" value="" />
               </label>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="s">
+    <div class="s hidden div-item">
       <ul>
         <li style="display: block">
           <ul>
@@ -691,26 +689,26 @@
             </li>
             <li>
               <span>과목</span>
-              <select class="sub" style="width: 100px" id="select">
+              <select class="sub7" style="width: 100px" id="select">
                 <option>과학</option>
                 <option>나머지</option>
               </select>
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num13" type="number" value="4" /></label>
+              <label><input id="num13" type="number" value="" /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num14" type="text" value="A" />
+                <input id="num14" type="text" value="" />
               </label>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="s">
+    <div class="s hidden div-item">
       <ul>
         <li style="display: block">
           <ul>
@@ -725,19 +723,19 @@
             </li>
             <li>
               <span>과목</span>
-              <select class="sub" style="width: 100px" id="select">
+              <select class="sub8" style="width: 100px" id="select">
                 <option>과학</option>
                 <option>나머지</option>
               </select>
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num15" type="number" value="4" /></label>
+              <label><input id="num15" type="number" value="" /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num16" type="text" value="A" />
+                <input id="num16" type="text" value="" />
               </label>
             </li>
           </ul>
@@ -755,29 +753,61 @@
       <p id="result"></p>
     </div>
     <script>
-      //점수 로컬 스토리지 저장 함수
       function storeValue() {
-        const line = window.localStorage.getItem("line");
-        const weights = { a: 2, b: 1.5, c: 1 };
-        let totalGrade = 0;
-        for (let i = 1; i <= 16; i += 2) {
-          const num = document.getElementById(`num${i}`).value;
-          const grade = document.getElementById(`num${i + 1}`).value.toLowerCase();   
-          const value = document.querySelector('.sub');
-          let gradeWeight = value === "과학" ? 1 : 1.5;
-          let res;
-          if (grade === '' || num === '') {
-            res  = 0;
-          } else {
-            res = Math.floor((num / 5) * weights[grade] * gradeWeight * 100) / 100;
+        const A = 2;
+        const B = 1.5;
+        const C = 1;
+
+        const getValue = (num, grade, value) => {
+          if (num === "" || grade === "") {
+            return 0;
           }
-          totalGrade += res;
-        }
-        console.log(totalGrade)
-        const careerGrade = line === "N" ? (totalGrade >= 8 ? 0.2 : totalGrade >= 7 ? 0.1 : 0) :
-                           (line === "L" ? (totalGrade >= 5 ? 0.2 : totalGrade >= 4 ? 0.1 : 0) : 0);
+
+          const multiplier = value === "과학" ? 1.5 : 1;
+          return Math.floor((num / 5) * A * multiplier * 100) / 100;
+        };
+
+        const calculateResult = (num, grade, value) => {
+          const result = getValue(num, grade, value);
+
+          if (result === 0) {
+            return result;
+          }
+
+          const multiplier = grade === "b" ? B : grade === "c" ? C : 1;
+          return Math.floor(result * multiplier * 100) / 100;
+        };
+
+        const values = [
+          { num: "num1", grade: "num2", value: ".sub1" },
+          { num: "num3", grade: "num4", value: ".sub2" },
+          { num: "num5", grade: "num6", value: ".sub3" },
+          { num: "num7", grade: "num8", value: ".sub4" },
+          { num: "num9", grade: "num10", value: ".sub5" },
+          { num: "num11", grade: "num12", value: ".sub6" },
+          { num: "num13", grade: "num14", value: ".sub7" },
+          { num: "num15", grade: "num16", value: ".sub8" },
+        ];
+
+        let totalGrade = 0;
+        values.forEach((item) => {
+          const num = document.getElementById(item.num).value.toLowerCase();
+          const grade = document.getElementById(item.grade).value.toLowerCase();
+          const value = document.querySelector(item.value).value;
+          totalGrade += calculateResult(Number(num), grade, value);
+        });
+
+        console.log(totalGrade);
+
+        const careerGrade = totalGrade >= 8 ? 0.2 : totalGrade >= 7 ? 0.1 : 0;
+
+        window.localStorage.removeItem("career");
         window.localStorage.setItem("career", careerGrade);
-        document.getElementById("result").innerHTML = `진로선택과목은 ${window.localStorage.getItem("career")}등급입니다.`;
+        document.getElementById(
+          "result"
+        ).innerHTML = `진로선택과목은 ${window.localStorage.getItem(
+          "career"
+        )}등급입니다.`;
       }
     </script>
     <script src="/SuSi/js/navbar.js"></script>
