@@ -68,7 +68,7 @@
         border-radius: 8px;
         display: none;
         text-align: center;
-        z-index: 3;
+        z-index: 1;
         box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
       }
       .popup button {
@@ -97,8 +97,80 @@
         color: #ffffff;
         text-decoration: none;
         padding: 5px 0;
+        margin-bottom: 3vh;
       }
-
+      .tabber {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tabber label {
+        user-select: none;
+        padding: 1rem;
+        cursor: pointer;
+        will-change: transform;
+        transform: translateZ(0px);
+        font-size: 1.3rem;
+        transition: transform 125ms ease-in-out, filter 125ms ease-in-out;
+      }
+      .tabber label:hover {
+        transform: scale(1.2);
+      }
+      .tabber input[type=radio] {
+        display: none;
+      }
+      .tabber input[type=radio]#t1 ~ .blob {
+        transform-origin: right center;
+      }
+      .tabber input[type=radio]#t2 ~ .blob {
+        transform-origin: left center;
+      }
+      .tabber input[type=radio]#t1:checked ~ .blob {
+        background: #ffb30b;
+        animation-name: stretchyRev;
+      }
+      .tabber input[type=radio]#t2:checked ~ .blob {
+        background-color: #ff685d;
+        animation-name: stretchy;
+      }
+      .tabber .blob {
+        top: 0;
+        left: 30.2%;
+        width: 20%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        border-radius: 3rem;
+        animation-duration: 0.5s;
+        animation-direction: forwards;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        transition: transform 150ms ease, background 150ms ease;
+        filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" /><feComposite in="SourceGraphic" in2="goo" operator="atop"/></filter></defs></svg>#goo');
+      }
+      @keyframes stretchy {
+        0% {
+          transform: translateX(0) scaleX(1);
+        }
+        50% {
+          transform: translateX(0) scaleX(2);
+        }
+        100% {
+          transform: translateX(100%) scaleX(1);
+        }
+      }
+      @keyframes stretchyRev {
+        0% {
+          transform: translateX(100%) scaleX(1);
+        }
+        50% {
+          transform: translateX(0) scaleX(2);
+        }
+        100% {
+          transform: translateX(0) scaleX(1);
+        }
+      }
       body {
         display: grid;
       }
@@ -497,6 +569,12 @@
         background-color: #6676b5;
         color: #ffffff;
         }
+        .tabber input[type=radio]#t1:checked ~ .blob {
+          background: cornflowerblue;
+        }
+        .tabber input[type=radio]#t2:checked ~ .blob {
+          background-color: skyblue;
+        }
 
         /* 다크모드이고 폭이 768이하인 기기에 적용 */
         @media screen and (max-width: 768px) {
@@ -621,6 +699,14 @@
         대학별 반영되는 공통과목 및 진로과목이 다르므로 아래에 있는 버튼을 클릭하여 확인해주세요!
       </p>
       <a id="popc" href="https://dandy-bougon-6e2.notion.site/a03cf5e6d5de4e96b30625dc1cc7c579?pvs=4">이동</a>
+      <p>자신의 게열을 알려주세요!</p>
+      <form class="tabber">
+        <label for="t1">자연</label>
+        <input id="t1" name="food" type="radio" checked>
+        <label for="t2">인문</label>
+        <input id="t2" name="food" type="radio">
+        <div class="blob"></div>
+      </form>
     </div>
 
     <!-- 네비게이션바(navbar) 공통  -->
@@ -726,6 +812,26 @@
       function checkWideScreen() {
         return window.innerWidth >= 900;
       }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const radioN = document.getElementById("t1");
+        const radioS = document.getElementById("t2");
+        window.localStorage.removeItem("line");
+        window.localStorage.setItem("line", "N");
+        radioN.addEventListener("change", function() {
+          if (radioN.checked) {
+              window.localStorage.removeItem("line");
+              window.localStorage.setItem("line", "N");
+          }
+        });
+      
+        radioS.addEventListener("change", function() {
+          if (radioS.checked) {
+              window.localStorage.removeItem("line");
+              window.localStorage.setItem("line", "L");
+          }
+        });
+      });
 
       //index페이지 마우스 이동시 위치 계산 코드
       const pos = document.documentElement;

@@ -720,6 +720,7 @@
     <script>
       //점수 로컬 스토리지 저장 함수
       function storeValue() {
+        const line = window.localStorage.getItem("line");
         const weights = { a: 2, b: 1.5, c: 1 };
         const sub = document.querySelector(".sub").value;
         const gradeWeight = sub === "과학" ? 1.5 : 1;
@@ -731,8 +732,8 @@
           const res = Math.floor((num / 5) * weights[grade] * gradeWeight * 100) / 100;
           totalGrade += res;
         }
-      
-        const careerGrade = totalGrade >= 8 ? 0.2 : totalGrade >= 7 ? 0.1 : 0;
+        const careerGrade = line === "N" ? (totalGrade >= 8 ? 0.2 : totalGrade >= 7 ? 0.1 : 0) :
+                           (line === "L" ? (totalGrade >= 5 ? 0.2 : totalGrade >= 4 ? 0.1 : 0) : 0);
         window.localStorage.setItem("career", careerGrade);
         document.getElementById("result").innerHTML = `진로선택과목은 ${window.localStorage.getItem("career")}등급입니다.`;
       }
