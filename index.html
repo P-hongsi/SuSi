@@ -57,6 +57,29 @@
         font-family: "Nanum Gothic", sans-serif;
       }
 
+      .po {
+        position: fixed;
+        bottom: 4%;
+        left: 2%;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border-radius: 0.2rem;
+        background-color: #ff990a;
+      }
+
+      .fa-share {
+        color: #ffffff;
+        height: 85%;
+        width: 80%;
+      }
+
+      #qrCode {
+        position: fixed;
+        bottom: 6%;
+        left: 5%;
+      }
+
       .popup {
         background-color: #ffffff;
         width: 450px;
@@ -120,20 +143,20 @@
       .tabber label:hover {
         transform: scale(1.2);
       }
-      .tabber input[type=radio] {
+      .tabber input[type="radio"] {
         display: none;
       }
-      .tabber input[type=radio]#t1 ~ .blob {
+      .tabber input[type="radio"]#t1 ~ .blob {
         transform-origin: right center;
       }
-      .tabber input[type=radio]#t2 ~ .blob {
+      .tabber input[type="radio"]#t2 ~ .blob {
         transform-origin: left center;
       }
-      .tabber input[type=radio]#t1:checked ~ .blob {
+      .tabber input[type="radio"]#t1:checked ~ .blob {
         background: #ffb30b;
         animation-name: stretchyRev;
       }
-      .tabber input[type=radio]#t2:checked ~ .blob {
+      .tabber input[type="radio"]#t2:checked ~ .blob {
         background-color: #ff685d;
         animation-name: stretchy;
       }
@@ -568,14 +591,18 @@
           color: white;
         }
 
-        #popc {
-        background-color: #6676b5;
-        color: #ffffff;
+        .po {
+          background-color: #6676b5;
         }
-        .tabber input[type=radio]#t1:checked ~ .blob {
+
+        #popc {
+          background-color: #6676b5;
+          color: #ffffff;
+        }
+        .tabber input[type="radio"]#t1:checked ~ .blob {
           background: cornflowerblue;
         }
-        .tabber input[type=radio]#t2:checked ~ .blob {
+        .tabber input[type="radio"]#t2:checked ~ .blob {
           background-color: skyblue;
         }
 
@@ -699,15 +726,20 @@
       <button id="close">&times;</button>
       <h2>대학별 반영과목</h2>
       <p>
-        대학별 반영되는 공통과목 및 진로과목이 다르므로 아래에 있는 버튼을 클릭하여 확인해주세요!
+        대학별 반영되는 공통과목 및 진로과목이 다르므로 아래에 있는 버튼을
+        클릭하여 확인해주세요!
       </p>
-      <a id="popc" href="https://dandy-bougon-6e2.notion.site/a03cf5e6d5de4e96b30625dc1cc7c579?pvs=4">이동</a>
+      <a
+        id="popc"
+        href="https://dandy-bougon-6e2.notion.site/a03cf5e6d5de4e96b30625dc1cc7c579?pvs=4"
+        >이동</a
+      >
       <p>자신의 게열을 알려주세요!</p>
       <form class="tabber">
         <label for="t1">자연</label>
-        <input id="t1" name="food" type="radio" checked>
+        <input id="t1" name="food" type="radio" checked />
         <label for="t2">인문</label>
-        <input id="t2" name="food" type="radio">
+        <input id="t2" name="food" type="radio" />
         <div class="blob"></div>
       </form>
     </div>
@@ -797,7 +829,53 @@
         <h2 id="F">수시!</h2>
       </div>
     </section>
+    <div class="po" onclick="toggleQRCode()">
+      <a class="share" href="#">
+        <i class="fa-solid fa-share"></i>
+      </a>
+    </div>
+    <img
+      id="qrCode"
+      src="https://qrtag.net/api/qr_4.png"
+      alt="qrtag"
+      style="display: none"
+      async
+    />
     <script>
+      function toggleQRCode() {
+        const qrCode = document.getElementById("qrCode");
+        const share = document.querySelector(".share");
+        const div = document.querySelector(".po");
+        if (qrCode.style.display === "none") {
+          qrCode.style.display = "block";
+          share.style.display = "none";
+          div.style.backgroundColor = "transparent";
+        } else {
+          qrCode.style.display = "none";
+          share.style.display = "block";
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            div.style.backgroundColor = "#6676b5";
+          } else {
+            div.style.backgroundColor = "#ff990a";
+          }
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const qrCode = document.getElementById("qrCode");
+
+        qrCode.addEventListener("click", function () {
+          copyToClipboard("https://p-hongsi.github.io/SuSi/");
+          alert("링크가 클립보드에 복사되었습니다.");
+        });
+      });
+
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).catch(function (err) {
+          console.error("클립보드 복사 실패:", err);
+        });
+      }
+
       //index페이지 네비게이션바(nav바)대학 이동 동작 코드
       function togglePage() {
         let isWideScreen = checkWideScreen();
@@ -816,22 +894,22 @@
         return window.innerWidth >= 900;
       }
 
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const radioN = document.getElementById("t1");
         const radioS = document.getElementById("t2");
         window.localStorage.removeItem("line");
         window.localStorage.setItem("line", "N");
-        radioN.addEventListener("change", function() {
+        radioN.addEventListener("change", function () {
           if (radioN.checked) {
-              window.localStorage.removeItem("line");
-              window.localStorage.setItem("line", "N");
+            window.localStorage.removeItem("line");
+            window.localStorage.setItem("line", "N");
           }
         });
-      
-        radioS.addEventListener("change", function() {
+
+        radioS.addEventListener("change", function () {
           if (radioS.checked) {
-              window.localStorage.removeItem("line");
-              window.localStorage.setItem("line", "L");
+            window.localStorage.removeItem("line");
+            window.localStorage.setItem("line", "L");
           }
         });
       });
@@ -849,7 +927,7 @@
         }, 1000);
       });
 
-      document.querySelector("#close").addEventListener("click", function() {
+      document.querySelector("#close").addEventListener("click", function () {
         document.querySelector(".popup").style.display = "none";
       });
     </script>
@@ -857,9 +935,6 @@
     <script src="/SuSi/js/goto.js"></script>
     <script src="/SuSi/js/gesture.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script
-      src="https://kit.fontawesome.com/b17d4fa9e7.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
   </body>
 </html>
