@@ -61,17 +61,28 @@
         position: fixed;
         bottom: 4%;
         left: 2%;
-        width: 30px;
-        height: 30px;
-        text-align: center;
+        width: 40px;
+        height: 40px;
         border-radius: 0.2rem;
         background-color: #ff990a;
       }
 
       .fa-share {
         color: #ffffff;
-        height: 85%;
-        width: 80%;
+        height: 35px;
+        width: 35px;
+        bottom: 4.5%;
+        left: 2.2%;
+        position: fixed;
+      }
+
+      .fa-xmark {
+        color: #ffffff;
+        position: fixed;
+        bottom: 4%;
+        left: 2%;
+        width: 40px;
+        height: 40px;
       }
 
       #qrCode {
@@ -830,9 +841,9 @@
       </div>
     </section>
     <div class="po" onclick="toggleQRCode()">
-      <a class="share" href="#">
-        <i class="fa-solid fa-share"></i>
-      </a>
+      <a class="share" href="#"></a>
+      <i class="fa-solid fa-share"></i>
+      <i style="display: none;" class="fa-solid fa-xmark"></i>
     </div>
     <img
       id="qrCode"
@@ -844,20 +855,16 @@
     <script>
       function toggleQRCode() {
         const qrCode = document.getElementById("qrCode");
-        const share = document.querySelector(".share");
-        const div = document.querySelector(".po");
+        const share = document.querySelector(".fa-share");
+        const x = document.querySelector(".fa-xmark");
         if (qrCode.style.display === "none") {
           qrCode.style.display = "block";
           share.style.display = "none";
-          div.style.backgroundColor = "transparent";
+          x.style.display = "block";
         } else {
           qrCode.style.display = "none";
           share.style.display = "block";
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            div.style.backgroundColor = "#6676b5";
-          } else {
-            div.style.backgroundColor = "#ff990a";
-          }
+          x.style.display = "none";
         }
       }
 
