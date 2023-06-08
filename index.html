@@ -76,7 +76,7 @@
         position: fixed;
       }
 
-      .fa-xmark {
+      .x2 {
         color: #ffffff;
         position: fixed;
         bottom: 4%;
@@ -576,6 +576,18 @@
           display: block;
         }
 
+        .navbar__toogleBtn > .fa-xmark {
+          display: none;
+        }
+
+        .navbar__toogleBtn.active > .fa-xmark {
+          display: block;
+        }
+
+        .navbar__toogleBtn.active > .fa-bars {
+          display: none;
+        }
+
         .navbar__menu.active,
         .navbar__icons.active {
           display: flex;
@@ -797,6 +809,7 @@
       </ul>
       <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars"></i>
+        <i class="fa-solid fa-xmark x1"></i>
       </a>
     </nav>
     <div class="shape">
@@ -843,7 +856,7 @@
     <div class="po" onclick="toggleQRCode()">
       <a class="share" href="#"></a>
       <i class="fa-solid fa-share"></i>
-      <i style="display: none;" class="fa-solid fa-xmark"></i>
+      <i style="display: none;" class="fa-solid fa-xmark x2"></i>
     </div>
     <img
       id="qrCode"
@@ -856,7 +869,7 @@
       function toggleQRCode() {
         const qrCode = document.getElementById("qrCode");
         const share = document.querySelector(".fa-share");
-        const x = document.querySelector(".fa-xmark");
+        const x = document.querySelector(".x2");
         if (qrCode.style.display === "none") {
           qrCode.style.display = "block";
           share.style.display = "none";
@@ -939,8 +952,8 @@
       });
     </script>
     <script src="js/navbar.js"></script>
-    <script src="/SuSi/js/goto.js"></script>
-    <script src="/SuSi/js/gesture.js"></script>
+    <script src="js/goto.js"></script>
+    <script src="js/gesture.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
   </body>

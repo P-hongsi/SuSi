@@ -298,6 +298,18 @@
           display: flex;
         }
 
+        .navbar__toogleBtn > .fa-xmark {
+          display: none;
+        }
+
+        .navbar__toogleBtn.active > .fa-xmark {
+          display: block;
+        }
+
+        .navbar__toogleBtn.active > .fa-bars {
+          display: none;
+        }
+
         .res {
           font-size: 23px;
         }
@@ -406,6 +418,7 @@
       </ul>
       <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars"></i>
+        <i class="fa-solid fa-xmark x1"></i>
       </a>
     </nav>
 
@@ -973,9 +986,6 @@
     <script src="/SuSi/js/goto.js"></script>
     <script src="/SuSi/js/create.js"></script>
     <script src="/SuSi/js/gesture.js"></script>
-    <script
-      src="https://kit.fontawesome.com/b17d4fa9e7.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
   </body>
 </html>
