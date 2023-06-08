@@ -4,7 +4,7 @@ function resetTimer() {
   clearTimeout(timer);
   if (window.innerWidth >= 768) {
     timer = setTimeout(function () {
-      window.location.href = "/SuSi/etc/ThxU.html";
+      window.location.href = "/SuSi/etc/noresponse.html";
     }, 120000);
   }
 }
