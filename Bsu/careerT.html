@@ -412,12 +412,12 @@
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num1" type="number" value="4" /></label>
+              <label><input id="num1" value="4" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num2" type="text" value="A" />
+                <input id="num2" type="text" value="A" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^a-c.]/g, '').replace(/(\..*)\./g, '$1');" />
               </label>
             </li>
           </ul>
@@ -440,11 +440,11 @@
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num3" type="number" value="4" /></label>
+              <label><input id="num3" value="4" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
             </li>
             <li>
               <span>성취도</span>
-              <label><input id="num4" type="text" value="A" /></label>
+              <label><input id="num4" type="text" value="A" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^a-c.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
             </li>
           </ul>
         </li>
@@ -466,11 +466,11 @@
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num5" type="number" value="4" /></label>
+              <label><input id="num5" value="4" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
             </li>
             <li>
               <span>성취도</span>
-              <label><input id="num6" type="text" value="A" /></label>
+              <label><input id="num6" type="text" value="A" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^a-c.]/g, '').replace(/(\..*)\./g, '$1');"/></label>
             </li>
           </ul>
         </li>
