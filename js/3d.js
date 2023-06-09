@@ -68,7 +68,7 @@ handleDarkModeChange(darkModeQuery);
 function animate() {
   requestAnimationFrame(animate);
   const model = scene.children[0];
-  model.rotation.y -= 0.0015;
+  model.rotation.y += 0.001;
   // 렌더링
   renderer.render(scene, camera);
 }
