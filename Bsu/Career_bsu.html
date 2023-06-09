@@ -297,7 +297,7 @@
 
         .navbar__toogleBtn.active > .fa-xmark {
           display: block;
-          margin-top: .7vh;
+          margin-top: 0.7vh;
         }
 
         .navbar__toogleBtn.active > .fa-bars {
@@ -454,12 +454,25 @@
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num1" value="4" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
+              <label
+                ><input
+                  id="num1"
+                  value="4"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
+              /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num2" type="text" value="A" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^a-c.]/g, '').replace(/(\..*)\./g, '$1');" />
+                <input
+                  id="num2"
+                  value="A"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
+                />
               </label>
             </li>
           </ul>
@@ -482,11 +495,25 @@
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num3" value="4" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
+              <label
+                ><input
+                  id="num3"
+                  value="4"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
+              /></label>
             </li>
             <li>
               <span>성취도</span>
-              <label><input id="num4" type="text" value="A" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^a-c.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
+              <label
+                ><input
+                  id="num4"
+                  value="A"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
+              /></label>
             </li>
           </ul>
         </li>
@@ -508,11 +535,25 @@
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num5" value="4" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
+              <label
+                ><input
+                  id="num5"
+                  value="4"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
+              /></label>
             </li>
             <li>
               <span>성취도</span>
-              <label><input id="num6" type="text" value="A" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^a-c.]/g, '').replace(/(\..*)\./g, '$1');"/></label>
+              <label
+                ><input
+                  id="num6"
+                  value="A"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
+              /></label>
             </li>
           </ul>
         </li>
@@ -541,9 +582,7 @@
             .value.toLowerCase();
           const index = values.indexOf(num);
           if (index === -1) {
-            document.getElementById(
-              "result"
-            ).innerHTML = `다시 입력해주세요.`;
+            document.getElementById("result").innerHTML = `다시 입력해주세요.`;
             return;
           }
           scores.push(weights[index]);

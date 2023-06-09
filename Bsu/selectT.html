@@ -2,7 +2,10 @@
 <html lang="ko">
   <head>
     <!-- 3D모델 자바스크립트 -->
-    <script async src="https://unpkg.com/es-module-shims@1.7.3/dist/es-module-shims.js"></script>
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.7.3/dist/es-module-shims.js"
+    ></script>
     <script src="/SuSi/js/import.js"></script>
     <script type="module" src="/SuSi/js/3d.js"></script>
 
@@ -20,12 +23,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <meta name="description" content="Made By Juny">
+    <meta name="description" content="Made By Juny" />
 
     <!-- 폰트 태그 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- 창 제목 -->
     <title>일반선택과목</title>
@@ -129,6 +135,7 @@
         padding-left: 10px;
         margin-top: 7px;
         background-color: white;
+        text-align: center;
       }
 
       select {
@@ -138,6 +145,7 @@
         border: 0.1px solid #999;
         background-color: white;
         border-radius: 14px;
+        text-align: center;
       }
 
       li {
@@ -173,7 +181,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Nanum Gothic', sans-serif;
+        font-family: "Nanum Gothic", sans-serif;
       }
 
       body {
@@ -302,7 +310,7 @@
 
         .navbar__toogleBtn.active > .fa-xmark {
           display: block;
-          margin-top: .7vh;
+          margin-top: 0.7vh;
         }
 
         .navbar__toogleBtn.active > .fa-bars {
@@ -310,7 +318,7 @@
         }
 
         .res {
-        font-size: 23px;
+          font-size: 23px;
         }
       }
 
@@ -412,7 +420,15 @@
       <ul class="navbar__menu">
         <li><a href="compareT.html">점수 비교</a></li>
         <li><a href="commonT.html">공통과목</a></li>
-        <li><a href="selectT.html" class="hover-link" data-url="Select_bsu.html" href="#">일반선택과목</a></li>
+        <li>
+          <a
+            href="selectT.html"
+            class="hover-link"
+            data-url="Select_bsu.html"
+            href="#"
+            >일반선택과목</a
+          >
+        </li>
         <li><a href="careerT.html">진로선택과목</a></li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
@@ -478,9 +494,9 @@
               <label
                 ><input
                   id="num1"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
               /></label>
             </li>
             <li>
@@ -488,9 +504,9 @@
               <label
                 ><input
                   id="num2"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
               /></label>
             </li>
           </ul>
@@ -544,9 +560,9 @@
               <label
                 ><input
                   id="num3"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -555,9 +571,9 @@
               <label
                 ><input
                   id="num4"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -613,9 +629,9 @@
               <label
                 ><input
                   id="num5"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -624,9 +640,9 @@
               <label
                 ><input
                   id="num6"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -682,9 +698,9 @@
               <label
                 ><input
                   id="num7"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -693,9 +709,9 @@
               <label
                 ><input
                   id="num8"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -751,9 +767,9 @@
               <label
                 ><input
                   id="num9"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -762,9 +778,9 @@
               <label
                 ><input
                   id="num10"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -820,9 +836,9 @@
               <label
                 ><input
                   id="num11"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -831,9 +847,9 @@
               <label
                 ><input
                   id="num12"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -889,9 +905,9 @@
               <label
                 ><input
                   id="num13"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -900,9 +916,9 @@
               <label
                 ><input
                   id="num14"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -958,9 +974,9 @@
               <label
                 ><input
                   id="num15"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -969,9 +985,9 @@
               <label
                 ><input
                   id="num16"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1027,9 +1043,9 @@
               <label
                 ><input
                   id="num17"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1038,9 +1054,9 @@
               <label
                 ><input
                   id="num18"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1096,9 +1112,9 @@
               <label
                 ><input
                   id="num19"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1107,9 +1123,9 @@
               <label
                 ><input
                   id="num20"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1165,9 +1181,9 @@
               <label
                 ><input
                   id="num21"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1176,9 +1192,9 @@
               <label
                 ><input
                   id="num22"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1234,9 +1250,9 @@
               <label
                 ><input
                   id="num23"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1245,9 +1261,9 @@
               <label
                 ><input
                   id="num24"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1303,9 +1319,9 @@
               <label
                 ><input
                   id="num25"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1314,9 +1330,9 @@
               <label
                 ><input
                   id="num26"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1372,9 +1388,9 @@
               <label
                 ><input
                   id="num27"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1383,9 +1399,9 @@
               <label
                 ><input
                   id="num28"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1441,9 +1457,9 @@
               <label
                 ><input
                   id="num29"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1452,9 +1468,9 @@
               <label
                 ><input
                   id="num30"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1510,9 +1526,9 @@
               <label
                 ><input
                   id="num31"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1521,9 +1537,9 @@
               <label
                 ><input
                   id="num32"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1579,9 +1595,9 @@
               <label
                 ><input
                   id="num33"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1590,9 +1606,9 @@
               <label
                 ><input
                   id="num34"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1648,9 +1664,9 @@
               <label
                 ><input
                   id="num35"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1659,9 +1675,9 @@
               <label
                 ><input
                   id="num36"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1717,9 +1733,9 @@
               <label
                 ><input
                   id="num37"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1728,9 +1744,9 @@
               <label
                 ><input
                   id="num38"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1786,9 +1802,9 @@
               <label
                 ><input
                   id="num39"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1797,9 +1813,9 @@
               <label
                 ><input
                   id="num40"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1855,9 +1871,9 @@
               <label
                 ><input
                   id="num41"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1866,9 +1882,9 @@
               <label
                 ><input
                   id="num42"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1924,9 +1940,9 @@
               <label
                 ><input
                   id="num43"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1935,9 +1951,9 @@
               <label
                 ><input
                   id="num44"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -1993,9 +2009,9 @@
               <label
                 ><input
                   id="num45"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -2004,9 +2020,9 @@
               <label
                 ><input
                   id="num46"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -2062,9 +2078,9 @@
               <label
                 ><input
                   id="num47"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -2073,9 +2089,9 @@
               <label
                 ><input
                   id="num48"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -2131,9 +2147,9 @@
               <label
                 ><input
                   id="num49"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -2142,9 +2158,9 @@
               <label
                 ><input
                   id="num50"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -2200,9 +2216,9 @@
               <label
                 ><input
                   id="num51"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -2211,9 +2227,9 @@
               <label
                 ><input
                   id="num52"
-                  type="text"
                   maxlength="1"
-                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
                   value="0"
               /></label>
             </li>
@@ -2223,7 +2239,12 @@
     </div>
     <!-- 클릭했을때 addNumbers()함수 실행 버튼 -->
     <div class="btn">
-      <button type="button" class="btn2 gesture" onclick="addNumbers()" id="click1">
+      <button
+        type="button"
+        class="btn2 gesture"
+        onclick="addNumbers()"
+        id="click1"
+      >
         <span class="text">제출</span>
       </button>
     </div>

@@ -2,7 +2,10 @@
 <html lang="ko">
   <head>
     <!-- 3D모델 자바스크립트 -->
-    <script async src="https://unpkg.com/es-module-shims@1.7.3/dist/es-module-shims.js"></script>
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.7.3/dist/es-module-shims.js"
+    ></script>
     <script src="/SuSi/js/import.js"></script>
     <script type="module" src="/SuSi/js/3d.js"></script>
 
@@ -293,7 +296,7 @@
 
         .navbar__toogleBtn.active > .fa-xmark {
           display: block;
-          margin-top: .7vh;
+          margin-top: 0.7vh;
         }
 
         .navbar__toogleBtn.active > .fa-bars {
@@ -390,7 +393,15 @@
         <li><a href="compareT.html">점수 비교</a></li>
         <li><a href="commonT.html">공통과목</a></li>
         <li><a href="selectT.html">일반선택과목</a></li>
-        <li><a href="careerT.html" class="hover-link" data-url="Career_bsu.html" href="#">진로선택과목</a></li>
+        <li>
+          <a
+            href="careerT.html"
+            class="hover-link"
+            data-url="Career_bsu.html"
+            href="#"
+            >진로선택과목</a
+          >
+        </li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars"></i>
@@ -413,12 +424,25 @@
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num1" value="4" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
+              <label
+                ><input
+                  id="num1"
+                  value="4"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+              /></label>
             </li>
             <li>
               <span>성취도</span>
               <label>
-                <input id="num2" type="text" value="A" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^a-c.]/g, '').replace(/(\..*)\./g, '$1');" />
+                <input
+                  id="num2"
+                  value="A"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
+                />
               </label>
             </li>
           </ul>
@@ -441,11 +465,25 @@
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num3" value="4" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
+              <label
+                ><input
+                  id="num3"
+                  value="4"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');"
+              /></label>
             </li>
             <li>
               <span>성취도</span>
-              <label><input id="num4" type="text" value="A" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^a-c.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
+              <label
+                ><input
+                  id="num4"
+                  value="A"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
+              /></label>
             </li>
           </ul>
         </li>
@@ -467,11 +505,25 @@
             </li>
             <li>
               <span>단위수</span>
-              <label><input id="num5" value="4" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" /></label>
+              <label
+                ><input
+                  id="num5"
+                  value="4"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
+              /></label>
             </li>
             <li>
               <span>성취도</span>
-              <label><input id="num6" type="text" value="A" maxlength="1" type="text" oninput="this.value = this.value.replace(/[^a-c.]/g, '').replace(/(\..*)\./g, '$1');"/></label>
+              <label
+                ><input
+                  id="num6"
+                  value="A"
+                  maxlength="1"
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
+              /></label>
             </li>
           </ul>
         </li>
