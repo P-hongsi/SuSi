@@ -4,15 +4,15 @@ import { OrbitControls } from "OrbitControls";
 
 window.dispatchEvent(new Event("resize"));
 
-// glTF model loading
+// glTF 모델 로딩
 const loader = new GLTFLoader();
 loader.load(
   "/SuSi/etc/model_compressed.glb",
   function (gltf) {
-    // Add the loaded model to the scene
+    // 로딩된 모델을 장면에 추가합니다.
     scene.add(gltf.scene);
 
-    // Adjust the position and size of the renderer's canvas element
+    // 렌더러의 캔버스 요소의 위치와 크기를 조정합니다.
     const canvas = renderer.domElement;
     canvas.style.position = "absolute";
     canvas.style.left = "0";
@@ -27,17 +27,17 @@ loader.load(
   }
 );
 
-// WebGLRenderer initialization
+// WebGLRenderer 초기화
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Scene creation
+// 장면 생성
 const scene = new THREE.Scene();
 
-// Camera creation
+// 카메라 생성
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
@@ -47,7 +47,7 @@ const camera = new THREE.PerspectiveCamera(
 // 카메라 초기 위치 설정
 camera.position.set(0, 0, 1);
 
-// OrbitControls creation
+// OrbitControls 생성
 const controls = new OrbitControls(camera, renderer.domElement);
 function handleDarkModeChange(event) {
   if (
@@ -64,15 +64,16 @@ const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 darkModeQuery.addListener(handleDarkModeChange);
 handleDarkModeChange(darkModeQuery);
 
-// Animation loop
+// 애니메이션 루프
 function animate() {
   requestAnimationFrame(animate);
-  gltf.scene.rotation.y -= 0.002;
-  // Rendering
+  const model = scene.children[0];
+  model.rotation.y -= 0.0015;
+  // 렌더링
   renderer.render(scene, camera);
 }
 
-// Start the animation
+// 애니메이션 시작
 animate();
 
 // 창 크기 변경 시 렌더러 크기 업데이트
