@@ -67,7 +67,7 @@ handleDarkModeChange(darkModeQuery);
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);
-
+  gltf.scene.rotation.y -= 0.002;
   // Rendering
   renderer.render(scene, camera);
 }
