@@ -162,7 +162,7 @@
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;
-        top: 50%;
+        top: 60%;
         border-radius: 8px;
         display: none;
         text-align: center;
@@ -237,18 +237,42 @@
       }
       .tabber .blob {
         top: 0;
-        left: 30.2%;
+        left: 30%;
         width: 20%;
         height: 100%;
         position: absolute;
         z-index: -1;
-        border-radius: 3rem;
+        border-radius: 4rem;
         animation-duration: 0.5s;
         animation-direction: forwards;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
         transition: transform 150ms ease, background 150ms ease;
         filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" /><feComposite in="SourceGraphic" in2="goo" operator="atop"/></filter></defs></svg>#goo');
+      }
+      .tabber .blob:before,
+      .tabber .blob:after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        background-color: inherit;
+        height: 100%;
+        width: 50%;
+        border-radius: 100%;
+        transform: scale(1.15);
+        transition: transform 150ms ease;
+        animation-name: pulse;
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      .tabber .blob:before {
+        left: 0;
+        animation-delay: 0.15s;
+      }
+      .tabber .blob:after {
+        right: 0;
       }
       @keyframes stretchy {
         0% {
@@ -270,6 +294,16 @@
         }
         100% {
           transform: translateX(0) scaleX(1);
+        }
+      }
+      @keyframes pulse {
+        0%,
+        50% {
+          transform: scaleX(1.2);
+        }
+        25%,
+        75% {
+          transform: scaleX(1.8);
         }
       }
       body {
