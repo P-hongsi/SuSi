@@ -53,7 +53,6 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        overflow: hidden;
         font-family: "Nanum Gothic", sans-serif;
       }
 
@@ -64,7 +63,7 @@
         color: white;
         padding: 0.7em 1em;
         padding-left: 0.9em;
-        position: absolute;
+        position: fixed;
         bottom: 3%;
         right: 2%;
         display: flex;
@@ -75,31 +74,31 @@
         z-index: 3;
       }
 
-      .Chat #chats {
+      .chat #chats {
         display: block;
         margin-left: 0.3em;
         transition: all 0.3s ease-in-out;
       }
 
-      .Chat #chatp {
+      .chat #chatp {
         display: block;
         transform-origin: center center;
         transition: transform 0.3s ease-in-out;
       }
 
-      .Chat:hover .svg-wrapper {
+      .chat:hover .svg-wrapper {
         animation: fly-1 0.6s ease-in-out infinite alternate;
       }
 
-      .Chat:hover #chats {
-        transform: translateX(2.2em) scale(1.1);
+      .chat:hover #chats {
+        transform: translateX(-1.2em) scale(1.5);
       }
 
-      .Chat:hover #chatp {
-        transform: translateX(4.6em);
+      .chat:hover #chatp {
+        transform: translateX(-2.5em) scale(0);
       }
 
-      .Chat:active {
+      .chat:active {
         transform: scale(0.9);
       }
 
@@ -149,6 +148,11 @@
         position: fixed;
         bottom: 8%;
         left: 8%;
+        z-index: 1;
+      }
+
+      #qrCode:hover {
+        transform: scale(0.99);
       }
 
       .popup {
@@ -357,9 +361,6 @@
           rgba(255, 104, 93, 1) 50%,
           rgba(243, 106, 62, 1) 82%
         );
-      }
-      #F {
-        font-family: "Nanum Gothic", sans-serif;
       }
 
       /* 아이콘 애니메이션 */
@@ -867,9 +868,6 @@
             >부경대</a
           >
         </li>
-        <li>
-          <a onClick="location.href='https://univ-chat.vercel.app/'">Chat</a>
-        </li>
       </ul>
       <a class="navbar__toogleBtn" href="#">
         <i class="fas fa-bars"></i>
@@ -880,6 +878,7 @@
       class="chat"
       onClick="location.href='https://univ-chat.vercel.app/'"
     >
+      <span id="chatp">Chat</span>
       <div class="svg-wrapper-1">
         <div class="svg-wrapper">
           <svg
@@ -894,7 +893,6 @@
           </svg>
         </div>
       </div>
-      <span id="chatp">ChatBot</span>
     </button>
     <div class="shape">
       <svg
@@ -931,10 +929,10 @@
     <!-- 768px이상인 페이지에 글자 -->
     <section>
       <div class="box">
-        <h2 id="F">대학은?</h2>
+        <h2>대학은?</h2>
       </div>
       <div class="box">
-        <h2 id="F">수시!</h2>
+        <h2>수시!</h2>
       </div>
     </section>
     <div class="po" onclick="toggleQRCode()">
