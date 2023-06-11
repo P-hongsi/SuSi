@@ -545,10 +545,6 @@
         color: white;
       }
 
-      .backdrop {
-        display: none;
-      }
-
       .background {
         display: none;
       }
@@ -624,18 +620,17 @@
           background-color: rgba(78, 78, 78, 0.05);
           border-radius: 30px;
           backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
           box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
           position: absolute;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 58px;
+          font-size: 3rem;
         }
 
-        .backdrop > span {
-          display: inline-block;
-          animation: flip 4.5s infinite;
+        .backdrop span {
+          display: block;
+          animation: flip 4.7s infinite;
           animation-delay: calc(0.3s * var(--x));
         }
 
@@ -643,7 +638,7 @@
         @keyframes flip {
           0%,
           80% {
-            transform: rotateY(345deg);
+            transform: rotateY(350deg);
           }
         }
 
