@@ -606,6 +606,13 @@
           margin: 0 auto;
         }
 
+        #back {
+          width: 100vw;
+          height: 82vh;
+          object-fit: cover;
+          display: block;
+        }
+
         .background {
           display: flex;
           align-items: top;
@@ -905,10 +912,7 @@
         <i class="fa-solid fa-xmark x1"></i>
       </a>
     </nav>
-    <button
-      class="chat"
-      onClick="location.href='#'"
-    >
+    <button class="chat" onClick="location.href='#'">
       <span id="chatp">Chat</span>
       <div class="svg-wrapper-1">
         <div class="svg-wrapper">
@@ -948,7 +952,7 @@
         ></path>
       </svg>
     </div>
-    <img id="back" src="etc/indexrb.webp" style="width: 100vw; height:80vh; object-fit: cover; display: block;">
+    <img id="back" src="etc/indexrb.webp" />
     <!-- 768px이하인 페이지에 글자 -->
     <div class="background">
       <div class="backdrop">
