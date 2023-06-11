@@ -603,11 +603,6 @@
         }
 
         .background {
-          background-image: url(etc/indexrb.webp);
-          background-size: cover;
-          background-position: top;
-          width: 100vw;
-          height: 83vh;
           display: flex;
           align-items: top;
           justify-content: center;
@@ -622,13 +617,16 @@
           backdrop-filter: blur(20px);
           box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
           position: absolute;
+          top: 20%;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 3rem;
+          z-index: -1;
         }
 
         .backdrop span {
+          z-index: -1;
           display: block;
           animation: flip 4.7s infinite;
           animation-delay: calc(0.3s * var(--x));
@@ -946,6 +944,7 @@
         ></path>
       </svg>
     </div>
+    <img src="etc/indexrb.webp" style="width: 100vw; height:68vh; object-fit: cover;">
     <!-- 768px이하인 페이지에 글자 -->
     <div class="background">
       <div class="backdrop">
