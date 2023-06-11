@@ -572,6 +572,26 @@
           color: white;
         }
 
+        .tabber .blob:before,
+        .tabber .blob:after {
+          height: 100%;
+          height: 100%;
+          width: 84%;
+          transform: scale(1.1);
+          animation-name: pulse;
+        }
+
+        @keyframes pulse {
+          0%,
+          50% {
+            transform: scaleX(1);
+          }
+          25%,
+          75% {
+            transform: scaleX(1.3);
+          }
+        }
+
         .icons {
           position: fixed;
           top: 2px;
