@@ -32,6 +32,7 @@ var URLS = [
   `${GHPATH}/etc/icon-192.png`,
   `${GHPATH}/etc/icon-512.png`,
   `${GHPATH}/etc/icon-196.png`,
+  `${GHPATH}/etc/icon-144.png`,
   `${GHPATH}/etc/indexrb.webp`,
   `${GHPATH}/etc/info.html`,
   `${GHPATH}/etc/logob.png`,
