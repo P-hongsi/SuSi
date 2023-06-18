@@ -20,10 +20,14 @@
       "sizes": "192x192"
     },
     {
+      "src": "/SuSi/etc/icon-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
       "src": "/SuSi/etc/icon-196.png",
       "type": "image/png",
-      "sizes": "196x196",
-      "purpose": "any maskable"
+      "sizes": "196x196"
     }
   ]
 }
