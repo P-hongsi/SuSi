@@ -15,6 +15,16 @@
       "sizes": "512x512"
     },
     {
+      "src": "/SuSi/etc/icon-78.png",
+      "type": "image/png",
+      "sizes": "78x78"
+    },
+    {
+      "src": "/SuSi/etc/icon-98.png",
+      "type": "image/png",
+      "sizes": "98x98"
+    },
+    {
       "src": "/SuSi/etc/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
