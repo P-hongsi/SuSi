@@ -3,9 +3,27 @@
   <head>
     <!-- 기본설정 -->
     <meta charset="UTF-8" />
-    <!-- pwa -->
-    <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="/SuSi/etc/icon-512.png">
+    <!-- 이 사이트 링크를 보냈을때 미리보기 meta태그 -->
+    <meta property="og:url" content="https://p-hongsi.github.io/SuSi/" />
+    <meta property="og:title" content="수시" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/SuSi/etc/logol.png" />
+    <meta property="og:description" content="수시로 가자!" />
+
+    <!-- 웹앱 만들어주는 설정 + 사파리 홈 화면 추가 아이콘 태그 -->
+    <script src="/SuSi/js/sworker.js"></script>
+    <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
+    <meta
+      name="theme-color"
+      content="#6676b5"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="icon" href="/SuSi/etc/icon-512.png" />
+    <link rel="manifest" href="/SuSi/settings/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
+    <link rel="apple-touch-icon" href="/SuSi/etc/icon-512.png" />
     <title>오랜시간동안 응답없음</title>
     <style>
       /* 디자인 */
@@ -139,13 +157,6 @@
         ampm.innerHTML = am;
       }
       var interval = setInterval(clock, 1000);
-
-      //서비스워커(pwa앱이 오프라인 상태에서도 캐시된 파일을 이용하여 동작 가능하게하는 코드)
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register("/SuSi/sw.js", {
-          scope: "/SuSi/",
-        });
-      }
     </script>
   </body>
 </html>
