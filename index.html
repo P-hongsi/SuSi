@@ -1000,10 +1000,10 @@
       id="qrCode"
       src="etc/catqr.png"
       style="display: none; width: 300px; height: 300px; border-radius:15px;"
-      async
+      loading=lazy
     />
-
     <script>
+      //QR코드
       function toggleQRCode() {
         const qrCode = document.getElementById("qrCode");
         const share = document.querySelector(".fa-share");
@@ -1018,7 +1018,6 @@
           x.style.display = "none";
         }
       }
-
       document.addEventListener("DOMContentLoaded", function () {
         const qrCode = document.getElementById("qrCode");
 
@@ -1027,7 +1026,6 @@
           alert("링크가 클립보드에 복사되었습니다.");
         });
       });
-
       function copyToClipboard(text) {
         navigator.clipboard.writeText(text).catch(function (err) {
           console.error("클립보드 복사 실패:", err);
@@ -1052,6 +1050,8 @@
         return window.innerWidth >= 900;
       }
 
+
+      //계열 선택
       document.addEventListener("DOMContentLoaded", function () {
         const radioN = document.getElementById("t1");
         const radioS = document.getElementById("t2");
@@ -1078,7 +1078,8 @@
         pos.style.setProperty("--x", e.clientX + "px");
         pos.style.setProperty("--y", e.clientY + "px");
       });
-
+      
+      //팝업
       window.addEventListener("load", function () {
         setTimeout(function open(event) {
           document.querySelector(".popup").style.display = "block";
