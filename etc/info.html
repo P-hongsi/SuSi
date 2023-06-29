@@ -1,5 +1,4 @@
-<html>
-  <head>
+<html><head>
     <!-- 이 사이트 링크를 보냈을때 미리보기 meta태그 -->
     <meta property="og:url" content="https://p-hongsi.github.io/SuSi/" />
     <meta property="og:title" content="수시" />
@@ -20,1099 +19,685 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
     <link rel="apple-touch-icon" href="/SuSi/etc/icon-512.png" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>대학별 반영과목</title>
-    <style>
-      /* cspell:disable-file */
-      /* webkit printing magic: print all background colors */
-      html {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      * {
-        box-sizing: border-box;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      @media only screen {
-        body {
-          margin: 2em auto;
-          max-width: 900px;
-          color: rgb(55, 53, 47);
-        }
-      }
-
-      body {
-        line-height: 1.5;
-        white-space: pre-wrap;
-      }
-
-      a,
-      a.visited {
-        color: inherit;
-        text-decoration: underline;
-      }
-
-      .pdf-relative-link-path {
-        font-size: 80%;
-        color: #444;
-      }
-
-      h1,
-      h2,
-      h3 {
-        letter-spacing: -0.01em;
-        line-height: 1.2;
-        font-weight: 600;
-        margin-bottom: 0;
-      }
-
-      .page-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-top: 0;
-        margin-bottom: 0.75em;
-      }
-
-      h1 {
-        font-size: 1.875rem;
-        margin-top: 1.875rem;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-        margin-top: 1.5rem;
-      }
-
-      h3 {
-        font-size: 1.25rem;
-        margin-top: 1.25rem;
-      }
-
-      .source {
-        border: 1px solid #ddd;
-        border-radius: 3px;
-        padding: 1.5em;
-        word-break: break-all;
-      }
-
-      .callout {
-        border-radius: 3px;
-        padding: 1rem;
-      }
-
-      figure {
-        margin: 1.25em 0;
-        page-break-inside: avoid;
-      }
-
-      figcaption {
-        opacity: 0.5;
-        font-size: 85%;
-        margin-top: 0.5em;
-      }
-
-      mark {
-        background-color: transparent;
-      }
-
-      .indented {
-        padding-left: 1.5em;
-      }
-
-      hr {
-        background: transparent;
-        display: block;
-        width: 100%;
-        height: 1px;
-        visibility: visible;
-        border: none;
-        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-      }
-
-      img {
-        max-width: 100%;
-      }
-
-      @media only print {
-        img {
-          max-height: 100vh;
-          object-fit: contain;
-        }
-      }
-
-      @page {
-        margin: 1in;
-      }
-
-      .collection-content {
-        font-size: 0.875rem;
-      }
-
-      .column-list {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .column {
-        padding: 0 1em;
-      }
-
-      .column:first-child {
-        padding-left: 0;
-      }
-
-      .column:last-child {
-        padding-right: 0;
-      }
-
-      .table_of_contents-item {
-        display: block;
-        font-size: 0.875rem;
-        line-height: 1.3;
-        padding: 0.125rem;
-      }
-
-      .table_of_contents-indent-1 {
-        margin-left: 1.5rem;
-      }
-
-      .table_of_contents-indent-2 {
-        margin-left: 3rem;
-      }
-
-      .table_of_contents-indent-3 {
-        margin-left: 4.5rem;
-      }
-
-      .table_of_contents-link {
-        text-decoration: none;
-        opacity: 0.7;
-        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-      }
-
-      table,
-      th,
-      td {
-        border: 1px solid rgba(55, 53, 47, 0.09);
-        border-collapse: collapse;
-      }
-
-      table {
-        border-left: none;
-        border-right: none;
-      }
-
-      th,
-      td {
-        font-weight: normal;
-        padding: 0.25em 0.5em;
-        line-height: 1.5;
-        min-height: 1.5em;
-        text-align: left;
-      }
-
-      th {
-        color: rgba(55, 53, 47, 0.6);
-      }
-
-      ol,
-      ul {
-        margin: 0;
-        margin-block-start: 0.6em;
-        margin-block-end: 0.6em;
-      }
-
-      li > ol:first-child,
-      li > ul:first-child {
-        margin-block-start: 0.6em;
-      }
-
-      ul > li {
-        list-style: disc;
-      }
-
-      ul.to-do-list {
-        padding-inline-start: 0;
-      }
-
-      ul.to-do-list > li {
-        list-style: none;
-      }
-
-      .to-do-children-checked {
-        text-decoration: line-through;
-        opacity: 0.375;
-      }
-
-      ul.toggle > li {
-        list-style: none;
-      }
-
-      ul {
-        padding-inline-start: 1.7em;
-      }
-
-      ul > li {
-        padding-left: 0.1em;
-      }
-
-      ol {
-        padding-inline-start: 1.6em;
-      }
-
-      ol > li {
-        padding-left: 0.2em;
-      }
-
-      .mono ol {
-        padding-inline-start: 2em;
-      }
-
-      .mono ol > li {
-        text-indent: -0.4em;
-      }
-
-      .toggle {
-        padding-inline-start: 0em;
-        list-style-type: none;
-      }
-
-      /* Indent toggle children */
-      .toggle > li > details {
-        padding-left: 1.7em;
-      }
-
-      .toggle > li > details > summary {
-        margin-left: -1.1em;
-      }
-
-      .selected-value {
-        display: inline-block;
-        padding: 0 0.5em;
-        background: rgba(206, 205, 202, 0.5);
-        border-radius: 3px;
-        margin-right: 0.5em;
-        margin-top: 0.3em;
-        margin-bottom: 0.3em;
-        white-space: nowrap;
-      }
-
-      .collection-title {
-        display: inline-block;
-        margin-right: 1em;
-      }
-
-      .page-description {
-        margin-bottom: 2em;
-      }
-
-      .simple-table {
-        margin-top: 1em;
-        font-size: 0.875rem;
-        empty-cells: show;
-      }
-      .simple-table td {
-        height: 29px;
-        min-width: 120px;
-      }
-
-      .simple-table th {
-        height: 29px;
-        min-width: 120px;
-      }
-
-      .simple-table-header-color {
-        background: rgb(247, 246, 243);
-        color: black;
-      }
-      .simple-table-header {
-        font-weight: 500;
-      }
-
-      time {
-        opacity: 0.5;
-      }
-
-      .icon {
-        display: inline-block;
-        max-width: 1.2em;
-        max-height: 1.2em;
-        text-decoration: none;
-        vertical-align: text-bottom;
-        margin-right: 0.5em;
-      }
-
-      img.icon {
-        border-radius: 3px;
-      }
-
-      .user-icon {
-        width: 1.5em;
-        height: 1.5em;
-        border-radius: 100%;
-        margin-right: 0.5rem;
-      }
-
-      .user-icon-inner {
-        font-size: 0.8em;
-      }
-
-      .text-icon {
-        border: 1px solid #000;
-        text-align: center;
-      }
-
-      .page-cover-image {
-        display: block;
-        object-fit: cover;
-        width: 100%;
-        max-height: 30vh;
-      }
-
-      .page-header-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-      }
-
-      .page-header-icon-with-cover {
-        margin-top: -0.72em;
-        margin-left: 0.07em;
-      }
-
-      .page-header-icon img {
-        border-radius: 3px;
-      }
-
-      .link-to-page {
-        margin: 1em 0;
-        padding: 0;
-        border: none;
-        font-weight: 500;
-      }
-
-      p > .user {
-        opacity: 0.5;
-      }
-
-      td > .user,
-      td > time {
-        white-space: nowrap;
-      }
-
-      input[type="checkbox"] {
-        transform: scale(1.5);
-        margin-right: 0.6em;
-        vertical-align: middle;
-      }
-
-      p {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-      }
-
-      .image {
-        border: none;
-        margin: 1.5em 0;
-        padding: 0;
-        border-radius: 0;
-        text-align: center;
-      }
-
-      .code,
-      code {
-        background: rgba(135, 131, 120, 0.15);
-        border-radius: 3px;
-        padding: 0.2em 0.4em;
-        border-radius: 3px;
-        font-size: 85%;
-        tab-size: 2;
-      }
-
-      code {
-        color: #eb5757;
-      }
-
-      .code {
-        padding: 1.5em 1em;
-      }
-
-      .code-wrap {
-        white-space: pre-wrap;
-        word-break: break-all;
-      }
-
-      .code > code {
-        background: none;
-        padding: 0;
-        font-size: 100%;
-        color: inherit;
-      }
-
-      blockquote {
-        font-size: 1.25em;
-        margin: 1em 0;
-        padding-left: 1em;
-        border-left: 3px solid rgb(55, 53, 47);
-      }
-
-      .bookmark {
-        text-decoration: none;
-        max-height: 8em;
-        padding: 0;
-        display: flex;
-        width: 100%;
-        align-items: stretch;
-      }
-
-      .bookmark-title {
-        font-size: 0.85em;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: 1.75em;
-        white-space: nowrap;
-      }
-
-      .bookmark-text {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .bookmark-info {
-        flex: 4 1 180px;
-        padding: 12px 14px 14px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .bookmark-image {
-        width: 33%;
-        flex: 1 1 180px;
-        display: block;
-        position: relative;
-        object-fit: cover;
-        border-radius: 1px;
-      }
-
-      .bookmark-description {
-        color: rgba(55, 53, 47, 0.6);
-        font-size: 0.75em;
-        overflow: hidden;
-        max-height: 4.5em;
-        word-break: break-word;
-      }
-
-      .bookmark-href {
-        font-size: 0.75em;
-        margin-top: 0.25em;
-      }
-
-      .sans {
-        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-          "Segoe UI Emoji", "Segoe UI Symbol";
-      }
-      .code {
-        font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono",
-          "Liberation Mono", Courier, monospace;
-      }
-      .serif {
-        font-family: Lyon-Text, Georgia, ui-serif, serif;
-      }
-      .mono {
-        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
-      }
-      .pdf .sans {
-        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-          "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
-          "Noto Sans CJK JP";
-      }
-      .pdf:lang(zh-CN) .sans {
-        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-          "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
-          "Noto Sans CJK SC";
-      }
-      .pdf:lang(zh-TW) .sans {
-        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-          "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
-          "Noto Sans CJK TC";
-      }
-      .pdf:lang(ko-KR) .sans {
-        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-          "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
-          "Noto Sans CJK KR";
-      }
-      .pdf .code {
-        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
-          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
-          "Noto Color Emoji", "Noto Sans Mono CJK JP";
-      }
-      .pdf:lang(zh-CN) .code {
-        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
-          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
-          "Noto Color Emoji", "Noto Sans Mono CJK SC";
-      }
-      .pdf:lang(zh-TW) .code {
-        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
-          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
-          "Noto Color Emoji", "Noto Sans Mono CJK TC";
-      }
-      .pdf:lang(ko-KR) .code {
-        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
-          "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
-          "Noto Color Emoji", "Noto Sans Mono CJK KR";
-      }
-      .pdf .serif {
-        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
-          "Noto Color Emoji", "Noto Serif CJK JP";
-      }
-      .pdf:lang(zh-CN) .serif {
-        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
-          "Noto Color Emoji", "Noto Serif CJK SC";
-      }
-      .pdf:lang(zh-TW) .serif {
-        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
-          "Noto Color Emoji", "Noto Serif CJK TC";
-      }
-      .pdf:lang(ko-KR) .serif {
-        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
-          "Noto Color Emoji", "Noto Serif CJK KR";
-      }
-      .pdf .mono {
-        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
-          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK JP";
-      }
-      .pdf:lang(zh-CN) .mono {
-        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
-          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK SC";
-      }
-      .pdf:lang(zh-TW) .mono {
-        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
-          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK TC";
-      }
-      .pdf:lang(ko-KR) .mono {
-        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
-          "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK KR";
-      }
-      .highlight-default {
-        color: rgba(55, 53, 47, 1);
-      }
-      .highlight-gray {
-        color: rgba(120, 119, 116, 1);
-        fill: rgba(120, 119, 116, 1);
-      }
-      .highlight-brown {
-        color: rgba(159, 107, 83, 1);
-        fill: rgba(159, 107, 83, 1);
-      }
-      .highlight-orange {
-        color: rgba(217, 115, 13, 1);
-        fill: rgba(217, 115, 13, 1);
-      }
-      .highlight-yellow {
-        color: rgba(203, 145, 47, 1);
-        fill: rgba(203, 145, 47, 1);
-      }
-      .highlight-teal {
-        color: rgba(68, 131, 97, 1);
-        fill: rgba(68, 131, 97, 1);
-      }
-      .highlight-blue {
-        color: rgba(51, 126, 169, 1);
-        fill: rgba(51, 126, 169, 1);
-      }
-      .highlight-purple {
-        color: rgba(144, 101, 176, 1);
-        fill: rgba(144, 101, 176, 1);
-      }
-      .highlight-pink {
-        color: rgba(193, 76, 138, 1);
-        fill: rgba(193, 76, 138, 1);
-      }
-      .highlight-red {
-        color: rgba(212, 76, 71, 1);
-        fill: rgba(212, 76, 71, 1);
-      }
-      .highlight-gray_background {
-        background: rgba(241, 241, 239, 1);
-      }
-      .highlight-brown_background {
-        background: rgba(244, 238, 238, 1);
-      }
-      .highlight-orange_background {
-        background: rgba(251, 236, 221, 1);
-      }
-      .highlight-yellow_background {
-        background: rgba(251, 243, 219, 1);
-      }
-      .highlight-teal_background {
-        background: rgba(237, 243, 236, 1);
-      }
-      .highlight-blue_background {
-        background: rgba(231, 243, 248, 1);
-      }
-      .highlight-purple_background {
-        background: rgba(244, 240, 247, 0.8);
-      }
-      .highlight-pink_background {
-        background: rgba(249, 238, 243, 0.8);
-      }
-      .highlight-red_background {
-        background: rgba(253, 235, 236, 1);
-      }
-      .block-color-default {
-        color: inherit;
-        fill: inherit;
-      }
-      .block-color-gray {
-        color: rgba(120, 119, 116, 1);
-        fill: rgba(120, 119, 116, 1);
-      }
-      .block-color-brown {
-        color: rgba(159, 107, 83, 1);
-        fill: rgba(159, 107, 83, 1);
-      }
-      .block-color-orange {
-        color: rgba(217, 115, 13, 1);
-        fill: rgba(217, 115, 13, 1);
-      }
-      .block-color-yellow {
-        color: rgba(203, 145, 47, 1);
-        fill: rgba(203, 145, 47, 1);
-      }
-      .block-color-teal {
-        color: rgba(68, 131, 97, 1);
-        fill: rgba(68, 131, 97, 1);
-      }
-      .block-color-blue {
-        color: rgba(51, 126, 169, 1);
-        fill: rgba(51, 126, 169, 1);
-      }
-      .block-color-purple {
-        color: rgba(144, 101, 176, 1);
-        fill: rgba(144, 101, 176, 1);
-      }
-      .block-color-pink {
-        color: rgba(193, 76, 138, 1);
-        fill: rgba(193, 76, 138, 1);
-      }
-      .block-color-red {
-        color: rgba(212, 76, 71, 1);
-        fill: rgba(212, 76, 71, 1);
-      }
-      .block-color-gray_background {
-        background: rgba(241, 241, 239, 1);
-      }
-      .block-color-brown_background {
-        background: rgba(244, 238, 238, 1);
-      }
-      .block-color-orange_background {
-        background: rgba(251, 236, 221, 1);
-      }
-      .block-color-yellow_background {
-        background: rgba(251, 243, 219, 1);
-      }
-      .block-color-teal_background {
-        background: rgba(237, 243, 236, 1);
-      }
-      .block-color-blue_background {
-        background: rgba(231, 243, 248, 1);
-      }
-      .block-color-purple_background {
-        background: rgba(244, 240, 247, 0.8);
-      }
-      .block-color-pink_background {
-        background: rgba(249, 238, 243, 0.8);
-      }
-      .block-color-red_background {
-        background: rgba(253, 235, 236, 1);
-      }
-      .select-value-color-interactiveBlue {
-        background-color: rgba(35, 131, 226, 0.07);
-      }
-      .select-value-color-pink {
-        background-color: rgba(245, 224, 233, 1);
-      }
-      .select-value-color-purple {
-        background-color: rgba(232, 222, 238, 1);
-      }
-      .select-value-color-green {
-        background-color: rgba(219, 237, 219, 1);
-      }
-      .select-value-color-gray {
-        background-color: rgba(227, 226, 224, 1);
-      }
-      .select-value-color-translucentGray {
-        background-color: rgba(255, 255, 255, 0.0375);
-      }
-      .select-value-color-orange {
-        background-color: rgba(250, 222, 201, 1);
-      }
-      .select-value-color-brown {
-        background-color: rgba(238, 224, 218, 1);
-      }
-      .select-value-color-red {
-        background-color: rgba(255, 226, 221, 1);
-      }
-      .select-value-color-yellow {
-        background-color: rgba(253, 236, 200, 1);
-      }
-      .select-value-color-blue {
-        background-color: rgba(211, 229, 239, 1);
-      }
-
-      .checkbox {
-        display: inline-flex;
-        vertical-align: text-bottom;
-        width: 16;
-        height: 16;
-        background-size: 16px;
-        margin-left: 2px;
-        margin-right: 5px;
-      }
-
-      .checkbox-on {
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-      }
-
-      .checkbox-off {
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-      }
-    </style>
-  </head>
-  <body>
-    <article id="a03cf5e6-d5de-4e96-b306-25dc1cc7c579" class="page sans">
-      <header>
-        <div class="page-header-icon undefined">
-          <span class="icon">⚠️</span>
-        </div>
-        <h1 class="page-title">대학별 반영과목</h1>
-        <p class="page-description"></p>
-      </header>
-      <div class="page-body">
-        <h1 id="ab0581f2-42f7-4b82-99e7-00ef6c209a4e" class="">유의사항</h1>
-        <hr id="55c62832-96e5-41bb-ab5b-ec7259f1e057" />
-        <p id="75bf552e-64c8-4712-b8b8-1ff23b87af38" class="">
-          ※부산대는 학년과 과목 선택 안해도 됩니다.
-        </p>
-        <p id="8db7420f-10f8-4e23-9e35-7401dd23d493" class="">
-          ※부경대의 진로선택과목의 과목명은
-          <mark class="highlight-red">꼭!</mark> 선택해주세요.
-        </p>
-        <p id="86231d15-a696-433b-a243-e6954ad8361a" class="">
-          ※데이터는<mark class="highlight-red"> 2023년도 입시결과</mark>를
-          기반으로 함.
-        </p>
-        <p id="3992f2ab-f083-4146-804f-bcce6be85a85" class="">
-          ※부경대의 환산점수 계산법은 2023년도와 2024년도가 동일.
-        </p>
-        <p id="3fa96f33-3c51-4b5b-abe1-1131f33842e1" class="">
-          but 부산대의 환산점수 계산법은 2023년도와 2024년도가 달라서 데이터
-          년도에 맞춘
-          <mark class="highlight-red">2023년도 환산점수 계산법을 사용.</mark>
-        </p>
-        <hr id="0f4c3aed-46ef-4100-ade7-490acf99b0c6" />
-        <h1 id="8d8d7e23-4277-4c49-8b3c-bbb509f312ed" class="">
-          <a
-            href="https://drive.google.com/file/d/17-uMIk7jQo03U17ueX9xOEf0K3EKkvfu/view?usp=sharing"
-            >부산대(2023 모집요강)</a
-          ><a
-            href="https://drive.google.com/file/d/170kiISPN-DFLOaotFep7qJNBEFhjMjSf/view?usp=sharing"
-            >(2024 모집요강)</a
-          >
-        </h1>
-        <p id="88820213-e15f-4cec-829c-6d92252933f0" class="">⬆ 다운</p>
-        <hr id="711c249d-5250-4567-8701-11bc2fc193b8" />
-        <p id="83d2e174-f96b-4256-bc16-658a12f180d2" class="">
-          <mark class="highlight-red"><strong>※</strong></mark
-          ><mark class="highlight-red">일반선택과목 반영방법 유의사항</mark
-          ><mark class="highlight-red"><strong>※</strong></mark>
-          <mark class="highlight-red"
-            >석차등급이 기재되는 일반선택과목을 10과목 이상 이수하여야 하며,
-            석차등급이 기재되는 일반선택과목을 10과목 미만 이수할 경우 성적 산출
-            대상에서 제외되어 블합격 처리됩니다. 동일 교과목이 학기별 단위수가
-            분리되어 있어도 1과목으로 인정합니다. 일반선택과목은 석차등급을 받은
-            과목에 한해 반영과목 수로 인정합니다. 일반선택과목 인정범위는
-            지정교과 내 석차등급이 기재되는 일반선택 및 전문교과</mark
-          ><mark class="highlight-red"><strong>I</strong></mark
-          ><mark class="highlight-red">의 과목입니다.</mark>
-        </p>
-        <h3 id="27b1c633-46f6-4f6b-bbc2-bab2047351b3" class="">
-          일반선택과목(인문 ⦁ 사회계 및 예 ⦁ 체능계): 국,수,영,사회
-        </h3>
-        <h3 id="5e8f982f-1810-4d2f-8462-52245f17de54" class="">
-          일반선택과목(자연계): 국,영,수,과학
-        </h3>
-        <h3 id="23bee352-2888-4885-9d7e-f23e10a2575b" class="">
-          진로선택과목(전 계열):국,수,영,사,과
-        </h3>
-        <h3 id="93224912-0d59-4240-9636-3970b13691cf" class="">
-          공통과목(전 계열):국,수,영,통사,통과,한국사
-        </h3>
-        <hr id="86e0b81f-c29b-4d12-8563-2616dfc81d26" />
-        <h2 id="269b9ec1-ab8c-4ce3-9a5e-e5bfb080c696" class="">참고)</h2>
-        <p id="f6d08943-05ca-4a5b-8552-d1ec5457cc04" class="">
-          과목별 반영비율
-        </p>
-        <table id="b7e5d7d0-dcbe-4780-a589-3cb0b0c39a4d" class="simple-table">
-          <tbody>
-            <tr id="28ec2a00-4dbc-4f8e-9c82-8a340770d4b8">
-              <td id="@gyH" class="">과목</td>
-              <td id="jRtJ" class="">공통과목</td>
-              <td id="N}Yx" class="">일반선택과목</td>
-              <td id="~Z@D" class="">진로선택과목</td>
-            </tr>
-            <tr id="cd03e020-c0a3-4834-9c43-d02bfc48e25e">
-              <td id="@gyH" class=""></td>
-              <td id="jRtJ" class="">30%</td>
-              <td id="N}Yx" class="">50%</td>
-              <td id="~Z@D" class="">20%</td>
-            </tr>
-          </tbody>
-        </table>
-        <p id="a3f893db-5c82-45e1-a15c-47983452dc3c" class="">
-          진로선택과목(성취도)
-        </p>
-        <table id="486e253f-2147-420d-b4a5-591f3d4538ca" class="simple-table">
-          <tbody>
-            <tr id="0179c148-3228-491f-a6be-41e1f4cb7be7">
-              <td id="@gyH" class="">성취도</td>
-              <td id="jRtJ" class="">A</td>
-              <td id="N}Yx" class="">B</td>
-              <td id="~Z@D" class="">C</td>
-            </tr>
-            <tr id="328e2c19-2649-455d-a4a0-888a552be643">
-              <td id="@gyH" class=""></td>
-              <td id="jRtJ" class="">100점</td>
-              <td id="N}Yx" class="">99점</td>
-              <td id="~Z@D" class="">98점</td>
-            </tr>
-          </tbody>
-        </table>
-        <p id="4bc3d2a0-4021-4d44-9210-f8a2b83ac0fb" class="">
-          교과성적등급별 점수표
-        </p>
-        <table id="02fae38c-5042-42ce-ae22-185daa069a17" class="simple-table">
-          <tbody>
-            <tr id="bcdbf1c2-b6c4-4add-b150-a2830c24339d">
-              <td id="llTF" class="">1등급</td>
-              <td id="hIbO" class="">2등급</td>
-              <td id="TGia" class="">3등급</td>
-              <td id="ey_x" class="">4등급</td>
-              <td id="xYQ:" class="">5등급</td>
-              <td id="wEri" class="">6등급</td>
-              <td id="WPOM" class="">7등급</td>
-              <td id="~`&lt;:" class="">8등급</td>
-              <td id="hIoD" class="">9등급</td>
-            </tr>
-            <tr id="504f7ec4-1ffd-4fff-8303-0400be0f138d">
-              <td id="llTF" class="">100</td>
-              <td id="hIbO" class="">99</td>
-              <td id="TGia" class="">98</td>
-              <td id="ey_x" class="">97</td>
-              <td id="xYQ:" class="">96</td>
-              <td id="wEri" class="">95</td>
-              <td id="WPOM" class="">90</td>
-              <td id="~`&lt;:" class="">60</td>
-              <td id="hIoD" class="">0</td>
-            </tr>
-          </tbody>
-        </table>
-        <h1 id="1023766f-17f7-432e-80d9-12300a754470" class="">
-          <a
-            href="https://drive.google.com/file/d/170eJdWrFbV1GzGewec3bW_xnuxV8sArN/view?usp=sharing"
-            >부경대(2024 모집요강)</a
-          >
-        </h1>
-        <p id="43845c95-0c36-42ea-bf9c-f4f356726790" class="">⬆ 다운</p>
-        <hr id="f55f2617-0ae2-4749-9dfa-0b660affa957" />
-        <p id="fae65297-f52f-4587-9b08-2bd1e8b4f296" class="">
-          <mark class="highlight-red"
-            ><strong>※등급이 나오는 과목만 반영.</strong></mark
-          >
-        </p>
-        <p id="8db7167f-53ce-4d89-9894-a83f3d11d320" class="">
-          <mark class="highlight-red"
-            ><strong
-              >※반영교과목(진로선택과목 제외) 이수단위의 합이 60단위 미만인
-              경우는 최종 산출성적에서 5점 삭감.</strong
-            ></mark
-          >
-        </p>
-        <p id="4f693f00-5e48-4e42-8913-d80b94f22a30" class="">
-          <mark class="highlight-red"
-            ><strong
-              >※출석점수는 1등급(100점)을 기준으로 계산됩니다.</strong
-            ></mark
-          >
-        </p>
-        <table id="7e121985-b845-46db-896d-a98cbcdbf431" class="simple-table">
-          <tbody>
-            <tr id="f7ca8877-4e7c-43b7-ad33-d8b49e7f3bdd">
-              <th
-                id="qCAS"
-                class="simple-table-header-color simple-table-header"
-              >
-                등급
-              </th>
-              <td id="]?`X" class="">1등급</td>
-              <td id="yfez" class="">2등급</td>
-              <td id="=`|@" class="">3등급</td>
-              <td id="YS|E" class="">4등급</td>
-              <td id="Ec`f" class="">5등급</td>
-            </tr>
-            <tr id="4300beeb-63ff-4112-bed0-8a8996beb3ed">
-              <th
-                id="qCAS"
-                class="simple-table-header-color simple-table-header"
-              >
-                무단결석 일수
-              </th>
-              <td id="]?`X" class="">0~2일</td>
-              <td id="yfez" class="">3~6일</td>
-              <td id="=`|@" class="">7~12일</td>
-              <td id="YS|E" class="">13~20일</td>
-              <td id="Ec`f" class="">20일 이상</td>
-            </tr>
-            <tr id="f175ad7c-3231-4c66-9bd8-17315ae0241c">
-              <th
-                id="qCAS"
-                class="simple-table-header-color simple-table-header"
-              >
-                반영점수
-              </th>
-              <td id="]?`X" class="">100</td>
-              <td id="yfez" class="">94</td>
-              <td id="=`|@" class="">88</td>
-              <td id="YS|E" class="">82</td>
-              <td id="Ec`f" class="">76</td>
-            </tr>
-          </tbody>
-        </table>
-        <p id="0c2ccb08-bd9e-4568-b2d7-3d5434b10d68" class="">
-          ※일어일문학부 &amp; 국제지역학부 &amp; 중국학과: 제2외국어교과 포함.
-        </p>
-        <p id="ea1db75a-ed13-47f5-9f49-9439567e68b5" class="">
-          ※사회교과: 역사/도덕 교과 포함.
-        </p>
-        <p id="4c4ce3a9-e502-4e40-920c-5dd56a798aae" class="">
-          ※공통과목: 국,수,영,한국사,통합사회,통합과학,과학탐구실험
-        </p>
-        <h3 id="969a2fe4-be3a-4845-b9cc-253520d3fb04" class="">
-          공통과목:국,영,수,통사,통과,한국사
-        </h3>
-        <h3 id="6bce344b-889d-492d-9ddd-fcc75aab7d4f" class="">
-          일반선택과목 및 진로과목(인문 ⦁ 사회계): 국,영,수,사회 교과 전 과목
-        </h3>
-        <h3 id="1d78420f-da16-4784-aad0-228e02b1b743" class="">
-          일반선택과목 및 진로과목(자연계): 국,영,수,과학 교과 전 과목
-        </h3>
-        <h3 id="d935fa32-f119-49c9-be56-0f30d61e4ac8" class="">
-          일반선택과목 및 진로과목(예 ⦁ 체능계): 국,영,수,사회,과학 교과 전 과목
-        </h3>
-        <hr id="72b212a4-06fb-4264-b17a-7bb6f305da85" />
-        <h2 id="e4555276-ea7c-4685-80b5-3a70b44cd05b" class="">참고)</h2>
-        <p id="a65f69f9-3908-4eef-b419-d24b9fdee9eb" class="">
-          진로선택과목(등급,성취도,가중치)
-        </p>
-        <table id="f5d13171-7aec-40a5-b1c3-b029817f65d0" class="simple-table">
-          <tbody>
-            <tr id="156fb77e-c10a-4c47-ac9e-0f0ab1e8a963">
-              <td id="ni:O" class="">자연계</td>
-              <td id="Ho{:" class="">인문 ⦁ 사회계 / 예 ⦁ 체능계</td>
-              <td id="C:V&lt;" class="">진로선택과목 등급</td>
-            </tr>
-            <tr id="2d5e6390-b427-4558-8fd1-04ddf15dd2b6">
-              <td id="ni:O" class="">8점 이상</td>
-              <td id="Ho{:" class="">5점 이상</td>
-              <td id="C:V&lt;" class="">0.2</td>
-            </tr>
-            <tr id="f7f377f3-83e0-46f3-aadf-5d4568200519">
-              <td id="ni:O" class="">7점 이상 ~ 8점 미만</td>
-              <td id="Ho{:" class="">4점 이상 ~ 5점 미만</td>
-              <td id="C:V&lt;" class="">0.1</td>
-            </tr>
-            <tr id="382af4dc-0a5a-4a6c-b8e2-15b2c79c531a">
-              <td id="ni:O" class="">7점 미만</td>
-              <td id="Ho{:" class="">7점 미만</td>
-              <td id="C:V&lt;" class="">0</td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="11d59355-187a-42a4-a17e-e28168722445" class="simple-table">
-          <tbody>
-            <tr id="a6431c21-1a03-4c7b-badb-5d1cd4f580d3">
-              <td id="@gyH" class="">성취도</td>
-              <td id="jRtJ" class="">A</td>
-              <td id="N}Yx" class="">B</td>
-              <td id="~Z@D" class="">C</td>
-            </tr>
-            <tr id="81fa2278-3d54-40b6-9827-c60b4eac539e">
-              <td id="@gyH" class=""></td>
-              <td id="jRtJ" class="">2점</td>
-              <td id="N}Yx" class="">1.5점</td>
-              <td id="~Z@D" class="">1점</td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="c65e343b-b7b8-47f6-af0d-95dc5f4939d1" class="simple-table">
-          <tbody>
-            <tr id="db1b4863-cbf5-4c08-a9ab-19f310326756">
-              <td id="iw]n" class="">가중치</td>
-              <td id="tpLc" class="">기하&amp;과학II과목</td>
-              <td id="XkSO" class="">나머지</td>
-            </tr>
-            <tr id="a331b9d5-52a8-47e1-9020-95b719d84b46">
-              <td id="iw]n" class=""></td>
-              <td id="tpLc" class="">1.5</td>
-              <td id="XkSO" class="">1</td>
-            </tr>
-          </tbody>
-        </table>
-        <p id="845d0209-b7f3-4a6d-8516-4237626e09e5" class="">
-          교과성적등급별 점수표
-        </p>
-        <table id="0940ca5e-e5ce-4a70-9698-2d5cbfb5d918" class="simple-table">
-          <tbody>
-            <tr id="055ac650-6bdf-414b-a411-87458a848144">
-              <td id="llTF" class="">1등급</td>
-              <td id="hIbO" class="">2등급</td>
-              <td id="TGia" class="">3등급</td>
-              <td id="ey_x" class="">4등급</td>
-              <td id="xYQ:" class="">5등급</td>
-              <td id="wEri" class="">6등급</td>
-              <td id="WPOM" class="">7등급</td>
-              <td id="~`&lt;:" class="">8등급</td>
-              <td id="hIoD" class="">9등급</td>
-            </tr>
-            <tr id="08b26f84-7486-4a1c-9553-99b3f3587e8b">
-              <td id="llTF" class="">900</td>
-              <td id="hIbO" class="">895</td>
-              <td id="TGia" class="">890</td>
-              <td id="ey_x" class="">885</td>
-              <td id="xYQ:" class="">880</td>
-              <td id="wEri" class="">870</td>
-              <td id="WPOM" class="">840</td>
-              <td id="~`&lt;:" class="">815</td>
-              <td id="hIoD" class="">790</td>
-            </tr>
-          </tbody>
-        </table>
-        <hr id="407320cc-bba8-42f3-83cc-07e57813aebb" />
-        <p id="d1c4b0df-0e7f-40bf-94f1-217190d4c909" class=""></p>
-        <p id="82862726-985a-46ec-a92c-be8c080fec0d" class=""></p>
-      </div>
-    </article>
-  </body>
-</html>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>대학별 반영과목</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a03cf5e6-d5de-4e96-b306-25dc1cc7c579" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⚠️</span></div><h1 class="page-title"><span style="white-space:pre">대학별 반영과목</span></h1><p class="page-description"></p></header><div class="page-body"><h1 id="ab0581f2-42f7-4b82-99e7-00ef6c209a4e" class=""><span style="white-space:pre">유의사항</span></h1><hr id="55c62832-96e5-41bb-ab5b-ec7259f1e057"/><p id="75bf552e-64c8-4712-b8b8-1ff23b87af38" class=""><span style="white-space:pre">※부산대는 학년과 과목 선택 안해도 됩니다.</span></p><p id="8db7420f-10f8-4e23-9e35-7401dd23d493" class=""><span style="white-space:pre">※부경대의 진로선택과목의 과목명은 </span><mark class="highlight-red"><span style="white-space:pre">꼭!</span></mark><span style="white-space:pre"> 선택해주세요.</span></p><p id="86231d15-a696-433b-a243-e6954ad8361a" class=""><span style="white-space:pre">※데이터는</span><mark class="highlight-red"><span style="white-space:pre"> 2023년도 입시결과</span></mark><span style="white-space:pre">를 기반으로 함.</span></p><p id="3992f2ab-f083-4146-804f-bcce6be85a85" class=""><span style="white-space:pre">※부경대의 환산점수 계산법은 2023년도와 2024년도가 동일.</span></p><p id="3fa96f33-3c51-4b5b-abe1-1131f33842e1" class=""><span style="white-space:pre">but 부산대의 환산점수 계산법은 2023년도와 2024년도가 달라서 데이터 년도에 맞춘 </span><mark class="highlight-red"><span style="white-space:pre">2023년도 환산점수 계산법을 사용.</span></mark></p><hr id="0f4c3aed-46ef-4100-ade7-490acf99b0c6"/><h1 id="8d8d7e23-4277-4c49-8b3c-bbb509f312ed" class=""><a href="https://drive.google.com/file/d/17-uMIk7jQo03U17ueX9xOEf0K3EKkvfu/view?usp=sharing"><span style="white-space:pre">부산대(2023 모집요강)</span></a><a href="https://drive.google.com/file/d/170kiISPN-DFLOaotFep7qJNBEFhjMjSf/view?usp=sharing"><span style="white-space:pre">(2024 모집요강)</span></a></h1><p id="88820213-e15f-4cec-829c-6d92252933f0" class=""><span style="white-space:pre">⬆ 다운</span></p><hr id="711c249d-5250-4567-8701-11bc2fc193b8"/><p id="83d2e174-f96b-4256-bc16-658a12f180d2" class=""><mark class="highlight-red"><strong><span style="white-space:pre">※</span></strong></mark><mark class="highlight-red"><span style="white-space:pre">일반선택과목 반영방법 유의사항</span></mark><mark class="highlight-red"><strong><span style="white-space:pre">※</span></strong></mark><span style="white-space:pre">
+</span><mark class="highlight-red"><span style="white-space:pre">석차등급이 기재되는 일반선택과목을 10과목 이상 이수하여야 하며, 석차등급이 기재되는 일반선택과목을 10과목 미만 이수할 경우 성적 산출 대상에서 제외되어 블합격 처리됩니다.
+동일 교과목이 학기별 단위수가 분리되어 있어도 1과목으로 인정합니다.
+일반선택과목은 석차등급을 받은 과목에 한해 반영과목 수로 인정합니다.
+일반선택과목 인정범위는 지정교과 내 석차등급이 기재되는 일반선택 및 전문교과</span></mark><mark class="highlight-red"><strong><span style="white-space:pre">I</span></strong></mark><mark class="highlight-red"><span style="white-space:pre">의 과목입니다.</span></mark></p><h3 id="27b1c633-46f6-4f6b-bbc2-bab2047351b3" class=""><span style="white-space:pre">일반선택과목(인문 ⦁ 사회계 및 예 ⦁ 체능계): 국,수,영,사회</span></h3><h3 id="5e8f982f-1810-4d2f-8462-52245f17de54" class=""><span style="white-space:pre">일반선택과목(자연계): 국,영,수,과학</span></h3><h3 id="23bee352-2888-4885-9d7e-f23e10a2575b" class=""><span style="white-space:pre">진로선택과목(전 계열):국,수,영,사,과</span></h3><h3 id="93224912-0d59-4240-9636-3970b13691cf" class=""><span style="white-space:pre">공통과목(전 계열):국,수,영,통사,통과,한국사</span></h3><hr id="86e0b81f-c29b-4d12-8563-2616dfc81d26"/><h2 id="269b9ec1-ab8c-4ce3-9a5e-e5bfb080c696" class=""><span style="white-space:pre">참고)</span></h2><p id="f6d08943-05ca-4a5b-8552-d1ec5457cc04" class=""><span style="white-space:pre">과목별 반영비율</span></p><table id="b7e5d7d0-dcbe-4780-a589-3cb0b0c39a4d" class="simple-table"><tbody><tr id="28ec2a00-4dbc-4f8e-9c82-8a340770d4b8"><td id="@gyH" class=""><span style="white-space:pre">과목</span></td><td id="jRtJ" class=""><span style="white-space:pre">공통과목</span></td><td id="N}Yx" class=""><span style="white-space:pre">일반선택과목</span></td><td id="~Z@D" class=""><span style="white-space:pre">진로선택과목</span></td></tr><tr id="cd03e020-c0a3-4834-9c43-d02bfc48e25e"><td id="@gyH" class=""></td><td id="jRtJ" class=""><span style="white-space:pre">30%</span></td><td id="N}Yx" class=""><span style="white-space:pre">50%</span></td><td id="~Z@D" class=""><span style="white-space:pre">20%</span></td></tr></tbody></table><p id="a3f893db-5c82-45e1-a15c-47983452dc3c" class=""><span style="white-space:pre">진로선택과목(성취도)</span></p><table id="486e253f-2147-420d-b4a5-591f3d4538ca" class="simple-table"><tbody><tr id="0179c148-3228-491f-a6be-41e1f4cb7be7"><td id="@gyH" class=""><span style="white-space:pre">성취도</span></td><td id="jRtJ" class=""><span style="white-space:pre">A</span></td><td id="N}Yx" class=""><span style="white-space:pre">B</span></td><td id="~Z@D" class=""><span style="white-space:pre">C</span></td></tr><tr id="328e2c19-2649-455d-a4a0-888a552be643"><td id="@gyH" class=""></td><td id="jRtJ" class=""><span style="white-space:pre">100점</span></td><td id="N}Yx" class=""><span style="white-space:pre">99점</span></td><td id="~Z@D" class=""><span style="white-space:pre">98점</span></td></tr></tbody></table><p id="4bc3d2a0-4021-4d44-9210-f8a2b83ac0fb" class=""><span style="white-space:pre">교과성적등급별 점수표</span></p><table id="02fae38c-5042-42ce-ae22-185daa069a17" class="simple-table"><tbody><tr id="bcdbf1c2-b6c4-4add-b150-a2830c24339d"><td id="llTF" class=""><span style="white-space:pre">1등급</span></td><td id="hIbO" class=""><span style="white-space:pre">2등급</span></td><td id="TGia" class=""><span style="white-space:pre">3등급</span></td><td id="ey_x" class=""><span style="white-space:pre">4등급</span></td><td id="xYQ:" class=""><span style="white-space:pre">5등급</span></td><td id="wEri" class=""><span style="white-space:pre">6등급</span></td><td id="WPOM" class=""><span style="white-space:pre">7등급</span></td><td id="~`&lt;:" class=""><span style="white-space:pre">8등급</span></td><td id="hIoD" class=""><span style="white-space:pre">9등급</span></td></tr><tr id="504f7ec4-1ffd-4fff-8303-0400be0f138d"><td id="llTF" class=""><span style="white-space:pre">100</span></td><td id="hIbO" class=""><span style="white-space:pre">99</span></td><td id="TGia" class=""><span style="white-space:pre">98</span></td><td id="ey_x" class=""><span style="white-space:pre">97</span></td><td id="xYQ:" class=""><span style="white-space:pre">96</span></td><td id="wEri" class=""><span style="white-space:pre">95</span></td><td id="WPOM" class=""><span style="white-space:pre">90</span></td><td id="~`&lt;:" class=""><span style="white-space:pre">60</span></td><td id="hIoD" class=""><span style="white-space:pre">0</span></td></tr></tbody></table><h1 id="1023766f-17f7-432e-80d9-12300a754470" class=""><a href="https://drive.google.com/file/d/170eJdWrFbV1GzGewec3bW_xnuxV8sArN/view?usp=sharing"><span style="white-space:pre">부경대(2024 모집요강)</span></a></h1><p id="43845c95-0c36-42ea-bf9c-f4f356726790" class=""><span style="white-space:pre">⬆ 다운</span></p><hr id="f55f2617-0ae2-4749-9dfa-0b660affa957"/><p id="fae65297-f52f-4587-9b08-2bd1e8b4f296" class=""><mark class="highlight-red"><strong><span style="white-space:pre">※등급이 나오는 과목만 반영.</span></strong></mark></p><p id="8db7167f-53ce-4d89-9894-a83f3d11d320" class=""><mark class="highlight-red"><strong><span style="white-space:pre">※반영교과목(진로선택과목 제외) 이수단위의 합이 60단위 미만인 경우는 최종 산출성적에서 5점 삭감.</span></strong></mark></p><p id="4f693f00-5e48-4e42-8913-d80b94f22a30" class=""><mark class="highlight-red"><strong><span style="white-space:pre">※출석점수는 1등급(100점)을 기준으로 계산됩니다.</span></strong></mark></p><table id="7e121985-b845-46db-896d-a98cbcdbf431" class="simple-table"><tbody><tr id="f7ca8877-4e7c-43b7-ad33-d8b49e7f3bdd"><th id="qCAS" class="simple-table-header-color simple-table-header"><span style="white-space:pre">등급</span></th><td id="]?`X" class=""><span style="white-space:pre">1등급</span></td><td id="yfez" class=""><span style="white-space:pre">2등급</span></td><td id="=`|@" class=""><span style="white-space:pre">3등급</span></td><td id="YS|E" class=""><span style="white-space:pre">4등급</span></td><td id="Ec`f" class=""><span style="white-space:pre">5등급</span></td></tr><tr id="4300beeb-63ff-4112-bed0-8a8996beb3ed"><th id="qCAS" class="simple-table-header-color simple-table-header"><span style="white-space:pre">무단결석 일수</span></th><td id="]?`X" class=""><span style="white-space:pre">0~2일</span></td><td id="yfez" class=""><span style="white-space:pre">3~6일</span></td><td id="=`|@" class=""><span style="white-space:pre">7~12일</span></td><td id="YS|E" class=""><span style="white-space:pre">13~20일</span></td><td id="Ec`f" class=""><span style="white-space:pre">20일 이상</span></td></tr><tr id="f175ad7c-3231-4c66-9bd8-17315ae0241c"><th id="qCAS" class="simple-table-header-color simple-table-header"><span style="white-space:pre">반영점수</span></th><td id="]?`X" class=""><span style="white-space:pre">100</span></td><td id="yfez" class=""><span style="white-space:pre">94</span></td><td id="=`|@" class=""><span style="white-space:pre">88</span></td><td id="YS|E" class=""><span style="white-space:pre">82</span></td><td id="Ec`f" class=""><span style="white-space:pre">76</span></td></tr></tbody></table><p id="0c2ccb08-bd9e-4568-b2d7-3d5434b10d68" class=""><span style="white-space:pre">※일어일문학부 &amp; 국제지역학부 &amp; 중국학과: 제2외국어교과 포함.</span></p><p id="ea1db75a-ed13-47f5-9f49-9439567e68b5" class=""><span style="white-space:pre">※사회교과: 역사/도덕 교과 포함.</span></p><p id="4c4ce3a9-e502-4e40-920c-5dd56a798aae" class=""><span style="white-space:pre">※공통과목: 국,수,영,한국사,통합사회,통합과학,과학탐구실험</span></p><h3 id="969a2fe4-be3a-4845-b9cc-253520d3fb04" class=""><span style="white-space:pre">공통과목:국,영,수,통사,통과,한국사</span></h3><h3 id="6bce344b-889d-492d-9ddd-fcc75aab7d4f" class=""><span style="white-space:pre">일반선택과목 및 진로과목(인문 ⦁ 사회계): 국,영,수,사회 교과 전 과목</span></h3><h3 id="1d78420f-da16-4784-aad0-228e02b1b743" class=""><span style="white-space:pre">일반선택과목 및 진로과목(자연계): 국,영,수,과학 교과 전 과목</span></h3><h3 id="d935fa32-f119-49c9-be56-0f30d61e4ac8" class=""><span style="white-space:pre">일반선택과목 및 진로과목(예 ⦁ 체능계): 국,영,수,사회,과학 교과 전 과목</span></h3><hr id="72b212a4-06fb-4264-b17a-7bb6f305da85"/><h2 id="e4555276-ea7c-4685-80b5-3a70b44cd05b" class=""><span style="white-space:pre">참고)</span></h2><p id="a65f69f9-3908-4eef-b419-d24b9fdee9eb" class=""><span style="white-space:pre">진로선택과목(등급,성취도,가중치)</span></p><table id="f5d13171-7aec-40a5-b1c3-b029817f65d0" class="simple-table"><tbody><tr id="156fb77e-c10a-4c47-ac9e-0f0ab1e8a963"><td id="ni:O" class=""><span style="white-space:pre">자연계</span></td><td id="Ho{:" class=""><span style="white-space:pre">인문 ⦁ 사회계 / 예 ⦁ 체능계</span></td><td id="C:V&lt;" class=""><span style="white-space:pre">진로선택과목 등급</span></td></tr><tr id="2d5e6390-b427-4558-8fd1-04ddf15dd2b6"><td id="ni:O" class=""><span style="white-space:pre">8점 이상</span></td><td id="Ho{:" class=""><span style="white-space:pre">5점 이상</span></td><td id="C:V&lt;" class=""><span style="white-space:pre">0.2</span></td></tr><tr id="f7f377f3-83e0-46f3-aadf-5d4568200519"><td id="ni:O" class=""><span style="white-space:pre">7점 이상 ~ 8점 미만</span></td><td id="Ho{:" class=""><span style="white-space:pre">4점 이상 ~ 5점 미만</span></td><td id="C:V&lt;" class=""><span style="white-space:pre">0.1</span></td></tr><tr id="382af4dc-0a5a-4a6c-b8e2-15b2c79c531a"><td id="ni:O" class=""><span style="white-space:pre">7점 미만</span></td><td id="Ho{:" class=""><span style="white-space:pre">7점 미만</span></td><td id="C:V&lt;" class=""><span style="white-space:pre">0</span></td></tr></tbody></table><table id="11d59355-187a-42a4-a17e-e28168722445" class="simple-table"><tbody><tr id="a6431c21-1a03-4c7b-badb-5d1cd4f580d3"><td id="@gyH" class=""><span style="white-space:pre">성취도</span></td><td id="jRtJ" class=""><span style="white-space:pre">A</span></td><td id="N}Yx" class=""><span style="white-space:pre">B</span></td><td id="~Z@D" class=""><span style="white-space:pre">C</span></td></tr><tr id="81fa2278-3d54-40b6-9827-c60b4eac539e"><td id="@gyH" class=""></td><td id="jRtJ" class=""><span style="white-space:pre">2점</span></td><td id="N}Yx" class=""><span style="white-space:pre">1.5점</span></td><td id="~Z@D" class=""><span style="white-space:pre">1점</span></td></tr></tbody></table><table id="c65e343b-b7b8-47f6-af0d-95dc5f4939d1" class="simple-table"><tbody><tr id="db1b4863-cbf5-4c08-a9ab-19f310326756"><td id="iw]n" class=""><span style="white-space:pre">가중치</span></td><td id="tpLc" class=""><span style="white-space:pre">기하&amp;과학II과목</span></td><td id="XkSO" class=""><span style="white-space:pre">나머지</span></td></tr><tr id="a331b9d5-52a8-47e1-9020-95b719d84b46"><td id="iw]n" class=""></td><td id="tpLc" class=""><span style="white-space:pre">1.5</span></td><td id="XkSO" class=""><span style="white-space:pre">1</span></td></tr></tbody></table><p id="845d0209-b7f3-4a6d-8516-4237626e09e5" class=""><span style="white-space:pre">교과성적등급별 점수표</span></p><table id="0940ca5e-e5ce-4a70-9698-2d5cbfb5d918" class="simple-table"><tbody><tr id="055ac650-6bdf-414b-a411-87458a848144"><td id="llTF" class=""><span style="white-space:pre">1등급</span></td><td id="hIbO" class=""><span style="white-space:pre">2등급</span></td><td id="TGia" class=""><span style="white-space:pre">3등급</span></td><td id="ey_x" class=""><span style="white-space:pre">4등급</span></td><td id="xYQ:" class=""><span style="white-space:pre">5등급</span></td><td id="wEri" class=""><span style="white-space:pre">6등급</span></td><td id="WPOM" class=""><span style="white-space:pre">7등급</span></td><td id="~`&lt;:" class=""><span style="white-space:pre">8등급</span></td><td id="hIoD" class=""><span style="white-space:pre">9등급</span></td></tr><tr id="08b26f84-7486-4a1c-9553-99b3f3587e8b"><td id="llTF" class=""><span style="white-space:pre">900</span></td><td id="hIbO" class=""><span style="white-space:pre">895</span></td><td id="TGia" class=""><span style="white-space:pre">890</span></td><td id="ey_x" class=""><span style="white-space:pre">885</span></td><td id="xYQ:" class=""><span style="white-space:pre">880</span></td><td id="wEri" class=""><span style="white-space:pre">870</span></td><td id="WPOM" class=""><span style="white-space:pre">840</span></td><td id="~`&lt;:" class=""><span style="white-space:pre">815</span></td><td id="hIoD" class=""><span style="white-space:pre">790</span></td></tr></tbody></table><hr id="407320cc-bba8-42f3-83cc-07e57813aebb"/><p id="d1c4b0df-0e7f-40bf-94f1-217190d4c909" class="">
+</p><p id="82862726-985a-46ec-a92c-be8c080fec0d" class="">
+</p></div></article></body></html>
