@@ -18,19 +18,19 @@
     <meta property="og:description" content="수시로 가자!" />
 
     <!-- 웹앱 만들어주는 설정 + 사파리 홈 화면 추가 아이콘 태그 -->
-    <script src="/SuSi/js/sworker.js"></script>
+    <script src="js/sworker.js"></script>
     <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
     <meta
       name="theme-color"
       content="#6676b5"
       media="(prefers-color-scheme: dark)"
     />
-    <link rel="icon" href="/SuSi/etc/icon-512.png" />
-    <link rel="manifest" href="/SuSi/settings/manifest.webmanifest" />
+    <link rel="icon" href="etc/icon-512.png" />
+    <link rel="manifest" href="settings/manifest.webmanifest" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
-    <link rel="apple-touch-icon" href="/SuSi/etc/icon-512.png" />
+    <link rel="apple-touch-icon" href="etc/icon-512.png" />
 
     <!-- 폰트 태그 -->
     <link
@@ -571,13 +571,48 @@
           color: white;
         }
 
+        .popup {
+          width: 85vw;
+        }
+
+        .tabber .blob {
+          top: 0;
+          left: 21vw;
+          width: 15vw;
+          height: 100%;
+          border-radius: 4rem;
+        }
+
         .tabber .blob:before,
         .tabber .blob:after {
           height: 100%;
           height: 100%;
-          width: 90%;
+          width: 70%;
           transform: scale(1.05);
           animation-name: pulse;
+        }
+
+        @keyframes stretchy {
+          0% {
+            transform: translateX(0) scaleX(1);
+          }
+          50% {
+            transform: translateX(0) scaleX(2);
+          }
+          100% {
+            transform: translateX(13vw) scaleX(1);
+          }
+        }
+        @keyframes stretchyRev {
+          0% {
+            transform: translateX(13vw) scaleX(1);
+          }
+          50% {
+            transform: translateX(0) scaleX(2);
+          }
+          100% {
+            transform: translateX(0) scaleX(1);
+          }
         }
 
         @keyframes pulse {
@@ -588,6 +623,107 @@
           25%,
           75% {
             transform: scaleX(1.2);
+          }
+        }
+
+        #back {
+          display: block;
+          z-index: -1;
+        }
+        #back > img {
+          width: 100vw;
+          height: 84%;
+          object-fit: cover;
+          display: block;
+          position: absolute;
+          top: 15vh;
+        }
+
+        #text {
+          font-weight: bold;
+          font-size: 47.5vw;
+          top: 10%;
+          position: relative;
+          color: #a1afea;
+        }
+
+        .goo {
+          filter: url(#goo);
+        }
+
+        .drop {
+          opacity: 0;
+          width: 6vw;
+          height: 7vh;
+          background: #6676b5;
+          border-radius: 1000px;
+          position: absolute;
+          animation: drip 7s infinite;
+          border-top: none;
+          top: -12vh;
+          left: 2%;
+        }
+        .drop:nth-child(2) {
+          left: 23%;
+          animation-delay: 2.8s;
+        }
+        .drop:nth-child(3) {
+          left: 42%;
+          animation: drip1 7s infinite;
+          animation-delay: 1.4s;
+        }
+        .drop:nth-child(4) {
+          left: 61%;
+          animation-delay: 3.5s;
+        }
+        .drop:nth-child(5) {
+          left: 80%;
+          animation-delay: 2.1s;
+        }
+        .drop:nth-child(6) {
+          left: 94%;
+          animation-delay: 0.7s;
+        }
+
+        @keyframes drip {
+          0% {
+            opacity: 0;
+            transform: translateY(0);
+          }
+          15% {
+            opacity: 1;
+            transform: translateY(30px);
+          }
+          45% {
+            opacity: 0.8;
+            transform: translateY(22vh);
+          }
+          75% {
+            opacity: 0.8;
+            transform: translateY(45vh);
+          }
+          100% {
+            opacity: 0.4;
+            transform: translateY(88vh);
+          }
+        }
+
+        @keyframes drip1 {
+          0% {
+            opacity: 0;
+            transform: translateY(0);
+          }
+          15% {
+            opacity: 1;
+            transform: translateY(50px);
+          }
+          55% {
+            opacity: 0.8;
+            transform: translateY(45vh);
+          }
+          100% {
+            opacity: 0.4;
+            transform: translateY(88vh);
           }
         }
 
@@ -625,41 +761,9 @@
           margin: 0 auto;
         }
 
-        #back {
-          width: 100vw;
-          height: 82vh;
-          object-fit: cover;
-          display: block;
-        }
-
         .background {
           display: flex;
-          align-items: top;
           justify-content: center;
-        }
-
-        .backdrop {
-          width: 83%;
-          height: 30%;
-          text-align: center;
-          background-color: rgba(78, 78, 78, 0.05);
-          border-radius: 30px;
-          backdrop-filter: blur(20px);
-          box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
-          position: absolute;
-          top: 20%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 3rem;
-          z-index: -1;
-        }
-
-        .backdrop span {
-          z-index: -1;
-          display: block;
-          animation: flip 4.7s infinite;
-          animation-delay: calc(0.3s * var(--x));
         }
 
         /* 글자 애니메이션 */
@@ -713,6 +817,46 @@
         }
       }
 
+      @media screen and (max-width: 500px) {
+        .tabber .blob {
+          left: 17vw;
+          width: 15vw;
+          height: 100%;
+        }
+
+        .tabber .blob:before,
+        .tabber .blob:after {
+          height: 100%;
+          height: 100%;
+          width: 70%;
+          transform: scale(1.05);
+          animation-name: pulse;
+        }
+
+        @keyframes stretchy {
+          0% {
+            transform: translateX(0) scaleX(1);
+          }
+          50% {
+            transform: translateX(0) scaleX(2);
+          }
+          100% {
+            transform: translateX(17vw) scaleX(1);
+          }
+        }
+        @keyframes stretchyRev {
+          0% {
+            transform: translateX(17vw) scaleX(1);
+          }
+          50% {
+            transform: translateX(0) scaleX(2);
+          }
+          100% {
+            transform: translateX(0) scaleX(1);
+          }
+        }
+      }
+
       /* 여기부터는 사용자 테마가 다크모드일때 색 디자인 코드 */
       @media (prefers-color-scheme: dark) {
         body {
@@ -724,11 +868,7 @@
         .icon {
           color: white;
         }
-        .backdrop {
-          color: white;
-          background-color: rgba(137, 137, 137, 0.05);
-          box-shadow: 2px 7px 15px 8px rgba(221, 221, 221, 0.203);
-        }
+
         section .box h2 {
           color: white;
         }
@@ -971,16 +1111,44 @@
         ></path>
       </svg>
     </div>
-    <img id="back" src="etc/indexrb.webp" />
+
     <!-- 768px이하인 페이지에 글자 -->
     <div class="background">
-      <div class="backdrop">
-        <span style="--x: 1">대</span><span style="--x: 2">학</span
-        ><span style="--x: 3">은</span><span style="--x: 4">?</span
-        ><span style="--x: 5">수</span><span style="--x: 6">시</span
-        ><span style="--x: 7">로</span><span style="--x: 8">!</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        viewBox="0 0 0 0"
+        width="0"
+        height="0"
+        style="display: none"
+      >
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              result="goo"
+            />
+          </filter>
+        </defs>
+      </svg>
+      <div class="goo">
+        <h1 id="text">SuSi</h1>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
       </div>
     </div>
+
+    <div id="back">
+      <img src="etc/indexrb.webp" alt="background" />
+    </div>
+
     <!-- 768px이상인 페이지에 글자 -->
     <section>
       <div class="box">
@@ -995,12 +1163,12 @@
       <i class="fa-solid fa-share"></i>
       <i style="display: none" class="fa-solid fa-xmark x2"></i>
     </div>
-    
+
     <img
       id="qrCode"
       src="etc/catqr.png"
-      style="display: none; width: 300px; height: 300px; border-radius:15px;"
-      loading=lazy
+      style="display: none; width: 300px; height: 300px; border-radius: 15px"
+      loading="lazy"
     />
     <script>
       //QR코드
@@ -1050,7 +1218,6 @@
         return window.innerWidth >= 900;
       }
 
-
       //계열 선택
       document.addEventListener("DOMContentLoaded", function () {
         const radioN = document.getElementById("t1");
@@ -1078,7 +1245,7 @@
         pos.style.setProperty("--x", e.clientX + "px");
         pos.style.setProperty("--y", e.clientY + "px");
       });
-      
+
       //팝업
       window.addEventListener("load", function () {
         setTimeout(function open(event) {
