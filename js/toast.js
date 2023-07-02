@@ -20,14 +20,14 @@ if (storedTime) {
   noti.innerText = seconds
     ? `${seconds}${
         timeDiff < 60000 ? "초" : timeDiff < 3600000 ? "분" : "시간"
-      } 만이네요 👋`
-    : "오랜만이에요 👋";
+      } 만이네요. 👋`
+    : "오랜만이에요. 👋";
 
   localStorage.setItem("접속시간", currentTime);
 } else {
   localStorage.setItem("접속시간", currentTime);
   notification.classList.remove("hidden");
-  noti.innerText = "만나서 반가워요 👋";
+  noti.innerText = "만나서 반가워요. 👋";
 }
 
 function getCurrentTime() {

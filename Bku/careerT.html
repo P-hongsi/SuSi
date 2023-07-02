@@ -1,920 +1,837 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <!-- 3D모델 자바스크립트 -->
-    <script src="/SuSi/js/import.js"></script>
-    <script type="module" src="/SuSi/js/3d.js"></script>
 
-    <!-- 이 사이트 링크를 보냈을때 미리보기 meta태그 -->
-    <meta property="og:url" content="https://p-hongsi.github.io/SuSi/" />
-    <meta property="og:title" content="수시" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/SuSi/etc/logol.png" />
-    <meta property="og:description" content="수시로 가자!" />
+<head>
+  <!-- 3D모델 자바스크립트 -->
+  <script src="/SuSi/js/import.js"></script>
+  <script type="module" src="/SuSi/js/3d.js"></script>
 
-    <!-- 웹앱 만들어주는 설정 + 사파리 홈 화면 추가 아이콘 태그 -->
-    <script src="/SuSi/js/sworker.js"></script>
-    <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
-    <meta
-      name="theme-color"
-      content="#6676b5"
-      media="(prefers-color-scheme: dark)"
-    />
-    <link rel="icon" href="/SuSi/etc/icon-512.png" />
-    <link rel="manifest" href="/SuSi/settings/manifest.webmanifest" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
-    <link rel="apple-touch-icon" href="/SuSi/etc/icon-512.png" />
+  <!-- 이 사이트 링크를 보냈을때 미리보기 meta태그 -->
+  <meta property="og:url" content="https://p-hongsi.github.io/SuSi/" />
+  <meta property="og:title" content="수시" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/SuSi/etc/logol.png" />
+  <meta property="og:description" content="수시로 가자!" />
 
-    <!-- 기본 설정 -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <meta name="description" content="Made By Juny" />
+  <!-- 웹앱 만들어주는 설정 + 사파리 홈 화면 추가 아이콘 태그 -->
+  <script src="/SuSi/js/sworker.js"></script>
+  <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
+  <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="/SuSi/etc/icon-512.png" />
+  <link rel="manifest" href="/SuSi/settings/manifest.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
+  <link rel="apple-touch-icon" href="/SuSi/etc/icon-512.png" />
 
-    <!-- 폰트 태그 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
-      rel="stylesheet"
-    />
+  <!-- 기본 설정 -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="description" content="Made By Juny" />
 
-    <!-- 창 제목 -->
-    <title>진로선택과목</title>
-    <style>
-      /* 디자인 */
-      * {
-        font-family: "Nanum Gothic", sans-serif;
+  <!-- 폰트 태그 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet" />
+
+  <!-- 창 제목 -->
+  <title>진로선택과목</title>
+  <style>
+    /* 디자인 */
+    * {
+      font-family: "Nanum Gothic", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .hover-link {
+      cursor: pointer;
+    }
+
+    img {
+      width: 42px;
+      height: 50px;
+    }
+
+    button {
+      background: linear-gradient(90deg,
+          rgba(255, 179, 11, 1) 13%,
+          rgba(255, 104, 93, 1) 50%,
+          rgba(243, 106, 62, 1) 82%);
+      border: 0;
+      border-radius: 8px;
+      box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+      box-sizing: border-box;
+      color: #ffffff;
+      display: flex;
+      font-family: Phantomsans, sans-serif;
+      font-size: 18px;
+      line-height: 1em;
+      max-width: 100%;
+      min-width: 140px;
+      padding: 3.5px;
+      text-decoration: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:active,
+    button:hover {
+      outline: 0;
+    }
+
+    button span {
+      background-color: rgb(5, 6, 45);
+      padding: 16px 24px;
+      border-radius: 6px;
+      width: 100%;
+      height: 100%;
+      transition: 300ms;
+    }
+
+    button:hover span {
+      background: none;
+    }
+
+    button:active {
+      transform: scale(0.9);
+    }
+
+    .gap {
+      margin-bottom: 2.7vh;
+    }
+
+    .gapl {
+      margin-right: 0.5vw;
+    }
+
+    .gapr {
+      margin-left: 0.5vw;
+    }
+
+    li {
+      list-style-type: none;
+      color: white;
+      text-align: center;
+    }
+
+    .progress-bar {
+      height: 0.5rem;
+      width: 0%;
+      position: fixed;
+      background: linear-gradient(90deg,
+          rgba(255, 179, 11, 1) 13%,
+          rgba(255, 104, 93, 1) 50%,
+          rgba(243, 106, 62, 1) 82%);
+    }
+
+    .btn {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+    }
+
+    li>span {
+      color: white;
+    }
+
+    input {
+      border: 0.1px solid #999;
+      width: 18vw;
+      height: 40px;
+      margin-top: 4px;
+      border-radius: 14px;
+      background-color: white;
+      text-align: center;
+    }
+
+    select {
+      height: 35px;
+      margin-bottom: 4px;
+      border: 0.1px solid #999;
+      background-color: white;
+      color: black;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .s {
+      position: relative;
+      margin-bottom: 8px;
+      left: -1vw;
+    }
+
+    #result {
+      font-size: 30px;
+      color: white;
+      margin-top: 2.5vh;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: black;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+    }
+
+    .navbar__logo {
+      font-size: 23px;
+      color: white;
+      width: 70px;
+    }
+
+    .navbar__menu {
+      display: flex;
+      list-style: none;
+      padding-left: 0px;
+    }
+
+    .navbar__menu li {
+      padding: 8px 12px;
+    }
+
+    .navbar__menu>li:hover {
+      border-radius: 10px;
+      animation: fade-out 0.7s ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    /* index페이지랑 똑같음 */
+    @keyframes fade-out {
+      0% {
+        background-color: rgba(226, 85, 20, 0.1);
       }
 
-      html {
-        scroll-behavior: smooth;
+      10% {
+        background-color: rgba(226, 85, 20, 0.2);
       }
 
-      .hidden {
+      20% {
+        background-color: rgba(226, 85, 20, 0.3);
+      }
+
+      30% {
+        background-color: rgba(226, 85, 20, 0.4);
+      }
+
+      40% {
+        background-color: rgba(226, 85, 20, 0.5);
+      }
+
+      50% {
+        background-color: rgba(226, 85, 20, 0.6);
+      }
+
+      60% {
+        background-color: rgba(226, 85, 20, 0.7);
+      }
+
+      70% {
+        background-color: rgba(226, 85, 20, 0.8);
+      }
+
+      80% {
+        background-color: rgba(226, 85, 20, 0.9);
+      }
+
+      90% {
+        background-color: rgba(226, 85, 20, 0.95);
+      }
+
+      100% {
+        background-color: rgb(226, 85, 20);
+      }
+    }
+
+    .navbar__icons li {
+      padding: 8px 12px;
+    }
+
+    .navbar__toogleBtn {
+      display: none;
+      position: absolute;
+      right: 32px;
+      font-size: 24px;
+      color: white;
+    }
+
+    /* index페이지랑 똑같음 */
+    @media screen and (max-width: 768px) {
+      .s {
+        position: relative;
+        right: 3vw;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 25vw;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+      }
+
+      .navbar__menu>li:hover {
+        width: 42vw;
+      }
+
+      .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .navbar__menu li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .navbar__toogleBtn {
+        display: block;
+      }
+
+      .navbar__menu.active,
+      .navbar__icons.active {
+        display: flex;
+      }
+
+      .navbar__toogleBtn>.fa-xmark {
         display: none;
       }
 
-      .hover-link {
-        cursor: pointer;
+      .navbar__toogleBtn.active>.fa-xmark {
+        display: block;
+        margin-top: 0.7vh;
       }
 
-      img {
-        width: 42px;
-        height: 50px;
+      .navbar__toogleBtn.active>.fa-bars {
+        display: none;
+      }
+
+      #result {
+        font-size: 23px;
+      }
+    }
+
+    /* index페이지랑 똑같음 */
+    @media (prefers-color-scheme: dark) {
+      select {
+        background-color: rgb(55, 55, 55);
+        color: rgb(231, 231, 231);
+        border: 0.1px solid #565656;
+      }
+
+      input {
+        background-color: rgb(55, 55, 55);
+        border: 0.1px solid #565656;
+        color: rgb(231, 231, 231);
       }
 
       button {
-        background: linear-gradient(
-          90deg,
-          rgba(255, 179, 11, 1) 13%,
-          rgba(255, 104, 93, 1) 50%,
-          rgba(243, 106, 62, 1) 82%
-        );
-        border: 0;
-        border-radius: 8px;
+        background: linear-gradient(90deg,
+            rgb(156, 174, 245) 3%,
+            rgb(70, 88, 157) 50%,
+            rgb(20, 38, 111) 82%);
         box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-        box-sizing: border-box;
-        color: #ffffff;
-        display: flex;
-        font-family: Phantomsans, sans-serif;
-        font-size: 18px;
-        line-height: 1em;
-        max-width: 100%;
-        min-width: 140px;
-        padding: 3.5px;
-        text-decoration: none;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        white-space: nowrap;
-        cursor: pointer;
-        transition: all 0.3s;
-      }
-
-      button:active,
-      button:hover {
-        outline: 0;
       }
 
       button span {
         background-color: rgb(5, 6, 45);
-        padding: 16px 24px;
-        border-radius: 6px;
-        width: 100%;
-        height: 100%;
-        transition: 300ms;
       }
 
-      button:hover span {
-        background: none;
+      #result {
+        color: rgb(231, 231, 231);
       }
 
-      button:active {
-        transform: scale(0.9);
-      }
-
-      .gap {
-        margin-bottom: 2.7vh;
-      }
-
-      .gapl {
-        margin-right: 0.5vw;
-      }
-
-      .gapr {
-        margin-left: 0.5vw;
-      }
-
-      li {
-        list-style-type: none;
-        color: white;
-        text-align: center;
+      li>span {
+        color: #ffffff;
       }
 
       .progress-bar {
         height: 0.5rem;
         width: 0%;
         position: fixed;
-        background: linear-gradient(
-          90deg,
-          rgba(255, 179, 11, 1) 13%,
-          rgba(255, 104, 93, 1) 50%,
-          rgba(243, 106, 62, 1) 82%
-        );
-      }
-
-      .btn {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-      }
-
-      li > span {
-        color: white;
-      }
-
-      input {
-        border: 0.1px solid #999;
-        width: 18vw;
-        height: 40px;
-        margin-top: 4px;
-        border-radius: 14px;
-        background-color: white;
-        text-align: center;
-      }
-
-      select {
-        height: 35px;
-        margin-bottom: 4px;
-        border: 0.1px solid #999;
-        background-color: white;
-        color: black;
-        border-radius: 14px;
-        text-align: center;
-      }
-
-      .s {
-        position: relative;
-        margin-bottom: 8px;
-        left: -1vw;
-      }
-
-      #result {
-        font-size: 30px;
-        color: white;
-        margin-top: 2.5vh;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        background: black;
-      }
-
-      a {
-        text-decoration: none;
-        color: white;
-      }
-
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 12px;
-      }
-
-      .navbar__logo {
-        font-size: 23px;
-        color: white;
-        width: 70px;
-      }
-
-      .navbar__menu {
-        display: flex;
-        list-style: none;
-        padding-left: 0px;
-      }
-
-      .navbar__menu li {
-        padding: 8px 12px;
-      }
-
-      .navbar__menu > li:hover {
-        border-radius: 10px;
-        animation: fade-out 0.7s ease-in-out;
-        animation-fill-mode: forwards;
+        background: linear-gradient(90deg,
+            rgb(156, 174, 245) 3%,
+            rgb(70, 88, 157) 50%,
+            rgb(20, 38, 111) 82%);
       }
 
       /* index페이지랑 똑같음 */
       @keyframes fade-out {
         0% {
-          background-color: rgba(226, 85, 20, 0.1);
+          background-color: rgba(18, 32, 96, 0.1);
         }
+
         10% {
-          background-color: rgba(226, 85, 20, 0.2);
+          background-color: rgba(18, 32, 96, 0.2);
         }
+
         20% {
-          background-color: rgba(226, 85, 20, 0.3);
+          background-color: rgba(18, 32, 96, 0.3);
         }
+
         30% {
-          background-color: rgba(226, 85, 20, 0.4);
+          background-color: rgba(18, 32, 96, 0.4);
         }
+
         40% {
-          background-color: rgba(226, 85, 20, 0.5);
+          background-color: rgba(18, 32, 96, 0.5);
         }
+
         50% {
-          background-color: rgba(226, 85, 20, 0.6);
+          background-color: rgba(18, 32, 96, 0.6);
         }
+
         60% {
-          background-color: rgba(226, 85, 20, 0.7);
+          background-color: rgba(18, 32, 96, 0.7);
         }
+
         70% {
-          background-color: rgba(226, 85, 20, 0.8);
+          background-color: rgba(18, 32, 96, 0.8);
         }
+
         80% {
-          background-color: rgba(226, 85, 20, 0.9);
+          background-color: rgba(18, 32, 96, 0.9);
         }
+
         90% {
-          background-color: rgba(226, 85, 20, 0.95);
+          background-color: rgba(18, 32, 96, 0.95);
         }
+
         100% {
-          background-color: rgb(226, 85, 20);
+          background-color: rgb(18, 32, 96);
         }
       }
+    }
+  </style>
+</head>
+<!-- 우클릭 방지 -->
 
-      .navbar__icons li {
-        padding: 8px 12px;
-      }
-
-      .navbar__toogleBtn {
-        display: none;
-        position: absolute;
-        right: 32px;
-        font-size: 24px;
-        color: white;
-      }
-
-      /* index페이지랑 똑같음 */
-      @media screen and (max-width: 768px) {
-        .s {
-          position: relative;
-          right: 3vw;
-          margin-bottom: 10px;
-        }
-
-        input {
-          width: 25vw;
-        }
-
-        .navbar {
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 8px 24px;
-        }
-
-        .navbar__menu > li:hover {
-          width: 42vw;
-        }
-
-        .navbar__menu {
-          display: none;
-          flex-direction: column;
-          align-items: center;
-          width: 100%;
-        }
-
-        .navbar__menu li {
-          width: 100%;
-          text-align: center;
-        }
-
-        .navbar__toogleBtn {
-          display: block;
-        }
-
-        .navbar__menu.active,
-        .navbar__icons.active {
-          display: flex;
-        }
-
-        .navbar__toogleBtn > .fa-xmark {
-          display: none;
-        }
-
-        .navbar__toogleBtn.active > .fa-xmark {
-          display: block;
-          margin-top: 0.7vh;
-        }
-
-        .navbar__toogleBtn.active > .fa-bars {
-          display: none;
-        }
-
-        #result {
-          font-size: 23px;
-        }
-      }
-      /* index페이지랑 똑같음 */
-      @media (prefers-color-scheme: dark) {
-        select {
-          background-color: rgb(55, 55, 55);
-          color: rgb(231, 231, 231);
-          border: 0.1px solid #565656;
-        }
-        input {
-          background-color: rgb(55, 55, 55);
-          border: 0.1px solid #565656;
-          color: rgb(231, 231, 231);
-        }
-        button {
-          background: linear-gradient(
-            90deg,
-            rgb(156, 174, 245) 3%,
-            rgb(70, 88, 157) 50%,
-            rgb(20, 38, 111) 82%
-          );
-          box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-        }
-        button span {
-          background-color: rgb(5, 6, 45);
-        }
-        #result {
-          color: rgb(231, 231, 231);
-        }
-        li > span {
-          color: #ffffff;
-        }
-        .progress-bar {
-          height: 0.5rem;
-          width: 0%;
-          position: fixed;
-          background: linear-gradient(
-            90deg,
-            rgb(156, 174, 245) 3%,
-            rgb(70, 88, 157) 50%,
-            rgb(20, 38, 111) 82%
-          );
-        }
-        /* index페이지랑 똑같음 */
-        @keyframes fade-out {
-          0% {
-            background-color: rgba(18, 32, 96, 0.1);
-          }
-          10% {
-            background-color: rgba(18, 32, 96, 0.2);
-          }
-          20% {
-            background-color: rgba(18, 32, 96, 0.3);
-          }
-          30% {
-            background-color: rgba(18, 32, 96, 0.4);
-          }
-          40% {
-            background-color: rgba(18, 32, 96, 0.5);
-          }
-          50% {
-            background-color: rgba(18, 32, 96, 0.6);
-          }
-          60% {
-            background-color: rgba(18, 32, 96, 0.7);
-          }
-          70% {
-            background-color: rgba(18, 32, 96, 0.8);
-          }
-          80% {
-            background-color: rgba(18, 32, 96, 0.9);
-          }
-          90% {
-            background-color: rgba(18, 32, 96, 0.95);
-          }
-          100% {
-            background-color: rgb(18, 32, 96);
-          }
-        }
-      }
-    </style>
-  </head>
-  <!-- 우클릭 방지 -->
-  <body oncontextmenu="return false">
-    <!-- 창 진행률 표시 -->
-    <div id="progress-bar" class="progress-bar"></div>
-    <nav class="navbar">
-      <div class="navbar__logo">
-        <!-- 홈화면 이동시에 데이터 삭제 -->
-        <a class="home" href="/SuSi" onclick="window.localStorage.clear()"
-          ><img src="/SuSi/etc/logow.png"
-        /></a>
-      </div>
-
-      <ul class="navbar__menu">
-        <li><a href="compareT.html">점수 비교</a></li>
-        <li><a href="commonT.html">공통 및 일반선택과목</a></li>
-        <li>
-          <a
-            href="careerT.html"
-            class="hover-link"
-            data-url="Career_bku.html"
-            href="#"
-            >진로선택과목</a
-          >
-        </li>
-      </ul>
-      <a class="navbar__toogleBtn" href="#">
-        <i class="fas fa-bars"></i>
-        <i class="fa-solid fa-xmark x1"></i>
-      </a>
-    </nav>
-
-    <!-- 각각 클릭했을때 showNextDiv() , hidePrevDiv() 함수 실행 -->
-    <div class="btn gap">
-      <button class="btn1 gapl" onclick="showNextDiv()">
-        <span class="text">Create</span>
-      </button>
-      <button class="btn1 gapr" onclick="hidePrevDiv()">
-        <span class="text">Remove</span>
-      </button>
+<body oncontextmenu="return false">
+  <!-- 창 진행률 표시 -->
+  <div id="progress-bar" class="progress-bar"></div>
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <!-- 홈화면 이동시에 데이터 삭제 -->
+      <a class="home" href="/SuSi" onclick="clearLocalStorage()"><img src="/SuSi/etc/logow.png" /></a>
     </div>
 
-    <!-- 선택창  -->
-    <div class="s div-item">
-      <ul>
-        <li style="display: block">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width: 100px" id="select">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목</span>
-              <select class="sub1" style="width: 100px" id="select">
-                <option>과학Ⅱ 및 기하</option>
-                <option>나머지</option>
-              </select>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label
-                ><input
-                  id="num1"
-                  value="4"
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
-              /></label>
-            </li>
-            <li>
-              <span>성취도</span>
-              <label>
-                <input
-                  id="num2"
-                  value="A"
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
-                />
-              </label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="s div-item">
-      <ul>
-        <li style="display: block">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width: 100px" id="select">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목</span>
-              <select class="sub2" style="width: 100px" id="select">
-                <option>과학Ⅱ 및 기하</option>
-                <option>나머지</option>
-              </select>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label
-                ><input
-                  id="num3"
-                  value="4"
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
-              /></label>
-            </li>
-            <li>
-              <span>성취도</span>
-              <label>
-                <input
-                  id="num4"
-                  value="A"
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
-                />
-              </label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="s hidden div-item">
-      <ul>
-        <li style="display: block">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width: 100px" id="select">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목</span>
-              <select class="sub3" style="width: 100px" id="select">
-                <option>과학Ⅱ 및 기하</option>
-                <option>나머지</option>
-              </select>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label
-                ><input
-                  id="num5"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
-              /></label>
-            </li>
-            <li>
-              <span>성취도</span>
-              <label>
-                <input
-                  id="num6"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
-                />
-              </label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="s hidden div-item">
-      <ul>
-        <li style="display: block">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width: 100px" id="select">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목</span>
-              <select class="sub4" style="width: 100px" id="select">
-                <option>과학Ⅱ 및 기하Ⅱ 및 기하</option>
-                <option>나머지</option>
-              </select>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label
-                ><input
-                  id="num7"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
-              /></label>
-            </li>
-            <li>
-              <span>성취도</span>
-              <label>
-                <input
-                  id="num8"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
-                />
-              </label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="s hidden div-item">
-      <ul>
-        <li style="display: block">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width: 100px" id="select">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목</span>
-              <select class="sub5" style="width: 100px" id="select">
-                <option>과학Ⅱ 및 기하</option>
-                <option>나머지</option>
-              </select>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label
-                ><input
-                  id="num9"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
-              /></label>
-            </li>
-            <li>
-              <span>성취도</span>
-              <label>
-                <input
-                  id="num10"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
-                />
-              </label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="s hidden div-item">
-      <ul>
-        <li style="display: block">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width: 100px" id="select">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목</span>
-              <select class="sub6" style="width: 100px" id="select">
-                <option>과학Ⅱ 및 기하</option>
-                <option>나머지</option>
-              </select>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label
-                ><input
-                  id="num11"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
-              /></label>
-            </li>
-            <li>
-              <span>성취도</span>
-              <label>
-                <input
-                  id="num12"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
-                />
-              </label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="s hidden div-item">
-      <ul>
-        <li style="display: block">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width: 100px" id="select">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목</span>
-              <select class="sub7" style="width: 100px" id="select">
-                <option>과학Ⅱ 및 기하</option>
-                <option>나머지</option>
-              </select>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label
-                ><input
-                  id="num13"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
-              /></label>
-            </li>
-            <li>
-              <span>성취도</span>
-              <label>
-                <input
-                  id="num14"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
-                />
-              </label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="s hidden div-item">
-      <ul>
-        <li style="display: block">
-          <ul>
-            <li>
-              <span>학년</span>
-              <select style="width: 100px" id="select">
-                <option value="">선택</option>
-                <option value="1">1학년</option>
-                <option value="2">2학년</option>
-                <option value="3">3학년</option>
-              </select>
-            </li>
-            <li>
-              <span>과목</span>
-              <select class="sub8" style="width: 100px" id="select">
-                <option>과학Ⅱ 및 기하</option>
-                <option>나머지</option>
-              </select>
-            </li>
-            <li>
-              <span>단위수</span>
-              <label
-                ><input
-                  id="num15"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^1-9]/g, '');"
-              /></label>
-            </li>
-            <li>
-              <span>성취도</span>
-              <label>
-                <input
-                  id="num16"
-                  value=""
-                  maxlength="1"
-                  type="text"
-                  oninput="this.value = this.value.replace(/[^a-c]/g, '');"
-                />
-              </label>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <!-- 클릭했을때 storeValue()라는 함수를 실행시키는 버튼 -->
-    <div class="btn">
-      <button class="btn1 gesture" onclick="storeValue()">
-        <span class="text">제출</span>
-      </button>
-    </div>
-    <!-- 저장된 값을 출력하는 p태그 -->
-    <div class="btn">
-      <p id="result"></p>
-    </div>
-    <script>
-      function storeValue() {
-        const A = 2;
-        const B = 1.5;
-        const C = 1;
+    <ul class="navbar__menu">
+      <li><a href="compareT.html">점수 비교</a></li>
+      <li><a href="commonT.html">공통 및 일반선택과목</a></li>
+      <li>
+        <a href="careerT.html" class="hover-link" data-url="Career_bku.html" href="#">진로선택과목</a>
+      </li>
+    </ul>
+    <a class="navbar__toogleBtn" href="#">
+      <i class="fas fa-bars"></i>
+      <i class="fa-solid fa-xmark x1"></i>
+    </a>
+  </nav>
 
-        const getValue = (num, grade, value) => {
-          if (num === "" || grade === "") {
-            return 0;
-          }
+  <!-- 각각 클릭했을때 showNextDiv() , hidePrevDiv() 함수 실행 -->
+  <div class="btn gap">
+    <button class="btn1 gapl" onclick="showNextDiv()">
+      <span class="text">Create</span>
+    </button>
+    <button class="btn1 gapr" onclick="hidePrevDiv()">
+      <span class="text">Remove</span>
+    </button>
+  </div>
 
-          const multiplier = value === "과학Ⅱ 및 기하" ? 1.5 : 1;
-          return Math.floor((num / 5) * A * multiplier * 100) / 100;
-        };
+  <!-- 선택창  -->
+  <div class="s div-item">
+    <ul>
+      <li style="display: block">
+        <ul>
+          <li>
+            <span>학년</span>
+            <select style="width: 100px" id="select">
+              <option value="">선택</option>
+              <option value="1">1학년</option>
+              <option value="2">2학년</option>
+              <option value="3">3학년</option>
+            </select>
+          </li>
+          <li>
+            <span>과목</span>
+            <select class="sub1" style="width: 100px" id="select">
+              <option>과학Ⅱ 및 기하</option>
+              <option>나머지</option>
+            </select>
+          </li>
+          <li>
+            <span>단위수</span>
+            <label><input id="num1" value="4" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^1-9]/g, '');" /></label>
+          </li>
+          <li>
+            <span>성취도</span>
+            <label>
+              <input id="num2" value="A" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^a-c]/g, '');" />
+            </label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="s div-item">
+    <ul>
+      <li style="display: block">
+        <ul>
+          <li>
+            <span>학년</span>
+            <select style="width: 100px" id="select">
+              <option value="">선택</option>
+              <option value="1">1학년</option>
+              <option value="2">2학년</option>
+              <option value="3">3학년</option>
+            </select>
+          </li>
+          <li>
+            <span>과목</span>
+            <select class="sub2" style="width: 100px" id="select">
+              <option>과학Ⅱ 및 기하</option>
+              <option>나머지</option>
+            </select>
+          </li>
+          <li>
+            <span>단위수</span>
+            <label><input id="num3" value="4" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^1-9]/g, '');" /></label>
+          </li>
+          <li>
+            <span>성취도</span>
+            <label>
+              <input id="num4" value="A" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^a-c]/g, '');" />
+            </label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="s hidden div-item">
+    <ul>
+      <li style="display: block">
+        <ul>
+          <li>
+            <span>학년</span>
+            <select style="width: 100px" id="select">
+              <option value="">선택</option>
+              <option value="1">1학년</option>
+              <option value="2">2학년</option>
+              <option value="3">3학년</option>
+            </select>
+          </li>
+          <li>
+            <span>과목</span>
+            <select class="sub3" style="width: 100px" id="select">
+              <option>과학Ⅱ 및 기하</option>
+              <option>나머지</option>
+            </select>
+          </li>
+          <li>
+            <span>단위수</span>
+            <label><input id="num5" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^1-9]/g, '');" /></label>
+          </li>
+          <li>
+            <span>성취도</span>
+            <label>
+              <input id="num6" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^a-c]/g, '');" />
+            </label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="s hidden div-item">
+    <ul>
+      <li style="display: block">
+        <ul>
+          <li>
+            <span>학년</span>
+            <select style="width: 100px" id="select">
+              <option value="">선택</option>
+              <option value="1">1학년</option>
+              <option value="2">2학년</option>
+              <option value="3">3학년</option>
+            </select>
+          </li>
+          <li>
+            <span>과목</span>
+            <select class="sub4" style="width: 100px" id="select">
+              <option>과학Ⅱ 및 기하Ⅱ 및 기하</option>
+              <option>나머지</option>
+            </select>
+          </li>
+          <li>
+            <span>단위수</span>
+            <label><input id="num7" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^1-9]/g, '');" /></label>
+          </li>
+          <li>
+            <span>성취도</span>
+            <label>
+              <input id="num8" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^a-c]/g, '');" />
+            </label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="s hidden div-item">
+    <ul>
+      <li style="display: block">
+        <ul>
+          <li>
+            <span>학년</span>
+            <select style="width: 100px" id="select">
+              <option value="">선택</option>
+              <option value="1">1학년</option>
+              <option value="2">2학년</option>
+              <option value="3">3학년</option>
+            </select>
+          </li>
+          <li>
+            <span>과목</span>
+            <select class="sub5" style="width: 100px" id="select">
+              <option>과학Ⅱ 및 기하</option>
+              <option>나머지</option>
+            </select>
+          </li>
+          <li>
+            <span>단위수</span>
+            <label><input id="num9" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^1-9]/g, '');" /></label>
+          </li>
+          <li>
+            <span>성취도</span>
+            <label>
+              <input id="num10" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^a-c]/g, '');" />
+            </label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="s hidden div-item">
+    <ul>
+      <li style="display: block">
+        <ul>
+          <li>
+            <span>학년</span>
+            <select style="width: 100px" id="select">
+              <option value="">선택</option>
+              <option value="1">1학년</option>
+              <option value="2">2학년</option>
+              <option value="3">3학년</option>
+            </select>
+          </li>
+          <li>
+            <span>과목</span>
+            <select class="sub6" style="width: 100px" id="select">
+              <option>과학Ⅱ 및 기하</option>
+              <option>나머지</option>
+            </select>
+          </li>
+          <li>
+            <span>단위수</span>
+            <label><input id="num11" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^1-9]/g, '');" /></label>
+          </li>
+          <li>
+            <span>성취도</span>
+            <label>
+              <input id="num12" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^a-c]/g, '');" />
+            </label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="s hidden div-item">
+    <ul>
+      <li style="display: block">
+        <ul>
+          <li>
+            <span>학년</span>
+            <select style="width: 100px" id="select">
+              <option value="">선택</option>
+              <option value="1">1학년</option>
+              <option value="2">2학년</option>
+              <option value="3">3학년</option>
+            </select>
+          </li>
+          <li>
+            <span>과목</span>
+            <select class="sub7" style="width: 100px" id="select">
+              <option>과학Ⅱ 및 기하</option>
+              <option>나머지</option>
+            </select>
+          </li>
+          <li>
+            <span>단위수</span>
+            <label><input id="num13" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^1-9]/g, '');" /></label>
+          </li>
+          <li>
+            <span>성취도</span>
+            <label>
+              <input id="num14" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^a-c]/g, '');" />
+            </label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="s hidden div-item">
+    <ul>
+      <li style="display: block">
+        <ul>
+          <li>
+            <span>학년</span>
+            <select style="width: 100px" id="select">
+              <option value="">선택</option>
+              <option value="1">1학년</option>
+              <option value="2">2학년</option>
+              <option value="3">3학년</option>
+            </select>
+          </li>
+          <li>
+            <span>과목</span>
+            <select class="sub8" style="width: 100px" id="select">
+              <option>과학Ⅱ 및 기하</option>
+              <option>나머지</option>
+            </select>
+          </li>
+          <li>
+            <span>단위수</span>
+            <label><input id="num15" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^1-9]/g, '');" /></label>
+          </li>
+          <li>
+            <span>성취도</span>
+            <label>
+              <input id="num16" value="" maxlength="1" type="text"
+                oninput="this.value = this.value.replace(/[^a-c]/g, '');" />
+            </label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- 클릭했을때 storeValue()라는 함수를 실행시키는 버튼 -->
+  <div class="btn">
+    <button class="btn1 gesture" onclick="storeValue()">
+      <span class="text">제출</span>
+    </button>
+  </div>
+  <!-- 저장된 값을 출력하는 p태그 -->
+  <div class="btn">
+    <p id="result"></p>
+  </div>
+  <script>
+    function storeValue() {
+      const A = 2;
+      const B = 1.5;
+      const C = 1;
 
-        const calculateResult = (num, grade, value) => {
-          const result = getValue(num, grade, value);
+      const getValue = (num, grade, value) => {
+        if (num === "" || grade === "") {
+          return 0;
+        }
 
-          if (result === 0) {
-            return result;
-          }
+        const multiplier = value === "과학Ⅱ 및 기하" ? 1.5 : 1;
+        return Math.floor((num / 5) * A * multiplier * 100) / 100;
+      };
 
-          const multiplier = grade === "b" ? B : grade === "c" ? C : 1;
-          return Math.floor(result * multiplier * 100) / 100;
-        };
+      const calculateResult = (num, grade, value) => {
+        const result = getValue(num, grade, value);
 
-        const values = [
-          { num: "num1", grade: "num2", value: ".sub1" },
-          { num: "num3", grade: "num4", value: ".sub2" },
-          { num: "num5", grade: "num6", value: ".sub3" },
-          { num: "num7", grade: "num8", value: ".sub4" },
-          { num: "num9", grade: "num10", value: ".sub5" },
-          { num: "num11", grade: "num12", value: ".sub6" },
-          { num: "num13", grade: "num14", value: ".sub7" },
-          { num: "num15", grade: "num16", value: ".sub8" },
-        ];
+        if (result === 0) {
+          return result;
+        }
 
-        let totalGrade = 0;
-        values.forEach((item) => {
-          const num = document.getElementById(item.num).value.toLowerCase();
-          const grade = document.getElementById(item.grade).value.toLowerCase();
-          const value = document.querySelector(item.value).value;
-          totalGrade += calculateResult(Number(num), grade, value);
-        });
+        const multiplier = grade === "b" ? B : grade === "c" ? C : 1;
+        return Math.floor(result * multiplier * 100) / 100;
+      };
 
-        console.log(totalGrade);
+      const values = [
+        { num: "num1", grade: "num2", value: ".sub1" },
+        { num: "num3", grade: "num4", value: ".sub2" },
+        { num: "num5", grade: "num6", value: ".sub3" },
+        { num: "num7", grade: "num8", value: ".sub4" },
+        { num: "num9", grade: "num10", value: ".sub5" },
+        { num: "num11", grade: "num12", value: ".sub6" },
+        { num: "num13", grade: "num14", value: ".sub7" },
+        { num: "num15", grade: "num16", value: ".sub8" },
+      ];
 
-        const careerGrade = totalGrade >= 8 ? 0.2 : totalGrade >= 7 ? 0.1 : 0;
+      let totalGrade = 0;
+      values.forEach((item) => {
+        const num = document.getElementById(item.num).value.toLowerCase();
+        const grade = document.getElementById(item.grade).value.toLowerCase();
+        const value = document.querySelector(item.value).value;
+        totalGrade += calculateResult(Number(num), grade, value);
+      });
 
-        window.localStorage.removeItem("career");
-        window.localStorage.setItem("career", careerGrade);
-        document.getElementById(
-          "result"
-        ).innerHTML = `진로선택과목은 ${window.localStorage.getItem(
-          "career"
-        )}등급입니다.`;
-      }
-    </script>
-    <script src="/SuSi/js/navbar.js"></script>
-    <script src="/SuSi/js/goto.js"></script>
-    <script src="/SuSi/js/create.js"></script>
-    <script src="/SuSi/js/gesture.js"></script>
-    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
-  </body>
+      console.log(totalGrade);
+
+      const careerGrade = totalGrade >= 8 ? 0.2 : totalGrade >= 7 ? 0.1 : 0;
+
+      window.localStorage.removeItem("career");
+      window.localStorage.setItem("career", careerGrade);
+      document.getElementById(
+        "result"
+      ).innerHTML = `진로선택과목은 ${window.localStorage.getItem(
+        "career"
+      )}등급입니다.`;
+    }
+  </script>
+  <script src="/SuSi/js/navbar.js"></script>
+  <script src="/SuSi/js/goto.js"></script>
+  <script src="/SuSi/js/create.js"></script>
+  <script src="/SuSi/js/gesture.js"></script>
+  <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+</body>
+
 </html>

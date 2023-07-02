@@ -1,164 +1,276 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <!-- 3D모델 자바스크립트 -->
-    <script src="/SuSi/js/import.js"></script>
-    <script type="module" src="/SuSi/js/3d.js"></script>
-    
-    <!-- 이 사이트 링크를 보냈을때 미리보기 meta태그 -->
-    <meta property="og:url" content="https://p-hongsi.github.io/SuSi/" />
-    <meta property="og:title" content="수시" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/SuSi/etc/logol.png" />
-    <meta property="og:description" content="수시로 가자!" />
 
-    <!-- 웹앱 만들어주는 설정 + 사파리 홈 화면 추가 아이콘 태그 -->
-    <script src="/SuSi/js/sworker.js"></script>
-    <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
-    <meta
-      name="theme-color"
-      content="#6676b5"
-      media="(prefers-color-scheme: dark)"
-    />
-    <link rel="icon" href="/SuSi/etc/icon-512.png" />
-    <link rel="manifest" href="/SuSi/settings/manifest.webmanifest" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
-    <link rel="apple-touch-icon" href="/SuSi/etc/icon-512.png" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Made By Juny" />
+<head>
+  <!-- 3D모델 자바스크립트 -->
+  <script src="/SuSi/js/import.js"></script>
+  <script type="module" src="/SuSi/js/3d.js"></script>
 
-    <!-- 폰트 태그 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
-      rel="stylesheet"
-    />
+  <!-- 이 사이트 링크를 보냈을때 미리보기 meta태그 -->
+  <meta property="og:url" content="https://p-hongsi.github.io/SuSi/" />
+  <meta property="og:title" content="수시" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/SuSi/etc/logol.png" />
+  <meta property="og:description" content="수시로 가자!" />
 
-    <!-- 창 제목 -->
-    <title>점수비교</title>
+  <!-- 웹앱 만들어주는 설정 + 사파리 홈 화면 추가 아이콘 태그 -->
+  <script src="/SuSi/js/sworker.js"></script>
+  <link rel="canonical" href="https://p-hongsi.github.io/SuSi/" />
+  <meta name="theme-color" content="#6676b5" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="/SuSi/etc/icon-512.png" />
+  <link rel="manifest" href="/SuSi/settings/manifest.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="ㅅㅅ" />
+  <link rel="apple-touch-icon" href="/SuSi/etc/icon-512.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Made By Juny" />
 
-    <style>
-      /* index페이지랑 같음 */
-      img {
-        width: 42px;
-        height: 50px;
-      }
+  <!-- 폰트 태그 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet" />
 
-      .hover-link {
-        cursor: pointer;
-      }
+  <!-- 창 제목 -->
+  <title>점수비교</title>
 
-      button {
-        background: linear-gradient(
-          90deg,
+  <style>
+    /* index페이지랑 같음 */
+    img {
+      width: 42px;
+      height: 50px;
+    }
+
+    .hover-link {
+      cursor: pointer;
+    }
+
+    button {
+      background: linear-gradient(90deg,
           rgba(255, 179, 11, 1) 13%,
           rgba(255, 104, 93, 1) 50%,
-          rgba(243, 106, 62, 1) 82%
-        );
-        border: 0;
-        border-radius: 8px;
-        box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-        box-sizing: border-box;
-        color: #ffffff;
-        display: flex;
-        font-family: Phantomsans, sans-serif;
-        font-size: 18px;
-        line-height: 1em;
-        max-width: 100%;
-        min-width: 140px;
-        padding: 3px;
-        text-decoration: none;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        white-space: nowrap;
-        cursor: pointer;
-        transition: all 0.3s;
+          rgba(243, 106, 62, 1) 82%);
+      border: 0;
+      border-radius: 8px;
+      box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+      box-sizing: border-box;
+      color: #ffffff;
+      display: flex;
+      font-family: Phantomsans, sans-serif;
+      font-size: 18px;
+      line-height: 1em;
+      max-width: 100%;
+      min-width: 140px;
+      padding: 3px;
+      text-decoration: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:active,
+    button:hover {
+      outline: 0;
+    }
+
+    button span {
+      background-color: rgb(5, 6, 45);
+      padding: 16px 24px;
+      border-radius: 6px;
+      width: 100%;
+      height: 100%;
+      transition: 300ms;
+    }
+
+    button:hover span {
+      background: none;
+    }
+
+    button:active {
+      transform: scale(0.9);
+    }
+
+    #compare-btn {
+      margin: 0 auto;
+    }
+
+    #result-container {
+      color: white;
+      text-align: center;
+      margin-top: 7vh;
+      font-size: 24px;
+      margin-bottom: 10vh;
+    }
+
+    #select-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5vh;
+    }
+
+    select {
+      height: 10vh;
+      border: 0.1px solid #999;
+      background-color: white;
+      color: black;
+      border-radius: 18px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      display: flex;
+      font-size: 15px;
+    }
+
+    th {
+      border: 0.1px solid rgb(5, 6, 45);
+      background-color: rgb(5, 6, 45);
+      color: white;
+      border-radius: 5px;
+    }
+
+    td {
+      border: 0.1px solid rgb(5, 6, 45);
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    tbody>tr {
+      color: white;
+      background: linear-gradient(90deg,
+          rgba(255, 179, 11, 1) 13%,
+          rgba(255, 104, 93, 1) 50%,
+          rgba(243, 106, 62, 1) 82%);
+    }
+
+    #table-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Nanum Gothic", sans-serif;
+    }
+
+    body {
+      background: white;
+      overflow: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+    }
+
+    .navbar__menu {
+      display: flex;
+      list-style: none;
+      padding-left: 0px;
+    }
+
+    .navbar__menu li {
+      padding: 8px 12px;
+    }
+
+    .navbar__logo {
+      font-size: 21px;
+    }
+
+    .navbar__menu>li:hover {
+      border-radius: 10px;
+      animation: fade-out 0.7s ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    /* index페이지랑 같음 */
+    @keyframes fade-out {
+      0% {
+        background-color: rgba(226, 85, 20, 0.1);
       }
 
-      button:active,
-      button:hover {
-        outline: 0;
+      10% {
+        background-color: rgba(226, 85, 20, 0.2);
       }
 
-      button span {
-        background-color: rgb(5, 6, 45);
-        padding: 16px 24px;
-        border-radius: 6px;
-        width: 100%;
-        height: 100%;
-        transition: 300ms;
+      20% {
+        background-color: rgba(226, 85, 20, 0.3);
       }
 
-      button:hover span {
-        background: none;
+      30% {
+        background-color: rgba(226, 85, 20, 0.4);
       }
 
-      button:active {
-        transform: scale(0.9);
+      40% {
+        background-color: rgba(226, 85, 20, 0.5);
       }
 
+      50% {
+        background-color: rgba(226, 85, 20, 0.6);
+      }
+
+      60% {
+        background-color: rgba(226, 85, 20, 0.7);
+      }
+
+      70% {
+        background-color: rgba(226, 85, 20, 0.8);
+      }
+
+      80% {
+        background-color: rgba(226, 85, 20, 0.9);
+      }
+
+      90% {
+        background-color: rgba(226, 85, 20, 0.95);
+      }
+
+      100% {
+        background-color: rgb(226, 85, 20);
+      }
+    }
+
+    .navbar__icons li {
+      padding: 8px 12px;
+    }
+
+    .navbar__toogleBtn {
+      display: none;
+      position: absolute;
+      right: 32px;
+      font-size: 24px;
+      color: white;
+    }
+
+    /* index페이지랑 같음 */
+    @media screen and (max-width: 768px) {
       #compare-btn {
-        margin: 0 auto;
+        margin-top: 0vh;
       }
 
       #result-container {
-        color: white;
-        text-align: center;
-        margin-top: 7vh;
-        font-size: 24px;
-        margin-bottom: 10vh;
+        margin-top: 8vh;
+        font-size: 20px;
+        margin-bottom: 5vh;
       }
 
       #select-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 5vh;
-      }
-
-      select {
-        height: 10vh;
-        border: 0.1px solid #999;
-        background-color: white;
-        color: black;
-        border-radius: 18px;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        display: flex;
-        font-size: 15px;
-      }
-
-      th {
-        border: 0.1px solid rgb(5, 6, 45);
-        background-color: rgb(5, 6, 45);
-        color: white;
-        border-radius: 5px;
-      }
-
-      td {
-        border: 0.1px solid rgb(5, 6, 45);
-        text-align: center;
-        border-radius: 5px;
-      }
-
-      tbody > tr {
-        color: white;
-        background: linear-gradient(
-          90deg,
-          rgba(255, 179, 11, 1) 13%,
-          rgba(255, 104, 93, 1) 50%,
-          rgba(243, 106, 62, 1) 82%
-        );
+        margin-top: 7vh;
       }
 
       #table-container {
@@ -167,553 +279,442 @@
         justify-content: center;
       }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Nanum Gothic", sans-serif;
+      .navbar__menu>li:hover {
+        width: 42vw;
       }
 
-      body {
-        background: white;
-        overflow: hidden;
-      }
-
-      a {
-        text-decoration: none;
-        color: white;
+      select {
+        width: 60vw;
+        height: 15vw;
+        border-radius: 25px;
+        font-size: 15px;
       }
 
       .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
       }
 
       .navbar__menu {
-        display: flex;
-        list-style: none;
-        padding-left: 0px;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
       }
 
       .navbar__menu li {
-        padding: 8px 12px;
+        width: 100%;
+        text-align: center;
       }
 
-      .navbar__logo {
-        font-size: 21px;
+      .navbar__toogleBtn {
+        display: block;
       }
 
-      .navbar__menu > li:hover {
-        border-radius: 10px;
-        animation: fade-out 0.7s ease-in-out;
-        animation-fill-mode: forwards;
+      .navbar__menu.active,
+      .navbar__icons.active {
+        display: flex;
+      }
+
+      .navbar__toogleBtn>.fa-xmark {
+        display: none;
+      }
+
+      .navbar__toogleBtn.active>.fa-xmark {
+        display: block;
+        margin-top: 0.7vh;
+      }
+
+      .navbar__toogleBtn.active>.fa-bars {
+        display: none;
+      }
+    }
+
+    /* index페이지랑 같음 */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: rgb(40, 40, 40);
+      }
+
+      select {
+        background-color: rgb(55, 55, 55);
+        color: rgb(231, 231, 231);
+        border: 0.1px solid #565656;
+      }
+
+      tbody>tr {
+        color: rgb(231, 231, 231);
+        background: linear-gradient(90deg,
+            rgb(156, 174, 245) 3%,
+            rgb(70, 88, 157) 50%,
+            rgb(20, 38, 111) 82%);
+      }
+
+      th {
+        border: 0.1px solid rgb(55, 55, 55);
+        background-color: rgb(55, 55, 55);
+        color: rgb(231, 231, 231);
+      }
+
+      td {
+        border: 0.1px solid rgb(55, 55, 55);
+      }
+
+      button {
+        background: linear-gradient(90deg,
+            rgb(156, 174, 245) 3%,
+            rgb(70, 88, 157) 50%,
+            rgb(20, 38, 111) 82%);
+        box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+      }
+
+      button span {
+        background-color: rgb(5, 6, 45);
+      }
+
+      #result-container {
+        color: rgb(231, 231, 231);
       }
 
       /* index페이지랑 같음 */
       @keyframes fade-out {
         0% {
-          background-color: rgba(226, 85, 20, 0.1);
+          background-color: rgba(18, 32, 96, 0.1);
         }
+
         10% {
-          background-color: rgba(226, 85, 20, 0.2);
+          background-color: rgba(18, 32, 96, 0.2);
         }
+
         20% {
-          background-color: rgba(226, 85, 20, 0.3);
+          background-color: rgba(18, 32, 96, 0.3);
         }
+
         30% {
-          background-color: rgba(226, 85, 20, 0.4);
+          background-color: rgba(18, 32, 96, 0.4);
         }
+
         40% {
-          background-color: rgba(226, 85, 20, 0.5);
+          background-color: rgba(18, 32, 96, 0.5);
         }
+
         50% {
-          background-color: rgba(226, 85, 20, 0.6);
+          background-color: rgba(18, 32, 96, 0.6);
         }
+
         60% {
-          background-color: rgba(226, 85, 20, 0.7);
+          background-color: rgba(18, 32, 96, 0.7);
         }
+
         70% {
-          background-color: rgba(226, 85, 20, 0.8);
+          background-color: rgba(18, 32, 96, 0.8);
         }
+
         80% {
-          background-color: rgba(226, 85, 20, 0.9);
+          background-color: rgba(18, 32, 96, 0.9);
         }
+
         90% {
-          background-color: rgba(226, 85, 20, 0.95);
+          background-color: rgba(18, 32, 96, 0.95);
         }
+
         100% {
-          background-color: rgb(226, 85, 20);
+          background-color: rgb(18, 32, 96);
         }
       }
+    }
+  </style>
+</head>
+<!-- index페이지랑 같음 -->
 
-      .navbar__icons li {
-        padding: 8px 12px;
-      }
-
-      .navbar__toogleBtn {
-        display: none;
-        position: absolute;
-        right: 32px;
-        font-size: 24px;
-        color: white;
-      }
-
-      /* index페이지랑 같음 */
-      @media screen and (max-width: 768px) {
-        #compare-btn {
-          margin-top: 0vh;
-        }
-
-        #result-container {
-          margin-top: 8vh;
-          font-size: 20px;
-          margin-bottom: 5vh;
-        }
-
-        #select-container {
-          margin-top: 7vh;
-        }
-
-        #table-container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .navbar__menu > li:hover {
-          width: 42vw;
-        }
-
-        select {
-          width: 60vw;
-          height: 15vw;
-          border-radius: 25px;
-          font-size: 15px;
-        }
-
-        .navbar {
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 8px 24px;
-        }
-
-        .navbar__menu {
-          display: none;
-          flex-direction: column;
-          align-items: center;
-          width: 100%;
-        }
-
-        .navbar__menu li {
-          width: 100%;
-          text-align: center;
-        }
-
-        .navbar__toogleBtn {
-          display: block;
-        }
-
-        .navbar__menu.active,
-        .navbar__icons.active {
-          display: flex;
-        }
-
-        .navbar__toogleBtn > .fa-xmark {
-          display: none;
-        }
-
-        .navbar__toogleBtn.active > .fa-xmark {
-          display: block;
-          margin-top: 0.7vh;
-        }
-
-        .navbar__toogleBtn.active > .fa-bars {
-          display: none;
-        }
-      }
-
-      /* index페이지랑 같음 */
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: rgb(40, 40, 40);
-        }
-        select {
-          background-color: rgb(55, 55, 55);
-          color: rgb(231, 231, 231);
-          border: 0.1px solid #565656;
-        }
-        tbody > tr {
-          color: rgb(231, 231, 231);
-          background: linear-gradient(
-            90deg,
-            rgb(156, 174, 245) 3%,
-            rgb(70, 88, 157) 50%,
-            rgb(20, 38, 111) 82%
-          );
-        }
-        th {
-          border: 0.1px solid rgb(55, 55, 55);
-          background-color: rgb(55, 55, 55);
-          color: rgb(231, 231, 231);
-        }
-        td {
-          border: 0.1px solid rgb(55, 55, 55);
-        }
-        button {
-          background: linear-gradient(
-            90deg,
-            rgb(156, 174, 245) 3%,
-            rgb(70, 88, 157) 50%,
-            rgb(20, 38, 111) 82%
-          );
-          box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-        }
-        button span {
-          background-color: rgb(5, 6, 45);
-        }
-        #result-container {
-          color: rgb(231, 231, 231);
-        }
-        /* index페이지랑 같음 */
-        @keyframes fade-out {
-          0% {
-            background-color: rgba(18, 32, 96, 0.1);
-          }
-          10% {
-            background-color: rgba(18, 32, 96, 0.2);
-          }
-          20% {
-            background-color: rgba(18, 32, 96, 0.3);
-          }
-          30% {
-            background-color: rgba(18, 32, 96, 0.4);
-          }
-          40% {
-            background-color: rgba(18, 32, 96, 0.5);
-          }
-          50% {
-            background-color: rgba(18, 32, 96, 0.6);
-          }
-          60% {
-            background-color: rgba(18, 32, 96, 0.7);
-          }
-          70% {
-            background-color: rgba(18, 32, 96, 0.8);
-          }
-          80% {
-            background-color: rgba(18, 32, 96, 0.9);
-          }
-          90% {
-            background-color: rgba(18, 32, 96, 0.95);
-          }
-          100% {
-            background-color: rgb(18, 32, 96);
-          }
-        }
-      }
-    </style>
-  </head>
-  <!-- index페이지랑 같음 -->
-  <body oncontextmenu="return false">
-    <nav class="navbar">
-      <div class="navbar__logo">
-        <a
-          id="f"
-          class="home"
-          href="/SuSi"
-          onclick="window.localStorage.clear()"
-          ><img src="/SuSi/etc/logow.png"
-        /></a>
-      </div>
-
-      <ul class="navbar__menu">
-        <li>
-          <a
-            href="compareT.html"
-            class="hover-link"
-            data-url="Compare_bku.html"
-            href="#"
-            >점수 비교</a
-          >
-        </li>
-        <li><a href="commonT.html">공통 및 일반선택과목</a></li>
-        <li><a href="careerT.html">진로선택과목</a></li>
-      </ul>
-      <a class="navbar__toogleBtn" href="#">
-        <i class="fas fa-bars"></i>
-        <i class="fa-solid fa-xmark x1"></i>
-      </a>
-    </nav>
-    <!-- 대학.csv파일에서 불러온 대학목록 -->
-    <div id="select-container">
-      <select id="word-select">
-        <option value="0">글로벌자율전공학부(인문·사회계)</option>
-        <option value="1">글로벌자율전공학부(자연계)</option>
-        <option value="2">국어국문학과</option>
-        <option value="3">영어영문학부(영어영문학전공·미국학전공)</option>
-        <option value="4">일어일문학부(일본어문학전공·일본학전공)</option>
-        <option value="5">사학과</option>
-        <option value="6">경제학과</option>
-        <option value="7">법학과</option>
-        <option value="8">행정복지학부(행정학전공·사회복지학전공)</option>
-        <option value="9">국제지역학부(국제학전공·국제개발협력학전공)</option>
-        <option value="10">중국학과</option>
-        <option value="11">정치외교학과</option>
-        <option value="12">유아교육과</option>
-        <option value="13">패션디자인학과</option>
-        <option value="14">사회계열(법학과·중국학과·정치외교학과)</option>
-        <option value="15">응용수학과</option>
-        <option value="16">물리학과</option>
-        <option value="17">화학과</option>
-        <option value="18">미생물학과</option>
-        <option value="19">간호학과</option>
-        <option value="20">과학컴퓨팅학과</option>
-        <option value="21">
-          경영학부(경영학전공·회계·재무학전공·관광경영학전공)
-        </option>
-        <option value="22">
-          국제통상학부(국제통상학전공·국제무역물류학전공·국제경영학전공)
-        </option>
-        <option value="23">
-          전기공학부(전기공학전공·제어계측공학전공·디스플레이반도체공학전공)
-        </option>
-        <option value="24">기계공학부(기계공학전공·기계설계공학전공)</option>
-        <option value="25">
-          에너지수송시스템공학부(냉동공조공학전공·기계시스템공학전공·조선해양시스템공학전공)
-        </option>
-        <option value="26">화학공학과</option>
-        <option value="27">
-          공업화학·고분자공학부(공업화학전공·고분자공학전공)
-        </option>
-        <option value="28">나노융합공학과</option>
-        <option value="29">
-          시스템경영·안전공학부(산업경영공학전공·기술·데이터공학전공·안전공학전공)
-        </option>
-        <option value="30">소방공학과</option>
-        <option value="31">
-          융합소재공학부(금속공학전공·재료공학전공·신소재시스템공학전공)
-        </option>
-        <option value="32">건축공학과</option>
-        <option value="33">지속가능공학부(토목공학전공)</option>
-        <option value="34">지속가능공학부(생태공학전공)</option>
-        <option value="35">식품과학부(식품공학전공·식품영양학전공)</option>
-        <option value="36">생물공학과</option>
-        <option value="37">
-          해양생산시스템관리학부(해양생산학전공·해양경찰학전공)
-        </option>
-        <option value="38">
-          수산생명과학부(양식응용생명과학전공·자원생물학전공)
-        </option>
-        <option value="39">수산생명의학과</option>
-        <option value="40">
-          수해양산업교육과(기관공학전공·냉동공학전공·식품공학전공·양식공학전공·어업공학전공·항해공학전공)
-        </option>
-        <option value="41">
-          해양수산경영경제학부(해양수산경영학전공·자원환경경제학전공)
-        </option>
-        <option value="42">지구환경시스템과학부(환경공학전공)</option>
-        <option value="43">지구환경시스템과학부(해양학전공)</option>
-        <option value="44">지구환경시스템과학부(환경지질과학전공)</option>
-        <option value="45">지구환경시스템과학부(환경대기과학전공)</option>
-        <option value="46">지구환경시스템과학부(공간정보시스템공학전공)</option>
-        <option value="47">해양공학과</option>
-        <option value="48">에너지자원공학과</option>
-        <option value="49">
-          데이터정보과학부(빅데이터융합전공·통계·데이터사이언스전공)
-        </option>
-        <option value="50">
-          미디어커뮤니케이션학부(언론정보전공·휴먼ICT융합전공)
-        </option>
-        <option value="51">스마트헬스케어학부(의공학전공)</option>
-        <option value="52">스마트헬스케어학부(휴먼바이오융합전공)</option>
-        <option value="53">
-          전자정보통신공학부(전자공학전공·정보통신공학전공)
-        </option>
-        <option value="54">조형학부(건축학전공)</option>
-        <option value="55">
-          컴퓨터·인공지능공학부(컴퓨터공학전공·인공지능전공)
-        </option>
-      </select>
-    </div>
-    <br /><br /><br /><br /><br />
-
-    <!-- 비교 버튼 -->
-    <div class="parent">
-      <button class="gesture" id="compare-btn">
-        <span class="text">비교</span>
-      </button>
+<body oncontextmenu="return false">
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <a id="f" class="home" href="/SuSi" onclick="clearLocalStorage()"><img src="/SuSi/etc/logow.png" /></a>
     </div>
 
-    <!-- 결과칸 -->
-    <div id="result-container"></div>
+    <ul class="navbar__menu">
+      <li>
+        <a href="compareT.html" class="hover-link" data-url="Compare_bku.html" href="#">점수 비교</a>
+      </li>
+      <li><a href="commonT.html">공통 및 일반선택과목</a></li>
+      <li><a href="careerT.html">진로선택과목</a></li>
+    </ul>
+    <a class="navbar__toogleBtn" href="#">
+      <i class="fas fa-bars"></i>
+      <i class="fa-solid fa-xmark x1"></i>
+    </a>
+  </nav>
+  <!-- 대학.csv파일에서 불러온 대학목록 -->
+  <div id="select-container">
+    <select id="word-select">
+      <option value="0">글로벌자율전공학부(인문·사회계)</option>
+      <option value="1">글로벌자율전공학부(자연계)</option>
+      <option value="2">국어국문학과</option>
+      <option value="3">영어영문학부(영어영문학전공·미국학전공)</option>
+      <option value="4">일어일문학부(일본어문학전공·일본학전공)</option>
+      <option value="5">사학과</option>
+      <option value="6">경제학과</option>
+      <option value="7">법학과</option>
+      <option value="8">행정복지학부(행정학전공·사회복지학전공)</option>
+      <option value="9">국제지역학부(국제학전공·국제개발협력학전공)</option>
+      <option value="10">중국학과</option>
+      <option value="11">정치외교학과</option>
+      <option value="12">유아교육과</option>
+      <option value="13">패션디자인학과</option>
+      <option value="14">사회계열(법학과·중국학과·정치외교학과)</option>
+      <option value="15">응용수학과</option>
+      <option value="16">물리학과</option>
+      <option value="17">화학과</option>
+      <option value="18">미생물학과</option>
+      <option value="19">간호학과</option>
+      <option value="20">과학컴퓨팅학과</option>
+      <option value="21">
+        경영학부(경영학전공·회계·재무학전공·관광경영학전공)
+      </option>
+      <option value="22">
+        국제통상학부(국제통상학전공·국제무역물류학전공·국제경영학전공)
+      </option>
+      <option value="23">
+        전기공학부(전기공학전공·제어계측공학전공·디스플레이반도체공학전공)
+      </option>
+      <option value="24">기계공학부(기계공학전공·기계설계공학전공)</option>
+      <option value="25">
+        에너지수송시스템공학부(냉동공조공학전공·기계시스템공학전공·조선해양시스템공학전공)
+      </option>
+      <option value="26">화학공학과</option>
+      <option value="27">
+        공업화학·고분자공학부(공업화학전공·고분자공학전공)
+      </option>
+      <option value="28">나노융합공학과</option>
+      <option value="29">
+        시스템경영·안전공학부(산업경영공학전공·기술·데이터공학전공·안전공학전공)
+      </option>
+      <option value="30">소방공학과</option>
+      <option value="31">
+        융합소재공학부(금속공학전공·재료공학전공·신소재시스템공학전공)
+      </option>
+      <option value="32">건축공학과</option>
+      <option value="33">지속가능공학부(토목공학전공)</option>
+      <option value="34">지속가능공학부(생태공학전공)</option>
+      <option value="35">식품과학부(식품공학전공·식품영양학전공)</option>
+      <option value="36">생물공학과</option>
+      <option value="37">
+        해양생산시스템관리학부(해양생산학전공·해양경찰학전공)
+      </option>
+      <option value="38">
+        수산생명과학부(양식응용생명과학전공·자원생물학전공)
+      </option>
+      <option value="39">수산생명의학과</option>
+      <option value="40">
+        수해양산업교육과(기관공학전공·냉동공학전공·식품공학전공·양식공학전공·어업공학전공·항해공학전공)
+      </option>
+      <option value="41">
+        해양수산경영경제학부(해양수산경영학전공·자원환경경제학전공)
+      </option>
+      <option value="42">지구환경시스템과학부(환경공학전공)</option>
+      <option value="43">지구환경시스템과학부(해양학전공)</option>
+      <option value="44">지구환경시스템과학부(환경지질과학전공)</option>
+      <option value="45">지구환경시스템과학부(환경대기과학전공)</option>
+      <option value="46">지구환경시스템과학부(공간정보시스템공학전공)</option>
+      <option value="47">해양공학과</option>
+      <option value="48">에너지자원공학과</option>
+      <option value="49">
+        데이터정보과학부(빅데이터융합전공·통계·데이터사이언스전공)
+      </option>
+      <option value="50">
+        미디어커뮤니케이션학부(언론정보전공·휴먼ICT융합전공)
+      </option>
+      <option value="51">스마트헬스케어학부(의공학전공)</option>
+      <option value="52">스마트헬스케어학부(휴먼바이오융합전공)</option>
+      <option value="53">
+        전자정보통신공학부(전자공학전공·정보통신공학전공)
+      </option>
+      <option value="54">조형학부(건축학전공)</option>
+      <option value="55">
+        컴퓨터·인공지능공학부(컴퓨터공학전공·인공지능전공)
+      </option>
+    </select>
+  </div>
+  <br /><br /><br /><br /><br />
 
-    <!-- 표  -->
-    <div id="table-container">
-      <table id="word-table">
-        <thead>
-          <tr>
-            <th>모집인원</th>
-            <th>경쟁률</th>
-            <th>최종후보순위</th>
-            <th>최고환산점수</th>
-            <th>평균환산점수</th>
-            <th>80%환산점수</th>
-            <th>최고등급</th>
-            <th>평균등급</th>
-            <th>80%등급</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <script>
-      //저장된 점수값과 학과 점수 비교 코드
-      const rows = [
-        "글로벌자율전공학부(인문·사회계),12,85,7.08,19,2.21,2.73,2.74,2.95,993.9,991.31,991.27,990.21\r",
-        "글로벌자율전공학부(자연계),7,61,8.71,7,2.35,2.68,2.73,2.9,993.23,991.56,991.32,990.48\r",
-        "국어국문학과,11,108,9.82,17,2,2.72,3.05,3.26,991.78,988.62,989,987.4\r",
-        "영어영문학부(영어영문학전공·미국학전공),26,178,6.85,39,2,2.88,3.02,3.22,992.54,989.09,989.16,987.64\r",
-        "일어일문학부(일본어문학전공·일본학전공),27,228,8.44,31,2,3.07,3.19,3.43,991.9,987.55,987.4,985.6\r",
-        "사학과,11,559,50.82,25,2.25,3.07,3.1,3.34,992.12,988.14,987.75,986.51\r",
-        "경제학과,31,209,6.74,42,1.86,2.78,2.89,2.99,995.69,990.97,990.54,990\r",
-        "법학과,22,151,6.86,34,2,2.65,2.81,2.98,993.26,990.46,990.22,989.21\r",
-        "행정복지학부(행정학전공·사회복지학전공),26,167,6.42,41,2,2.65,2.68,2.93,994.44,991.11,991.04,989.93\r",
-        "국제지역학부(국제학전공·국제개발협력학전공),29,244,8.41,44,2,2.84,2.95,3.12,991.5,989.67,989.94,988.7\r",
-        "중국학과,8,72,9,14,2,3.23,3.45,3.59,990.63,986.15,985.49,984.09\r",
-        "정치외교학과,7,48,6.86,12,2.28,2.96,3.07,3.2,993.55,989.7,989.2,987.95\r",
-        "유아교육과,2,22,11,4,,,,,,,,\r",
-        "패션디자인학과,12,178,14.83,18,2,2.88,3.17,3.32,989.8,988.13,988.29,986.77\r",
-        "사회계열(법학과·중국학과·정치외교학과),16,419,26.19,27,2.25,3.1,3.15,3.27,990.35,988.22,988.02,987.2\r",
-        "응용수학과,14,59,4.21,15,2.45,3.66,3.69,4.19,992.72,983.08,983.05,978.07\r",
-        "물리학과,18,148,8.22,40,2.25,3.73,3.85,4,984.53,981.71,981.45,979.95\r",
-        "화학과,19,84,4.42,25,2,3.03,3.11,3.47,993.27,988.22,988.08,985.27\r",
-        "미생물학과,14,77,5.5,18,2,2.66,2.76,2.96,993.39,990.66,990.77,989.27\r",
-        "간호학과,20,184,9.2,56,1.46,2.47,2.57,2.75,994.88,992.39,992.13,991.22\r",
-        "과학컴퓨팅학과,9,92,10.22,6,3.16,3.36,3.33,3.49,988.35,986.33,986.62,985.02\r",
-        "경영학부(경영학전공·회계·재무학전공·관광경영학전공),62,371,5.98,104,1.44,2.48,2.56,2.85,994.91,991.57,991.86,989.77\r",
-        "국제통상학부(국제통상학전공·국제무역물류학전공·국제경영학전공),40,246,6.15,70,2,2.84,2.92,3.11,993.09,990.05,990.18,988.84\r",
-        "전기공학부(전기공학전공·제어계측공학전공·디스플레이반도체공학전공),82,348,4.24,95,1.86,2.88,2.84,3.28,994.68,989.63,990.38,987.08\r",
-        "기계공학부(기계공학전공·기계설계공학전공),73,342,4.68,127,2.09,2.93,3,3.15,994.54,989.75,989.76,987.85\r",
-        "에너지수송시스템공학부(냉동공조공학전공·기계시스템공학전공·조선해양시스템공학전공),55,217…,1.41,2.91,3.02,3.17,995.62,989.58,989.52,987.71\r",
-        "화학공학과,32,136,4.25,61,1.63,2.43,2.43,2.75,996.8,992.8,992.81,991.23\r",
-        "공업화학·고분자공학부(공업화학전공·고분자공학전공),43,172,4,53,2.41,3.17,3.21,3.43,992.94,987.77,987.8,985.61\r",
-        "나노융합공학과,26,273,10.5,54,2.93,3.27,3.33,3.39,990.3,987.18,986.67,986.07\r",
-        "시스템경영·안전공학부(산업경영공학전공·기술·데이터공학전공·안전공학전공),44,199,4.52,57,2,3.31,3.45,3.59,991.84,986.09,985.25,984.06\r",
-        "소방공학과,15,93,6.2,15,2.56,3.24,3.29,3.54,992.19,987.14,987.01,984.51\r",
-        "융합소재공학부(금속공학전공·재료공학전공·신소재시스템공학전공),63,260,4.13,81,2,3.2,3.23,3.6,994.1,986.92,987.2,982.88\r",
-        "건축공학과,16,92,5.75,22,2.36,3.07,3.06,3.29,993.15,988.79,989.34,987.05\r",
-        "지속가능공학부(토목공학전공),25,122,4.88,21,2,3.44,3.44,3.75,990.23,985.06,985.51,982.41\r",
-        "지속가능공학부(생태공학전공),12,161,13.42,14,2,3.39,3.51,3.67,989,985.07,984.85,983.23\r",
-        "식품과학부(식품공학전공·식품영양학전공),32,282,8.81,42,2.11,2.91,2.93,3.2,994.43,989.98,990.31,987.94\r",
-        "생물공학과,15,61,4.07,23,1.9,2.39,2.34,2.68,995.49,993.02,993.25,991.56\r",
-        "해양생산시스템관리학부(해양생산학전공·해양경찰학전공),34,214,6.29,42,2,3.53,3.77,3.84,991.76,983.5,982.27,981.54\r",
-        "수산생명과학부(양식응용생명과학전공·자원생물학전공),34,170,5,39,2,3.26,3.39,3.66,994.03,986.31,985.73,983.39\r",
-        "수산생명의학과,11,50,4.55,10,1.51,2.18,2,2.8,997.38,991.95,990.95,989\r",
-        "수해양산업교육과(기관공학전공·냉동공학전공·식품공학전공·양식공학전공·어업공학전공·항해공학전공),1,9,9,1,,,,,,,,\r",
-        "해양수산경영경제학부(해양수산경영학전공·자원환경경제학전공),33,230,6.97,42,2,3.2,3.35,3.44,990.38,987.2,986.49,985.53\r",
-        "지구환경시스템과학부(환경공학전공),17,75,4.41,8,2,3.2,3.24,3.59,992.69,987.08,987.53,984.08\r",
-        "지구환경시스템과학부(해양학전공),18,88,4.89,25,3.13,3.72,3.73,3.93,988.62,982.71,982.69,980.63\r",
-        "지구환경시스템과학부(환경지질과학전공),18,91,5.06,20,2.92,3.78,3.76,4.03,990.38,982.16,982.3,979.63\r",
-        "지구환경시스템과학부(환경대기과학전공),18,80,4.44,19,2,2.97,3.09,3.23,991.7,988.87,988.49,987.6\r",
-        "지구환경시스템과학부(공간정보시스템공학전공),17,86,5.06,15,3.34,3.57,3.53,3.7,986.59,984.23,984.68,982.99\r",
-        "해양공학과,18,101,5.61,16,2,3.26,3.46,3.63,992.02,985.97,985.35,983.69\r",
-        "에너지자원공학과,12,98,8.17,15,3.13,3.31,3.32,3.36,988.64,986.86,986.78,986.38\r",
-        "데이터정보과학부(빅데이터융합전공·통계·데이터사이언스전공),23,169,7.35,40,2,2.79,2.9,3.07,994.25,990.34,989.93,989.02\r",
-        "미디어커뮤니케이션학부(언론정보전공·휴먼ICT융합전공),23,162,7.04,31,1.71,2.58,2.7,2.88,994.65,991.31,991.32,990.2\r",
-        "스마트헬스케어학부(의공학전공),18,71,3.94,14,2,3.28,3.28,4.01,994.49,985.49,987.14,979.81\r",
-        "스마트헬스케어학부(휴먼바이오융합전공),10,49,4.9,9,2.98,3.32,3.35,3.43,990.05,986.72,986.5,985.69\r",
-        "전자정보통신공학부(전자공학전공·정보통신공학전공),57,225,3.95,95,1.26,2.86,2.82,3.35,994.28,989.59,990.66,986.44\r",
-        "조형학부(건축학전공),20,128,6.4,26,1.61,2.65,2.75,3.13,992.66,990.1,990.66,988.67\r",
-        "컴퓨터·인공지능공학부(컴퓨터공학전공·인공지능전공),53,340,6.42,70,1.75,2.51,2.53,2.76,996.24,992.44,992.31,991.17",
-      ];
-      document
-        .getElementById("compare-btn")
-        .addEventListener("click", function () {
-          var rowIndex = document.getElementById("word-select").value;
-          var cells = rows[rowIndex].split(",");
-          const inputVal1 = Number(window.localStorage.getItem("common"));
-          const inputVal2 = Number(window.localStorage.getItem("career"));
-          const inputVal3 = Number(window.localStorage.getItem("vaild"));
-          const score = inputVal1 - inputVal2;
-          let res = 0;
+  <!-- 비교 버튼 -->
+  <div class="parent">
+    <button class="gesture" id="compare-btn">
+      <span class="text">비교</span>
+    </button>
+  </div>
 
-          if (score > 0 && score <= 1) {
-            res = 1000;
-          } else if (score >= 2 && score <= 9) {
-            res = 900 - (score - 1) * 5 + 100;
-          } else if (score >= 10 && score <= 12) {
-            res = 880 - (score - 4) * 10 + 100;
-          } else if (score >= 13 && score <= 15) {
-            res = 860 - (score - 6) * 10 + 100;
-          } else if (score >= 16 && score <= 18) {
-            res = 840 - (score - 7) * 20 + 100;
-          } else if (score >= 19 && score <= 22) {
-            res = 815 - (score - 8) * 25 + 100;
-          } else if (score >= 23) {
-            res = 0;
-          }
+  <!-- 결과칸 -->
+  <div id="result-container"></div>
 
-          if ([2, 3, 4, 5, 6, 7, 8, 9].includes(score)) {
-            res += 5;
-          } else if ([10, 11, 12].includes(score)) {
-            res += 10;
-          } else if ([13, 14, 15].includes(score)) {
-            res += 15;
-          } else if ([16, 17, 18].includes(score)) {
-            res += 20;
-          } else if ([19, 20, 21, 22].includes(score)) {
-            res += 25;
-          }
-          if (inputVal3 < 60) {
-            res = res - 5;
-          }
-          const diff1 = res - cells[10];
-          if (res === -5) {
-            document.getElementById("result-container").innerHTML =
-              "점수 계산을 해주세요.";
-          } else if (cells[10] === "") {
-            document.getElementById("result-container").innerHTML =
-              "환산점수평균 데이터가 없습니다.";
-          } else if (diff1 >= 2) {
-            document.getElementById("result-container").innerHTML =
-              cells[0] + "는 하향지원입니다.(총점: " + res + ")";
-          } else if (diff1 > -2) {
-            document.getElementById("result-container").innerHTML =
-              cells[0] + "는 적정입니다.(총점: " + res + ")";
-          } else if (diff1 <= -2) {
-            document.getElementById("result-container").innerHTML =
-              cells[0] + "는 상향지원입니다.(총점: " + res + ")";
-          }
-          var tableHtml =
-            "<tr><td>" +
-            (inputVal1 > 0 ? cells[1] : 0) +
-            "</td><td>" +
-            (inputVal1 > 0 ? cells[3] : 0) +
-            "</td><td>" +
-            (inputVal1 > 0 ? cells[4] : 0) +
-            "</td><td>" +
-            (inputVal1 > 0 ? cells[9] : 0) +
-            "</td><td>" +
-            (inputVal1 > 0 ? cells[10] : 0) +
-            "</td><td>" +
-            (inputVal1 > 0 ? cells[12] : 0) +
-            "</td><td>" +
-            (inputVal1 > 0 ? cells[5] : 0) +
-            "</td><td>" +
-            (inputVal1 > 0 ? cells[6] : 0) +
-            "</td><td>" +
-            (inputVal1 > 0 ? cells[8] : 0) +
-            "</td></tr>";
-          document
-            .getElementById("word-table")
-            .getElementsByTagName("tbody")[0].innerHTML = tableHtml;
-        });
-    </script>
-    <script src="/SuSi/js/navbar.js"></script>
-    <script src="/SuSi/js/goto.js"></script>
-    <script src="/SuSi/js/gesture.js"></script>
-    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
-  </body>
+  <!-- 표  -->
+  <div id="table-container">
+    <table id="word-table">
+      <thead>
+        <tr>
+          <th>모집인원</th>
+          <th>경쟁률</th>
+          <th>최종후보순위</th>
+          <th>최고환산점수</th>
+          <th>평균환산점수</th>
+          <th>80%환산점수</th>
+          <th>최고등급</th>
+          <th>평균등급</th>
+          <th>80%등급</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script>
+    //저장된 점수값과 학과 점수 비교 코드
+    const rows = [
+      "글로벌자율전공학부(인문·사회계),12,85,7.08,19,2.21,2.73,2.74,2.95,993.9,991.31,991.27,990.21\r",
+      "글로벌자율전공학부(자연계),7,61,8.71,7,2.35,2.68,2.73,2.9,993.23,991.56,991.32,990.48\r",
+      "국어국문학과,11,108,9.82,17,2,2.72,3.05,3.26,991.78,988.62,989,987.4\r",
+      "영어영문학부(영어영문학전공·미국학전공),26,178,6.85,39,2,2.88,3.02,3.22,992.54,989.09,989.16,987.64\r",
+      "일어일문학부(일본어문학전공·일본학전공),27,228,8.44,31,2,3.07,3.19,3.43,991.9,987.55,987.4,985.6\r",
+      "사학과,11,559,50.82,25,2.25,3.07,3.1,3.34,992.12,988.14,987.75,986.51\r",
+      "경제학과,31,209,6.74,42,1.86,2.78,2.89,2.99,995.69,990.97,990.54,990\r",
+      "법학과,22,151,6.86,34,2,2.65,2.81,2.98,993.26,990.46,990.22,989.21\r",
+      "행정복지학부(행정학전공·사회복지학전공),26,167,6.42,41,2,2.65,2.68,2.93,994.44,991.11,991.04,989.93\r",
+      "국제지역학부(국제학전공·국제개발협력학전공),29,244,8.41,44,2,2.84,2.95,3.12,991.5,989.67,989.94,988.7\r",
+      "중국학과,8,72,9,14,2,3.23,3.45,3.59,990.63,986.15,985.49,984.09\r",
+      "정치외교학과,7,48,6.86,12,2.28,2.96,3.07,3.2,993.55,989.7,989.2,987.95\r",
+      "유아교육과,2,22,11,4,,,,,,,,\r",
+      "패션디자인학과,12,178,14.83,18,2,2.88,3.17,3.32,989.8,988.13,988.29,986.77\r",
+      "사회계열(법학과·중국학과·정치외교학과),16,419,26.19,27,2.25,3.1,3.15,3.27,990.35,988.22,988.02,987.2\r",
+      "응용수학과,14,59,4.21,15,2.45,3.66,3.69,4.19,992.72,983.08,983.05,978.07\r",
+      "물리학과,18,148,8.22,40,2.25,3.73,3.85,4,984.53,981.71,981.45,979.95\r",
+      "화학과,19,84,4.42,25,2,3.03,3.11,3.47,993.27,988.22,988.08,985.27\r",
+      "미생물학과,14,77,5.5,18,2,2.66,2.76,2.96,993.39,990.66,990.77,989.27\r",
+      "간호학과,20,184,9.2,56,1.46,2.47,2.57,2.75,994.88,992.39,992.13,991.22\r",
+      "과학컴퓨팅학과,9,92,10.22,6,3.16,3.36,3.33,3.49,988.35,986.33,986.62,985.02\r",
+      "경영학부(경영학전공·회계·재무학전공·관광경영학전공),62,371,5.98,104,1.44,2.48,2.56,2.85,994.91,991.57,991.86,989.77\r",
+      "국제통상학부(국제통상학전공·국제무역물류학전공·국제경영학전공),40,246,6.15,70,2,2.84,2.92,3.11,993.09,990.05,990.18,988.84\r",
+      "전기공학부(전기공학전공·제어계측공학전공·디스플레이반도체공학전공),82,348,4.24,95,1.86,2.88,2.84,3.28,994.68,989.63,990.38,987.08\r",
+      "기계공학부(기계공학전공·기계설계공학전공),73,342,4.68,127,2.09,2.93,3,3.15,994.54,989.75,989.76,987.85\r",
+      "에너지수송시스템공학부(냉동공조공학전공·기계시스템공학전공·조선해양시스템공학전공),55,217…,1.41,2.91,3.02,3.17,995.62,989.58,989.52,987.71\r",
+      "화학공학과,32,136,4.25,61,1.63,2.43,2.43,2.75,996.8,992.8,992.81,991.23\r",
+      "공업화학·고분자공학부(공업화학전공·고분자공학전공),43,172,4,53,2.41,3.17,3.21,3.43,992.94,987.77,987.8,985.61\r",
+      "나노융합공학과,26,273,10.5,54,2.93,3.27,3.33,3.39,990.3,987.18,986.67,986.07\r",
+      "시스템경영·안전공학부(산업경영공학전공·기술·데이터공학전공·안전공학전공),44,199,4.52,57,2,3.31,3.45,3.59,991.84,986.09,985.25,984.06\r",
+      "소방공학과,15,93,6.2,15,2.56,3.24,3.29,3.54,992.19,987.14,987.01,984.51\r",
+      "융합소재공학부(금속공학전공·재료공학전공·신소재시스템공학전공),63,260,4.13,81,2,3.2,3.23,3.6,994.1,986.92,987.2,982.88\r",
+      "건축공학과,16,92,5.75,22,2.36,3.07,3.06,3.29,993.15,988.79,989.34,987.05\r",
+      "지속가능공학부(토목공학전공),25,122,4.88,21,2,3.44,3.44,3.75,990.23,985.06,985.51,982.41\r",
+      "지속가능공학부(생태공학전공),12,161,13.42,14,2,3.39,3.51,3.67,989,985.07,984.85,983.23\r",
+      "식품과학부(식품공학전공·식품영양학전공),32,282,8.81,42,2.11,2.91,2.93,3.2,994.43,989.98,990.31,987.94\r",
+      "생물공학과,15,61,4.07,23,1.9,2.39,2.34,2.68,995.49,993.02,993.25,991.56\r",
+      "해양생산시스템관리학부(해양생산학전공·해양경찰학전공),34,214,6.29,42,2,3.53,3.77,3.84,991.76,983.5,982.27,981.54\r",
+      "수산생명과학부(양식응용생명과학전공·자원생물학전공),34,170,5,39,2,3.26,3.39,3.66,994.03,986.31,985.73,983.39\r",
+      "수산생명의학과,11,50,4.55,10,1.51,2.18,2,2.8,997.38,991.95,990.95,989\r",
+      "수해양산업교육과(기관공학전공·냉동공학전공·식품공학전공·양식공학전공·어업공학전공·항해공학전공),1,9,9,1,,,,,,,,\r",
+      "해양수산경영경제학부(해양수산경영학전공·자원환경경제학전공),33,230,6.97,42,2,3.2,3.35,3.44,990.38,987.2,986.49,985.53\r",
+      "지구환경시스템과학부(환경공학전공),17,75,4.41,8,2,3.2,3.24,3.59,992.69,987.08,987.53,984.08\r",
+      "지구환경시스템과학부(해양학전공),18,88,4.89,25,3.13,3.72,3.73,3.93,988.62,982.71,982.69,980.63\r",
+      "지구환경시스템과학부(환경지질과학전공),18,91,5.06,20,2.92,3.78,3.76,4.03,990.38,982.16,982.3,979.63\r",
+      "지구환경시스템과학부(환경대기과학전공),18,80,4.44,19,2,2.97,3.09,3.23,991.7,988.87,988.49,987.6\r",
+      "지구환경시스템과학부(공간정보시스템공학전공),17,86,5.06,15,3.34,3.57,3.53,3.7,986.59,984.23,984.68,982.99\r",
+      "해양공학과,18,101,5.61,16,2,3.26,3.46,3.63,992.02,985.97,985.35,983.69\r",
+      "에너지자원공학과,12,98,8.17,15,3.13,3.31,3.32,3.36,988.64,986.86,986.78,986.38\r",
+      "데이터정보과학부(빅데이터융합전공·통계·데이터사이언스전공),23,169,7.35,40,2,2.79,2.9,3.07,994.25,990.34,989.93,989.02\r",
+      "미디어커뮤니케이션학부(언론정보전공·휴먼ICT융합전공),23,162,7.04,31,1.71,2.58,2.7,2.88,994.65,991.31,991.32,990.2\r",
+      "스마트헬스케어학부(의공학전공),18,71,3.94,14,2,3.28,3.28,4.01,994.49,985.49,987.14,979.81\r",
+      "스마트헬스케어학부(휴먼바이오융합전공),10,49,4.9,9,2.98,3.32,3.35,3.43,990.05,986.72,986.5,985.69\r",
+      "전자정보통신공학부(전자공학전공·정보통신공학전공),57,225,3.95,95,1.26,2.86,2.82,3.35,994.28,989.59,990.66,986.44\r",
+      "조형학부(건축학전공),20,128,6.4,26,1.61,2.65,2.75,3.13,992.66,990.1,990.66,988.67\r",
+      "컴퓨터·인공지능공학부(컴퓨터공학전공·인공지능전공),53,340,6.42,70,1.75,2.51,2.53,2.76,996.24,992.44,992.31,991.17",
+    ];
+    document
+      .getElementById("compare-btn")
+      .addEventListener("click", function () {
+        var rowIndex = document.getElementById("word-select").value;
+        var cells = rows[rowIndex].split(",");
+        const inputVal1 = Number(window.localStorage.getItem("common"));
+        const inputVal2 = Number(window.localStorage.getItem("career"));
+        const inputVal3 = Number(window.localStorage.getItem("vaild"));
+        const score = inputVal1 - inputVal2;
+        let res = 0;
+
+        if (score > 0 && score <= 1) {
+          res = 1000;
+        } else if (score >= 2 && score <= 9) {
+          res = 900 - (score - 1) * 5 + 100;
+        } else if (score >= 10 && score <= 12) {
+          res = 880 - (score - 4) * 10 + 100;
+        } else if (score >= 13 && score <= 15) {
+          res = 860 - (score - 6) * 10 + 100;
+        } else if (score >= 16 && score <= 18) {
+          res = 840 - (score - 7) * 20 + 100;
+        } else if (score >= 19 && score <= 22) {
+          res = 815 - (score - 8) * 25 + 100;
+        } else if (score >= 23) {
+          res = 0;
+        }
+
+        if ([2, 3, 4, 5, 6, 7, 8, 9].includes(score)) {
+          res += 5;
+        } else if ([10, 11, 12].includes(score)) {
+          res += 10;
+        } else if ([13, 14, 15].includes(score)) {
+          res += 15;
+        } else if ([16, 17, 18].includes(score)) {
+          res += 20;
+        } else if ([19, 20, 21, 22].includes(score)) {
+          res += 25;
+        }
+        if (inputVal3 < 60) {
+          res = res - 5;
+        }
+        const diff1 = res - cells[10];
+        if (res === -5) {
+          document.getElementById("result-container").innerHTML =
+            "점수 계산을 해주세요.";
+        } else if (cells[10] === "") {
+          document.getElementById("result-container").innerHTML =
+            "환산점수평균 데이터가 없습니다.";
+        } else if (diff1 >= 2) {
+          document.getElementById("result-container").innerHTML =
+            cells[0] + "는 하향지원입니다.(총점: " + res + ")";
+        } else if (diff1 > -2) {
+          document.getElementById("result-container").innerHTML =
+            cells[0] + "는 적정입니다.(총점: " + res + ")";
+        } else if (diff1 <= -2) {
+          document.getElementById("result-container").innerHTML =
+            cells[0] + "는 상향지원입니다.(총점: " + res + ")";
+        }
+        var tableHtml =
+          "<tr><td>" +
+          (inputVal1 > 0 ? cells[1] : 0) +
+          "</td><td>" +
+          (inputVal1 > 0 ? cells[3] : 0) +
+          "</td><td>" +
+          (inputVal1 > 0 ? cells[4] : 0) +
+          "</td><td>" +
+          (inputVal1 > 0 ? cells[9] : 0) +
+          "</td><td>" +
+          (inputVal1 > 0 ? cells[10] : 0) +
+          "</td><td>" +
+          (inputVal1 > 0 ? cells[12] : 0) +
+          "</td><td>" +
+          (inputVal1 > 0 ? cells[5] : 0) +
+          "</td><td>" +
+          (inputVal1 > 0 ? cells[6] : 0) +
+          "</td><td>" +
+          (inputVal1 > 0 ? cells[8] : 0) +
+          "</td></tr>";
+        document
+          .getElementById("word-table")
+          .getElementsByTagName("tbody")[0].innerHTML = tableHtml;
+      });
+  </script>
+  <script src="/SuSi/js/navbar.js"></script>
+  <script src="/SuSi/js/goto.js"></script>
+  <script src="/SuSi/js/gesture.js"></script>
+  <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+</body>
+
 </html>

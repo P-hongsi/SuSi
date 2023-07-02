@@ -5,3 +5,12 @@ toggleBtn.addEventListener("click", () => {
   menu.classList.toggle("active");
   toggleBtn.classList.toggle("active");
 });
+
+//로컬스토리지
+function clearLocalStorage() {
+  window.localStorage.removeItem("common");
+  window.localStorage.removeItem("select");
+  window.localStorage.removeItem("career");
+  window.localStorage.removeItem("팝업");
+  window.localStorage.removeItem("vaild");
+}
