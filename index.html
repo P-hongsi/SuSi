@@ -143,18 +143,29 @@
     }
 
     .popup {
+      position: relative;
+      top: 50%;
+      left: 50%;
       background-color: #ffffff;
+      transform: translate(-50%, -50%);
       width: 450px;
       padding: 30px 40px;
-      position: absolute;
-      transform: translate(-50%, -50%);
-      left: 50%;
-      top: 50%;
+      position: fixed;
+      background-color: white;
       border-radius: 8px;
-      display: none;
       text-align: center;
+      opacity: 0;
+      transition: opacity 1s;
       z-index: 1;
       box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .popup.animate-slide-up {
+      opacity: 1;
+    }
+
+    .popup.animate-slide-down {
+      opacity: 0;
     }
 
     .popup button {
@@ -381,7 +392,7 @@
     .icons {
       position: absolute;
       left: 50%;
-      transform: translate(-50%, 0%);
+      transform: translate(-50%, -5%);
     }
 
     .icon {
@@ -427,6 +438,55 @@
 
       40% {
         transform: rotate(-15deg);
+      }
+    }
+
+    .notification {
+      position: fixed;
+      top: 110px;
+      right: 10px;
+      width: 200px;
+      height: 45px;
+      padding: 5px 0px;
+      border-radius: 10px;
+      border: 1.5px solid #ffdabb;
+      color: #ff7300;
+      box-shadow: 0 1px 10px #ffd4b0;
+      text-align: center;
+      transform: translateX(210px);
+      animation: fade-in1 4s linear forwards;
+      font-size: 1rem;
+    }
+
+    .notification__progress {
+      position: fixed;
+      left: 5px;
+      bottom: 5px;
+      width: calc(100% - 10px);
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background-image: linear-gradient(to right, #ffede0, #ffa424);
+      border-radius: inherit;
+      animation: load 3s 0.25s linear forwards;
+    }
+
+    @keyframes fade-in1 {
+      5% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      90% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes load {
+      to {
+        transform: scaleX(1);
       }
     }
 
@@ -571,6 +631,10 @@
       section {
         position: relative;
         display: none;
+      }
+
+      .icon {
+        color: #ffffff;
       }
 
       a {
@@ -944,6 +1008,16 @@
         background-color: skyblue;
       }
 
+      .notification {
+        border: 1.5px solid #6676b5;
+        color: #b7c5ff;
+        box-shadow: 0 1px 10px #6676b5;
+      }
+
+      .notification__progress {
+        background-image: linear-gradient(to right, #b3c1f7, #456afc);
+      }
+
       /* 다크모드이고 폭이 768이하인 기기에 적용 */
       @media screen and (max-width: 768px) {
         .navbar {
@@ -1166,9 +1240,12 @@
     <i class="fa-solid fa-share"></i>
     <i style="display: none" class="fa-solid fa-xmark x2"></i>
   </div>
-
   <img id="qrCode" src="etc/catqr.png" style="display: none; width: 300px; height: 300px; border-radius: 15px"
     loading="lazy" />
+  <div class="notification">
+    <p id="noti"></p>
+    <span class="notification__progress"></span>
+  </div>
   <script>
     //QR코드
     function toggleQRCode() {
@@ -1246,19 +1323,27 @@
     });
 
     //팝업
-    window.addEventListener("load", function () {
-      setTimeout(function open(event) {
-        document.querySelector(".popup").style.display = "block";
-      }, 1000);
-    });
-
-    document.querySelector("#close").addEventListener("click", function () {
-      document.querySelector(".popup").style.display = "none";
+    const pop = localStorage.getItem("팝업");
+    window.addEventListener('DOMContentLoaded', () => {
+      const popup = document.querySelector('.popup');
+      if (pop) {
+        popup.style.display = "none";
+      } else {
+        popup.classList.add('animate-slide-up');
+        popup.classList.remove('animate-slide-down');
+      }
+      const closeButton = document.querySelector('#close');
+      closeButton.addEventListener('click', () => {
+        popup.classList.add('animate-slide-down');
+        popup.classList.remove('animate-slide-up');
+        localStorage.setItem("팝업", "true");
+      });
     });
   </script>
   <script src="js/navbar.js"></script>
   <script src="js/goto.js"></script>
   <script src="js/gesture.js"></script>
+  <script src="js/toast.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
 </body>
