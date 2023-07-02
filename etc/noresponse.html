@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <!-- 기본설정 -->
     <meta charset="UTF-8" />
@@ -131,6 +131,10 @@
     </section>
     <!-- 시간 계산 자바스크립트 코드 -->
     <script type="text/javascript">
+      let wakeLock = await
+      navigator.wakeLock.request('screen');
+      wakeLock.release();
+
       function clock() {
         let hours = document.getElementById("hour");
         let minutes = document.getElementById("minutes");
