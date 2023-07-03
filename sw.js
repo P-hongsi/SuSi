@@ -44,7 +44,7 @@ var URLS = [
   `${GHPATH}/etc/logow.png`,
   `${GHPATH}/etc/noresponse.html`,
   `${GHPATH}/etc/model_compressed.glb`,
-  `${GHPATH}/settings/manifest.webmanifest`,
+  `${GHPATH}/settings/manifest.json`,
   `${GHPATH}/js/3d.js`,
   `${GHPATH}/js/import.js`,
   `${GHPATH}/js/create.js`,
