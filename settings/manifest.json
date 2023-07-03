@@ -10,6 +10,11 @@
   "display": "fullscreen", 
   "icons": [
     {
+      "src": "/SuSi/etc/icon.ico",
+      "type": "image/x-icon",
+      "sizes": "64x64 32x32 24x24 16x16"
+    },
+    {
       "src": "/SuSi/etc/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
