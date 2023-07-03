@@ -31,10 +31,16 @@ window.addEventListener("focus", () => {
 
 //버튼위에 4초동안 마우스포인터가 올려져있으면 hover-link라는 클래스를 가진 요소의 data-url로 이동하는 코드
 let timer2;
-document.querySelector(".hover-link").addEventListener("mouseover", () => {
+document.querySelector("#bsu").addEventListener("mouseover", () => {
   timer2 = setTimeout(() => {
-    const url = document.querySelector(".hover-link").getAttribute("data-url");
-    window.location.href = url;
+    const url1 = document.querySelector("#bsu").getAttribute("data-url");
+    window.location.href = url1;
+  }, 4000);
+});
+document.querySelector("#bku").addEventListener("mouseover", () => {
+  timer2 = setTimeout(() => {
+    const url2 = document.querySelector("#bku").getAttribute("data-url");
+    window.location.href = url2;
   }, 4000);
 });
 document.querySelector(".hover-link").addEventListener("mouseout", () => {
