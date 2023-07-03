@@ -143,7 +143,7 @@
     }
 
     .popup {
-      position: relative;
+      position: fixed;
       top: 50%;
       left: 50%;
       background-color: #ffffff;
@@ -161,11 +161,37 @@
     }
 
     .popup.animate-slide-up {
+      animation-name: slideUp;
+      animation-duration: 1s;
+      animation-timing-function: ease;
       opacity: 1;
     }
 
     .popup.animate-slide-down {
+      animation-name: slideDown;
+      animation-duration: 1s;
+      animation-timing-function: ease;
       opacity: 0;
+    }
+
+    @keyframes slideUp {
+      0% {
+        transform: translate(-50%, 100%);
+      }
+
+      100% {
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @keyframes slideDown {
+      0% {
+        transform: translate(-50%, -50%);
+      }
+
+      100% {
+        transform: translate(-50%, 100%);
+      }
     }
 
     .popup button {
@@ -453,9 +479,10 @@
       color: #ff7300;
       box-shadow: 0 1px 10px #ffd4b0;
       text-align: center;
-      transform: translateX(210px);
+      transform: translateX(220px);
       animation: fade-in1 4s linear forwards;
       font-size: 1rem;
+      visibility: hidden;
     }
 
     .notification__progress {
@@ -1329,14 +1356,19 @@
       if (pop) {
         popup.style.display = "none";
       } else {
-        popup.classList.add('animate-slide-up');
         popup.classList.remove('animate-slide-down');
+        popup.classList.add('animate-slide-up');
       }
       const closeButton = document.querySelector('#close');
       closeButton.addEventListener('click', () => {
-        popup.classList.add('animate-slide-down');
         popup.classList.remove('animate-slide-up');
+        popup.classList.add('animate-slide-down');
         localStorage.setItem("팝업", "true");
+      });
+      popup.addEventListener('animationend', () => {
+        if (popup.classList.contains('animate-slide-down')) {
+          popup.style.display = 'none';
+        }
       });
     });
   </script>
