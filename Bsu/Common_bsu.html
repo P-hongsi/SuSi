@@ -280,6 +280,19 @@
       color: white;
     }
 
+    .div-item {
+      transform: translateX(-40%);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .div-item:nth-of-type(even) {
+      transform: translateX(40%);
+    }
+
+    .div-item.show {
+      transform: translateX(0);
+    }
+
     /* index페이지랑 똑같음 */
     @media screen and (max-width: 768px) {
       input {
@@ -476,16 +489,6 @@
     </svg>
   </div>
 
-  <!-- 각각 클릭했을때 showNextDiv() , hidePrevDiv() 함수 실행 -->
-  <div class="btn">
-    <button class="btn1" onclick="showNextDiv()">
-      <span class="text">Create</span>
-    </button>
-    <button class="btn1" onclick="hidePrevDiv()">
-      <span class="text">Remove</span>
-    </button>
-  </div>
-
   <div class="div-item">
     <ul>
       <li style="list-style-type: none">
@@ -541,7 +544,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -569,7 +572,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -597,7 +600,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -625,7 +628,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -653,7 +656,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -681,7 +684,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -709,7 +712,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -737,7 +740,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -765,7 +768,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -793,7 +796,7 @@
     </ul>
   </div>
 
-  <div class="div-item hidden">
+  <div class="div-item">
     <ul>
       <li style="list-style-type: none">
         <ul>
@@ -867,7 +870,7 @@
   </script>
   <script src="/SuSi/js/navbar.js"></script>
   <script src="/SuSi/js/goto.js"></script>
-  <script src="/SuSi/js/create.js"></script>
+  <script src="/SuSi/js/scroll.js"></script>
   <script src="/SuSi/js/gesture.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
 </body>

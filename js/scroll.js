@@ -1,18 +1,19 @@
-//과목창 생성 및 삭제 버튼
-let currentDivIndex = 0;
-function showNextDiv() {
-  const divs = document.querySelectorAll(".div-item");
-  if (currentDivIndex < divs.length) {
-    divs[currentDivIndex].classList.remove("hidden");
-    currentDivIndex++;
-  }
-}
-function hidePrevDiv() {
-  const divs = document.querySelectorAll(".div-item");
-  if (currentDivIndex > 2) {
-    currentDivIndex--;
-    divs[currentDivIndex].classList.add("hidden");
-  }
+//scroll 애니메이션
+const boxes = document.querySelectorAll(".div-item");
+window.addEventListener("scroll", checkBoxes);
+checkBoxes();
+
+function checkBoxes() {
+  const triggerBottom = (window.innerHeight / 5) * 4;
+  boxes.forEach((box, idx) => {
+    const boxTop = box.getBoundingClientRect().top;
+
+    if (boxTop < triggerBottom) {
+      box.classList.add("show");
+    } else {
+      box.classList.remove("show");
+    }
+  });
 }
 
 //위에 창 진행도 표기 코드
