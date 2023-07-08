@@ -67,7 +67,7 @@ handleDarkModeChange(darkModeQuery);
 // 애니메이션 루프
 function animate() {
   requestAnimationFrame(animate);
-  const model = scene.children[0];
+  const model = scene;
   model.rotation.y += 0.001;
   // 렌더링
   renderer.render(scene, camera);
