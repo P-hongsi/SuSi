@@ -46,8 +46,9 @@
       height: 50px;
     }
 
-    html {
+    html,body{
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     .shape .shape-fill {
@@ -455,7 +456,7 @@
   </style>
 </head>
 
-<body oncontextmenu="return false" style="overflow-x: hidden">
+<body oncontextmenu="return false">
   <!-- 창 진행률 표시 -->
   <div id="progress-bar" class="progress-bar"></div>
   <nav class="navbar">
@@ -869,10 +870,10 @@
       }
     }
   </script>
-  <script src="/js/navbar.js"></script>
-  <script src="/js/goto.js"></script>
-  <script src="/js/scroll.js"></script>
-  <script src="/js/gesture.js"></script>
+  <script src="/SuSi/js/navbar.js"></script>
+  <script src="/SuSi/js/goto.js"></script>
+  <script src="/SuSi/js/scroll.js"></script>
+  <script src="/SuSi/js/gesture.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
 </body>
 

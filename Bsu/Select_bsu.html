@@ -46,8 +46,9 @@
       height: 50px;
     }
 
-    html {
+    html,body{
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     .shape .shape-fill {
@@ -455,7 +456,7 @@
   </style>
 </head>
 
-<body oncontextmenu="return false" style="overflow-x: hidden">
+<body oncontextmenu="return false">
   <!-- 창 진행률 표시 -->
   <div id="progress-bar" class="progress-bar"></div>
   <nav class="navbar">
